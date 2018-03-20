@@ -3,11 +3,11 @@
 
 using namespace std;
 
-class kernel_module
+class kernel_module : public object
 {
-	private:
-		string file_path;
 	public:
+		string file_path;
+
 		string getinfo()
 		{
 			string json;

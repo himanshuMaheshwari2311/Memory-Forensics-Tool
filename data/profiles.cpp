@@ -16,6 +16,9 @@ class profile
         char *hive_pool_tag;
         int *hive_offsets;
 
+        char *kernel_pool_tag;
+        int *kernel_offsets;
+
         profile (int type)
         {
             if(type == 7)
@@ -36,6 +39,8 @@ class profile
             hive_pool_tag = new char[8] {'0', '0', '0', '0', 'C', 'M', '1', '0'};
             hive_offsets = new int[1] {1776};
 
+            kernel_pool_tag = new char[8] {'0', '0', '0', '0', 'M', 'm', 'L', 'd'};
+            kernel_offsets = new int[2] {96, 6};
         }
 
         void init_as_win10()
