@@ -52,6 +52,7 @@ class registry_handler
             else
             {
                 phy_file_addr = utility_functions::get_phy_addr(ifile, vir_file_addr, 0x00187000);
+                ifile.seekg();
                 //get_utf_string(ifile, file_path, phy_file_addr);
                 //cout<<file_path<<endl;
             }
