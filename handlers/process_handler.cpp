@@ -24,11 +24,13 @@ class process_handler
             while(ifile.eof()==0)
 	        {
                 ifile.read(found_pattern, 8);
-                addr_val+=8;
+                addr_val += 8;
                 if(utility_function::compare_array(prf.process_signature, found_pattern, 8))
                 {
                     process proc;
                     cout<<setw(16)<<hex<<addr_val - 8;
+                    cout<<setw(2)<<dec<<prf.process_offsets[0];
+
                     proc.physical_offset = addr_val - 8;
 
                     ifile.ignore(prf.process_offsets[0]);
@@ -61,6 +63,7 @@ class process_handler
                 else
                 {
                     addr_val += 8;
+                    ifile.ignore(8);
                 }
 
             }

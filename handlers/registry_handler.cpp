@@ -4,6 +4,7 @@
 #include <stdint.h>
 #include "../objects/registry_module.cpp"
 #include "../utils/utility_functions.cpp"
+#include "../data/profiles.cpp"
 
 using namespace std;
 
@@ -18,7 +19,7 @@ class registry_handler
             vector<uint64_t> phy_offsets;
             uint64_t addr_val = 0;
             char current_pattern[8];
-            while(file.eof() == 0)
+            while(ifile.eof() == 0)
             {
                 ifile.read(current_pattern, 8);
                 addr_val += 8;
@@ -42,3 +43,23 @@ class registry_handler
             
         }
 };
+
+
+int main(void)
+{
+    registry_handler rh;
+    ifstream ifile;
+	profile prf(7);
+    char fname[] = "../data/samples/win764.vmem";
+    vector<uint64_t> phy_offset;
+    ifile.open(fname, ios::in | ios::binary);
+    if(!ifile)
+	{
+		cout<<"Error in opening file..!!";
+	}	
+	cout<<"File opened..";
+	cout<<"\n";
+    
+    phy_offset = rh.pool_scan_tag(ifile, prf);
+    
+}
