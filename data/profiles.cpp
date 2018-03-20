@@ -27,6 +27,7 @@ class profile
         void init_as_win7()
         {
             process_signature = new char[8] {3, 0, 88, 0, 0, 0, 0, 0};
+            process_offsets = new int[4] {376, 268, 76, 480};
 
             service_pattern1 = new char[8] {115, 101, 114, 72, 0, 0, 0, 0};
             service_pattern2 = new char[8] {115, 101, 114, 72, 4, 0, 0, 0};
@@ -40,6 +41,7 @@ class profile
         void init_as_win10()
         {
             process_signature = new char[8] {3, 0, 182, 0, 0, 0, 0, 0};
+            process_offsets = new int[4] {376, 268, 76, 480};
 
             service_pattern1 = new char[8] {115, 101, 114, 72, 0, 0, 0, 0};
             service_pattern2 = new char[8] {115, 101, 114, 72, 4, 0, 0, 0};
