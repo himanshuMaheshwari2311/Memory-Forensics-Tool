@@ -26,8 +26,12 @@ class utility_functions
             return 1;
         }
 
-        static uint64_t get_phy_addr(ifstream &ifile, uint64_t vir_addr, uint32_t dtb, uint8_t level)
+        static uint64_t get_phy_addr(ifstream &ifile, uint64_t vir_addr, uint32_t dtb)
         {
+            uint8_t level;
+            if((vir_addr&0b1000000000000000000000000000) == 0) //untested
+                level = 4;
+            else level = 3;
             ifile.clear();
             ifile.seekg(0, ios::beg);
             
@@ -80,14 +84,16 @@ class utility_functions
         }
 
         
-        static char* get_utf_str(char uniStr[], int n)
+        static char* get_utf_str(char uni_str[], int n = 64)
         {
-            char *str = new char[n/2 + 1];
-            for(int i = 0; i < n; i+=2)
+            char *str = new char[n];
+            int i = 0, j = 0;
+            while(uni_str[j] != 0)
             {
-                str[i / 2] = uniStr[i];
+                str[i] = uni_str[j];
+                i+=1; j+=2;
             }
-            str[n/2] = '0';
+            str[i] = '\0';
             return str;
         }
 };
