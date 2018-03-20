@@ -14,7 +14,7 @@ class win7: public profile
         char service_pattern1[8] = {115, 101, 114, 72, 0, 0, 0, 0};
         char service_pattern2[8] = {115, 101, 114, 72, 4, 0, 0, 0};
         char hive_signature[8] = {char(224), char(190), char(224), char(190)};
-        char hive_pool_tag[8] = "0000CM10";
+        char hive_pool_tag[8] = {'0', '0', '0', '0', 'C', 'M', '1', '0'};
         int process_offsets[4] = {376, 268, 76, 480};
         int hive_offsets[1] = {1776};
 };
@@ -27,7 +27,7 @@ class win10: public profile
         char service_pattern1[8] = {115, 101, 114, 72, 0, 0, 0, 0};
         char service_pattern2[8] = {115, 101, 114, 72, 4, 0, 0, 0};
         char hive_signature[8] = {char(224), char(190), char(224), char(190)};
-        char hive_pool_tag[8] = "0000CM10";
+        char hive_pool_tag[8] = {'0', '0', '0', '0', 'C', 'M', '1', '0'};
         int process_offsets[4] = {376, 268, 76, 480};
         int hive_offsets[1] = {0};
 };
