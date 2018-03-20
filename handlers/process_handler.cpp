@@ -15,7 +15,7 @@ class process_handler
         vector<process> process_list;
 
     public:
-		void generate_processes(ifstream &ifile, win7 prf)
+		void generate_processes(ifstream &ifile, profile prf)
 		{
             uint64_t addr_val = 0;
             char found_pattern[8];
@@ -77,7 +77,7 @@ int main(void)
 {
     process_handler ph;
     ifstream ifile;
-	win7 prf;
+	profile prf(7);
     char fname[] = "../data/samples/win764.vmem";
     
     ifile.open(fname, ios::in | ios::binary);
