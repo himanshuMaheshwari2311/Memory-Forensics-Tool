@@ -5,7 +5,7 @@
 
 using namespace std;
 
-class utility_function
+class utility_functions
 {
     public:
         static int scan_tag(char arr1[], char arr2[], int n)
