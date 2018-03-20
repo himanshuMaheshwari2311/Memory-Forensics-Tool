@@ -52,9 +52,10 @@ class registry_handler
             else
             {
                 phy_file_addr = utility_functions::get_phy_addr(ifile, vir_file_addr, 0x00187000);
-                ifile.seekg();
-                //get_utf_string(ifile, file_path, phy_file_addr);
-                //cout<<file_path<<endl;
+                ifile.seekg(phy_file_addr, ios::beg);
+                ifile.read(registry_module.file_path, 64);
+                registry_module.file_path =  get_utf_string(registry_module.file_path);
+                cout<<file_path<<endl;
             }
             ifile.clear();
         }
