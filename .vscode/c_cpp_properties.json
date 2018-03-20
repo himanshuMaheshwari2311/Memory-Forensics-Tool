@@ -29,6 +29,7 @@
             "includePath": [
                 "/usr/include",
                 "/usr/local/include",
+                "C:/Program Files (x86)/CodeBlocks/MinGW/include",
                 "${workspaceRoot}"
             ],
             "defines": [],
@@ -37,6 +38,7 @@
                 "path": [
                     "/usr/include",
                     "/usr/local/include",
+                    "C:/Program Files (x86)/CodeBlocks/MinGW/include",
                     "${workspaceRoot}"
                 ],
                 "limitSymbolsToIncludedHeaders": true,
@@ -46,7 +48,8 @@
         {
             "name": "Win32",
             "includePath": [
-                "${workspaceRoot}"
+                "${workspaceRoot}",
+                "C:/Program Files (x86)/CodeBlocks/MinGW/include"
             ],
             "defines": [
                 "_DEBUG",
@@ -56,7 +59,8 @@
             "intelliSenseMode": "msvc-x64",
             "browse": {
                 "path": [
-                    "${workspaceRoot}"
+                    "${workspaceRoot}",
+                    "C:/Program Files (x86)/CodeBlocks/MinGW/include"
                 ],
                 "limitSymbolsToIncludedHeaders": true,
                 "databaseFilename": ""

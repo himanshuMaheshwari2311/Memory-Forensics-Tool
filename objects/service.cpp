@@ -3,12 +3,13 @@
 class process: public object
 {
     private:
+        string display_name;
+        string driver_name;
+        string process_binary_path;
         uint8_t pid;
-        uint8_t ppid;
-        uint8_t active_threads;
 
     public:
         string getinfo(){
-            return "This is a Process Object";
+            return "This is a Service Object";
         }
 };
