@@ -14,7 +14,7 @@ class registry_handler
         vector<registry_module> modules;
 
     private:
-        vector<unit64_t> pool_scan_tag(ifstream &ifile, profile prf)
+        vector<uint64_t> pool_scan_tag(ifstream &ifile, profile prf)
         {
             vector<uint64_t> phy_offsets;
             uint64_t addr_val = 0;
@@ -33,7 +33,7 @@ class registry_handler
             return phy_offsets;
         }
 
-        regisrty_module collect_info_module(ifstream &ifile, profile prf, uint64_t phy_offset)
+        registry_module collect_info_module(ifstream &ifile, profile prf, uint64_t phy_offset)
         {
             
         }
