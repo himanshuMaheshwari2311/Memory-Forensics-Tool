@@ -1,4 +1,5 @@
 {
-    "C_Cpp.intelliSenseEngineFallback": "Enabled",
-    "C_Cpp.errorSquiggles": "Disabled"
+    "files.associations": {
+        "xstring": "cpp"
+    }
 }
