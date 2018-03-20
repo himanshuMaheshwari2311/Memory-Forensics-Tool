@@ -2,12 +2,11 @@
 
 class process: public object
 {
-    private:
+    public:
         uint8_t pid;
         uint8_t ppid;
         uint8_t active_threads;
 
-    public:
         string getinfo(){
             return "This is a Process Object";
         }
