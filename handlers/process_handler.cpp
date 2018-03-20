@@ -25,11 +25,10 @@ class process_handler
 	        {
                 ifile.read(found_pattern, 8);
                 addr_val += 8;
-                if(utility_function::compare_array(prf.process_signature, found_pattern, 8))
+                if(utility_functions::compare_array(prf.process_signature, found_pattern, 8))
                 {
                     process proc;
                     cout<<setw(16)<<hex<<addr_val - 8;
-                    cout<<setw(2)<<dec<<prf.process_offsets[0];
 
                     proc.physical_offset = addr_val - 8;
 
@@ -37,14 +36,14 @@ class process_handler
                     addr_val += prf.process_offsets[0];
 
                     ifile.read(reinterpret_cast<char *>(&proc.pid), sizeof(proc.pid));
-                    addr_val += 8;
+                    addr_val += 4;
                     cout<<setw(16)<<dec<<proc.pid;
 
                     ifile.ignore(prf.process_offsets[1]);
                     addr_val += prf.process_offsets[1];
                     
                     ifile.read(reinterpret_cast<char *>(&proc.ppid), sizeof(proc.ppid));
-                    addr_val += 8;
+                    addr_val += 4;
                     cout<<setw(16)<<proc.ppid;
 
                     ifile.ignore(prf.process_offsets[2]);
@@ -56,6 +55,7 @@ class process_handler
                     cout<<setw(16)<<proc.name<<endl;
 
                     ifile.ignore(prf.process_offsets[3]);
+                    addr_val += prf.process_offsets[3];
 
                     process_list.push_back(proc);
 
@@ -65,9 +65,7 @@ class process_handler
                     addr_val += 8;
                     ifile.ignore(8);
                 }
-
             }
-			
 		}
         void print_processes()
         {

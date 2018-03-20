@@ -3,8 +3,8 @@
 class process: public object
 {
     public:
-        uint8_t pid;
-        uint8_t ppid;
+        uint32_t pid;
+        uint32_t ppid;
         uint8_t active_threads;
 
         string getinfo(){
