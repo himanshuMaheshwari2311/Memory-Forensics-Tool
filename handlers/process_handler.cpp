@@ -1,17 +1,18 @@
 #include <vector>
-#include "../objects/kernel_module.cpp"
+#include "../objects/process.cpp"
+#include "../data/profiles.cpp"
 
 using namespace std;
 
 class process_handler
 {
     private:
-        vector<kernel_module> modules;
+        vector<process> modules;
 
     public:
         void process_generation()
         {
-            
+
         }
         
 };
