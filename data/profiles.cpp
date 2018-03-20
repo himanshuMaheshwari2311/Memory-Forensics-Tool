@@ -4,7 +4,7 @@ class profile
     public:
         uint32_t global_dtb;
         uint32_t service_dtb;
-}
+};
 
 class win7: public profile
 {
