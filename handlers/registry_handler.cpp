@@ -16,6 +16,7 @@ class registry_handler
         vector<unit64_t> pool_scan_tag(ifstream file, profile prf)
         {
             vector<uint64_t> some_name;
+            uint64_t addr_val = 0;
             char pattern[8];
             while(file.eof() == 0)
             {
