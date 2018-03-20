@@ -30,7 +30,7 @@ class kernel_module_handler
 			{
 				ifile.read(curr_pattern, 8);
 				addr_val += 8;
-				if(utility_functions::scan_tag(prf.kernel_pool_tag, curr_pattern, 8))
+				if(utility_functions :: scan_tag(prf.kernel_pool_tag, curr_pattern, 8))
 				{
 					prev_size = curr_pattern[0] * 16;
 					pool_index = curr_pattern[1];
@@ -72,16 +72,30 @@ class kernel_module_handler
 			ifile.seekg(phy_offset + prf.kernel_offsets[0], ios::beg);
 
 			ifile.read(reinterpret_cast<char *>(&file_addr), sizeof(file_addr));	//0x60 for ptr to file path
-			cout<<hex<<file_addr<<" ";
-
+			
 			ifile.read(reinterpret_cast<char *>(&name_size), sizeof(name_size));	//0x68 size of name
-			ifile.ignore(6);
-			cout<<name_size<<" ";
+			ifile.ignore(prf.kernel_offsets[1]);
 			
 			ifile.read(reinterpret_cast<char *>(&name_addr), sizeof(name_addr));	//0x70 ptr64 to name
 			phy_name_addr = (phy_offset & 0xfffffffffffff000) | (name_addr & 0x0fff);
-			cout<<hex<<phy_name_addr<<"\n";
 
+			ifile.clear();
+			ifile.seekg(phy_name_addr, ios::beg);
+			char name[name_size * 2];
+			ifile.read(name, sizeof(name));
+			curr_module.name = utility_functions :: get_utf_str(name, sizeof(name));
+			cout<<curr_module.name<<" ";
+
+			phy_file_addr = utility_functions :: get_phy_addr(ifile, file_addr, 0x00187000);
+
+			ifile.clear();
+			ifile.seekg(phy_file_addr, ios::beg);
+			char file_path[128];
+			ifile.read(file_path, sizeof(file_path));
+			curr_module.file_path = utility_functions :: get_utf_str(file_path, sizeof(file_path));
+			cout<<curr_module.file_path<<" ";
+
+			cout<<"\n";
 			return curr_module;
 		}
 
@@ -91,6 +105,11 @@ class kernel_module_handler
 			ifile.seekg(0, ios::beg);
 
 			vector<uint64_t> phy_offsets = pool_tag_scan(ifile, prf);
+
+			for(int i = 0; i < phy_offsets.size(); ++i)
+			{
+				modules.push_back( collect_info_module(ifile, prf, phy_offsets[i]) );
+			}
 		}
 };
 
@@ -110,5 +129,4 @@ int main()
 	cout<<"\n";
     
     kh.generate_kernel_modules(ifile, prf);
-    
 }

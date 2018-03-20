@@ -83,6 +83,62 @@ class utility_functions
             return ((temp2 & 0xFFFFF000) + offset);
         }
 
+        static uint64_t opt_get_phy_addr(ifstream &ifile, uint64_t vir_addr, uint32_t dtb)
+        {
+            uint8_t level;
+            if((vir_addr&0b1000000000000000000000000000) == 0) //untested
+                level = 4;
+            else level = 3;
+            ifile.clear();
+            ifile.seekg(0, ios::beg);
+            
+            uint64_t phy_addr;
+            uint32_t temp1;
+            uint32_t temp2;
+            uint16_t p[4];
+            uint32_t offset;
+
+            p[0] = vir_addr>>39 & 0b111111111;
+            p[1] = vir_addr>>30 & 0b111111111;
+            p[2] = vir_addr>>21 & 0b111111111;
+            p[3] = vir_addr>>12 & 0b111111111;
+            offset = vir_addr & 0b111111111111;
+            if(level == 3)
+            {
+                offset = vir_addr & 0b0111111111111111111111;
+            }
+
+            temp1 = (dtb & 0xFFFFF000) + p[0] * 8;
+            ifile.ignore(temp1);
+            ifile.read(reinterpret_cast<char *>(&temp2), sizeof(temp2));
+            ifile.clear();
+            ifile.seekg(0, ios::beg);
+
+            temp1 = (temp2 & 0xFFFFF000) + p[1] * 8;
+            ifile.ignore(temp1);
+            ifile.read(reinterpret_cast<char *>(&temp2), sizeof(temp2));
+            ifile.clear();
+            ifile.seekg(0, ios::beg);
+
+            temp1 = (temp2 & 0xFFFFF000) + p[2] * 8;
+            ifile.ignore(temp1);
+            ifile.read(reinterpret_cast<char *>(&temp2), sizeof(temp2));
+            ifile.clear();
+            ifile.seekg(0, ios::beg);
+
+            if(level == 3)
+            {
+                return ((temp2 & 0b11111111111000000000000000000000) + offset);    
+            }
+
+            temp1 = (temp2 & 0xFFFFF000) + p[3] * 8;
+            ifile.ignore(temp1);
+            ifile.read(reinterpret_cast<char *>(&temp2), sizeof(temp2));
+            ifile.clear();
+            ifile.seekg(0, ios::beg);
+
+            return ((temp2 & 0xFFFFF000) + offset);
+        }
         
         static char* get_utf_str(char uni_str[], int n = 64)
         {
