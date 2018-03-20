@@ -3,7 +3,7 @@
 
 using namespace std;
 
-enum object_type {process, service, kernal_module, hive, lsa, shin_cache, shell_bags};
+enum object_type {tprocess, tservice, tkernal_module, thive, tlsa, tshin_cache, tshell_bags};
 
 typedef
 struct datetime
