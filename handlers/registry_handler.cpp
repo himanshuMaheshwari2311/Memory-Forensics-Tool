@@ -3,7 +3,7 @@
 #include <fstream>
 #include <stdint.h>
 #include "../objects/registry_module.cpp"
-#include "../utils/utility_function.cpp"
+#include "../utils/utility_functions.cpp"
 
 using namespace std;
 
@@ -22,7 +22,7 @@ class registry_handler
             {
                 ifile.read(current_pattern, 8);
                 addr_val += 8;
-                if(utility_function::scan_tag(current_pattern, prf.hive_pool_tag, 8))
+                if(utility_functions::scan_tag(current_pattern, prf.hive_pool_tag, 8))
                 {
                     ifile.ignore(8);
                     addr_val += 8;
