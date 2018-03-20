@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+
+
+*.vmem
+/*.vmem
+/*/*.vmem
+/*/*/*.vmem
