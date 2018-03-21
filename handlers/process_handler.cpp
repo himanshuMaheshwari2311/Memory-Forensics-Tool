@@ -1,3 +1,6 @@
+#ifndef _process_handler_
+#define _process_handler_
+
 #include <vector>
 #include <iomanip>
 #include <iostream>
@@ -98,3 +101,5 @@ int main(void)
 	//ph.generate_processes(ifile, prf);
 	//ph.print_processes();
 }
+
+#endif

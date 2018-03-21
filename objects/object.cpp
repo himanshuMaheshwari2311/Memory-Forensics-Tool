@@ -1,3 +1,6 @@
+#ifndef _object_
+#define _object_
+
 #include <string>
 #include <stdint.h>
 
@@ -27,3 +30,5 @@ class object
 
         virtual string getinfo()=0;
 };
+
+#endif

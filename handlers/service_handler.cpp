@@ -1,3 +1,6 @@
+#ifndef _service_handler_
+#define _service_handler_
+
 #include <vector>
 #include <iomanip>
 #include <iostream>
@@ -49,3 +52,5 @@ int main(void)
     sh.generate_services(ifile, prf);
     sh.print_services();
 }
+
+#endif

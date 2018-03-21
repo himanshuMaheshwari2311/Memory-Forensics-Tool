@@ -1,3 +1,6 @@
+#ifndef _profiles_
+#define _profiles_
+
 #include <stdint.h>
 #include "../utils/utility_functions.cpp"
 #include <String.h>
@@ -157,3 +160,6 @@ class profile
 		}
 	}
 };
+
+
+#endif

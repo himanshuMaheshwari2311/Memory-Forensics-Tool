@@ -1,3 +1,6 @@
+#ifndef _process_
+#define _process_
+
 #include "object.cpp"
 
 class process: public object
@@ -11,3 +14,5 @@ class process: public object
             return "This is a Process Object";
         }
 };
+
+#endif

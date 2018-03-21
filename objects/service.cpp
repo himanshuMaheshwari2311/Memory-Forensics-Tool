@@ -1,3 +1,6 @@
+#ifndef _service_
+#define _service_
+
 #include "object.cpp"
 
 class process: public object
@@ -13,3 +16,5 @@ class process: public object
             return "This is a Service Object";
 		}
 };
+
+#endif
