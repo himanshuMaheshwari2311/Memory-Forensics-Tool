@@ -23,6 +23,8 @@ class process_handler
   public:
 	void generate_processes(ifstream &ifile, profile prf)
 	{
+		ifile.clear();
+		ifile.seekg(0);
 		uint64_t addr_val = 0;
 		char found_pattern[8];
 		char p_name[16];
