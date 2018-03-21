@@ -113,6 +113,15 @@ class kernel_module_handler
 			kernel_list.push_back(collect_info_module(ifile, prf, phy_offsets[i]));
 		}
 	}
+
+	vector<kernel_module> get_kernel_list(ifstream &ifile, profile prf)
+	{
+		if(kernel_list.empty())
+		{
+			generate_kernel_modules(ifile, prf);
+		}
+		return kernel_list;
+	}
 };
 
 #ifndef mainfunc
@@ -131,7 +140,7 @@ int main()
 	cout << "File opened..";
 	cout << "\n";
 
-	kh.generate_kernel_modules(ifile, prf);
+	kh.get_kernel_list(ifile, prf);
 }
 #endif
 #endif
