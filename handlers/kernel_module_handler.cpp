@@ -13,6 +13,11 @@
 
 using namespace std;
 
+bool invalidChar(char c)
+{
+	return !(c >= 32 && c < 127 || c == 0);
+}
+
 class kernel_module_handler
 {
   private:
@@ -87,6 +92,7 @@ class kernel_module_handler
 		char name[name_size * 2];
 		ifile.read(name, sizeof(name));
 		curr_module.name = utility_functions ::get_utf_str(name, sizeof(name));
+		curr_module.name.erase(remove_if(curr_module.name.begin(), curr_module.name.end(), invalidChar), curr_module.name.end());	///Need to copy this
 		cout << curr_module.name << " ";
 
 		phy_file_addr = utility_functions ::opt_get_phy_addr(ifile, file_addr, 0x00187000);
@@ -97,6 +103,8 @@ class kernel_module_handler
 		ifile.read(file_path, sizeof(file_path));
 		curr_module.file_path = utility_functions ::get_utf_str(file_path, sizeof(file_path));
 		replace(curr_module.file_path.begin(), curr_module.file_path.end(), '\\', '/');
+		curr_module.file_path.erase(remove_if(curr_module.file_path.begin(), curr_module.file_path.end(), invalidChar), curr_module.file_path.end());
+		
 		cout << curr_module.file_path << " ";
 
 		cout << "\n";
