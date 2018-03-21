@@ -115,15 +115,15 @@ class utility_functions
             }
 
             lvl1 = (dtb & 0xFFFFF000) + p[0] * 8;
-            ifile.seekg(lvl1, ios :: cur);
+            ifile.seekg(lvl1);
             ifile.read(reinterpret_cast<char *>(&nextLvl), sizeof(nextLvl));
 
             lvl2 = ( nextLvl & 0xFFFFF000 ) + p[1] * 8;
-            ifile.seekg(lvl2 - lvl1, ios :: cur);
+            ifile.seekg(lvl2);
             ifile.read(reinterpret_cast<char *>(&nextLvl), sizeof(nextLvl));
             
             lvl3 = ( nextLvl & 0xFFFFF000) + p[2] * 8;
-            ifile.seekg(lvl3 - lvl2, ios :: cur);
+            ifile.seekg(lvl3);
             ifile.read(reinterpret_cast<char *>(&nextLvl), sizeof(nextLvl));
 
             if(level == 3)
@@ -132,7 +132,7 @@ class utility_functions
             }
 
             lvl4 = (nextLvl & 0xFFFFF000) + p[3] * 8;
-            ifile.seekg(lvl4 - lvl3, ios :: cur);
+            ifile.seekg(lvl4);
             ifile.read(reinterpret_cast<char *>(&nextLvl), sizeof(nextLvl));
 
             return ((nextLvl & 0xFFFFF000) + offset);
