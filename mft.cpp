@@ -45,6 +45,5 @@ int main(int argc, char **argv)
     vector<service> service_list;
     vector<registry> registry_list;
     vector<kernel_module> kernel_list;
-        
     return 0;
 }
