@@ -17,6 +17,7 @@ class profile
 	uint64_t service_dtb = 0;
 
 	char *dtb_eproc_name;
+	int process_name_offset;
 
 	char *process_signature;
 	int *process_offsets;
@@ -44,6 +45,7 @@ class profile
 	{
 		process_signature = new char[8]{3, 0, 88, 0, 0, 0, 0, 0};
 		process_offsets = new int[4]{376, 268, 76, 480};
+		process_name_offset = 736;
 
 		dtb_eproc_name = new char[5]{'I', 'd', 'l', 'e'};
 
@@ -62,6 +64,7 @@ class profile
 	{
 		process_signature = new char[8]{3, 0, char(182), 0, 0, 0, 0, 0};
 		process_offsets = new int[4]{376, 268, 76, 480};
+		process_name_offset = 1104;
 
 		dtb_eproc_name = new char[7]{'S', 'y', 's', 't', 'e', 'm'};
 
@@ -79,21 +82,19 @@ class profile
 		// Or use an offset array which will be initialised during object creation
 		if (global_dtb == 0)
 		{
-			uint64_t addr_val = 0;
 			char found_pattern_p[8];
 			char p_name[16];
 			while (ifile.eof() == 0)
 			{
 				ifile.read(found_pattern_p, 8);
-				addr_val += 8;
 				if (utility_functions::compare_array(process_signature, found_pattern_p, 8))
 				{
-					ifile.ignore(736 - 8);
+					ifile.ignore(process_name_offset - 8);
 					ifile.read(p_name, 16);
 					if (strcmp(p_name, dtb_eproc_name) == 0)
 					{
-						cout << dtb_eproc_name << " found at " << hex << addr_val - 8 << endl;
-						ifile.seekg(-(736 + 16), std::ios::cur);
+						cout << dtb_eproc_name << " found!" << endl;
+						ifile.seekg(-(process_name_offset + 16), std::ios::cur);
 						ifile.seekg(40, std::ios::cur);
 						unsigned long temp;
 						ifile.read(reinterpret_cast<char *>(&temp), sizeof(temp));
@@ -104,12 +105,10 @@ class profile
 						return global_dtb;
 					}
 					ifile.ignore(480);
-					addr_val += 1232 - 8;
 				}
 				else
 				{
 					ifile.ignore(8);
-					addr_val += 8;
 				}
 			}
 		}
