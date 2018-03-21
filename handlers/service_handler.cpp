@@ -43,7 +43,7 @@ class service_handler
 	}
 	string get_info()
 	{
-		string json = "";
+		string json = "{}";
 		return json;
 	}
 };
