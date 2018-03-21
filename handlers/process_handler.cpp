@@ -92,6 +92,7 @@ class process_handler
 #ifndef mainfunc
 int main(void)
 {
+	cout<<to_string(10)<<endl;
 	process_handler ph;
 	ifstream ifile;
 	profile prf(7);
