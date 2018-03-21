@@ -63,7 +63,7 @@ class profile
 	void init_as_win10()
 	{
 		process_signature = new char[8]{3, 0, char(182), 0, 0, 0, 0, 0};
-		process_offsets = new int[4]{376, 268, 76, 480};
+		process_offsets = new int[4]{736, 256, 112, 968};
 		process_name_offset = 1104;
 
 		dtb_eproc_name = new char[7]{'S', 'y', 's', 't', 'e', 'm'};
