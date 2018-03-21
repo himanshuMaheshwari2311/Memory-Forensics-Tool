@@ -42,9 +42,9 @@ class profile
 	{
 		process_signature = new char[8]{3, 0, 88, 0, 0, 0, 0, 0};
 		process_offsets = new int[4]{376, 268, 76, 480};
-		
+
 		dtb_eproc_name = new char[5]{'I', 'd', 'l', 'e'};
-		
+
 		service_pattern1 = new char[8]{115, 101, 114, 72, 0, 0, 0, 0};
 		service_pattern2 = new char[8]{115, 101, 114, 72, 4, 0, 0, 0};
 
@@ -60,7 +60,7 @@ class profile
 	{
 		process_signature = new char[8]{3, 0, char(182), 0, 0, 0, 0, 0};
 		process_offsets = new int[4]{376, 268, 76, 480};
-		
+
 		dtb_eproc_name = new char[7]{'S', 'y', 's', 't', 'e', 'm'};
 
 		service_pattern1 = new char[8]{115, 101, 114, 72, 0, 0, 0, 0};
@@ -152,7 +152,7 @@ class profile
 					ifile.ignore(8);
 					addr_val += 8;
 				}
-			}			
+			}
 		}
 		else
 		{
@@ -160,6 +160,5 @@ class profile
 		}
 	}
 };
-
 
 #endif
