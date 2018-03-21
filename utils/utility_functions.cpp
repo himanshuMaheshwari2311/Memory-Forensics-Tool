@@ -93,8 +93,11 @@ class utility_functions
             ifile.seekg(0, ios::beg);
             
             uint64_t phy_addr;
-            uint32_t temp1;
-            uint32_t temp2;
+            uint32_t nextLvl;
+            uint32_t lvl1;
+            uint32_t lvl2;
+            uint32_t lvl3;
+            uint32_t lvl4;
             uint16_t p[4];
             uint32_t offset;
 
@@ -108,36 +111,28 @@ class utility_functions
                 offset = vir_addr & 0b0111111111111111111111;
             }
 
-            temp1 = (dtb & 0xFFFFF000) + p[0] * 8;
-            ifile.ignore(temp1);
-            ifile.read(reinterpret_cast<char *>(&temp2), sizeof(temp2));
-            ifile.clear();
-            ifile.seekg(0, ios::beg);
+            lvl1 = (dtb & 0xFFFFF000) + p[0] * 8;
+            ifile.seekg(lvl1, ios :: cur);
+            ifile.read(reinterpret_cast<char *>(&nextLvl), sizeof(nextLvl));
 
-            temp1 = (temp2 & 0xFFFFF000) + p[1] * 8;
-            ifile.ignore(temp1);
-            ifile.read(reinterpret_cast<char *>(&temp2), sizeof(temp2));
-            ifile.clear();
-            ifile.seekg(0, ios::beg);
-
-            temp1 = (temp2 & 0xFFFFF000) + p[2] * 8;
-            ifile.ignore(temp1);
-            ifile.read(reinterpret_cast<char *>(&temp2), sizeof(temp2));
-            ifile.clear();
-            ifile.seekg(0, ios::beg);
+            lvl2 = ( nextLvl & 0xFFFFF000 ) + p[1] * 8;
+            ifile.seekg(lvl2 - lvl1, ios :: cur);
+            ifile.read(reinterpret_cast<char *>(&nextLvl), sizeof(nextLvl));
+            
+            lvl3 = ( nextLvl & 0xFFFFF000) + p[2] * 8;
+            ifile.seekg(lvl3 - lvl2, ios :: cur);
+            ifile.read(reinterpret_cast<char *>(&nextLvl), sizeof(nextLvl));
 
             if(level == 3)
             {
-                return ((temp2 & 0b11111111111000000000000000000000) + offset);    
+                return ((nextLvl & 0b11111111111000000000000000000000) + offset);    
             }
 
-            temp1 = (temp2 & 0xFFFFF000) + p[3] * 8;
-            ifile.ignore(temp1);
-            ifile.read(reinterpret_cast<char *>(&temp2), sizeof(temp2));
-            ifile.clear();
-            ifile.seekg(0, ios::beg);
+            lvl4 = (nextLvl & 0xFFFFF000) + p[3] * 8;
+            ifile.seekg(lvl4 - lvl3, ios :: cur);
+            ifile.read(reinterpret_cast<char *>(&nextLvl), sizeof(nextLvl));
 
-            return ((temp2 & 0xFFFFF000) + offset);
+            return ((nextLvl & 0xFFFFF000) + offset);
         }
         
         static char* get_utf_str(char uni_str[], int n = 64)

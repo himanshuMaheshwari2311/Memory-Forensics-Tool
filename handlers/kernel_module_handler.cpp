@@ -86,7 +86,7 @@ class kernel_module_handler
 			curr_module.name = utility_functions :: get_utf_str(name, sizeof(name));
 			cout<<curr_module.name<<" ";
 
-			phy_file_addr = utility_functions :: get_phy_addr(ifile, file_addr, 0x00187000);
+			phy_file_addr = utility_functions :: opt_get_phy_addr(ifile, file_addr, 0x00187000);
 
 			ifile.clear();
 			ifile.seekg(phy_file_addr, ios::beg);
