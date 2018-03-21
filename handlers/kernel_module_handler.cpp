@@ -130,7 +130,7 @@ class kernel_module_handler
 
 	string get_info()
 	{
-		string json;
+		string json = "";
 
 		json += "{ ";
 		json += "\"kernel_list\" : ";
