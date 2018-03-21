@@ -1,3 +1,6 @@
+#ifndef _utility_functions_
+#define _utility_functions_
+
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -148,3 +151,5 @@ class utility_functions
             return str;
         }
 };
+
+#endif
