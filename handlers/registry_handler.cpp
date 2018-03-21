@@ -24,7 +24,7 @@ class registry_handler
             {
                 ifile.read(current_pattern, 8);
                 addr_val += 8;
-                if(utility_functions::scan_tag(current_pattern, prf.hive_pool_tag, 8))
+                if(utility_functions::compare_array(current_pattern, prf.hive_signature, 8))  //utility_functions::scan_tag(current_pattern, prf.hive_pool_tag, 8)
                 {
                     ifile.ignore(8);
                     addr_val += 8;
@@ -90,8 +90,9 @@ int main(void)
 {
     registry_handler rh;
     ifstream ifile;
-	profile prf(7);
-    char fname[] = "../data/samples/win764.vmem";
+    //changes for windows 10
+	profile prf(10);
+    char fname[] = "../data/samples/win1064vir.vmem";
     vector<uint64_t> phy_offsets;
     ifile.open(fname, ios::in | ios::binary);
     if(!ifile)
@@ -101,8 +102,12 @@ int main(void)
 	cout<<"File opened..";
 	cout<<"\n";
     
-    //phy_offsets = rh.pool_scan_tag(ifile, prf);
+    phy_offsets = rh.pool_scan_tag(ifile, prf);
+    for(int i = 0; i < phy_offsets.size(); i++)
+        cout<<phy_offsets[i]<<endl;
+    /*
     ifile.clear();
     ifile.seekg(0, ios::beg);
     rh.generate_registry_modules(ifile, prf);
+    */
 }
