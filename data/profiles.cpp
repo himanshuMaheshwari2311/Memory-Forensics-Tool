@@ -32,7 +32,7 @@ class profile
 	char *kernel_pool_tag;
 	int *kernel_offsets;
 
-	profile(int type)
+	profile(int type=7)
 	{
 		this->type = type;
 		if (type == 7)
@@ -43,6 +43,7 @@ class profile
 
 	void init_as_win7()
 	{
+		type = 7;
 		process_signature = new char[8]{3, 0, 88, 0, 0, 0, 0, 0};
 		process_offsets = new int[4]{376, 268, 76, 480};
 		process_name_offset = 736;
@@ -62,6 +63,7 @@ class profile
 
 	void init_as_win10()
 	{
+		type = 10;
 		process_signature = new char[8]{3, 0, char(182), 0, 0, 0, 0, 0};
 		process_offsets = new int[4]{728, 252, 108, 944};
 		process_name_offset = 1104;
