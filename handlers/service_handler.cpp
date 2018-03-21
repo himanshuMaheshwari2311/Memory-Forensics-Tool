@@ -41,6 +41,11 @@ class service_handler
 			//cout << setw(16) << hex << proc.physical_offset << setw(16) << dec << proc.pid << setw(16) << proc.ppid << setw(16) << proc.name << endl;
 		}
 	}
+	string get_info()
+	{
+		string json = "";
+		return json;
+	}
 };
 
 #ifndef mainfunc
