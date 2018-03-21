@@ -92,7 +92,7 @@ class process_handler
 	}
 	string get_info()
 	{
-		string json;
+		string json = "";
 		json += "{ ";
 		json += "\"process_list\" : ";
 		json += "[ ";
