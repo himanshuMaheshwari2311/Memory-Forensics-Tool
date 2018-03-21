@@ -10,9 +10,10 @@ class service : public object
 	string driver_name;
 	string process_binary_path;
 	uint8_t pid;
-
-	string getinfo()
+	//service type, service state and process thing left
+	string get_info()
 	{
+		//json left
 		return "This is a Service Object";
 	}
 };
