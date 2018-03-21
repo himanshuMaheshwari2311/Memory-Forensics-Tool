@@ -16,7 +16,7 @@ class registry_handler
 {
   private:
     vector<registry> registry_list;
-
+    
   public:
     vector<uint64_t> pool_scan_tag(ifstream &ifile, profile prf)
     {
@@ -82,8 +82,12 @@ class registry_handler
         }
     }
 
-    vector<registry> get_modules()
+    vector<registry> get_registry_list(ifstream &ifile, profile prf)
     {
+        if(registry_list.empty())
+        {
+            generate_registry_modules(ifile, prf);
+        }
         return registry_list;
     }
 };
