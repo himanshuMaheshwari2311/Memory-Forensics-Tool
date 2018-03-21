@@ -1,7 +1,14 @@
 {
     "files.associations": {
         "xstring": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "cstring": "cpp",
+        "ostream": "cpp",
+        "typeinfo": "cpp",
+        "array": "cpp",
+        "initializer_list": "cpp",
+        "utility": "cpp",
+        "istream": "cpp"
     },
     "C_Cpp.intelliSenseEngine": "Tag Parser",
     "python.linting.enabled": false

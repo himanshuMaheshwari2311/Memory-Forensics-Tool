@@ -6,6 +6,7 @@
 class process : public object
 {
   public:
+	uint64_t dtb;
 	uint32_t pid;
 	uint32_t ppid;
 	uint8_t active_threads;
