@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 #include <fstream>
+#include <algorithm>
 
 #include "../objects/kernel_module.cpp"
 #include "../data/profiles.cpp"
@@ -95,6 +96,7 @@ class kernel_module_handler
 		char file_path[128];
 		ifile.read(file_path, sizeof(file_path));
 		curr_module.file_path = utility_functions ::get_utf_str(file_path, sizeof(file_path));
+		replace(curr_module.file_path.begin(), curr_module.file_path.end(), '\\', '/');
 		cout << curr_module.file_path << " ";
 
 		cout << "\n";

@@ -20,7 +20,7 @@ class kernel_module : public object
 			json += "{ ";
 			
 			json += "\"name\" : ";
-			json += this->name + ", ";
+			json += "\"" + this->name + "\", ";
 			
 			json += "\"physical_offset\" : ";
 			json += to_string(this->physical_offset) + ", ";
@@ -29,7 +29,7 @@ class kernel_module : public object
 			json += to_string(this->object_id) + ", ";
 
 			json += "\"file_path\" : ";
-			json += this->file_path;
+			json += "\"" + this->file_path + "\"";
 
 			json += "} ";
 			return json;
