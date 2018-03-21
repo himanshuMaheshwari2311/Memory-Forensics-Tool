@@ -1,125 +1,159 @@
 #include <stdint.h>
 #include "../utils/utility_functions.cpp"
 #include <String.h>
+#include <string>
 
-class profile 
+class profile
 {
-    public:
-        int type;
+  public:
+	int type;
 
-        uint64_t global_dtb = 0;
-        uint64_t service_dtb = 0;
+	uint64_t global_dtb = 0;
+	uint64_t service_dtb = 0;
 
-        char *process_signature;
-        int *process_offsets;
+	char *dtb_eproc_name;
 
-        char *service_pattern1;
-        char *service_pattern2;
+	char *process_signature;
+	int *process_offsets;
 
-        char *hive_signature;
-        char *hive_pool_tag;
-        int *hive_offsets;
+	char *service_pattern1;
+	char *service_pattern2;
 
-        char *kernel_pool_tag;
-        int *kernel_offsets;
+	char *hive_signature;
+	char *hive_pool_tag;
+	int *hive_offsets;
 
-        profile (int type)
-        {
-            this->type = type;
-            if(type == 7)
-                init_as_win7();
-            if(type == 10)
-                init_as_win10();
-        }
+	char *kernel_pool_tag;
+	int *kernel_offsets;
 
-        void init_as_win7()
-        {
-            process_signature = new char[8] {3, 0, 88, 0, 0, 0, 0, 0};
-            process_offsets = new int[4] {376, 268, 76, 480};
+	profile(int type)
+	{
+		this->type = type;
+		if (type == 7)
+			init_as_win7();
+		if (type == 10)
+			init_as_win10();
+	}
 
-            service_pattern1 = new char[8] {115, 101, 114, 72, 0, 0, 0, 0};
-            service_pattern2 = new char[8] {115, 101, 114, 72, 4, 0, 0, 0};
+	void init_as_win7()
+	{
+		process_signature = new char[8]{3, 0, 88, 0, 0, 0, 0, 0};
+		process_offsets = new int[4]{376, 268, 76, 480};
+		
+		dtb_eproc_name = new char[5]{'I', 'd', 'l', 'e'};
+		
+		service_pattern1 = new char[8]{115, 101, 114, 72, 0, 0, 0, 0};
+		service_pattern2 = new char[8]{115, 101, 114, 72, 4, 0, 0, 0};
 
-            hive_signature = new char[4] {char(224), char(190), char(224), char(190)};
-            hive_pool_tag = new char[8] {'0', '0', '0', '0', 'C', 'M', '1', '0'};
-            hive_offsets = new int[1] {1776};
+		hive_signature = new char[4]{char(224), char(190), char(224), char(190)};
+		hive_pool_tag = new char[8]{'0', '0', '0', '0', 'C', 'M', '1', '0'};
+		hive_offsets = new int[1]{1776};
 
-            kernel_pool_tag = new char[8] {'0', '0', '0', '0', 'M', 'm', 'L', 'd'};
-            kernel_offsets = new int[2] {96, 6};
-        }
+		kernel_pool_tag = new char[8]{'0', '0', '0', '0', 'M', 'm', 'L', 'd'};
+		kernel_offsets = new int[2]{96, 6};
+	}
 
-        void init_as_win10()
-        {
-            process_signature = new char[8] {3, 0, char(182), 0, 0, 0, 0, 0};
-            process_offsets = new int[4] {376, 268, 76, 480};
+	void init_as_win10()
+	{
+		process_signature = new char[8]{3, 0, char(182), 0, 0, 0, 0, 0};
+		process_offsets = new int[4]{376, 268, 76, 480};
+		
+		dtb_eproc_name = new char[7]{'S', 'y', 's', 't', 'e', 'm'};
 
-            service_pattern1 = new char[8] {115, 101, 114, 72, 0, 0, 0, 0};
-            service_pattern2 = new char[8] {115, 101, 114, 72, 4, 0, 0, 0};
+		service_pattern1 = new char[8]{115, 101, 114, 72, 0, 0, 0, 0};
+		service_pattern2 = new char[8]{115, 101, 114, 72, 4, 0, 0, 0};
 
-            hive_signature = new char[4] {char(224), char(190), char(224), char(190)};
-            hive_pool_tag = new char[8] {'0', '0', '0', '0', 'C', 'M', '1', '0'};
-            hive_offsets = new int[1] {1776};
-        }
+		hive_signature = new char[4]{char(224), char(190), char(224), char(190)};
+		hive_pool_tag = new char[8]{'0', '0', '0', '0', 'C', 'M', '1', '0'};
+		hive_offsets = new int[1]{1776};
+	}
 
-        uint64_t get_global_dtb(ifstream &ifile)
-        {
-            if(global_dtb == 0)
-            {
-                uint64_t addr_val = 0;
-                char found_pattern_p[8];
-                char p_name[16];
-                if(type == 7)
-                {
-                    while(ifile.eof()==0)
-                    {
-                        ifile.read(found_pattern_p, 8);
-                        addr_val+=8;
-                        if(utility_functions::compare_array(process_signature, found_pattern_p, 8))
-                        {
-                            ifile.ignore(736 - 8);
-                            ifile.read(p_name, 16);
-                            if(strcmp(p_name, "Idle")==0)
-                            {
-                                cout<<"Idle found at "<<hex<<addr_val-8<<endl;
-                                ifile.seekg(-(736 + 16), std::ios::cur);
-                                ifile.seekg(40, std::ios::cur);
-                                unsigned long temp;
-                                ifile.read(reinterpret_cast<char *>(&temp), sizeof(temp));
-                                cout<<"DTB value for Idle "<<hex<<temp<<endl;
-                                global_dtb = temp;
-                                ifile.clear();
-                                ifile.seekg(0, std::ios::beg);
-                                return global_dtb;
-                            }
-                            ifile.ignore(480);
-                            addr_val += 1232 - 8;
-                        }
-                        else
-                        {
-                            ifile.ignore(8);
-                            addr_val += 8;
-                        }
-                    }
-                }
-                else if(type == 10)
-                {
-                    
-                }
-            }
-            else
-            {
-                return global_dtb;
-            }
-        }
-        uint64_t get_service_dtb(ifstream &ifile)
-        {
-            if(service_dtb == 0)
-            {
-
-            }
-            else
-            {
-                return service_dtb;
-            }
-        }
+	uint64_t get_global_dtb(ifstream &ifile)
+	{
+		// Mostly will not work for 10.. if else needs to be added for offset..
+		// Or use an offset array which will be initialised during object creation
+		if (global_dtb == 0)
+		{
+			uint64_t addr_val = 0;
+			char found_pattern_p[8];
+			char p_name[16];
+			while (ifile.eof() == 0)
+			{
+				ifile.read(found_pattern_p, 8);
+				addr_val += 8;
+				if (utility_functions::compare_array(process_signature, found_pattern_p, 8))
+				{
+					ifile.ignore(736 - 8);
+					ifile.read(p_name, 16);
+					if (strcmp(p_name, dtb_eproc_name) == 0)
+					{
+						cout << dtb_eproc_name << " found at " << hex << addr_val - 8 << endl;
+						ifile.seekg(-(736 + 16), std::ios::cur);
+						ifile.seekg(40, std::ios::cur);
+						unsigned long temp;
+						ifile.read(reinterpret_cast<char *>(&temp), sizeof(temp));
+						cout << "DTB value for  " << dtb_eproc_name << " " << hex << temp << endl;
+						global_dtb = temp;
+						ifile.clear();
+						ifile.seekg(0, std::ios::beg);
+						return global_dtb;
+					}
+					ifile.ignore(480);
+					addr_val += 1232 - 8;
+				}
+				else
+				{
+					ifile.ignore(8);
+					addr_val += 8;
+				}
+			}
+		}
+		else
+		{
+			return global_dtb;
+		}
+	}
+	uint64_t get_service_dtb(ifstream &ifile)
+	{
+		if (service_dtb == 0)
+		{
+			uint64_t addr_val = 0;
+			char found_pattern_p[8];
+			char p_name[16];
+			while (ifile.eof() == 0)
+			{
+				ifile.read(found_pattern_p, 8);
+				addr_val += 8;
+				if (utility_functions::compare_array(process_signature, found_pattern_p, 8))
+				{
+					ifile.ignore(736 - 8);
+					ifile.read(p_name, 16);
+					if (strcmp(p_name, "services.exe") == 0)
+					{
+						cout << "services.exe found at " << hex << addr_val - 8 << endl;
+						ifile.seekg(-(736 + 16), std::ios::cur);
+						ifile.seekg(40, std::ios::cur);
+						unsigned long temp;
+						ifile.read(reinterpret_cast<char *>(&temp), sizeof(temp));
+						cout << "DTB value for  services.exe " << hex << temp << endl;
+						global_dtb = temp;
+						ifile.clear();
+						ifile.seekg(0, std::ios::beg);
+						return global_dtb;
+					}
+					ifile.ignore(480);
+					addr_val += 1232 - 8;
+				}
+				else
+				{
+					ifile.ignore(8);
+					addr_val += 8;
+				}
+			}			
+		}
+		else
+		{
+			return service_dtb;
+		}
+	}
 };
