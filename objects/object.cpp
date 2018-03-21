@@ -34,6 +34,7 @@ class object
 	uint64_t physical_offset;
 	uint8_t object_id;
 	datetime timestamp;
+	void get_info(){};
 };
 
 #endif
