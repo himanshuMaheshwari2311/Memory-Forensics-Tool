@@ -23,7 +23,7 @@ class process_handler
 		uint64_t addr_val = 0;
 		char found_pattern[8];
 		char p_name[16];
-		//cout<<setw(16)<<"Address"<<setw(16)<<"PID"<<setw(16)<<"PPID"<<setw(16)<<"Name"<<endl;
+		cout<<setw(16)<<"Address"<<setw(16)<<"PID"<<setw(16)<<"PPID"<<setw(16)<<"Name"<<endl;
 		while (ifile.eof() == 0)
 		{
 			ifile.read(found_pattern, 8);
@@ -31,7 +31,7 @@ class process_handler
 			if (utility_functions::compare_array(prf.process_signature, found_pattern, 8))
 			{
 				process proc;
-				//cout<<setw(16)<<hex<<addr_val - 8;
+				cout<<setw(16)<<hex<<addr_val - 8;
 
 				proc.physical_offset = addr_val - 8;
 
@@ -40,14 +40,14 @@ class process_handler
 
 				ifile.read(reinterpret_cast<char *>(&proc.pid), sizeof(proc.pid));
 				addr_val += 4;
-				//cout<<setw(16)<<dec<<proc.pid;
+				cout<<setw(16)<<dec<<proc.pid;
 
 				ifile.ignore(prf.process_offsets[1]);
 				addr_val += prf.process_offsets[1];
 
 				ifile.read(reinterpret_cast<char *>(&proc.ppid), sizeof(proc.ppid));
 				addr_val += 4;
-				//cout<<setw(16)<<proc.ppid;
+				cout<<setw(16)<<proc.ppid;
 
 				ifile.ignore(prf.process_offsets[2]);
 				addr_val += prf.process_offsets[2];
@@ -55,7 +55,7 @@ class process_handler
 				ifile.read(p_name, 16);
 				addr_val += 16;
 				proc.name = p_name;
-				//cout<<setw(16)<<proc.name<<endl;
+				cout<<setw(16)<<proc.name<<endl;
 
 				ifile.ignore(prf.process_offsets[3]);
 				addr_val += prf.process_offsets[3];
