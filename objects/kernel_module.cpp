@@ -16,7 +16,7 @@ class kernel_module : public object
 
 	string get_info()
 	{
-		string json;
+		string json = "";
 		json += "{ ";
 
 		json += "\"name\" : ";

@@ -22,7 +22,7 @@ class service_handler
 	{
 	}
 
-	vector<process> get_service_list(ifstream &ifile, profile prf)
+	vector<service> get_service_list(ifstream &ifile, profile prf)
 	{
 		if (service_list.empty())
 		{

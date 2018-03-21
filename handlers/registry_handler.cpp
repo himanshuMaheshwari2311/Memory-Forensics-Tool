@@ -76,6 +76,8 @@ class registry_handler
     void generate_registry_modules(ifstream &ifile, profile prf)
     {
         vector<uint64_t> phy_offsets;
+        ifile.clear();
+        ifile.seekg(0, ios::beg);
         phy_offsets = pool_scan_tag(ifile, prf);
         ifile.clear();
         ifile.seekg(0, ios::beg);
