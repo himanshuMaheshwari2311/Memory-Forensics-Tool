@@ -81,6 +81,7 @@ class process_handler
 	}
 };
 
+#ifndef mainfunc
 int main(void)
 {
 	process_handler ph;
@@ -101,5 +102,5 @@ int main(void)
 	//ph.generate_processes(ifile, prf);
 	//ph.print_processes();
 }
-
+#endif
 #endif

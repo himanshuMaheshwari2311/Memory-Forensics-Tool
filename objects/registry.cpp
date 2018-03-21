@@ -1,14 +1,13 @@
 #ifndef _registry_
 #define _registry_
 
-#include <iostream>
 #include <string>
 #include <vector>
 #include "object.cpp"
 
 using namespace std;
 
-class registry_module : public object
+class registry : public object
 {
 
   public:

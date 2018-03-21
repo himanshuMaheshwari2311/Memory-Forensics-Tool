@@ -1,3 +1,6 @@
+#ifndef _kernel_module_
+#define _kernel_module_
+
 #include<string>
 #include "object.cpp"
 
@@ -15,3 +18,5 @@ class kernel_module : public object
 			return json;
 		}
 };
+
+#endif

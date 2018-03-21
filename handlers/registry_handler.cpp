@@ -15,7 +15,7 @@ using namespace std;
 class registry_handler
 {
   private:
-    vector<registry_module> modules;
+    vector<registry> registry_list;
 
   public:
     vector<uint64_t> pool_scan_tag(ifstream &ifile, profile prf)
@@ -37,9 +37,9 @@ class registry_handler
         return phy_offsets;
     }
 
-    registry_module collect_info_module(ifstream &ifile, profile prf, uint64_t phy_offset)
+    registry collect_info_module(ifstream &ifile, profile prf, uint64_t phy_offset)
     {
-        registry_module rm;
+        registry rm;
         char *file_path = new char[172];
         uint64_t addr_val = phy_offset, vir_file_addr, phy_file_addr;
         uint8_t offset_ct = 0;
@@ -78,16 +78,17 @@ class registry_handler
         ifile.seekg(0, ios::beg);
         for (int i = 0; i < phy_offsets.size(); i++)
         {
-            modules.push_back(collect_info_module(ifile, prf, phy_offsets[i]));
+            registry_list.push_back(collect_info_module(ifile, prf, phy_offsets[i]));
         }
     }
 
-    vector<registry_module> get_modules()
+    vector<registry> get_modules()
     {
-        return modules;
+        return registry_list;
     }
 };
 
+#ifndef mainfunc
 int main(void)
 {
     registry_handler rh;
@@ -112,5 +113,5 @@ int main(void)
     ifile.seekg(0, ios::beg);
     rh.generate_registry_modules(ifile, prf);
 }
-
+#endif
 #endif

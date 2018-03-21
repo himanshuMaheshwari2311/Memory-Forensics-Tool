@@ -34,6 +34,7 @@ class service_handler
 	}
 };
 
+#ifndef mainfunc
 int main(void)
 {
 	service_handler sh;
@@ -53,5 +54,5 @@ int main(void)
 	sh.generate_services(ifile, prf);
 	sh.print_services();
 }
-
+#endif
 #endif

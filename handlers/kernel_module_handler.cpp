@@ -1,3 +1,6 @@
+#ifndef _kernel_module_handler_
+#define _kernel_module_handler_
+
 #include <iostream>
 #include <string>
 #include <vector>
@@ -12,7 +15,7 @@ using namespace std;
 class kernel_module_handler
 {
   private:
-	vector<kernel_module> modules;
+	vector<kernel_module> kernel_list;
 
   public:
 	vector<uint64_t> pool_tag_scan(ifstream &ifile, profile prf)
@@ -107,11 +110,12 @@ class kernel_module_handler
 
 		for (int i = 0; i < phy_offsets.size(); ++i)
 		{
-			modules.push_back(collect_info_module(ifile, prf, phy_offsets[i]));
+			kernel_list.push_back(collect_info_module(ifile, prf, phy_offsets[i]));
 		}
 	}
 };
 
+#ifndef mainfunc
 int main()
 {
 	kernel_module_handler kh;
@@ -129,3 +133,5 @@ int main()
 
 	kh.generate_kernel_modules(ifile, prf);
 }
+#endif
+#endif
