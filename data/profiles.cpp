@@ -105,7 +105,7 @@ class profile
 						ifile.seekg(0, std::ios::beg);
 						return global_dtb;
 					}
-					ifile.ignore(480);
+					ifile.ignore(process_offsets[3]);
 				}
 				else
 				{
@@ -131,12 +131,12 @@ class profile
 				addr_val += 8;
 				if (utility_functions::compare_array(process_signature, found_pattern_p, 8))
 				{
-					ifile.ignore(736 - 8);
+					ifile.ignore(process_name_offset - 8);
 					ifile.read(p_name, 16);
 					if (strcmp(p_name, "services.exe") == 0)
 					{
 						cout << "services.exe found at " << hex << addr_val - 8 << endl;
-						ifile.seekg(-(736 + 16), std::ios::cur);
+						ifile.seekg(-(process_name_offset + 16), std::ios::cur);
 						ifile.seekg(40, std::ios::cur);
 						unsigned long temp;
 						ifile.read(reinterpret_cast<char *>(&temp), sizeof(temp));
@@ -146,7 +146,7 @@ class profile
 						ifile.seekg(0, std::ios::beg);
 						return global_dtb;
 					}
-					ifile.ignore(480);
+					ifile.ignore(process_offsets[3]);
 					addr_val += 1232 - 8;
 				}
 				else

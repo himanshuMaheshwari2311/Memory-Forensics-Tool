@@ -96,10 +96,10 @@ int main(void)
 	}
 	cout << "File opened..";
 	cout << "\n";
-	//cout << prf.get_global_dtb(ifile);
+	cout << prf.get_global_dtb(ifile);
 
-	ph.generate_processes(ifile, prf);
-	ph.print_processes();
+	//ph.generate_processes(ifile, prf);
+	//ph.print_processes();
 }
 
 #endif
