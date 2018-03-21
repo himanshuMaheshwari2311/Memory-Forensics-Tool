@@ -30,11 +30,19 @@ typedef struct datetime
 class object
 {
   public:
+	static uint64_t counter;
 	string name;
 	uint64_t physical_offset;
-	uint8_t object_id;
+	uint64_t object_id;
 	datetime timestamp;
+	object()
+	{
+		counter++;
+		object_id = counter;
+	}
 	void get_info(){};
 };
+
+uint64_t object::counter = 0;
 
 #endif

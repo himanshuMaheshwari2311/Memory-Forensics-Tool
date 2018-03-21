@@ -89,7 +89,7 @@ class process_handler
 		for (int i = 0; i < process_list.size(); i++)
 		{
 			proc = process_list[i];
-			cout << setw(16) << hex << proc.physical_offset << setw(16) << dec << proc.pid << setw(16) << proc.ppid << setw(16) << proc.name << endl;
+			cout << setw(16) << hex << proc.physical_offset << setw(16) << dec << proc.pid << setw(16) << proc.ppid << setw(16) << proc.name << " "<<proc.object_id<<endl;
 		}
 	}
 	string get_info()
@@ -130,9 +130,9 @@ int main(void)
 	cout << "\n";
 	cout << prf.get_global_dtb(ifile) <<endl;
 	ph.generate_processes(ifile, prf);
-	cout<<ph.get_info();
+	ph.print_processes();
+	//cout<<ph.get_info();
 	//ph.generate_processes(ifile, prf);
-	//ph.print_processes();
 }
 #endif
 #endif
