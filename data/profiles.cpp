@@ -2,9 +2,11 @@
 #define _profiles_
 
 #include <stdint.h>
-#include "../utils/utility_functions.cpp"
-#include <String.h>
+#include <cstring>
 #include <string>
+#include <string.h>
+
+#include "../utils/utility_functions.cpp"
 
 class profile
 {

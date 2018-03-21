@@ -47,22 +47,30 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceRoot}",
-                "C:\\Program Files (x86)\\CodeBlocks\\MinGW\\lib\\gcc\\mingw32\\5.1.0\\include\\c++\\mingw32",
-                "C:\\Program Files (x86)\\CodeBlocks\\MinGW\\lib\\gcc\\mingw32\\5.1.0\\include\\c++",
-                "C:\\Program Files (x86)\\CodeBlocks\\MinGW\\lib\\gcc\\mingw32\\5.1.0\\include",
-                "C:\\Program Files (x86)\\CodeBlocks\\MinGW\\lib\\gcc\\mingw32\\5.1.0\\..\\..\\..\\..\\include",
-                "C:\\Program Files (x86)\\CodeBlocks\\MinGW\\lib\\gcc\\mingw32\\5.1.0\\include-fixed",
-                "C:\\Program Files (x86)\\CodeBlocks\\MinGW\\lib\\gcc\\mingw32\\5.1.0\\include\\c++\\backward"
+                "C:/Program Files (x86)/CodeBlocks/MinGW/bin/../lib/gcc/mingw32/5.1.0/include/c++",
+                "C:/Program Files (x86)/CodeBlocks/MinGW/bin/../lib/gcc/mingw32/5.1.0/include/c++/mingw32",
+                "C:/Program Files (x86)/CodeBlocks/MinGW/bin/../lib/gcc/mingw32/5.1.0/include/c++/backward",
+                "C:/Program Files (x86)/CodeBlocks/MinGW/bin/../lib/gcc/mingw32/5.1.0/include",
+                "C:/Program Files (x86)/CodeBlocks/MinGW/bin/../lib/gcc/mingw32/5.1.0/../../../../include",
+                "C:/Program Files (x86)/CodeBlocks/MinGW/bin/../lib/gcc/mingw32/5.1.0/include-fixed"
             ],
             "defines": [
                 "_DEBUG",
                 "UNICODE",
-                "_UNICODE"
+                "_UNICODE",
+                "UBRR0H"
             ],
             "intelliSenseMode": "clang-x64",             
             "browse": {
                 "path": [
-                    "${workspaceRoot}"
+                    "${workspaceRoot}",
+                    "C:/Program Files (x86)/CodeBlocks/MinGW/bin/../lib/gcc/mingw32/5.1.0/include/c++",
+                    "C:/Program Files (x86)/CodeBlocks/MinGW/bin/../lib/gcc/mingw32/5.1.0/include/c++/mingw32",
+                    "C:/Program Files (x86)/CodeBlocks/MinGW/bin/../lib/gcc/mingw32/5.1.0/include/c++/backward",
+                    "C:/Program Files (x86)/CodeBlocks/MinGW/bin/../lib/gcc/mingw32/5.1.0/include",
+                    "C:/Program Files (x86)/CodeBlocks/MinGW/bin/../lib/gcc/mingw32/5.1.0/../../../../include",
+                    "C:/Program Files (x86)/CodeBlocks/MinGW/bin/../lib/gcc/mingw32/5.1.0/include-fixed"
+    
                 ],
                 "limitSymbolsToIncludedHeaders": true,
                 "databaseFilename": ""
