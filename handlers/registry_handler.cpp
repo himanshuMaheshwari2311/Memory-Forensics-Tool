@@ -26,9 +26,9 @@ class registry_handler
                 addr_val += 8;
                 if(utility_functions::compare_array(current_pattern, prf.hive_signature, 8))  //utility_functions::scan_tag(current_pattern, prf.hive_pool_tag, 8)
                 {
+                    phy_offsets.push_back(addr_val - 8);
                     ifile.ignore(8);
                     addr_val += 8;
-                    phy_offsets.push_back(addr_val);
                 }
             }
             return phy_offsets;
@@ -37,12 +37,13 @@ class registry_handler
         registry_module collect_info_module(ifstream &ifile, profile prf, uint64_t phy_offset)
         {
             registry_module rm;
-            char * file_path = new char[128];
+            char * file_path = new char[172];
             uint64_t addr_val = phy_offset, vir_file_addr, phy_file_addr;
+            uint8_t offset_ct = 0;
             rm.physical_offset = addr_val;
             ifile.seekg(phy_offset, ios::beg);
-            ifile.ignore(1776);
-            addr_val += 1776;
+            ifile.ignore(1776);                     //prf.hive_offsets[offset_ct]);
+            addr_val += 1776;                       //prf.hive_offsets[offset_ct++];
             ifile.read(reinterpret_cast<char *>(&vir_file_addr), 8);
             addr_val += 8;
             if(vir_file_addr == 0){
@@ -52,14 +53,14 @@ class registry_handler
                 addr_val += 8;
             }
             if(vir_file_addr == 0)
-                cout<<"[no name]"<<endl;
+                cout<<hex<<phy_offset<<setw(64)<<"[no name]"<<endl;
             else
             {
-                phy_file_addr = utility_functions::get_phy_addr(ifile, vir_file_addr, 0x00187000); //profiles::get_global_dtb(ifile)
+                phy_file_addr = utility_functions::opt_get_phy_addr(ifile, vir_file_addr, 0x00187000); //profiles::get_global_dtb(ifile) // 0x187000 -> windows 7
                 ifile.clear();
                 ifile.seekg(0, ios::beg);
                 ifile.seekg(phy_file_addr, ios::beg);
-                ifile.read(file_path, 128);
+                ifile.read(file_path, 172);
                 rm.file_path = utility_functions::get_utf_str(file_path);
                 cout<<hex<<phy_offset<<setw(64)<<rm.file_path<<endl;
             }
@@ -91,8 +92,8 @@ int main(void)
     registry_handler rh;
     ifstream ifile;
     //changes for windows 10
-	profile prf(10);
-    char fname[] = "../data/samples/win1064vir.vmem";
+	profile prf(7);
+    char fname[] = "../data/samples/win764.vmem";
     vector<uint64_t> phy_offsets;
     ifile.open(fname, ios::in | ios::binary);
     if(!ifile)
@@ -101,13 +102,12 @@ int main(void)
 	}	
 	cout<<"File opened..";
 	cout<<"\n";
-    
+    /*
     phy_offsets = rh.pool_scan_tag(ifile, prf);
     for(int i = 0; i < phy_offsets.size(); i++)
-        cout<<phy_offsets[i]<<endl;
-    /*
+        cout<<hex<<phy_offsets[i]<<endl;
+    */
     ifile.clear();
     ifile.seekg(0, ios::beg);
     rh.generate_registry_modules(ifile, prf);
-    */
 }

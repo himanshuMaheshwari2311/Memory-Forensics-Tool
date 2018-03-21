@@ -74,7 +74,7 @@ class profile
 
 		hive_signature = new char[8]{char(224), char(190), char(224), char(190), 0, 0, 0, 0};
 		hive_pool_tag = new char[8]{'0', '0', '0', '0', 'C', 'M', '1', '0'};
-		hive_offsets = new int[1]{1776};
+		hive_offsets = new int[1]{2992};
 	}
 
 	uint64_t get_global_dtb(ifstream &ifile)
