@@ -3,12 +3,12 @@
 
 #include <vector>
 #include <iomanip>
-#include <iostream>
 #include <fstream>
+#include <iostream>
 
 #include "../objects/process.cpp"
 #include "../data/profiles.cpp"
-//#include "../utils/utility_functions.cpp"
+#include "../utils/utility_functions.cpp"
 
 using namespace std;
 

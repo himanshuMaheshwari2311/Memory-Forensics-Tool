@@ -3,7 +3,7 @@
 
 #include "object.cpp"
 
-class process : public object
+class service : public object
 {
   public:
 	string display_name;
