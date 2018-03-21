@@ -116,6 +116,8 @@ int main(void)
     ifile.clear();
     ifile.seekg(0, ios::beg);
     rh.generate_registry_modules(ifile, prf);
+
+    vector<registry> 
 }
 #endif
 #endif
