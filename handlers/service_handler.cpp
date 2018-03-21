@@ -20,8 +20,17 @@ class service_handler
   public:
 	void generate_services(ifstream &ifile, profile prf)
 	{
-		
 	}
+
+	vector<process> get_service_list(ifstream &ifile, profile prf)
+	{
+		if (service_list.empty())
+		{
+			generate_services(ifile, prf);
+		}
+		return service_list;
+	}
+
 	void print_services()
 	{
 		//cout << setw(16) << "Address" << setw(16) << "PID" << setw(16) << "PPID" << setw(16) << "Name" << endl;
