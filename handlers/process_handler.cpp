@@ -69,6 +69,14 @@ class process_handler
 			}
 		}
 	}
+	vector<process> get_process_list(ifstream &ifile, profile prf)
+	{
+		if(process_list.empty())
+		{
+			generate_processes(ifile, prf);
+		}
+		return process_list;
+	}
 	void print_processes()
 	{
 		cout << setw(16) << "Address" << setw(16) << "PID" << setw(16) << "PPID" << setw(16) << "Name" << endl;
