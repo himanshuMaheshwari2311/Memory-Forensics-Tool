@@ -1,9 +1,10 @@
 #ifndef _kernel_module_
 #define _kernel_module_
 
+#include <vector>
+#include <iomanip>
+#include <fstream>
 #include <iostream>
-#include <string>
-#include <cstring>
 #include "object.cpp"
 
 using namespace std;
@@ -28,7 +29,7 @@ class kernel_module : public object
 			json += to_string(this->object_id) + ", ";
 
 			json += "\"file_path\" : ";
-			json += to_string(this->file_path) + ", ";
+			json += this->file_path;
 
 			json += "} ";
 			return json;

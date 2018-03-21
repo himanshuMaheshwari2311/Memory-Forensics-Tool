@@ -136,6 +136,8 @@ class kernel_module_handler
 		for (int i = 0; i < kernel_list.size(); ++i)
 		{
 			json += kernel_list[i].get_info();
+			if(i != kernel_list.size() - 1)
+				json += ",";
 			json += "\n";
 		}
 
