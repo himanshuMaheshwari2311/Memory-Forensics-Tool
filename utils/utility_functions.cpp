@@ -150,6 +150,11 @@ class utility_functions
             str[i] = '\0';
             return str;
         }
+
+        static bool invalidChar(char c)
+        {
+            return !(c >= 32 && c < 127 || c == 0);
+        }
 };
 
 #endif
