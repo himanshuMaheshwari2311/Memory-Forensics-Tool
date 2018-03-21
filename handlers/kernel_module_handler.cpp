@@ -122,6 +122,29 @@ class kernel_module_handler
 		}
 		return kernel_list;
 	}
+
+	string get_info()
+	{
+		string json;
+
+		json += "{ ";
+
+		json += "\"kernel_list\" : ";
+
+		json += "[ ";
+
+		for (int i = 0; i < kernel_list.size(); ++i)
+		{
+			json += kernel_list[i].get_info();
+			json += "\n";
+		}
+
+		json += "] ";
+
+		json += "} ";
+
+		return json;
+	}
 };
 
 #ifndef mainfunc
@@ -141,6 +164,8 @@ int main()
 	cout << "\n";
 
 	kh.get_kernel_list(ifile, prf);
+
+	cout<<kh.get_info()<<endl;
 }
 #endif
 #endif

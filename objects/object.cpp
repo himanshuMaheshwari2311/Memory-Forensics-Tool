@@ -33,10 +33,7 @@ class object
 	string name;
 	uint64_t physical_offset;
 	uint8_t object_id;
-	enum object_type type;
 	datetime timestamp;
-
-	virtual string getinfo() = 0;
 };
 
 #endif
