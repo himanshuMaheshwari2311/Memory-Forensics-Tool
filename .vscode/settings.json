@@ -1,6 +1,7 @@
 {
     "files.associations": {
-        "xstring": "cpp"
+        "xstring": "cpp",
+        "iostream": "cpp"
     },
     "C_Cpp.intelliSenseEngine": "Tag Parser",
     "python.linting.enabled": false
