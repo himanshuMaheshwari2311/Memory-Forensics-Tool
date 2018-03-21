@@ -11,13 +11,29 @@ class registry : public object
 {
 
   public:
-    char *file_path;
+    string file_path;
     string key_name;
     vector<string> subkey_list;
 
-    string getinfo()
+    string get_info()
     {
-        return "this is a registy object";
+        	string json;
+			json += "{ ";
+			
+			json += "\"name\" : ";
+			json += "\"" + this->name + "\", ";
+			
+			json += "\"physical_offset\" : ";
+			json += to_string(this->physical_offset) + ", ";
+
+			json += "\"object_id\" : ";
+			json += to_string(this->object_id) + ", ";
+
+			json += "\"file_path\" : ";
+			json += "\"" + this->file_path + "\"";
+
+			json += "} ";
+			return json;
     }
 };
 

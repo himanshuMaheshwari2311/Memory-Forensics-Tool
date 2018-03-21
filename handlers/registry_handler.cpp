@@ -6,6 +6,7 @@
 #include <fstream>
 #include <stdint.h>
 #include <iomanip>
+#include <algorithm>
 
 #include "../objects/registry.cpp"
 #include "../data/profiles.cpp"
@@ -16,7 +17,7 @@ class registry_handler
 {
   private:
     vector<registry> registry_list;
-    
+
   public:
     vector<uint64_t> pool_scan_tag(ifstream &ifile, profile prf)
     {
@@ -63,6 +64,8 @@ class registry_handler
             ifile.seekg(phy_file_addr, ios::beg);
             ifile.read(file_path, 172);
             rm.file_path = utility_functions::get_utf_str(file_path);
+            rm.file_path.erase(remove_if(rm.file_path.begin(), rm.file_path.end(), utility_functions ::invalidChar), rm.file_path.end());
+            replace(rm.file_path.begin(), rm.file_path.end(), '\\', '/');
             cout << hex << phy_offset << setw(70) << rm.file_path << endl;
         }
 
@@ -80,16 +83,38 @@ class registry_handler
         {
             registry_list.push_back(collect_info_module(ifile, prf, phy_offsets[i]));
         }
+        cout<<"List size:"<<registry_list.size()<<endl;
     }
 
     vector<registry> get_registry_list(ifstream &ifile, profile prf)
     {
-        if(registry_list.empty())
+        if (registry_list.empty())
         {
             generate_registry_modules(ifile, prf);
         }
         return registry_list;
     }
+
+    string get_info()
+	{
+		string json;
+		json += "{ ";
+		json += "\"registry_list\" : ";
+		json += "[ ";
+		for (int i = 0; i < registry_list.size(); ++i)
+		{
+			json += registry_list[i].get_info();
+			if(i != registry_list.size() - 1)
+				json += ",";
+			json += "\n";
+		}
+
+		json += "] ";
+
+		json += "} ";
+
+		return json;
+	}
 };
 
 #ifndef mainfunc
@@ -117,7 +142,7 @@ int main(void)
     ifile.seekg(0, ios::beg);
     rh.generate_registry_modules(ifile, prf);
 
-    vector<registry> 
+    cout<<rh.get_info();
 }
 #endif
 #endif
