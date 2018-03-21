@@ -87,7 +87,7 @@ class kernel_module_handler
 		char name[name_size * 2];
 		ifile.read(name, sizeof(name));
 		curr_module.name = utility_functions ::get_utf_str(name, sizeof(name));
-		curr_module.name.erase(remove_if(curr_module.name.begin(), curr_module.name.end(), utility_functions :: invalidChar), curr_module.name.end());	///Need to copy this
+		curr_module.name.erase(remove_if(curr_module.name.begin(), curr_module.name.end(), utility_functions ::invalidChar), curr_module.name.end()); ///Need to copy this
 		cout << curr_module.name << " ";
 
 		phy_file_addr = utility_functions ::opt_get_phy_addr(ifile, file_addr, 0x00187000);
@@ -98,8 +98,8 @@ class kernel_module_handler
 		ifile.read(file_path, sizeof(file_path));
 		curr_module.file_path = utility_functions ::get_utf_str(file_path, sizeof(file_path));
 		replace(curr_module.file_path.begin(), curr_module.file_path.end(), '\\', '/');
-		curr_module.file_path.erase(remove_if(curr_module.file_path.begin(), curr_module.file_path.end(), utility_functions :: invalidChar), curr_module.file_path.end());
-		
+		curr_module.file_path.erase(remove_if(curr_module.file_path.begin(), curr_module.file_path.end(), utility_functions ::invalidChar), curr_module.file_path.end());
+
 		cout << curr_module.file_path << " ";
 
 		cout << "\n";
@@ -121,7 +121,7 @@ class kernel_module_handler
 
 	vector<kernel_module> get_kernel_list(ifstream &ifile, profile prf)
 	{
-		if(kernel_list.empty())
+		if (kernel_list.empty())
 		{
 			generate_kernel_modules(ifile, prf);
 		}
@@ -133,21 +133,16 @@ class kernel_module_handler
 		string json;
 
 		json += "{ ";
-
 		json += "\"kernel_list\" : ";
-
 		json += "[ ";
-
 		for (int i = 0; i < kernel_list.size(); ++i)
 		{
 			json += kernel_list[i].get_info();
-			if(i != kernel_list.size() - 1)
+			if (i != kernel_list.size() - 1)
 				json += ",";
 			json += "\n";
 		}
-
 		json += "] ";
-
 		json += "} ";
 
 		return json;
@@ -172,7 +167,7 @@ int main()
 
 	kh.get_kernel_list(ifile, prf);
 
-	cout<<kh.get_info()<<endl;
+	cout << kh.get_info() << endl;
 }
 #endif
 #endif
