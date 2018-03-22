@@ -41,11 +41,15 @@ int main(int argc, char **argv)
     registry_handler rh;
     kernel_module_handler kh;
 
+    cout<<"Generating Process List"<<endl;
     vector<process> process_list = ph.get_process_list(ifile, prf);
+    cout<<"Generating Service List"<<endl;
     vector<service> service_list;
+    cout<<"Generating Registry List"<<endl;
     vector<registry> registry_list = rh.get_registry_list(ifile, prf);
+    cout<<"Generating Kernel List"<<endl;
     vector<kernel_module> kernel_list = kh.get_kernel_list(ifile, prf);
-
+    
     string json = "";
 
     json += "{ ";
