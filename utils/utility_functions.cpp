@@ -93,7 +93,7 @@ class utility_functions
 		ifile.clear();
 		ifile.seekg(0, ios::beg);
 
-		uint8_t level;
+		uint16_t level;
 		uint64_t phy_addr;
 		uint32_t nextLvl;
 		uint32_t lvl1;
@@ -121,7 +121,7 @@ class utility_functions
 		ifile.seekg(lvl3);
 		ifile.read(reinterpret_cast<char *>(&nextLvl), sizeof(nextLvl));
 
-		if ((nextLvl & 0b1000000000000000000000000000) == 0)
+		if ((nextLvl & 0b10000000000000000000000000000) == 0) //untested
 			level = 4;
 		else
 			level = 3;
