@@ -42,6 +42,7 @@ class registry_handler
     registry collect_info_module(ifstream &ifile, profile &prf, uint64_t phy_offset)
     {
         registry rm;
+        rm.name = "HKEY_LOCAL_MACHINE";
         char *file_path = new char[172];
         ifile.clear();
         ifile.seekg(0, ios::beg);

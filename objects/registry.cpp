@@ -21,7 +21,7 @@ class registry : public object
         json += "{ ";
 
         json += "\"name\" : ";
-        json += "\"HKEY_LOCAL_MACHINE, ";
+        json += "\"" + this->name + "\", ";
 
         json += "\"physical_offset\" : ";
         json += to_string(this->physical_offset) + ", ";
