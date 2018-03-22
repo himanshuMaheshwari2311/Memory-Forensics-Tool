@@ -84,8 +84,8 @@ int main(int argc, char **argv)
 
     cout << json << endl;
 
-    ostream ofile;
-    ofile.open("data/json/dummy" + ".json", ios::out | ios::binary);
+    ofstream ofile;
+    ofile.open("data/json/dummy.json", ios::out | ios::binary);
     ofile << json;
     
     return 0;
