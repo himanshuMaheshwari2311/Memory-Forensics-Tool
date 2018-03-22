@@ -15,6 +15,8 @@ class profile
 
 	uint64_t global_dtb = 0;
 	uint64_t service_dtb = 0;
+	
+	int dtb_offset = 48;
 
 	char *dtb_eproc_name;
 	int process_name_offset;
@@ -24,6 +26,9 @@ class profile
 
 	char *service_pattern1;
 	char *service_pattern2;
+	int *service_header_offsets;
+	int *service_record_offsets;
+	int *service_process_offsets;
 
 	char *hive_signature;
 	char *hive_pool_tag;
@@ -53,6 +58,9 @@ class profile
 		service_pattern1 = new char[8]{115, 101, 114, 72, 0, 0, 0, 0};
 		service_pattern2 = new char[8]{115, 101, 114, 72, 4, 0, 0, 0};
 
+		service_header_offsets = new int[1]{8};
+		service_record_offsets = new int[5]{8, 16, 40, 48, 52};
+
 		hive_signature = new char[8]{char(224), char(190), char(224), char(190), 0, 0, 0, 0};
 		hive_pool_tag = new char[8]{'0', '0', '0', '0', 'C', 'M', '1', '0'};
 		hive_offsets = new int[1]{1776};
@@ -73,6 +81,9 @@ class profile
 
 		service_pattern1 = new char[8]{115, 101, 114, 72, 0, 0, 0, 0};
 		service_pattern2 = new char[8]{115, 101, 114, 72, 4, 0, 0, 0};
+		
+		service_header_offsets = new int[1]{8};
+		service_record_offsets = new int[5]{8, 16, 40, 48, 52};
 
 		hive_signature = new char[8]{char(224), char(190), char(224), char(190), 0, 0, 0, 0};
 		hive_pool_tag = new char[8]{'0', '0', '0', '0', 'C', 'M', '1', '0'};
@@ -85,6 +96,8 @@ class profile
 		// Or use an offset array which will be initialised during object creation
 		if (global_dtb == 0)
 		{
+			ifile.clear();
+			ifile.seekg(0, ios::beg);
 			char found_pattern_p[8];
 			char p_name[16];
 			while (ifile.eof() == 0)
@@ -124,6 +137,8 @@ class profile
 	{
 		if (service_dtb == 0)
 		{
+			ifile.clear();
+			ifile.seekg(0, ios::beg);
 			char found_pattern_p[8];
 			char p_name[16];
 			while (ifile.eof() == 0)
