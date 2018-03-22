@@ -80,7 +80,7 @@ class kernel_module_handler
 		ifile.ignore(prf.kernel_offsets[1]);
 
 		ifile.read(reinterpret_cast<char *>(&name_addr), sizeof(name_addr)); //0x70 ptr64 to name
-		phy_name_addr = (phy_offset & 0xfffffffffffff000) | (name_addr & 0x0fff);
+		phy_name_addr = utility_functions ::opt_get_phy_addr(ifile, name_addr, 0x00187000);
 
 		ifile.clear();
 		ifile.seekg(phy_name_addr, ios::beg);
