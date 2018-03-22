@@ -39,10 +39,12 @@ class registry_handler
         return phy_offsets;
     }
 
-    registry collect_info_module(ifstream &ifile, profile prf, uint64_t phy_offset)
+    registry collect_info_module(ifstream &ifile, profile &prf, uint64_t phy_offset)
     {
         registry rm;
         char *file_path = new char[172];
+        ifile.clear();
+        ifile.seekg(0, ios::beg);
         uint64_t addr_val = phy_offset, vir_file_addr, phy_file_addr;
         uint8_t offset_ct = 0;
 
@@ -59,7 +61,7 @@ class registry_handler
             cout << hex << vir_file_addr<<endl<<phy_offset << setw(64) << "[no name]" << endl;
         else
         {
-            phy_file_addr = utility_functions::opt_get_phy_addr(ifile, vir_file_addr, 0x00187000); //profiles::get_global_dtb(ifile) // 0x187000 -> windows 7
+            phy_file_addr = utility_functions::opt_get_phy_addr(ifile, vir_file_addr, prf.get_global_dtb(ifile)); //profiles::get_global_dtb(ifile) // 0x187000 -> windows 7
             ifile.clear();
             ifile.seekg(0, ios::beg);
             ifile.seekg(phy_file_addr, ios::beg);
@@ -74,8 +76,10 @@ class registry_handler
         return rm;
     }
 
-    void generate_registry_modules(ifstream &ifile, profile prf)
+    void generate_registry_modules(ifstream &ifile, profile &prf)
     {
+        ifile.clear();
+        ifile.seekg(0, ios::beg);
         vector<uint64_t> phy_offsets;
         ifile.clear();
         ifile.seekg(0, ios::beg);
@@ -89,7 +93,7 @@ class registry_handler
         cout << "List size:" << registry_list.size() << endl;
     }
 
-    vector<registry> get_registry_list(ifstream &ifile, profile prf)
+    vector<registry> get_registry_list(ifstream &ifile, profile &prf)
     {
         if (registry_list.empty())
         {

@@ -39,6 +39,8 @@ class profile
 
 	profile(int type=7)
 	{
+		global_dtb = 0;
+		service_dtb = 0;
 		this->type = type;
 		if (type == 7)
 			init_as_win7();
@@ -112,10 +114,10 @@ class profile
 					ifile.read(p_name, 16);
 					if (strcmp(p_name, dtb_eproc_name) == 0)
 					{
+						uint64_t temp;
 						cout << dtb_eproc_name << " found!" << endl;
 						ifile.seekg(-(process_name_offset + 16), std::ios::cur);
 						ifile.seekg(40, std::ios::cur);
-						unsigned long temp;
 						ifile.read(reinterpret_cast<char *>(&temp), sizeof(temp));
 						cout << "DTB value for  " << dtb_eproc_name << " " << hex << temp << endl;
 						global_dtb = temp;

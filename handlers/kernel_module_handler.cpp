@@ -19,7 +19,7 @@ class kernel_module_handler
 	vector<kernel_module> kernel_list;
 
   public:
-	vector<uint64_t> pool_tag_scan(ifstream &ifile, profile prf)
+	vector<uint64_t> pool_tag_scan(ifstream &ifile, profile &prf)
 	{
 
 		vector<uint64_t> phy_offsets;
@@ -63,7 +63,7 @@ class kernel_module_handler
 		return phy_offsets;
 	}
 
-	kernel_module collect_info_module(ifstream &ifile, profile prf, uint64_t phy_offset)
+	kernel_module collect_info_module(ifstream &ifile, profile &prf, uint64_t phy_offset)
 	{
 		kernel_module curr_module;
 		curr_module.physical_offset = phy_offset;
@@ -80,7 +80,7 @@ class kernel_module_handler
 		ifile.ignore(prf.kernel_offsets[1]);
 
 		ifile.read(reinterpret_cast<char *>(&name_addr), sizeof(name_addr)); //0x70 ptr64 to name
-		phy_name_addr = utility_functions ::opt_get_phy_addr(ifile, name_addr, 0x001ab000);
+		phy_name_addr = utility_functions ::opt_get_phy_addr(ifile, name_addr, prf.get_global_dtb(ifile));
 
 		ifile.clear();
 		ifile.seekg(phy_name_addr, ios::beg);
@@ -90,7 +90,7 @@ class kernel_module_handler
 		curr_module.name.erase(remove_if(curr_module.name.begin(), curr_module.name.end(), utility_functions ::invalidChar), curr_module.name.end()); ///Need to copy this
 		cout << curr_module.name << " ";
 
-		phy_file_addr = utility_functions ::opt_get_phy_addr(ifile, file_addr, 0x001ab000);
+		phy_file_addr = utility_functions ::opt_get_phy_addr(ifile, file_addr, prf.get_global_dtb(ifile));
 
 		ifile.clear();
 		ifile.seekg(phy_file_addr, ios::beg);
@@ -106,7 +106,7 @@ class kernel_module_handler
 		return curr_module;
 	}
 
-	void generate_kernel_modules(ifstream &ifile, profile prf)
+	void generate_kernel_modules(ifstream &ifile, profile &prf)
 	{
 		ifile.clear();
 		ifile.seekg(0, ios::beg);
@@ -119,7 +119,7 @@ class kernel_module_handler
 		}
 	}
 
-	vector<kernel_module> get_kernel_list(ifstream &ifile, profile prf)
+	vector<kernel_module> get_kernel_list(ifstream &ifile, profile &prf)
 	{
 		if (kernel_list.empty())
 		{
@@ -154,8 +154,8 @@ int main()
 {
 	kernel_module_handler kh;
 	ifstream ifile;
-	profile prf(10);
-	char fname[] = "../data/samples/win1064vir.vmem";
+	profile prf(7);
+	char fname[] = "../data/samples/win764.vmem";
 
 	ifile.open(fname, ios::in | ios::binary);
 	if (!ifile)
