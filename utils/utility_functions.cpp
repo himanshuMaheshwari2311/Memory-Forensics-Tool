@@ -121,7 +121,7 @@ class utility_functions
 		ifile.seekg(lvl3);
 		ifile.read(reinterpret_cast<char *>(&nextLvl), sizeof(nextLvl));
 
-		if ((nextLvl & 0b10000000000000000000000000000) == 0) //untested
+		if ((nextLvl & 0b10000000) == 0) //untested
 			level = 4;
 		else
 			level = 3;
