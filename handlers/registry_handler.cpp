@@ -83,7 +83,7 @@ class registry_handler
         {
             registry_list.push_back(collect_info_module(ifile, prf, phy_offsets[i]));
         }
-        cout<<"List size:"<<registry_list.size()<<endl;
+        cout << "List size:" << registry_list.size() << endl;
     }
 
     vector<registry> get_registry_list(ifstream &ifile, profile prf)
@@ -96,25 +96,25 @@ class registry_handler
     }
 
     string get_info()
-	{
-		string json;
-		json += "{ ";
-		json += "\"registry_list\" : ";
-		json += "[ ";
-		for (int i = 0; i < registry_list.size(); ++i)
-		{
-			json += registry_list[i].get_info();
-			if(i != registry_list.size() - 1)
-				json += ",";
-			json += "\n";
-		}
+    {
+        string json;
+        json += "{ ";
+        json += "\"registry_list\" : ";
+        json += "[ ";
+        for (int i = 0; i < registry_list.size(); ++i)
+        {
+            json += registry_list[i].get_info();
+            if (i != registry_list.size() - 1)
+                json += ",";
+            json += "\n";
+        }
 
-		json += "] ";
+        json += "] ";
 
-		json += "} ";
+        json += "} ";
 
-		return json;
-	}
+        return json;
+    }
 };
 
 #ifndef mainfunc
@@ -142,7 +142,7 @@ int main(void)
     ifile.seekg(0, ios::beg);
     rh.generate_registry_modules(ifile, prf);
 
-    cout<<rh.get_info();
+    cout << rh.get_info();
 }
 #endif
 #endif
