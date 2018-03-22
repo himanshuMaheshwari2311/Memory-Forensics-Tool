@@ -66,8 +66,7 @@ class registry_handler
             rm.file_path = utility_functions::get_utf_str(file_path);
             rm.file_path.erase(remove_if(rm.file_path.begin(), rm.file_path.end(), utility_functions ::invalidChar), rm.file_path.end());
             replace(rm.file_path.begin(), rm.file_path.end(), '\\', '/');
-            if(phy_file_addr != 0)
-                cout << hex << phy_offset << setw(70) << rm.file_path << endl;
+            cout << hex << phy_offset << setw(70) << rm.file_path << endl;
         }
 
         ifile.clear();
@@ -86,6 +85,7 @@ class registry_handler
         {
             registry_list.push_back(collect_info_module(ifile, prf, phy_offsets[i]));
         }
+        cout << "List size:" << registry_list.size() << endl;
     }
 
     vector<registry> get_registry_list(ifstream &ifile, profile prf)
