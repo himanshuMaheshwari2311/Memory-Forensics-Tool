@@ -30,6 +30,7 @@ class registry_handler
             addr_val += 8;
             if (utility_functions::compare_array(current_pattern, prf.hive_signature, 8)) //utility_functions::scan_tag(current_pattern, prf.hive_pool_tag, 8)
             {
+                cout<<hex<<addr_val-8<<endl;
                 phy_offsets.push_back(addr_val - 8);
                 ifile.ignore(8);
                 addr_val += 8;
@@ -137,8 +138,8 @@ int main(void)
     cout << "\n";
     ifile.clear();
     ifile.seekg(0, ios::beg);
+    
     rh.generate_registry_modules(ifile, prf);
-
     //cout << rh.get_info();
 }
 #endif
