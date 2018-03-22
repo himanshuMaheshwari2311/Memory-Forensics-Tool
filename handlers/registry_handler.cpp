@@ -58,7 +58,6 @@ class registry_handler
             cout << hex << vir_file_addr<<endl<<phy_offset << setw(64) << "[no name]" << endl;
         else
         {
-            cout<<vir_file_addr<<endl;
             phy_file_addr = utility_functions::opt_get_phy_addr(ifile, vir_file_addr, 0x00187000); //profiles::get_global_dtb(ifile) // 0x187000 -> windows 7
             ifile.clear();
             ifile.seekg(0, ios::beg);
@@ -67,7 +66,8 @@ class registry_handler
             rm.file_path = utility_functions::get_utf_str(file_path);
             rm.file_path.erase(remove_if(rm.file_path.begin(), rm.file_path.end(), utility_functions ::invalidChar), rm.file_path.end());
             replace(rm.file_path.begin(), rm.file_path.end(), '\\', '/');
-            //cout << hex << phy_offset << setw(70) << rm.file_path << endl;
+            if(phy_file_addr != 0)
+                cout << hex << phy_offset << setw(70) << rm.file_path << endl;
         }
 
         ifile.clear();
@@ -86,7 +86,6 @@ class registry_handler
         {
             registry_list.push_back(collect_info_module(ifile, prf, phy_offsets[i]));
         }
-        cout << "List size:" << registry_list.size() << endl;
     }
 
     vector<registry> get_registry_list(ifstream &ifile, profile prf)
