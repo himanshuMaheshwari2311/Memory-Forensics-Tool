@@ -17,23 +17,23 @@ class registry : public object
 
     string get_info()
     {
-        	string json;
-			json += "{ ";
-			
-			json += "\"name\" : ";
-			json += "\"" + this->name + "\", ";
-			
-			json += "\"physical_offset\" : ";
-			json += to_string(this->physical_offset) + ", ";
+        string json;
+        json += "{ ";
 
-			json += "\"object_id\" : ";
-			json += to_string(this->object_id) + ", ";
+        json += "\"name\" : ";
+        json += "\"" + this->name + "\", ";
 
-			json += "\"file_path\" : ";
-			json += "\"" + this->file_path + "\"";
+        json += "\"physical_offset\" : ";
+        json += to_string(this->physical_offset) + ", ";
 
-			json += "} ";
-			return json;
+        json += "\"object_id\" : ";
+        json += to_string(this->object_id) + ", ";
+
+        json += "\"file_path\" : ";
+        json += "\"" + this->file_path + "\"";
+
+        json += "} ";
+        return json;
     }
 };
 
