@@ -85,6 +85,8 @@ class service_handler
 		ifile.read(d_name, sizeof(d_name));
 		srv.display_name = utility_functions ::get_utf_str(d_name, sizeof(d_name));
 		cout << setw(50) << hex << srv.display_name;
+
+		
 		cout << endl;
 
 		return srv;

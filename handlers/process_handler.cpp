@@ -131,8 +131,8 @@ int main(void)
 {
 	process_handler ph;
 	ifstream ifile;
-	profile prf(7);
-	char fname[] = "../data/samples/win764.vmem";
+	profile prf(10);
+	char fname[] = "../data/samples/win1064.vmem";
 
 	ifile.open(fname, ios::in | ios::binary);
 	if (!ifile)
@@ -143,8 +143,9 @@ int main(void)
 	cout << "File opened..";
 	cout << "\n";
 	cout << prf.get_global_dtb(ifile) << endl;
-	ph.generate_processes(ifile, prf);
-	ph.print_processes();
+	cout << prf.get_service_dtb(ifile) << endl;
+	//ph.generate_processes(ifile, prf);
+	//ph.print_processes();
 	//cout<<ph.get_info();
 	//ph.generate_processes(ifile, prf);
 }
