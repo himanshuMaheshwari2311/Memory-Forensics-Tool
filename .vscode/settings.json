@@ -8,7 +8,10 @@
         "array": "cpp",
         "initializer_list": "cpp",
         "utility": "cpp",
-        "istream": "cpp"
+        "istream": "cpp",
+        "iosfwd": "cpp",
+        "tuple": "cpp",
+        "type_traits": "cpp"
     },
     "C_Cpp.intelliSenseEngine": "Tag Parser",
     "python.linting.enabled": false

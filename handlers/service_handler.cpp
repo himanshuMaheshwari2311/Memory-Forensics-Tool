@@ -63,30 +63,50 @@ class service_handler
 		service srv;
 		uint64_t srv_record_addr[100], temp_addr, str_addr;
 		char s_name[256] = {0}, d_name[256] = {0};
-
-		ifile.clear();
+		uint32_t s_type;
+		uint32_t s_state;
+		uint32_t s_start;
 
 		temp_addr = utility_functions ::opt_get_phy_addr(ifile, phy_offset, dtb);
 		srv.physical_offset = temp_addr;
-		cout << setw(20) << hex << temp_addr;
+		cout << setw(10) << hex << temp_addr;
 
-		ifile.seekg(temp_addr + 8, ios::beg);
+		ifile.clear();
+		ifile.seekg(temp_addr + prf.service_record_offsets[0], ios::beg);
 		ifile.read(reinterpret_cast<char *>(&str_addr), sizeof(str_addr));
 		str_addr = utility_functions ::opt_get_phy_addr(ifile, str_addr, dtb);
 		ifile.seekg(str_addr);
 		ifile.read(s_name, sizeof(s_name));
 		srv.name = utility_functions ::get_utf_str(s_name, sizeof(s_name));
-		cout << setw(40) << hex << srv.name;
+		cout << setw(25) << hex << srv.name;
 
-		ifile.seekg(temp_addr + 16, ios::beg);
+		ifile.clear();
+		ifile.seekg(temp_addr + prf.service_record_offsets[1], ios::beg);
 		ifile.read(reinterpret_cast<char *>(&str_addr), sizeof(str_addr));
 		str_addr = utility_functions ::opt_get_phy_addr(ifile, str_addr, dtb);
 		ifile.seekg(str_addr);
 		ifile.read(d_name, sizeof(d_name));
 		srv.display_name = utility_functions ::get_utf_str(d_name, sizeof(d_name));
-		cout << setw(50) << hex << srv.display_name;
+		cout << setw(55) << hex << srv.display_name;
 
-		
+		ifile.clear();
+		ifile.seekg(temp_addr + prf.service_record_offsets[2], ios::beg);
+		ifile.read(reinterpret_cast<char *>(&s_type), sizeof(s_type));
+		srv.type = srv.get_type(s_type);
+		cout << setw(30) << hex << srv.type;
+
+		ifile.clear();
+		ifile.seekg(temp_addr + prf.service_record_offsets[3], ios::beg);
+		ifile.read(reinterpret_cast<char *>(&s_state), sizeof(s_state));
+		srv.state = srv.get_state(s_state);
+		cout << setw(20) << hex << srv.state;
+
+		ifile.clear();
+		ifile.seekg(temp_addr + prf.service_record_offsets[4], ios::beg);
+		ifile.read(reinterpret_cast<char *>(&s_start), sizeof(s_start));
+		srv.start = srv.get_start(s_start);
+		cout << setw(25) << hex << srv.start;
+
 		cout << endl;
 
 		return srv;
@@ -97,16 +117,11 @@ class service_handler
 		ifile.clear();
 		ifile.seekg(0, ios::beg);
 
-		//uint64_t service_dtb = prf.get_service_dtb(ifile);
-		uint64_t service_dtb = 0xbaae000;
+		uint64_t service_dtb = prf.get_service_dtb(ifile);
+		//uint64_t service_dtb = 0xbaae000;
+		//uint64_t service_dtb = 0x38096000;
 
 		vector<uint64_t> phy_offsets = service_tag_scan(ifile, prf);
-
-		cout << endl;
-		cout << setw(20) << "Address";
-		cout << setw(40) << "Service Name";
-		cout << setw(50) << "Display Name";
-		cout << endl;
 
 		for (int i = 0; i < phy_offsets.size(); ++i)
 		{
@@ -136,7 +151,21 @@ class service_handler
 	}
 	string get_info()
 	{
-		string json = "{}";
+		string json = "";
+		json += "{ ";
+		json += "\"service_list\" : ";
+		json += "[ ";
+		for (int i = 0; i < service_list.size(); ++i)
+		{
+			json += service_list[i].get_info();
+			if (i != service_list.size() - 1)
+				json += ",";
+			json += "\n";
+		}
+		json += "] ";
+		json += "} ";
+
+		
 		return json;
 	}
 };
@@ -146,8 +175,8 @@ int main(void)
 {
 	service_handler sh;
 	ifstream ifile;
-	profile prf(7);
-	char fname[] = "../data/samples/win764.vmem";
+	profile prf(10);
+	char fname[] = "../data/samples/win1064.vmem";
 
 	ifile.open(fname, ios::in | ios::binary);
 	if (!ifile)
@@ -159,7 +188,7 @@ int main(void)
 	cout << "\n";
 
 	sh.generate_services(ifile, prf);
-	sh.print_services();
+	cout<<sh.get_info();
 }
 #endif
 #endif

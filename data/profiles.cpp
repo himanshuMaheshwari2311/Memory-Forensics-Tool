@@ -61,7 +61,7 @@ class profile
 		service_pattern2 = new char[8]{115, 101, 114, 72, 4, 0, 0, 0};
 
 		service_header_offsets = new int[1]{8};
-		service_record_offsets = new int[5]{8, 16, 40, 48, 52};
+		service_record_offsets = new int[5]{8, 16, 48, 52, 76};
 
 		hive_signature = new char[8]{char(224), char(190), char(224), char(190), 0, 0, 0, 0};
 		hive_pool_tag = new char[8]{'0', '0', '0', '0', 'C', 'M', '1', '0'};
@@ -85,7 +85,7 @@ class profile
 		service_pattern2 = new char[8]{115, 101, 114, 72, 4, 0, 0, 0};
 		
 		service_header_offsets = new int[1]{8};
-		service_record_offsets = new int[5]{8, 16, 40, 48, 52};
+		service_record_offsets = new int[5]{56, 64, 72, 76, 36};
 
 		hive_signature = new char[8]{char(224), char(190), char(224), char(190), 0, 0, 0, 0};
 		hive_pool_tag = new char[8]{'0', '0', '0', '0', 'C', 'M', '1', '0'};

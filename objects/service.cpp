@@ -28,14 +28,17 @@ class service : public object
 		json += "\"object_id\" : ";
 		json += to_string(this->object_id) + ", ";
 
-		json += "\"pid\" : ";
-		json += to_string(this->pid) + ", ";
-
 		json += "\"display_name\" : ";
 		json += "\"" + this->display_name + "\", ";
 
-		json += "\"process_binary_path\" : ";
-		json += "\"" + this->process_binary_path + "\"";
+		json += "\"type\" : ";
+		json += "\"" + this->type + "\", ";
+
+		json += "\"state\" : ";
+		json += "\"" + this->state + "\", ";
+
+		json += "\"start\" : ";
+		json += "\"" + this->start + "\"";
 
 		json += "} ";
 		return json;
