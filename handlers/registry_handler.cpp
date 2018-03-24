@@ -43,7 +43,7 @@ class registry_handler
     {
         registry rm;
         rm.name = "HKEY_LOCAL_MACHINE";
-        char *file_path = new char[172];
+        char *file_path = new char[173];
         ifile.clear();
         ifile.seekg(0, ios::beg);
         uint64_t addr_val = phy_offset, vir_file_addr, phy_file_addr;
@@ -51,7 +51,7 @@ class registry_handler
 
         rm.physical_offset = addr_val;
         ifile.seekg(phy_offset, ios::beg);
-        ifile.ignore(1776); //prf.hive_offsets[offset_ct]);
+        ifile.ignore(prf.hive_offsets[offset_ct++]); 
         ifile.read(reinterpret_cast<char *>(&vir_file_addr), 8);
         if (vir_file_addr == 0)
         {
@@ -59,36 +59,42 @@ class registry_handler
             ifile.read(reinterpret_cast<char *>(&vir_file_addr), 8);
         }
         if (vir_file_addr == 0)
-            cout << hex << vir_file_addr<<endl<<phy_offset << setw(64) << "[no name]" << endl;
+        {
+            if (phy_offset != 0)
+                cout << hex << phy_offset << setw(64) << "[no name]" << endl;
+        }
         else
         {
-            phy_file_addr = utility_functions::opt_get_phy_addr(ifile, vir_file_addr, prf.get_global_dtb(ifile)); //profiles::get_global_dtb(ifile) // 0x187000 -> windows 7
+            ifile.clear();
+            ifile.seekg(0, ios::beg);
+            //cout<<"Generating Physical Address"<<endl;
+            phy_file_addr = utility_functions::opt_get_phy_addr(ifile, vir_file_addr, prf.get_global_dtb(ifile));
+            //cout<<"Generated !"<<endl;
             ifile.clear();
             ifile.seekg(0, ios::beg);
             ifile.seekg(phy_file_addr, ios::beg);
             ifile.read(file_path, 172);
+            //cout<<"Reading Unicode String"<<endl;
             rm.file_path = utility_functions::get_utf_str(file_path);
+            //cout<<"Got unicode string"<<endl;
             rm.file_path.erase(remove_if(rm.file_path.begin(), rm.file_path.end(), utility_functions ::invalidChar), rm.file_path.end());
             replace(rm.file_path.begin(), rm.file_path.end(), '\\', '/');
-            cout << hex << phy_offset << setw(70) << rm.file_path << endl;
+            cout << hex << phy_offset <<setw(70) << rm.file_path << endl;
         }
-
-        ifile.clear();
         return rm;
     }
 
     void generate_registry_modules(ifstream &ifile, profile &prf)
     {
-        ifile.clear();
-        ifile.seekg(0, ios::beg);
         vector<uint64_t> phy_offsets;
         ifile.clear();
         ifile.seekg(0, ios::beg);
         phy_offsets = pool_scan_tag(ifile, prf);
-        ifile.clear();
-        ifile.seekg(0, ios::beg);
+        cout<<prf.hive_offsets[0]<<endl;
         for (int i = 0; i < phy_offsets.size(); i++)
         {
+            ifile.clear();
+            ifile.seekg(0, ios::beg);
             registry_list.push_back(collect_info_module(ifile, prf, phy_offsets[i]));
         }
         cout << "List size:" << registry_list.size() << endl;
@@ -141,11 +147,9 @@ int main(void)
     }
     cout << "File opened..";
     cout << "\n";
-    ifile.clear();
-    ifile.seekg(0, ios::beg);
     
-    rh.generate_registry_modules(ifile, prf);
-    //cout << rh.get_info();
+    vector<registry> rg = rh.get_registry_list(ifile, prf);
+    cout << rh.get_info()<<endl;
 }
 #endif
 #endif

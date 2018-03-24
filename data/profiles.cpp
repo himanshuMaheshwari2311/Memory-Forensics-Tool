@@ -89,7 +89,7 @@ class profile
 
 		hive_signature = new char[8]{char(224), char(190), char(224), char(190), 0, 0, 0, 0};
 		hive_pool_tag = new char[8]{'0', '0', '0', '0', 'C', 'M', '1', '0'};
-		hive_offsets = new int[1]{3024};
+		hive_offsets = new int[1]{3016};
 
 		kernel_pool_tag = new char[8]{'0', '0', '0', '0', 'M', 'm', 'L', 'd'};
 		kernel_offsets = new int[2]{96, 6};
