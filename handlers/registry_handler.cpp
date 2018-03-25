@@ -30,7 +30,7 @@ class registry_handler
             addr_val += 8;
             if (utility_functions::compare_array(current_pattern, prf.hive_signature, 8)) //utility_functions::scan_tag(current_pattern, prf.hive_pool_tag, 8)
             {
-                cout<<hex<<addr_val-8<<endl;
+                cout << hex << addr_val - 8 << endl;
                 phy_offsets.push_back(addr_val - 8);
                 ifile.ignore(8);
                 addr_val += 8;
@@ -51,7 +51,7 @@ class registry_handler
 
         rm.physical_offset = addr_val;
         ifile.seekg(phy_offset, ios::beg);
-        ifile.ignore(prf.hive_offsets[offset_ct++]); 
+        ifile.ignore(prf.hive_offsets[offset_ct++]);
         ifile.read(reinterpret_cast<char *>(&vir_file_addr), 8);
         if (vir_file_addr == 0)
         {
@@ -79,7 +79,7 @@ class registry_handler
             //cout<<"Got unicode string"<<endl;
             rm.file_path.erase(remove_if(rm.file_path.begin(), rm.file_path.end(), utility_functions ::invalidChar), rm.file_path.end());
             replace(rm.file_path.begin(), rm.file_path.end(), '\\', '/');
-            cout << hex << phy_offset <<setw(70) << rm.file_path << endl;
+            cout << hex << phy_offset << setw(70) << rm.file_path << endl;
         }
         return rm;
     }
@@ -90,7 +90,7 @@ class registry_handler
         ifile.clear();
         ifile.seekg(0, ios::beg);
         phy_offsets = pool_scan_tag(ifile, prf);
-        cout<<prf.hive_offsets[0]<<endl;
+        cout << prf.hive_offsets[0] << endl;
         for (int i = 0; i < phy_offsets.size(); i++)
         {
             ifile.clear();
@@ -147,9 +147,9 @@ int main(void)
     }
     cout << "File opened..";
     cout << "\n";
-    
+
     vector<registry> rg = rh.get_registry_list(ifile, prf);
-    cout << rh.get_info()<<endl;
+    cout << rh.get_info() << endl;
 }
 #endif
 #endif
