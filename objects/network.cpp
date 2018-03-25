@@ -1,5 +1,5 @@
-#ifndef _registry_
-#define _registry_
+#ifndef _network_
+#define _network_
 
 #include <string>
 #include <vector>
@@ -7,7 +7,7 @@
 
 using namespace std;
 
-class registry : public object
+class network : public object
 {
 
   public:
@@ -15,11 +15,12 @@ class registry : public object
     string local_address;
     string foreign_address;
     uint32_t pid;
+    uint16_t port;
     string owner_name;
 
     string get_info()
     {
-
+        return "network";
     }
 };
 

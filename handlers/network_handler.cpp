@@ -29,9 +29,10 @@ class network_handler
         {
             ifile.read(current_pattern, 8);
             addr_val += 8;
-            if (utility_functions::scan_tag(current_pattern, prf.udp_pool_tag, 8)) 
+            if (utility_functions::scan_tag(current_pattern, prf.udp_pool_tag, 8))
             {
-                cout << hex << addr_val - 8 << endl;
+
+                cout << hex << addr_val + 8 << endl;
                 phy_offsets.push_back(addr_val + 8);
                 ifile.ignore(8);
                 addr_val += 8;
@@ -42,10 +43,118 @@ class network_handler
 
     network collect_info_module(ifstream &ifile, profile &prf, uint64_t phy_offset)
     {
+        network n;
+        uint16_t type;
+        uint64_t vir_addr, phy_addr;
+
+        //udp
+        uint8_t ipv4 = 0;
+        uint16_t ipv6;
+        ifile.seekg(phy_offset, ios::beg);
+        ifile.ignore(0x20);
+        ifile.read(reinterpret_cast<char *>(&vir_addr), 8);
+        phy_addr = utility_functions::opt_get_phy_addr(ifile, vir_addr, prf.get_global_dtb(ifile));
+        ifile.clear();
+        ifile.seekg(phy_addr, ios::beg);
+        ifile.ignore(0x14);
+        ifile.read(reinterpret_cast<char *>(&type), 2);
+        if (type == 2)
+            n.protocol_version = "UDPv4";
+        else if (type == 0x17)
+            n.protocol_version = "UDPv6";
+        //port
+        ifile.clear();
+        ifile.seekg(phy_offset, ios::beg);
+        ifile.ignore(0x80);
+        ifile.read(reinterpret_cast<char *>(&n.port), 2);
+        uint16_t r_port = n.port << 8;
+        uint16_t l_port = n.port >> 8;
+        n.port = r_port | l_port;
+
+        //address
+        ifile.clear();
+        ifile.seekg(0, ios::beg);
+        ifile.seekg(phy_offset, ios::beg);
+        ifile.ignore(0x60);
+        ifile.read(reinterpret_cast<char *>(&vir_addr), 8);
+        phy_addr = utility_functions::opt_get_phy_addr(ifile, vir_addr, prf.get_global_dtb(ifile));
+        ifile.clear();
+        ifile.seekg(0, ios::beg);
+        ifile.seekg(phy_addr, ios::beg);
+        ifile.ignore(16);
+        ifile.read(reinterpret_cast<char *>(&vir_addr), 8);
+        phy_addr = utility_functions::opt_get_phy_addr(ifile, vir_addr, prf.get_global_dtb(ifile));
+        ifile.clear();
+        ifile.seekg(0, ios::beg);
+        ifile.seekg(phy_addr, ios::beg);
+        ifile.read(reinterpret_cast<char *>(&vir_addr), 8);
+        phy_addr = utility_functions::opt_get_phy_addr(ifile, vir_addr, prf.get_global_dtb(ifile));
+        ifile.clear();
+        ifile.seekg(0, ios::beg);
+        ifile.seekg(phy_addr, ios::beg);
+        if (type == 0x2)
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                ifile.read(reinterpret_cast<char *>(&ipv4), 1);
+                if (i != 3)
+                    n.local_address += to_string(ipv4) + ".";
+                else
+                    n.local_address += to_string(ipv4);
+            }
+        }
+        else if (type == 0x17)
+        {
+            uint16_t r, l;
+            ifile.read(reinterpret_cast<char *>(&ipv6), 2);
+            r = ipv6 << 8;
+            l = ipv6 >> 8;
+            ipv6 = r | l;
+
+            n.local_address += to_string(ipv6) + ":";
+            ifile.read(reinterpret_cast<char *>(&ipv6), 2);
+            r = ipv6 << 8;
+            l = ipv6 >> 8;
+            ipv6 = r | l;
+
+            n.local_address += to_string(ipv6) + ":";
+
+            ifile.ignore(4);
+            for (int i = 0; i < 4; i++)
+            {
+                ifile.read(reinterpret_cast<char *>(&ipv6), 2);
+                r = ipv6 << 8;
+                l = ipv6 >> 8;
+                ipv6 = r | l;
+                if (i != 3)
+                {
+                    n.local_address += to_string(ipv6) + ":";
+                }
+                else
+                    n.local_address += to_string(ipv6);
+            }
+        }
+        else
+        {
+            n.local_address = "temp";
+        }
+        if (type != 0)
+        {
+            cout << hex << phy_offset << " " << n.protocol_version;
+            cout << " " << dec << n.local_address << " :  " << n.port << endl;
+        }
+        return n;
     }
 
     void generate_network_modules(ifstream &ifile, profile &prf)
     {
+        vector<uint64_t> phy_offsets = pool_scan_tag(ifile, prf);
+        for (int i = 0; i < phy_offsets.size(); i++)
+        {
+            ifile.clear();
+            ifile.seekg(0, ios::beg);
+            network_list.push_back(collect_info_module(ifile, prf, phy_offsets[i]));
+        }
     }
 
     vector<network> get_network_list(ifstream &ifile, profile &prf)
@@ -59,6 +168,7 @@ class network_handler
 
     string get_info()
     {
+        //left_to_do
         string json;
         json += "{ ";
         json += "\"registry_list\" : ";
@@ -82,6 +192,20 @@ class network_handler
 #ifndef mainfunc
 int main(void)
 {
+    network_handler nh;
+    ifstream ifile;
+    profile prf(7);
+    char fname[] = "../data/samples/win764.vmem";
+    vector<uint64_t> phy_offsets;
+    ifile.open(fname, ios::in | ios::binary);
+    if (!ifile)
+    {
+        cout << "Error in opening file..!!";
+    }
+    cout << "File opened..";
+    cout << "\n";
+
+    nh.generate_network_modules(ifile, prf);
 }
 #endif
 #endif

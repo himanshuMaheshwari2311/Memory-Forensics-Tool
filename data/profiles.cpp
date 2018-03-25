@@ -15,7 +15,7 @@ class profile
 
 	uint64_t global_dtb = 0;
 	uint64_t service_dtb = 0;
-	
+
 	int dtb_offset = 48;
 
 	char *dtb_eproc_name;
@@ -30,6 +30,9 @@ class profile
 	int *service_record_offsets;
 	int *service_process_offsets;
 
+	char *udp_pool_tag;
+	int *udp_offsets;
+
 	char *hive_signature;
 	char *hive_pool_tag;
 	int *hive_offsets;
@@ -37,7 +40,7 @@ class profile
 	char *kernel_pool_tag;
 	int *kernel_offsets;
 
-	profile(int type=7)
+	profile(int type = 7)
 	{
 		global_dtb = 0;
 		service_dtb = 0;
@@ -63,6 +66,9 @@ class profile
 		service_header_offsets = new int[1]{8};
 		service_record_offsets = new int[5]{8, 16, 48, 52, 76};
 
+		udp_pool_tag = new char[8]{'0', '0', '0', '0', 'U', 'd', 'p', 'A'};
+		udp_offsets = new int[1]{1};
+
 		hive_signature = new char[8]{char(224), char(190), char(224), char(190), 0, 0, 0, 0};
 		hive_pool_tag = new char[8]{'0', '0', '0', '0', 'C', 'M', '1', '0'};
 		hive_offsets = new int[1]{1776};
@@ -83,9 +89,12 @@ class profile
 
 		service_pattern1 = new char[8]{115, 101, 114, 72, 0, 0, 0, 0};
 		service_pattern2 = new char[8]{115, 101, 114, 72, 4, 0, 0, 0};
-		
+
 		service_header_offsets = new int[1]{8};
 		service_record_offsets = new int[5]{56, 64, 72, 76, 36};
+
+		udp_pool_tag = new char[8]{'0', '0', '0', '0', 'U', 'd', 'p', 'A'};
+		udp_offsets = new int[1]{1};
 
 		hive_signature = new char[8]{char(224), char(190), char(224), char(190), 0, 0, 0, 0};
 		hive_pool_tag = new char[8]{'0', '0', '0', '0', 'C', 'M', '1', '0'};
@@ -155,7 +164,7 @@ class profile
 					ifile.read(p_name, 16);
 					if (strcmp(p_name, "services.exe") == 0)
 					{
-						cout << "services.exe found"<< endl;
+						cout << "services.exe found" << endl;
 						ifile.seekg(-(process_name_offset + 16), std::ios::cur);
 						ifile.seekg(40, std::ios::cur);
 						unsigned long temp;
