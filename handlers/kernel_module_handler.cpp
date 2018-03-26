@@ -72,18 +72,31 @@ class kernel_module_handler
 		uint16_t name_size;
 
 		ifile.clear();
-		ifile.seekg(phy_offset + prf.kernel_offsets[0], ios::beg);
 
+		ifile.seekg(phy_offset + prf.kernel_offsets[0]);
+		ifile.read(reinterpret_cast<char *>(&(curr_module.flink)), sizeof(curr_module.flink));
+
+		ifile.seekg(phy_offset + prf.kernel_offsets[1]);
+		ifile.read(reinterpret_cast<char *>(&(curr_module.blink)), sizeof(curr_module.blink));
+
+		ifile.seekg(phy_offset + prf.kernel_offsets[2]);
 		ifile.read(reinterpret_cast<char *>(&file_addr), sizeof(file_addr)); //0x60 for ptr to file path
 
+		ifile.seekg(phy_offset + prf.kernel_offsets[3]);
 		ifile.read(reinterpret_cast<char *>(&name_size), sizeof(name_size)); //0x68 size of name
-		ifile.ignore(prf.kernel_offsets[1]);
 
+		ifile.seekg(phy_offset + prf.kernel_offsets[4]);
 		ifile.read(reinterpret_cast<char *>(&name_addr), sizeof(name_addr)); //0x70 ptr64 to name
+
+		curr_module.flink = utility_functions ::opt_get_phy_addr(ifile, curr_module.flink, prf.get_global_dtb(ifile)) - 0x10;
+		curr_module.blink = utility_functions ::opt_get_phy_addr(ifile, curr_module.blink, prf.get_global_dtb(ifile)) - 0x10;
+
+		cout << curr_module.flink << " " << curr_module.physical_offset << " " << curr_module.blink << " ";
+
 		phy_name_addr = utility_functions ::opt_get_phy_addr(ifile, name_addr, prf.get_global_dtb(ifile));
 
 		ifile.clear();
-		ifile.seekg(phy_name_addr, ios::beg);
+		ifile.seekg(phy_name_addr);
 		char name[name_size * 2];
 		ifile.read(name, sizeof(name));
 		curr_module.name = utility_functions ::get_utf_str(name, sizeof(name));
@@ -93,14 +106,14 @@ class kernel_module_handler
 		phy_file_addr = utility_functions ::opt_get_phy_addr(ifile, file_addr, prf.get_global_dtb(ifile));
 
 		ifile.clear();
-		ifile.seekg(phy_file_addr, ios::beg);
+		ifile.seekg(phy_file_addr);
 		char file_path[128];
 		ifile.read(file_path, sizeof(file_path));
 		curr_module.file_path = utility_functions ::get_utf_str(file_path, sizeof(file_path));
 		replace(curr_module.file_path.begin(), curr_module.file_path.end(), '\\', '/');
 		curr_module.file_path.erase(remove_if(curr_module.file_path.begin(), curr_module.file_path.end(), utility_functions ::invalidChar), curr_module.file_path.end());
 
-		cout << curr_module.file_path << " ";
+		//cout << curr_module.file_path << " ";
 
 		cout << "\n";
 		return curr_module;

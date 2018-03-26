@@ -13,6 +13,8 @@ class kernel_module : public object
 {
   public:
 	string file_path;
+	uint64_t flink;
+	uint64_t blink;
 
 	string get_info()
 	{
