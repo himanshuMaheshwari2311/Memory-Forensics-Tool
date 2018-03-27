@@ -40,5 +40,6 @@
 
 .my_input:focus {
   -webkit-box-shadow: none;
+  border-bottom: 1px solid #2196F3  !important;
   box-shadow: none;
 }

@@ -35,5 +35,5 @@ def login():
 			resp['cases'] = account['cases']
 
 		session['username'] = request.form['username']
-		return render_template('accounts/index.html', **resp)
+		return render_template('accounts/index.html', resp = resp)
 	return render_template('accounts/login.html')
