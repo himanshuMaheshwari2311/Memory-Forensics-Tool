@@ -62,6 +62,7 @@ class network_handler
             n.protocol_version = "UDPv4";
         else if (type == 0x17)
             n.protocol_version = "UDPv6";
+        
         //port
         ifile.clear();
         ifile.seekg(phy_offset, ios::beg);

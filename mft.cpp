@@ -3,6 +3,7 @@
 #include <fstream>
 #include <cstring>
 #include <iostream>
+#include <string.h>
 
 #include "handlers/process_handler.cpp"
 #include "handlers/service_handler.cpp"
@@ -35,7 +36,7 @@ int main(int argc, char **argv)
         cout << "Error in opening file..!!";
         return -1;
     }
-
+    /*
     process_handler ph;
     service_handler sh;
     registry_handler rh;
@@ -83,10 +84,22 @@ int main(int argc, char **argv)
     json += "}";
 
     cout << json << endl;
-
+    */
     ofstream ofile;
+    
+    string case_name;
+    int len = 0;
+    for(int i = 0; fname[i]; i++)
+    {
+        if(fname[i] == '/' || fname[i] == '\\')
+        {
+            case_name = "";
+        }
+        case_name += fname[i];
+    }
+    cout<<case_name<<endl;
     ofile.open("data/json/dummy.json", ios::out | ios::binary);
-    ofile << json;
+    //ofile << json;
     
     return 0;
 }
