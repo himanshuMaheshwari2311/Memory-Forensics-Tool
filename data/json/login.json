@@ -4,35 +4,40 @@
 			"username" : "near",
 			"password" : "near",
 			"cases" : [
-				"dummy.json"
+				"dummy.json",
+				"near.json"
 			]
 		},
 		{
 			"username" : "stark",
 			"password" : "stark",
 			"cases" : [
-				"dummy.json"
+				"dummy.json",
+				"stark.json"
 			]
 		},
 		{
 			"username" : "tiger",
 			"password" : "tiger",
 			"cases" : [
-				"dummy.json"
+				"dummy.json",
+				"tiger.json"
 			]
 		},
 		{
 			"username" : "ryuzaki",
 			"password" : "ryuzaki",
 			"cases" : [
-				"dummy.json"
+				"dummy.json",
+				"ryuzaki.json"
 			]
 		},
 		{
 			"username" : "bbm",
 			"password" : "bbm",
 			"cases" : [
-				"dummy.json"
+				"dummy.json",
+				"bbm.json"
 			]
 		}
 	]
