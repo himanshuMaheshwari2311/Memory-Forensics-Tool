@@ -43,7 +43,7 @@ class registry_handler
     {
         registry rm;
         rm.name = "HKEY_LOCAL_MACHINE";
-        char *file_path = new char[173];
+        char *file_path = new char[172];
         ifile.clear();
         ifile.seekg(0, ios::beg);
         uint64_t addr_val = phy_offset, vir_file_addr, phy_file_addr;
@@ -67,16 +67,12 @@ class registry_handler
         {
             ifile.clear();
             ifile.seekg(0, ios::beg);
-            //cout<<"Generating Physical Address"<<endl;
             phy_file_addr = utility_functions::opt_get_phy_addr(ifile, vir_file_addr, prf.get_global_dtb(ifile));
-            //cout<<"Generated !"<<endl;
             ifile.clear();
             ifile.seekg(0, ios::beg);
             ifile.seekg(phy_file_addr, ios::beg);
             ifile.read(file_path, 172);
-            //cout<<"Reading Unicode String"<<endl;
-            rm.file_path = utility_functions::get_utf_str(file_path);
-            //cout<<"Got unicode string"<<endl;
+            rm.file_path = utility_functions::get_utf_str(file_path, 86);
             rm.file_path.erase(remove_if(rm.file_path.begin(), rm.file_path.end(), utility_functions ::invalidChar), rm.file_path.end());
             replace(rm.file_path.begin(), rm.file_path.end(), '\\', '/');
             cout << hex << phy_offset << setw(70) << rm.file_path << endl;
