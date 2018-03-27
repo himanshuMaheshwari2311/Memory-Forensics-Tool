@@ -1,0 +1,10 @@
+{% extends "layout/layout.html" %}
+{% block body %}
+    <h1> Print </h1>
+    <form action="{{ url_for('printer') }}" method="post">
+        <dl>
+            <dd></dd>
+            <dd><input type="submit" value="Flash"/></dd>
+        </dl>
+    </form>
+{% endblock %}
