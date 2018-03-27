@@ -1,0 +1,39 @@
+{
+	"accounts" : [
+		{
+			"username" : "near",
+			"password" : "near",
+			"cases" : [
+				"dummy.json"
+			]
+		},
+		{
+			"username" : "stark",
+			"password" : "stark",
+			"cases" : [
+				"dummy.json"
+			]
+		},
+		{
+			"username" : "tiger",
+			"password" : "tiger",
+			"cases" : [
+				"dummy.json"
+			]
+		},
+		{
+			"username" : "ryuzaki",
+			"password" : "ryuzaki",
+			"cases" : [
+				"dummy.json"
+			]
+		},
+		{
+			"username" : "bbm",
+			"password" : "bbm",
+			"cases" : [
+				"dummy.json"
+			]
+		}
+	]
+}
