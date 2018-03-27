@@ -22,17 +22,18 @@ def login():
 	
 	if request.method == 'POST':
 		account = credentials(request.form['username'], request.form['password'])
-		
+		resp = {}
 		if(account == "pwd"):
-			print "Incorrect pwd!"
-			flash("Incorrect password!")
+			resp['result'] = "Incorrect pwd!"
+			print resp['result']
 		elif (account == "uname"):
-			print "Invalid uname!"
-			flash("Invalid username!")
+			resp['result'] = "Invalid uname!"
+			print resp['result']
 		else:
-			print account['cases']
-			flash("Logged in!")
+			resp['result'] = "Logged in!"
+			print resp['result']
+			resp['cases'] = account['cases']
 
 		session['username'] = request.form['username']
-		return render_template('accounts/login.html')
+		return render_template('accounts/index.html', **resp)
 	return render_template('accounts/login.html')
