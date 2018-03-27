@@ -4,6 +4,7 @@
 #include <cstring>
 #include <iostream>
 #include <string.h>
+#include <ctime>
 
 #include "handlers/process_handler.cpp"
 #include "handlers/service_handler.cpp"
@@ -36,18 +37,17 @@ int main(int argc, char **argv)
         cout << "Error in opening file..!!";
         return -1;
     }
-    /*
     process_handler ph;
     service_handler sh;
     registry_handler rh;
     kernel_module_handler kh;
-
+    
+    cout << "Generating Registry List" << endl;
+    vector<registry> registry_list = rh.get_registry_list(ifile, prf);
     cout << "Generating Process List" << endl;
     vector<process> process_list = ph.get_process_list(ifile, prf);
     cout << "Generating Service List" << endl;
     vector<service> service_list;
-    cout << "Generating Registry List" << endl;
-    vector<registry> registry_list = rh.get_registry_list(ifile, prf);
     cout << "Generating Kernel List" << endl;
     vector<kernel_module> kernel_list = kh.get_kernel_list(ifile, prf);
 
@@ -84,22 +84,36 @@ int main(int argc, char **argv)
     json += "}";
 
     cout << json << endl;
-    */
-    ofstream ofile;
     
+    ofstream ofile;
+
     string case_name;
     int len = 0;
-    for(int i = 0; fname[i]; i++)
+    for (int i = 0; fname[i]; i++)
     {
-        if(fname[i] == '/' || fname[i] == '\\')
+        if (fname[i] == '/' || fname[i] == '\\')
         {
             case_name = "";
+            i++;
         }
         case_name += fname[i];
     }
-    cout<<case_name<<endl;
-    ofile.open("data/json/dummy.json", ios::out | ios::binary);
-    //ofile << json;
+    time_t rawtime;
+    time(&rawtime);
+    case_name += "_";
+    case_name += ctime(&rawtime);
+    case_name[case_name.length() - 1] = 'a';
+    case_name += ".json";
+    replace(case_name.begin(), case_name.end(), ':', '-');
+    replace(case_name.begin(), case_name.end(), ' ', '-');
     
+    
+    string out_file_name;
+    out_file_name += "data/json/";
+    out_file_name += case_name;
+    cout << out_file_name << endl;
+    ofile.open(out_file_name, ios::out | ios::binary);
+    ofile << json;
+
     return 0;
 }

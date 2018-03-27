@@ -155,7 +155,7 @@ class utility_functions
 
 	static bool invalidChar(char c)
 	{
-		return !(c >= 32 && c < 127 || c == 0);
+		return !(c >= 32 && c < 127 || c == 0 || c == '"');
 	}
 };
 
