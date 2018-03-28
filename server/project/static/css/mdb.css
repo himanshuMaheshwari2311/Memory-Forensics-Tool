@@ -6463,6 +6463,7 @@ footer.page-footer {
     transition: 0.5s; }
 
 table th {
+  display: inline;
   font-size: 0.9rem;
   font-weight: 400; }
 

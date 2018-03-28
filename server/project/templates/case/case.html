@@ -29,100 +29,14 @@
 
             </div>
             <!-- Heading -->
-
             <!--Grid row-->
             <div class="row wow fadeIn">
 
                 <!--Grid column-->
-                <div class="col-md-9 mb-4">
+                <div class="col-md-12 mb-4">
 
                     <!--Card-->
-                    <div class="card">
-
-                        <!--Card content-->
-                        <div class="card-body">
-
-                            <canvas id="myChart"></canvas>
-
-                        </div>
-
-                    </div>
-                    <!--/.Card-->
-
-                </div>
-                <!--Grid column-->
-
-                <!--Grid column-->
-                <div class="col-md-3 mb-4">
-
-                    <!--Card-->
-                    <div class="card mb-4">
-
-                        <!-- Card header -->
-                        <div class="card-header text-center">
-                            Pie chart
-                        </div>
-
-                        <!--Card content-->
-                        <div class="card-body">
-
-                            <canvas id="pieChart"></canvas>
-
-                        </div>
-
-                    </div>
-                    <!--/.Card-->
-
-                    <!--Card-->
-                    <div class="card mb-4">
-
-                        <!--Card content-->
-                        <div class="card-body">
-
-                            <!-- List group links -->
-                            <div class="list-group list-group-flush">
-                                <a class="list-group-item list-group-item-action waves-effect">Sales
-                                    <span class="badge badge-success badge-pill pull-right">22%
-                                        <i class="fa fa-arrow-up ml-1"></i>
-                                    </span>
-                                </a>
-                                <a class="list-group-item list-group-item-action waves-effect">Traffic
-                                    <span class="badge badge-danger badge-pill pull-right">5%
-                                        <i class="fa fa-arrow-down ml-1"></i>
-                                    </span>
-                                </a>
-                                <a class="list-group-item list-group-item-action waves-effect">Orders
-                                    <span class="badge badge-primary badge-pill pull-right">14</span>
-                                </a>
-                                <a class="list-group-item list-group-item-action waves-effect">Issues
-                                    <span class="badge badge-primary badge-pill pull-right">123</span>
-                                </a>
-                                <a class="list-group-item list-group-item-action waves-effect">Messages
-                                    <span class="badge badge-primary badge-pill pull-right">8</span>
-                                </a>
-                            </div>
-                            <!-- List group links -->
-
-                        </div>
-
-                    </div>
-                    <!--/.Card-->
-
-                </div>
-                <!--Grid column-->
-
-            </div>
-            <!--Grid row-->
-
-            <!--Grid row-->
-            <div class="row wow fadeIn">
-
-                <!--Grid column-->
-                <div class="col-md-6 mb-4">
-
-                    <!--Card-->
-                    <div class="card">
-
+                    <div class="card" id="table1" >
                         <!--Card content-->
                         <div class="card-body">
 
@@ -131,102 +45,220 @@
                                 <!-- Table head -->
                                 <thead class="blue-grey lighten-4">
                                     <tr>
-                                        <th>#</th>
-                                        <th>Lorem</th>
-                                        <th>Ipsum</th>
-                                        <th>Dolor</th>
+                                        <th>Name</th>
+                                        <th>Physical Offset</th>
+                                        <th>Process ID</th>
+                                        <th>Active Threads</th>
+                                        <th>Parent Process ID</th>
                                     </tr>
                                 </thead>
                                 <!-- Table head -->
-
-                                <!-- Table body -->
                                 <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Cell 1</td>
-                                        <td>Cell 2</td>
-                                        <td>Cell 3</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Cell 4</td>
-                                        <td>Cell 5</td>
-                                        <td>Cell 6</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Cell 7</td>
-                                        <td>Cell 8</td>
-                                        <td>Cell 9</td>
-                                    </tr>
+                                {% for key, value in case_data.iteritems(): %}
+                                {% if key == 'artifacts': %}
+                                    {% for artifact in value: %}
+                                        {% for k, v in artifact.iteritems(): %}
+                                            {% if k == 'process_list': %}
+                                                {% for process in v: %}
+                                                <tr> 
+                                                    {% for ke, va in process.iteritems(): %}
+                                                        {% if ke != 'object_id': %}
+                                                            {% if ke == 'physical_offset': %}
+                                                                <td>0x{{ '%0x' % va}}</td>
+                                                            {% else: %}
+                                                                <td>{{ va }}</td>
+                                                            {% endif %}
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </tr>
+                                                {% endfor %}
+                                            {% endif %}   
+                                        {% endfor %}            
+                                    {% endfor %}
+                                {% endif %} 
+                                {% endfor %}
                                 </tbody>
-                                <!-- Table body -->
                             </table>
-                            <!-- Table  -->
-
                         </div>
-
                     </div>
-                    <!--/.Card-->
-
-                </div>
-                <!--Grid column-->
-
-                <!--Grid column-->
-                <div class="col-md-6 mb-4">
-
-                    <!--Card-->
-                    <div class="card">
-
-                        <!--Card content-->
-                        <div class="card-body">
-
-                            <!-- Table  -->
-                            <table class="table table-hover">
-                                <!-- Table head -->
-                                <thead class="blue lighten-4">
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Lorem</th>
-                                        <th>Ipsum</th>
-                                        <th>Dolor</th>
-                                    </tr>
-                                </thead>
-                                <!-- Table head -->
-
-                                <!-- Table body -->
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Cell 1</td>
-                                        <td>Cell 2</td>
-                                        <td>Cell 3</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Cell 4</td>
-                                        <td>Cell 5</td>
-                                        <td>Cell 6</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Cell 7</td>
-                                        <td>Cell 8</td>
-                                        <td>Cell 9</td>
-                                    </tr>
-                                </tbody>
-                                <!-- Table body -->
-                            </table>
-                            <!-- Table  -->
-
+                    <div class="card" id ="table2">
+                            <!--Card content-->
+                            <div class="card-body">
+    
+                                <!-- Table  -->
+                                <table class="table table-hover">
+                                    <!-- Table head -->
+                                    <thead class="blue-grey lighten-4">
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Physical Offset</th>
+                                            <th>Process ID</th>
+                                            <th>Active Threads</th>
+                                            <th>Parent Process ID</th>
+                                        </tr>
+                                    </thead>
+                                    <!-- Table head -->
+                                    <tbody>
+                                    {% for key, value in case_data.iteritems(): %}
+                                    {% if key == 'artifacts': %}
+                                        {% for artifact in value: %}
+                                            {% for k, v in artifact.iteritems(): %}
+                                                {% if k == 'process_list': %}
+                                                    {% for process in v: %}
+                                                    <tr> 
+                                                        {% for ke, va in process.iteritems(): %}
+                                                            {% if ke != 'object_id': %}
+                                                                {% if ke == 'physical_offset': %}
+                                                                    <td>0x{{ '%0x' % va}}</td>
+                                                                {% else: %}
+                                                                    <td>{{ va }}</td>
+                                                                {% endif %}
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                    </tr>
+                                                    {% endfor %}
+                                                {% endif %}   
+                                            {% endfor %}            
+                                        {% endfor %}
+                                    {% endif %} 
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-
-                    </div>
+                        <div class="card" id="table3">
+                                <!--Card content-->
+                                <div class="card-body">
+        
+                                    <!-- Table  -->
+                                    <table class="table table-hover">
+                                        <!-- Table head -->
+                                        <thead class="blue-grey lighten-4">
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Physical Offset</th>
+                                                <th>Process ID</th>
+                                                <th>Active Threads</th>
+                                                <th>Parent Process ID</th>
+                                            </tr>
+                                        </thead>
+                                        <!-- Table head -->
+                                        <tbody>
+                                        {% for key, value in case_data.iteritems(): %}
+                                        {% if key == 'artifacts': %}
+                                            {% for artifact in value: %}
+                                                {% for k, v in artifact.iteritems(): %}
+                                                    {% if k == 'process_list': %}
+                                                        {% for process in v: %}
+                                                        <tr> 
+                                                            {% for ke, va in process.iteritems(): %}
+                                                                {% if ke != 'object_id': %}
+                                                                    {% if ke == 'physical_offset': %}
+                                                                        <td>0x{{ '%0x' % va}}</td>
+                                                                    {% else: %}
+                                                                        <td>{{ va }}</td>
+                                                                    {% endif %}
+                                                                {% endif %}
+                                                            {% endfor %}
+                                                        </tr>
+                                                        {% endfor %}
+                                                    {% endif %}   
+                                                {% endfor %}            
+                                            {% endfor %}
+                                        {% endif %} 
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                            </div>
+                        </div>
+                        <div class="card" id="table4">
+                                <!--Card content-->
+                                <div class="card-body">
+        
+                                    <!-- Table  -->
+                                    <table class="table table-hover" >
+                                        <!-- Table head -->
+                                        <thead class="blue-grey lighten-4">
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Physical Offset</th>
+                                                <th>File Path</th>
+                                            </tr>
+                                        </thead>
+                                        <!-- Table head -->
+                                        <tbody>
+                                                {% for key, value in case_data.iteritems(): %}
+                                                {% if key == 'artifacts': %}
+                                                    {% for artifact in value: %}
+                                                        {% for k, v in artifact.iteritems(): %}
+                                                            {% if k == 'registry_list': %}
+                                                                {% for registry in v: %}
+                                                                <tr> 
+                                                                    {% for ke, va in registry.iteritems(): %}
+                                                                        {% if ke != 'object_id': %}
+                                                                            {% if ke == 'physical_offset': %}
+                                                                                <td>0x{{ '%0x' % va}}</td>
+                                                                            {% else: %}
+                                                                                <td>{{ va }}</td>
+                                                                            {% endif %}
+                                                                        {% endif %}
+                                                                    {% endfor %}
+                                                                </tr>
+                                                                {% endfor %}
+                                                            {% endif %}   
+                                                        {% endfor %}            
+                                                    {% endfor %}
+                                                {% endif %} 
+                                                {% endfor %}
+                                        </tbody>
+                                    </table>
+                            </div>
+                        </div>
+                        <div class="card" id="table5">
+                                <!--Card content-->
+                                <div class="card-body">
+        
+                                    <!-- Table  -->
+                                    <table class="table table-hover">
+                                        <!-- Table head -->
+                                        <thead class="blue-grey lighten-4">
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Physical Offset</th>
+                                                <th>File Path</th>
+                                            </tr>
+                                        </thead>
+                                        <!-- Table head -->
+                                        <tbody>
+                                                {% for key, value in case_data.iteritems(): %}
+                                                {% if key == 'artifacts': %}
+                                                    {% for artifact in value: %}
+                                                        {% for k, v in artifact.iteritems(): %}
+                                                            {% if k == 'kernel_list': %}
+                                                                {% for kernel_module in v: %}
+                                                                <tr> 
+                                                                    {% for ke, va in kernel_module.iteritems(): %}
+                                                                        {% if ke != 'object_id': %}
+                                                                            {% if ke == 'physical_offset': %}
+                                                                                <td>0x{{ '%0x' % va}}</td>
+                                                                            {% else: %}
+                                                                                <td>{{ va }}</td>
+                                                                            {% endif %}
+                                                                        {% endif %}
+                                                                    {% endfor %}
+                                                                </tr>
+                                                                {% endfor %}
+                                                            {% endif %}   
+                                                        {% endfor %}            
+                                                    {% endfor %}
+                                                {% endif %} 
+                                                {% endfor %}
+                                            </tbody>
+                                    </table>
+                            </div>
+                        </div>
                     <!--/.Card-->
-
                 </div>
-                <!--Grid column-->
-
             </div>
             <!--Grid row-->
 
