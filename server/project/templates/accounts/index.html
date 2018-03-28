@@ -15,11 +15,11 @@
 
                 <!--Card content-->
                 <div class="card-body">
-                    <form class="form" role="form" autocomplete="off" id="form_case" novalidate="" action="{{ url_for('login') }}" method="get">
+                    <form class="form" role="form" autocomplete="off" id="form_case" novalidate="" action="{{ url_for('case') }}" method="get">
                         {% for case in resp.cases %}
                         <div class="radio">
-                            <label for="{{ case }}">{{ case }}
-                                <input type="radio" class="my_input form-control form-control-lg rounded-0" name="case" id="{{ case }}" required="">
+                            <label>
+                                <input type="radio" class="" name="case_name" id="{{ case }}" value="{{ case }}" required="">&nbsp;&nbsp;{{ case }}
                             </label>
                         </div>
                         {% endfor %}
