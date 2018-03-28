@@ -31,14 +31,6 @@
 				"dummy.json",
 				"ryuzaki.json"
 			]
-		},
-		{
-			"username" : "bbm",
-			"password" : "bbm",
-			"cases" : [
-				"dummy.json",
-				"bbm.json"
-			]
 		}
 	]
 }
