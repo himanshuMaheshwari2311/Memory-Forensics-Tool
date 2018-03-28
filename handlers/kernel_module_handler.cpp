@@ -6,6 +6,7 @@
 #include <vector>
 #include <fstream>
 #include <algorithm>
+#include <unordered_map>
 
 #include "../objects/kernel_module.cpp"
 #include "../data/profiles.cpp"
@@ -17,6 +18,8 @@ class kernel_module_handler
 {
   private:
 	vector<kernel_module> kernel_list;
+	unordered_map<uint64_t, kernel_module> kernel_map;
+	doubly_ll<kernel_module> *kernel_ll_head;
 
   public:
 	vector<uint64_t> pool_tag_scan(ifstream &ifile, profile &prf)
@@ -125,10 +128,58 @@ class kernel_module_handler
 		ifile.seekg(0, ios::beg);
 
 		vector<uint64_t> phy_offsets = pool_tag_scan(ifile, prf);
+		kernel_module curr;
 
 		for (int i = 0; i < phy_offsets.size(); ++i)
 		{
-			kernel_list.push_back(collect_info_module(ifile, prf, phy_offsets[i]));
+			curr = collect_info_module(ifile, prf, phy_offsets[i]);
+			kernel_list.push_back(curr);
+			kernel_map[phy_offsets[i]] = curr;
+		}
+
+		generate_kernel_ll(ifile, prf);
+	}
+
+	void generate_kernel_ll(ifstream &ifile, profile &prf)
+	{
+		kernel_module curr = kernel_list[0];
+		kernel_map.erase(curr.physical_offset);
+
+		doubly_ll<kernel_module> *curr_node = new doubly_ll<kernel_module>;
+		curr_node->module = curr;
+		
+		kernel_ll_head = curr_node;
+
+		doubly_ll<kernel_module> *next_node;
+
+		while(kernel_map.find(curr.flink) != kernel_map.end())
+		{
+			next_node = new doubly_ll<kernel_module>;
+			next_node->module = kernel_map[curr.flink];
+
+			curr_node->next = next_node;
+			next_node->prev = curr_node;
+
+			kernel_map.erase(next_node->module.physical_offset);
+
+			curr_node = next_node;
+		}
+
+		curr_node = kernel_ll_head;
+		doubly_ll<kernel_module> *prev_node;
+
+		while(kernel_map.find(curr.blink) != kernel_map.end())
+		{
+			prev_node = new doubly_ll<kernel_module>;
+			prev_node->module = kernel_map[curr.blink];
+
+			prev_node->next = curr_node;
+			curr_node->prev = prev_node;
+			
+			kernel_map.erase(prev_node->module.physical_offset);
+
+			curr_node = prev_node;
+			kernel_ll_head = curr_node;
 		}
 	}
 

@@ -6,6 +6,12 @@
 
 using namespace std;
 
+template <typename T>
+struct doubly_ll{
+	T module;
+	doubly_ll *next, *prev;
+};
+
 enum object_type
 {
 	tprocess,
