@@ -142,23 +142,22 @@ class kernel_module_handler
 
 	void generate_kernel_ll(ifstream &ifile, profile &prf)
 	{
-		kernel_module curr = kernel_list[0];
-		kernel_map.erase(curr.physical_offset);
-
 		doubly_ll<kernel_module> *curr_node = new doubly_ll<kernel_module>;
-		curr_node->module = curr;
-		
+		curr_node->module = kernel_list[0];
+		kernel_map.erase(curr_node->module.physical_offset);
+
 		kernel_ll_head = curr_node;
 
 		doubly_ll<kernel_module> *next_node;
 
-		while(kernel_map.find(curr.flink) != kernel_map.end())
+		while(kernel_map.find(curr_node->module.flink) != kernel_map.end())
 		{
 			next_node = new doubly_ll<kernel_module>;
-			next_node->module = kernel_map[curr.flink];
+			next_node->module = kernel_map[curr_node->module.flink];
 
 			curr_node->next = next_node;
 			next_node->prev = curr_node;
+			next_node->next = NULL;
 
 			kernel_map.erase(next_node->module.physical_offset);
 
@@ -168,18 +167,43 @@ class kernel_module_handler
 		curr_node = kernel_ll_head;
 		doubly_ll<kernel_module> *prev_node;
 
-		while(kernel_map.find(curr.blink) != kernel_map.end())
+		while(kernel_map.find(curr_node->module.blink) != kernel_map.end())
 		{
 			prev_node = new doubly_ll<kernel_module>;
-			prev_node->module = kernel_map[curr.blink];
+			prev_node->module = kernel_map[curr_node->module.blink];
 
 			prev_node->next = curr_node;
 			curr_node->prev = prev_node;
+			prev_node->prev = NULL;
 			
 			kernel_map.erase(prev_node->module.physical_offset);
 
 			curr_node = prev_node;
 			kernel_ll_head = curr_node;
+		}
+	}
+
+	void print_ll()
+	{
+		doubly_ll<kernel_module> *p;
+		p = kernel_ll_head;
+
+		while(p != NULL)
+		{
+			kernel_module curr = p->module;
+			cout<<curr.physical_offset<<" "<<curr.name<<" ";
+			cout<<"\n";
+			p = p->next;
+		}
+	}
+
+	void print_unloaded_modules()
+	{
+		for(auto it : kernel_map)
+		{
+			kernel_module curr = it.second;
+			cout<<curr.physical_offset<<" "<<curr.name<<" ";
+			cout<<"\n";
 		}
 	}
 
@@ -232,6 +256,11 @@ int main()
 	kh.get_kernel_list(ifile, prf);
 
 	cout << kh.get_info() << endl;
+
+	cout<<"\n*** Kernel Modules in Memory ***\n";
+	kh.print_ll();
+	cout<<"\n*** Unloaded Kernel Modules ***\n";
+	kh.print_unloaded_modules();
 }
 #endif
 #endif
