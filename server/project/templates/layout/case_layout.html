@@ -3,14 +3,18 @@
 <!-- Navbar -->
 
 <script>
-    function toggleTable(nr){
-        document.getElementById("table1").style.display="none";
-        document.getElementById("table2").style.display="none";
-        document.getElementById("table3").style.display="none";
-        document.getElementById("table4").style.display="none";
-        document.getElementById("table5").style.display="none";
-        document.getElementById("table"+nr).style.display="table-row";
+    function initTables() {
+        toggleTable(1);
     }
+    function toggleTable(nr) {
+        document.getElementById("table1").style.display = "none";
+        document.getElementById("table2").style.display = "none";
+        document.getElementById("table3").style.display = "none";
+        document.getElementById("table4").style.display = "none";
+        document.getElementById("table5").style.display = "none";
+        document.getElementById("table" + nr).style.display = "table-row";
+    }
+    window.onload = initTables;
 </script>
 
 <!-- Sidebar -->
@@ -20,17 +24,17 @@
         <img src="https://mdbootstrap.com/img/logo/mdb-email.png" class="img-fluid" alt="">
     </a>
 
-    <div class="list-group list-group-flush" >
-        <a href="#" class="list-group-item list-group-item-action waves-effect" id = "1" onClick = "toggleTable(1)" >
+    <div class="list-group list-group-flush">
+        <a href="#" class="list-group-item list-group-item-action waves-effect" id="1" onClick="toggleTable(1)">
             <i class="fa fa-pie-chart mr-3"></i>Process
         </a>
-        <a href="#" class="list-group-item list-group-item-action waves-effect" id = "2" onClick = "toggleTable(2)">
+        <a href="#" class="list-group-item list-group-item-action waves-effect" id="2" onClick="toggleTable(2)">
             <i class="fa fa-user mr-3"></i>Services</a>
-        <a href="#" class="list-group-item list-group-item-action waves-effect" id = "3" onClick = "toggleTable(3)">
+        <a href="#" class="list-group-item list-group-item-action waves-effect" id="3" onClick="toggleTable(3)">
             <i class="fa fa-table mr-3"></i>Network Connections</a>
-        <a href="#" class="list-group-item list-group-item-action waves-effect" id = "4" onClick = "toggleTable(4)">
+        <a href="#" class="list-group-item list-group-item-action waves-effect" id="4" onClick="toggleTable(4)">
             <i class="fa fa-map mr-3"></i>Registry Hives</a>
-        <a href="#" class="list-group-item list-group-item-action waves-effect" id = "5" onClick = "toggleTable(5)">
+        <a href="#" class="list-group-item list-group-item-action waves-effect" id="5" onClick="toggleTable(5)">
             <i class="fa fa-money mr-3"></i>Kernel Modules</a>
     </div>
 

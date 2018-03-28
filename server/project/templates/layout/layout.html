@@ -7,7 +7,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Memory Forensics Tool</title>
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
     <!-- Bootstrap core CSS -->
     <link href="{{ url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet">
     <!-- Material Design Bootstrap -->
@@ -15,6 +15,7 @@
     <!-- Your custom styles (optional) -->
     <link href="{{ url_for('static', filename='css/style.min.css')}}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/style.css')}}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Audiowide|Monoton" rel="stylesheet">
 </head>
 
 <body class="grey lighten-3">
@@ -28,7 +29,7 @@
                 <a class="navbar-brand waves-effect" target="_blank">
                 </a>
                 <a class="navbar-brand waves-effect" target="_blank">
-                    <strong class="blue-text">Memory Forensics Tool</strong>
+                    <strong class="blue-text" style="font-family: 'Audiowide', cursive;">MEMORY FORENSICS TOOL</strong>
                 </a>
             </div>
 
@@ -37,8 +38,7 @@
         <!-- Navbar -->
         {% block header %}{% endblock %}
     </header>
-    <br>
-    <br> {% block body %}{% endblock %}
+    {% block body %}{% endblock %}
 
 </body>
 
