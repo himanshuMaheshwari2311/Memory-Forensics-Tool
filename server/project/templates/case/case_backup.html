@@ -1,0 +1,254 @@
+{% extends "layout/case_layout.html" %} {% block body %}
+<!--Main layout-->
+<main class="pt-5 mx-lg-5">
+    <div class="container-fluid mt-5">
+
+        <!--Grid row-->
+        <div class="row wow fadeIn">
+
+            <!--Grid column-->
+            <div class="col-md-12 mb-4">
+                <center>
+                    <!--Card-->
+                    <div class="card" id="table1">
+                        <!-- Card header -->
+                        <div class="card-header text-center">
+                            Processes
+                        </div>
+                        <!--Card content-->
+                        <div class="card-body">
+
+                            <!-- Table  -->
+                            <table class="table table-hover">
+                                <!-- Table head -->
+                                <thead class="blue-grey lighten-4">
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Physical Offset</th>
+                                        <th>Process ID</th>
+                                        <th>Active Threads</th>
+                                        <th>Parent Process ID</th>
+                                        <th>Add to report</th>
+                                    </tr>
+                                </thead>
+                                <!-- Table head -->
+                                <tbody>
+                                    {% for key, value in case_data.iteritems(): %} {% if key == 'artifacts': %} {% for artifact in value: %} {% for k, v in artifact.iteritems():
+                                    %} {% if k == 'process_list': %} {% for process in v: %}
+                                    <tr>
+                                        {% set id = [] %} {% set btn = [] %} {% for ke, va in process.iteritems(): %} {% if ke == 'marked' %} {% do btn.append(va)
+                                        %} {% endif %} {% if ke == 'object_id' %} {% do id.append(va) %} {% do id.append(url_for('add_artifact'))
+                                        %} {% endif %} {% if ke != 'object_id' and ke != 'marked' %}{% if ke == 'physical_offset':
+                                        %}
+                                        <td>0x{{ '%0x' % va}}</td>
+                                        {% else: %}
+                                        <td>{{ va }}</td>
+                                        {% endif %}{% endif %}{% endfor %}
+                                        <td>
+                                            <button type="button" class="btn btn-primary" id="btn_{{id[0]}}" onclick="addToReport('{{ id[0] }}', '{{ id[1] }}')" {{ btn[0]
+                                                }}>Add</button>
+                                        </td>
+                                    </tr>
+                                    {% endfor %} {% endif %} {% endfor %} {% endfor %} {% endif %} {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="card" id="table2">
+                        <!-- Card header -->
+                        <div class="card-header text-center">
+                            Services
+                        </div>
+
+                        <!--Card content-->
+                        <div class="card-body">
+
+                            <!-- Table  -->
+                            <table class="table table-hover">
+                                <!-- Table head -->
+                                <thead class="blue-grey lighten-4">
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Physical Offset</th>
+                                        <th>Process ID</th>
+                                        <th>Active Threads</th>
+                                        <th>Parent Process ID</th>
+                                        <th>Add to report</th>
+                                    </tr>
+                                </thead>
+                                <!-- Table head -->
+                                <tbody>
+                                    {% for key, value in case_data.iteritems(): %} {% if key == 'artifacts': %} {% for artifact in value: %} {% for k, v in artifact.iteritems():
+                                    %} {% if k == 'process_list': %} {% for process in v: %}
+                                    <tr>
+                                        {% set id = [] %} {% set btn = [] %} {% for ke, va in process.iteritems(): %} {% if ke == 'marked' %} {% do btn.append(va)
+                                        %} {% endif %} {% if ke == 'object_id' %} {% do id.append(va) %} {% do id.append(url_for('add_artifact'))
+                                        %} {% endif %} {% if ke != 'object_id' and ke != 'marked' %}{% if ke == 'physical_offset':
+                                        %}
+                                        <td>0x{{ '%0x' % va}}</td>
+                                        {% else: %}
+                                        <td>{{ va }}</td>
+                                        {% endif %} {% endif %} {% endfor %}
+                                        <td>
+                                            <button type="button" class="btn btn-primary" id="btn_{{id[0]}}" onclick="addToReport('{{ id[0] }}', '{{ id[1] }}')" {{ btn[0]
+                                                }}>Add</button>
+                                        </td>
+                                    </tr>
+                                    {% endfor %} {% endif %} {% endfor %} {% endfor %} {% endif %} {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="card" id="table3">
+                        <div class="card-header text-center">
+                            Network Connections
+                        </div>
+                        <!--Card content-->
+                        <div class="card-body">
+
+                            <!-- Table  -->
+                            <table class="table table-hover">
+                                <!-- Table head -->
+                                <thead class="blue-grey lighten-4">
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Physical Offset</th>
+                                        <th>Process ID</th>
+                                        <th>Active Threads</th>
+                                        <th>Parent Process ID</th>
+                                        <th>Add to report</th>
+                                    </tr>
+                                </thead>
+                                <!-- Table head -->
+                                <tbody>
+                                    {% for key, value in case_data.iteritems(): %} {% if key == 'artifacts': %} {% for artifact in value: %} {% for k, v in artifact.iteritems():
+                                    %} {% if k == 'process_list': %} {% for process in v: %}
+                                    <tr>
+                                        {% set id = [] %} {% set btn = [] %} {% for ke, va in process.iteritems(): %} {% if ke == 'marked' %} {% do btn.append(va)
+                                        %} {% endif %} {% if ke == 'object_id' %} {% do id.append(va) %} {% do id.append(url_for('add_artifact'))
+                                        %} {% endif %} {% if ke != 'object_id' and ke != 'marked' %}{% if ke == 'physical_offset':
+                                        %}
+                                        <td>0x{{ '%0x' % va}}</td>
+                                        {% else: %}
+                                        <td>{{ va }}</td>
+                                        {% endif %} {% endif %} {% endfor %}
+                                        <td>
+                                            <button type="button" class="btn btn-primary" id="btn_{{id[0]}}" onclick="addToReport('{{ id[0] }}', '{{ id[1] }}')" {{ btn[0]
+                                                }}>Add</button>
+                                        </td>
+                                    </tr>
+                                    {% endfor %} {% endif %} {% endfor %} {% endfor %} {% endif %} {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="card" id="table4">
+                        <div class="card-header text-center">
+                            Registry Hives
+                        </div>
+                        <!--Card content-->
+                        <div class="card-body">
+
+                            <!-- Table  -->
+                            <table class="table table-hover">
+                                <!-- Table head -->
+                                <thead class="blue-grey lighten-4">
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Physical Offset</th>
+                                        <th>File Path</th>
+                                        <th>Add to report</th>
+                                    </tr>
+                                </thead>
+                                <!-- Table head -->
+                                <tbody>
+                                    {% for key, value in case_data.iteritems(): %} {% if key == 'artifacts': %} {% for artifact in value: %} {% for k, v in artifact.iteritems():
+                                    %} {% if k == 'registry_list': %} {% for registry in v: %}
+                                    <tr>
+                                        {% set id = [] %} {% set btn = [] %} {% for ke, va in registry.iteritems(): %} {% if ke == 'marked' %} {% do btn.append(va)
+                                        %} {% endif %} {% if ke == 'object_id' %} {% do id.append(va) %} {% do id.append(url_for('add_artifact'))
+                                        %} {% endif %} {% if ke != 'object_id' and ke != 'marked' %}{% if ke == 'physical_offset':
+                                        %}
+                                        <td>0x{{ '%0x' % va}}</td>
+                                        {% else: %}
+                                        <td>{{ va }}</td>
+                                        {% endif %} {% endif %} {% endfor %}
+                                        <td>
+                                            <button type="button" class="btn btn-primary" id="btn_{{id[0]}}" onclick="addToReport('{{ id[0] }}', '{{ id[1] }}')" {{ btn[0]
+                                                }}>Add</button>
+                                        </td>
+                                    </tr>
+                                    {% endfor %} {% endif %} {% endfor %} {% endfor %} {% endif %} {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card" id="table5">
+
+                        <div class="card-header text-center">
+                            Kernel Modules
+                        </div>
+
+                        <!--Card content-->
+                        <div class="card-body">
+
+                            <!-- Table  -->
+                            <table class="table table-hover">
+                                <!-- Table head -->
+                                <thead class="blue-grey lighten-4">
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Physical Offset</th>
+                                        <th>File Path</th>
+                                        <th>Add to report</th>
+                                    </tr>
+                                </thead>
+                                <!-- Table head -->
+                                <tbody>
+                                    {% for key, value in case_data.iteritems(): %} {% if key == 'artifacts': %} {% for artifact in value: %} {% for k, v in artifact.iteritems():
+                                    %} {% if k == 'kernel_list': %} {% for kernel_module in v: %}
+                                    <tr>
+                                        {% set id = [] %} {% set btn = [] %} {% for ke, va in kernel_module.iteritems(): %} {% if ke == 'marked' %} {% do btn.append(va)
+                                        %} {% endif %} {% if ke == 'object_id' %} {% do id.append(va) %} {% do id.append(url_for('add_artifact'))
+                                        %} {% endif %} {% if ke != 'object_id' and ke != 'marked' %}{% if ke == 'physical_offset':
+                                        %}
+                                        <td>0x{{ '%0x' % va}}</td>
+                                        {% else: %}
+                                        <td>{{ va }}</td>
+                                        {% endif %} {% endif %} {% endfor %}
+                                        <td>
+                                            <button type="button" class="btn btn-primary" id="btn_{{id[0]}}" onclick="addToReport('{{ id[0] }}', '{{ id[1] }}')" {{ btn[0]
+                                                }}>Add</button>
+                                        </td>
+                                    </tr>
+                                    {% endfor %} {% endif %} {% endfor %} {% endfor %} {% endif %} {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!--/.Card-->
+                </center>
+            </div>
+        </div>
+        <!--Grid row-->
+    </div>
+</main>
+<!-- SCRIPTS -->
+<!-- JQuery -->
+<script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.2.1.min.js')}}"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="{{ url_for('static', filename='js/popper.min.js')}}"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js')}}"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="{{ url_for('static', filename='js/mdb.min.js')}}"></script>
+<!-- Case JS -->
+<script type="text/javascript" src="{{ url_for('static', filename='js/case.js')}}"></script>
+<!-- Initializations -->
+<script type="text/javascript">
+    // Animations initialization
+    new WOW().init();
+</script> {% endblock %}
