@@ -41,7 +41,7 @@ int main(int argc, char **argv)
     service_handler sh;
     registry_handler rh;
     kernel_module_handler kh;
-    
+
     cout << "Generating Registry List" << endl;
     vector<registry> registry_list = rh.get_registry_list(ifile, prf);
     cout << "Generating Process List" << endl;
@@ -84,7 +84,7 @@ int main(int argc, char **argv)
     json += "}";
 
     cout << json << endl;
-    
+
     ofstream ofile;
 
     string case_name;
@@ -106,8 +106,7 @@ int main(int argc, char **argv)
     case_name += ".json";
     replace(case_name.begin(), case_name.end(), ':', '-');
     replace(case_name.begin(), case_name.end(), ' ', '-');
-    
-    
+
     string out_file_name;
     out_file_name += "data/json/";
     out_file_name += case_name;
