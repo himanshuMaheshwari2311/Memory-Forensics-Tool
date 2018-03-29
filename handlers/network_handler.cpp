@@ -10,6 +10,8 @@
 
 #include "../objects/network.cpp"
 #include "../data/profiles.cpp"
+#include "process_handler.cpp"
+#include "../objects/process.cpp"
 
 using namespace std;
 
@@ -17,10 +19,13 @@ class network_handler
 {
   private:
     vector<network> network_list;
+    process_handler ph;
 
   public:
     vector<uint64_t> pool_scan_tag(ifstream &ifile, profile prf)
     {
+        ifile.clear();
+        ifile.seekg(0, ios::beg);
         vector<uint64_t> phy_offsets;
         uint64_t addr_val = 0;
         char current_pattern[8];
@@ -41,17 +46,19 @@ class network_handler
         return phy_offsets;
     }
 
-    network collect_info_module(ifstream &ifile, profile &prf, uint64_t phy_offset)
+    network collect_info_module(ifstream &ifile, profile &prf, uint64_t phy_offset, vector<process> process_list)
     {
         network n;
         uint16_t type;
         uint64_t vir_addr, phy_addr;
-
+        n.physical_offset = phy_offset;
         //udp
+
         uint8_t ipv4 = 0;
         uint16_t ipv6;
-        ifile.seekg(phy_offset, ios::beg);
-        ifile.ignore(0x20);
+
+        //inet_af
+        ifile.seekg(phy_offset + prf.udp_offsets[0]);
         ifile.read(reinterpret_cast<char *>(&vir_addr), 8);
         phy_addr = utility_functions::opt_get_phy_addr(ifile, vir_addr, prf.get_global_dtb(ifile));
         ifile.clear();
@@ -62,11 +69,27 @@ class network_handler
             n.protocol_version = "UDPv4";
         else if (type == 0x17)
             n.protocol_version = "UDPv6";
-        
-        //port
+
+        //owner information
+        /*
         ifile.clear();
         ifile.seekg(phy_offset, ios::beg);
-        ifile.ignore(0x80);
+        ifile.ignore(0x28);
+        ifile.read(reinterpret_cast<char *>(&vir_addr), 8);
+        phy_addr = utility_functions::opt_get_phy_addr(ifile, vir_addr, prf.get_global_dtb(ifile));
+        for(int i = 0; i < process_list.size(); i++)
+        {
+            if(process_list[i].physical_offset == phy_addr)
+            {
+                n.owner_name = process_list[i].name;
+                n.pid = process_list[i].pid;
+            }
+        }
+        */
+
+        //port
+        ifile.clear();
+        ifile.seekg(phy_offset + prf.udp_offsets[1]);
         ifile.read(reinterpret_cast<char *>(&n.port), 2);
         uint16_t r_port = n.port << 8;
         uint16_t l_port = n.port >> 8;
@@ -75,8 +98,7 @@ class network_handler
         //address
         ifile.clear();
         ifile.seekg(0, ios::beg);
-        ifile.seekg(phy_offset, ios::beg);
-        ifile.ignore(0x60);
+        ifile.seekg(phy_offset + prf.udp_offsets[1]);
         ifile.read(reinterpret_cast<char *>(&vir_addr), 8);
         phy_addr = utility_functions::opt_get_phy_addr(ifile, vir_addr, prf.get_global_dtb(ifile));
         ifile.clear();
@@ -142,19 +164,24 @@ class network_handler
         if (type != 0)
         {
             cout << hex << phy_offset << " " << n.protocol_version;
-            cout << " " << dec << n.local_address << " :  " << n.port << endl;
+            cout << " " << dec << n.local_address << " :  " << n.port << endl;//  " " << n.owner_name << " " << n.pid <<endl;
         }
         return n;
     }
 
     void generate_network_modules(ifstream &ifile, profile &prf)
     {
+        string temp = "temp";
+        vector<process> process_list; //= ph.get_process_list(ifile, prf);
+
         vector<uint64_t> phy_offsets = pool_scan_tag(ifile, prf);
         for (int i = 0; i < phy_offsets.size(); i++)
         {
             ifile.clear();
             ifile.seekg(0, ios::beg);
-            network_list.push_back(collect_info_module(ifile, prf, phy_offsets[i]));
+            network_list.push_back(collect_info_module(ifile, prf, phy_offsets[i], process_list));
+            if (network_list[network_list.size() - 1].local_address.compare(temp) == 0)
+                network_list.pop_back();
         }
     }
 
@@ -169,6 +196,7 @@ class network_handler
 
     string get_info()
     {
+        cout << "Generating" << endl;
         string json;
         json += "{ ";
         json += "\"network_list\" : ";
@@ -206,6 +234,7 @@ int main(void)
     cout << "\n";
 
     nh.generate_network_modules(ifile, prf);
+    cout << nh.get_info() << endl;
 }
 #endif
 #endif

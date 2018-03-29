@@ -127,7 +127,7 @@ class process_handler
 };
 
 #ifndef mainfunc
-int main(void)
+/*int main(void)
 {
 	process_handler ph;
 	ifstream ifile;
@@ -148,6 +148,6 @@ int main(void)
 	//ph.print_processes();
 	//cout<<ph.get_info();
 	//ph.generate_processes(ifile, prf);
-}
+}*/
 #endif
 #endif

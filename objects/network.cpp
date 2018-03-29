@@ -27,14 +27,21 @@ class network : public object
         json += "\"" + this->protocol_version + "\" ,";
 
         json += "\"physical_offset\" : ";
-        json += "\"" + this->physical_offset + "\" ,";
+        json += "\"" + to_string(this->physical_offset) + "\" ,";
 
         json += "\"local_address\" : ";
         json += "\"" + this->local_address + "\" ,";
 
         json += "\"port\" : ";
-        json += "\"" + this->port + "\" ,";
+        json += "\"" + to_string(this->port) + "\" ,";
 
+        
+		json += "\"marked\" : ";
+		json += "\"disabled\"";
+
+		json += "} ";
+        
+        return json;
     }
 };
 

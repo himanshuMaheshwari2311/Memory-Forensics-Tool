@@ -67,7 +67,7 @@ class profile
 		service_record_offsets = new int[5]{8, 16, 48, 52, 76};
 
 		udp_pool_tag = new char[8]{'0', '0', '0', '0', 'U', 'd', 'p', 'A'};
-		udp_offsets = new int[1]{1};
+		udp_offsets = new int[3]{0x20, 0x80, 0x60};
 
 		hive_signature = new char[8]{char(224), char(190), char(224), char(190), 0, 0, 0, 0};
 		hive_pool_tag = new char[8]{'0', '0', '0', '0', 'C', 'M', '1', '0'};
