@@ -18,6 +18,8 @@ function addToReport(id, url) {
             object_id: id
         },
         function (data, status) {
-            alert("Data: " + data + "\nStatus: " + status);
+            console.log("btn_" + id);
+            $('#btn_' + id).prop('disabled', true);
+            //document.getElementById("btn_" + id).attr('disabled', true);
         });
 }

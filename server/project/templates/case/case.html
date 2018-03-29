@@ -53,7 +53,7 @@
                                         <td>{{ va }}</td>
                                         {% endif %}{% endif %}{% endfor %}
                                         <td>
-                                            <button type="button" class="btn btn-primary" onclick="addToReport('{{ id[0] }}', '{{ id[1] }}')" {{ btn[0] }}>Add {{id[0]}}</button>
+                                            <button type="button" class="btn btn-primary" id="btn_{{id[0]}}" onclick="addToReport('{{ id[0] }}', '{{ id[1] }}')" {{ btn[0] }}>Add</button>
                                         </td>
                                     </tr>
                                     {% endfor %} {% endif %} {% endfor %} {% endfor %} {% endif %} {% endfor %}
