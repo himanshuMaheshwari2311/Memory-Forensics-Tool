@@ -64,3 +64,30 @@ def add_artifact():
 		resp = {}
 		resp['result'] = True
 		return json.dumps(resp)
+
+# add function
+@app.route('/remove_artifact', methods = ['GET', 'POST'])
+def remove_artifact():
+    if request.method == 'POST':
+		object_id = request.form['object_id']
+		with open('../data/json/' + session['selected_case'], mode='r') as f:
+			case_data = json.load(f)
+			new_case_data = case_data
+			i = 0
+			for artifact in case_data['artifacts']:
+				key = next(iter(artifact))
+				value = artifact[key]
+				j = 0
+				for module in value:
+					if str(module['object_id']) == str(object_id) and module['marked'] == "disabled":
+						new_case_data['artifacts'][i][key][j]['marked'] = "enabled"
+						if 'comment' in new_case_data['artifacts'][i][key][j]:
+							new_case_data['artifacts'][i][key][j].pop('comment')
+					j += 1
+				i += 1
+		with open('../data/json/' + session['selected_case'], mode='w') as f:
+			json.dump(new_case_data, f)
+
+		resp = {}
+		resp['result'] = True
+		return json.dumps(resp)
