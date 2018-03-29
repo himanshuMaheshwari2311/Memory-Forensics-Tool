@@ -33,14 +33,23 @@
                                 </thead>
                                 <!-- Table head -->
                                 <tbody>
-                                    {% for key, value in case_data.iteritems(): %} {% if key == 'artifacts': %} {% for artifact in value: %} {% for k, v in artifact.iteritems():
-                                    %} {% if k == 'process_list': %} {% for process in v: %}
+                                    {% set id = 0 %} {% for key, value in case_data.iteritems(): %} {% if key == 'artifacts': %} {% for artifact in value: %}
+                                    {% for k, v in artifact.iteritems(): %} {% if k == 'process_list': %} {% for process
+                                    in v: %}
                                     <tr>
-                                        {% for ke, va in process.iteritems(): %} {% if ke != 'object_id': %} {% if ke == 'physical_offset': %}
+                                        {% for ke, va in process.iteritems(): %}
+                                        {% if ke == 'object_id' %}
+                                            {% set id = va %}
+                                            <td>{{ va }}</td>
+                                        {% endif %}
+                                        {% if ke != 'object_id' %}{% if ke == 'physical_offset': %}
                                         <td>0x{{ '%0x' % va}}</td>
                                         {% else: %}
                                         <td>{{ va }}</td>
-                                        {% endif %} {% endif %} {% endfor %}
+                                        {% endif %}{% endif %}{% endfor %}
+                                        <td>
+                                            <button type="button" class="btn btn-primary" onclick="addToReport('{{ id }}')">Add {{id}}</button>
+                                        </td>
                                     </tr>
                                     {% endfor %} {% endif %} {% endfor %} {% endfor %} {% endif %} {% endfor %}
                                 </tbody>

@@ -20,13 +20,15 @@ def case():
 			return render_template('accounts/index.html', resp = resp)
 		try:
 			if case_name not in session['cases']:
+				print "Case name not in session"
 				resp['result_type'] = "danger"
 				resp['result'] = "Specified case name is wrong!"
 				resp['cases'] = session['cases']
 				return render_template('accounts/index.html', resp = resp)
 			case_data = json.load(open('../data/json/' + case_name))
 			return render_template('case/case.html', case_data = case_data)
-		except:
+		except Exception as e:
+			print "Exception: " + str(e)
 			resp['result_type'] = "danger"
 			resp['result'] = "Specified case name is wrong!"
 			resp['cases'] = session['cases']
