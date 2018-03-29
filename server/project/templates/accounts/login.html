@@ -29,15 +29,11 @@
                                 <div class="invalid-feedback">Enter your password too!</div>
                             </div>
                             <input type="submit" value="Login" class="btn btn-primary btn-lg float-right" id="btnlogin"></input>
-                            <div class="form-group">
-                                <small id="passwordHelp" class="text-danger">
-                                    {{ resp.result }}
-                                </small>
-                            </div>
                         </form>
-                        <canvas id="login_form"></canvas>
                     </div>
-
+                    <div class="alert alert-{{ resp.result_type }}" style="margin: 25px;">
+                        {{ resp.result }}
+                    </div>
                 </div>
             </div>
         </div>

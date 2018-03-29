@@ -28,18 +28,15 @@
                             </div>
                             {% endfor %}
                             <input type="submit" value="Select" class="btn btn-primary btn-lg float-right" id="btn_case"></input>
-                            <div class="form-group">
-                                <small id="caseHelp" class="text-danger">
-                                    {{ resp.result }}
-                                </small>
-                            </div>
                         </form>
-                        <canvas id="case_form"></canvas>
                     </div>
-
+                    <div class="alert alert-{{ resp.result_type }}" style="margin: 25px;">
+                        {{ resp.result }}
+                    </div>
                 </div>
             </div>
         </div>
+
     </div>
 </main>
 
