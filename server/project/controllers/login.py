@@ -37,3 +37,11 @@ def login():
 			return render_template('accounts/index.html', resp = resp)
 	resp['result'] = ""
 	return render_template('accounts/login.html', resp = resp)
+
+@app.route('/logout', methods = ['GET', 'POST'])
+def logout():
+	if 'username' in session:
+		session.pop('username')
+	resp = {}
+	resp['result'] = "Successfully logged out!"
+	return render_template('accounts/login.html', resp = resp)
