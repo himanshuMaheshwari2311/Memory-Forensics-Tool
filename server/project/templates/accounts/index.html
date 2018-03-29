@@ -21,11 +21,18 @@
                             {% for case in resp.cases %}
                             <div class="radio">
                                 <label>
-                                    <input type="radio" class="" name="case_name" id="{{ case }}" value="{{ case }}" required="">&nbsp;&nbsp;{{ case }}
+                                    {% if loop.index == 1 %}
+                                    <input type="radio" class="" name="case_name" id="{{ case }}" value="{{ case }}" required="" checked>&nbsp;&nbsp;{{ case }} {% else %}
+                                    <input type="radio" class="" name="case_name" id="{{ case }}" value="{{ case }}" required="">&nbsp;&nbsp;{{ case }} {% endif %}
                                 </label>
                             </div>
                             {% endfor %}
                             <input type="submit" value="Select" class="btn btn-primary btn-lg float-right" id="btn_case"></input>
+                            <div class="form-group">
+                                <small id="caseHelp" class="text-danger">
+                                    {{ resp.result }}
+                                </small>
+                            </div>
                         </form>
                         <canvas id="case_form"></canvas>
                     </div>
