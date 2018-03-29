@@ -20,7 +20,21 @@ class network : public object
 
     string get_info()
     {
-        return "network";
+        string json = "";
+        json += "{ ";
+
+        json += "\"protocol_version\" : ";
+        json += "\"" + this->protocol_version + "\" ,";
+
+        json += "\"physical_offset\" : ";
+        json += "\"" + this->physical_offset + "\" ,";
+
+        json += "\"local_address\" : ";
+        json += "\"" + this->local_address + "\" ,";
+
+        json += "\"port\" : ";
+        json += "\"" + this->port + "\" ,";
+
     }
 };
 

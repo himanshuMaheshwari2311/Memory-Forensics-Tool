@@ -25,7 +25,13 @@ def case():
 				resp['result'] = "Specified case name is wrong!"
 				resp['cases'] = session['cases']
 				return render_template('accounts/index.html', resp = resp)
+			
+			# added here
+			with open('../data/json/report_' + case_name, mode = 'w') as f:
+				json.dump([], f)
 			case_data = json.load(open('../data/json/' + case_name))
+			session['selected_case'] = case_name
+			
 			return render_template('case/case.html', case_data = case_data)
 		except Exception as e:
 			print "Exception: " + str(e)
@@ -33,3 +39,24 @@ def case():
 			resp['result'] = "Specified case name is wrong!"
 			resp['cases'] = session['cases']
 			return render_template('accounts/index.html', resp = resp)
+
+# add function
+@app.route('/add_artifact', methods = ['GET', 'POST'])
+def add_to_report():
+    if request.method == 'POST':
+		report_data = {}
+		object_id = request.form['object_id'];
+		with open('../data/json/report_' + session['selectedd_case'], mode='w') as f:
+			case_data = json.load(f)
+		for artifact in case_data['artifacts']:
+			for key, value in artifacts.iteritems():
+				for module in value:
+    				if module['object_id'] == object_id and module['marked'] == "enabled":
+    					module['marked'] = "disabled"
+						report_data[object_id] = [ key, module ]
+    	json.dump(case_data, f)
+		with open('../data/json/report_' + session['selectedd_case'], mode='w') as report_json:
+			report = json.load(report_json)
+			report.append(report_data)
+			json.dump(report, report_json)
+

@@ -169,10 +169,9 @@ class network_handler
 
     string get_info()
     {
-        //left_to_do
         string json;
         json += "{ ";
-        json += "\"registry_list\" : ";
+        json += "\"network_list\" : ";
         json += "[ ";
         for (int i = 0; i < network_list.size(); ++i)
         {

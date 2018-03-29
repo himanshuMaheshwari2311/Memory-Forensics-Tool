@@ -28,7 +28,7 @@ class registry_handler
         {
             ifile.read(current_pattern, 8);
             addr_val += 8;
-            if (utility_functions::compare_array(current_pattern, prf.hive_signature, 8)) //utility_functions::scan_tag(current_pattern, prf.hive_pool_tag, 8)
+            if (utility_functions::compare_array(current_pattern, prf.hive_signature, 8))
             {
                 cout << hex << addr_val - 8 << endl;
                 phy_offsets.push_back(addr_val - 8);
@@ -47,11 +47,10 @@ class registry_handler
         ifile.clear();
         ifile.seekg(0, ios::beg);
         uint64_t addr_val = phy_offset, vir_file_addr, phy_file_addr;
-        uint8_t offset_ct = 0;
 
         rm.physical_offset = addr_val;
         ifile.seekg(phy_offset, ios::beg);
-        ifile.ignore(prf.hive_offsets[offset_ct++]);
+        ifile.seekg(phy_offset + prf.hive_offsets[0]);
         ifile.read(reinterpret_cast<char *>(&vir_file_addr), 8);
         if (vir_file_addr == 0)
         {
@@ -61,7 +60,10 @@ class registry_handler
         if (vir_file_addr == 0)
         {
             if (phy_offset != 0)
+            {
+                rm.file_path = "[no name]";
                 cout << hex << phy_offset << setw(64) << "[no name]" << endl;
+            }
         }
         else
         {
@@ -140,6 +142,7 @@ int main(void)
     if (!ifile)
     {
         cout << "Error in opening file..!!";
+        exit(0);
     }
     cout << "File opened..";
     cout << "\n";
