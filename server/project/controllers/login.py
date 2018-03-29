@@ -19,21 +19,23 @@ def credentials(uname, pwd):
 @app.route('/login', methods = ['GET', 'POST'])
 def login():
 	resp = {}
+	if 'username' in session:
+		resp['result'] = "Already logged in!"
+		resp['cases'] = session['cases']
+		return render_template('accounts/index.html', resp = resp)
 	if request.method == 'POST':
 		account = credentials(request.form['username'], request.form['password'])
 		if(account == "pwd"):
 			resp['result'] = "Incorrect password!"
-			print resp['result']
 			return render_template('accounts/login.html', resp = resp)
 		elif (account == "uname"):
 			resp['result'] = "Invalid username!"
-			print resp['result']
 			return render_template('accounts/login.html', resp = resp)
 		else:
-			resp['result'] = "Logged in!"
-			print resp['result']
+			resp['result'] = "Successfully logged in!"
 			resp['cases'] = account['cases']
-			session['username'] = request.form['username']
+			session['username'] = request.form['username']	
+			session['cases'] = account['cases']
 			return render_template('accounts/index.html', resp = resp)
 	resp['result'] = ""
 	return render_template('accounts/login.html', resp = resp)
