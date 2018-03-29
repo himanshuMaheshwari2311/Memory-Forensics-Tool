@@ -54,6 +54,8 @@ def add_artifact():
 				for module in value:
 					if str(module['object_id']) == str(object_id) and module['marked'] == "enabled":
 						new_case_data['artifacts'][i][key][j]['marked'] = "disabled"
+						if 'comment' in request.form:
+							new_case_data['artifacts'][i][key][j]['comment'] = request.form['comment']
 					j += 1
 				i += 1
 		with open('../data/json/' + session['selected_case'], mode='w') as f:
