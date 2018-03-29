@@ -58,3 +58,7 @@ def logout():
 	resp['result_type'] = "info"
 	resp['result'] = "Successfully logged out!"
 	return render_template('accounts/login.html', resp = resp)
+
+@app.route('/register')
+def register():
+	return render_template('accounts/register.html')
