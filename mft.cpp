@@ -102,7 +102,7 @@ int main(int argc, char **argv)
     time(&rawtime);
     case_name += "_";
     case_name += ctime(&rawtime);
-    case_name[case_name.length() - 1] = 'a';
+    case_name[case_name.length() - 1] = 'x';
     case_name += ".json";
     replace(case_name.begin(), case_name.end(), ':', '-');
     replace(case_name.begin(), case_name.end(), ' ', '-');
