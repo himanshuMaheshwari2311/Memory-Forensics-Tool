@@ -27,8 +27,6 @@ def case():
 				return render_template('accounts/index.html', resp = resp)
 			
 			# added here
-			with open('../data/json/report_' + case_name, mode = 'w') as f:
-				json.dump([], f)
 			case_data = json.load(open('../data/json/' + case_name))
 			session['selected_case'] = case_name
 			
