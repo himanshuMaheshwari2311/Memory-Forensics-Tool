@@ -47,7 +47,7 @@ int main(int argc, char **argv)
     cout << "Generating Process List" << endl;
     vector<process> process_list = ph.get_process_list(ifile, prf);
     cout << "Generating Service List" << endl;
-    vector<service> service_list;
+    vector<service> service_list = sh.get_service_list(ifile, prf);
     cout << "Generating Kernel List" << endl;
     vector<kernel_module> kernel_list = kh.get_kernel_list(ifile, prf);
 
