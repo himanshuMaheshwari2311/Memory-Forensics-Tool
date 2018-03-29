@@ -45,16 +45,16 @@ def case():
 def add_to_report():
     if request.method == 'POST':
 		report_data = {}
-		object_id = request.form['object_id'];
+		object_id = request.form['object_id']
 		with open('../data/json/report_' + session['selectedd_case'], mode='w') as f:
 			case_data = json.load(f)
 		for artifact in case_data['artifacts']:
 			for key, value in artifacts.iteritems():
 				for module in value:
-    				if module['object_id'] == object_id and module['marked'] == "enabled":
-    					module['marked'] = "disabled"
+					if module['object_id'] == object_id and module['marked'] == "enabled":
+						module['marked'] = "disabled"
 						report_data[object_id] = [ key, module ]
-    	json.dump(case_data, f)
+		json.dump(case_data, f)
 		with open('../data/json/report_' + session['selectedd_case'], mode='w') as report_json:
 			report = json.load(report_json)
 			report.append(report_data)
