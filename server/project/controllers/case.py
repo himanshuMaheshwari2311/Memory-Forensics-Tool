@@ -42,21 +42,25 @@ def case():
 
 # add function
 @app.route('/add_artifact', methods = ['GET', 'POST'])
-def add_to_report():
+def add_artifact():
     if request.method == 'POST':
-		report_data = {}
 		object_id = request.form['object_id']
-		with open('../data/json/report_' + session['selectedd_case'], mode='w') as f:
+		with open('../data/json/' + session['selected_case'], mode='r') as f:
 			case_data = json.load(f)
-		for artifact in case_data['artifacts']:
-			for key, value in artifacts.iteritems():
+			new_case_data = case_data
+			i = 0
+			for artifact in case_data['artifacts']:
+				key = next(iter(artifact))
+				value = artifact[key]
+				j = 0
 				for module in value:
-					if module['object_id'] == object_id and module['marked'] == "enabled":
-						module['marked'] = "disabled"
-						report_data[object_id] = [ key, module ]
-		json.dump(case_data, f)
-		with open('../data/json/report_' + session['selectedd_case'], mode='w') as report_json:
-			report = json.load(report_json)
-			report.append(report_data)
-			json.dump(report, report_json)
+					if str(module['object_id']) == str(object_id) and module['marked'] == "enabled":
+						new_case_data['artifacts'][i][key][j]['marked'] = "disabled"
+					j += 1
+				i += 1
+		with open('../data/json/' + session['selected_case'], mode='w') as f:
+			json.dump(new_case_data, f)
 
+		resp = {}
+		resp['result'] = True
+		return json.dumps(resp)
