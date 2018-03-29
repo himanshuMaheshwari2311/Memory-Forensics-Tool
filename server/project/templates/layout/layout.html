@@ -36,7 +36,19 @@
             </div>
         </nav>
         <!-- Navbar -->
-        {% block header %}{% endblock %}
+
+        <!-- Sidebar -->
+        <div class="sidebar-fixed position-fixed">
+
+            <a class="logo-wrapper waves-effect">
+                <img src="{{ url_for('static', filename='img/mft-logo.png')}}" class="img-fluid" alt="">
+            </a>
+
+            {% block sidebar %}{% endblock %}
+
+        </div>
+        <!-- Sidebar -->
+
     </header>
     {% block body %}{% endblock %}
 

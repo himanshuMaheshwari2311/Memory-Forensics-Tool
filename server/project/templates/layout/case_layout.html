@@ -1,4 +1,4 @@
-{% extends "layout/layout.html" %} {% block header %}
+{% extends "layout/layout.html" %} {% block sidebar %}
 <!--Main Navigation-->
 <!-- Navbar -->
 
@@ -17,13 +17,6 @@
     window.onload = initTables;
 </script>
 
-<!-- Sidebar -->
-<div class="sidebar-fixed position-fixed">
-
-    <a class="logo-wrapper waves-effect">
-        <img src="{{ url_for('static', filename='img/mft-logo.png')}}" class="img-fluid" alt="">
-    </a>
-
     <div class="list-group list-group-flush">
         <a href="#" class="list-group-item list-group-item-action waves-effect" id="1" onClick="toggleTable(1)">
             <i class="fa fa-pie-chart mr-3"></i>Process
@@ -38,7 +31,6 @@
             <i class="fa fa-money mr-3"></i>Kernel Modules</a>
     </div>
 
-</div>
-<!-- Sidebar -->
+
 
 {% endblock %}
