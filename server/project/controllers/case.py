@@ -43,6 +43,7 @@ def case():
 def add_artifact():
     if request.method == 'POST':
 		object_id = request.form['object_id']
+		resp = {}
 		with open('../data/json/' + session['selected_case'], mode='r') as f:
 			case_data = json.load(f)
 			new_case_data = case_data
@@ -56,12 +57,12 @@ def add_artifact():
 						new_case_data['artifacts'][i][key][j]['marked'] = "disabled"
 						if 'comment' in request.form:
 							new_case_data['artifacts'][i][key][j]['comment'] = request.form['comment']
+						resp['obj'] = new_case_data['artifacts'][i][key][j]
 					j += 1
 				i += 1
 		with open('../data/json/' + session['selected_case'], mode='w') as f:
 			json.dump(new_case_data, f)
 
-		resp = {}
 		resp['result'] = True
 		return json.dumps(resp)
 
@@ -84,7 +85,6 @@ def remove_artifact():
 						new_case_data['artifacts'][i][key][j]['marked'] = "enabled"
 						if 'comment' in new_case_data['artifacts'][i][key][j]:
 							new_case_data['artifacts'][i][key][j].pop('comment')
-						resp['obj'] = new_case_data['artifacts'][i][key][j]
 					j += 1
 				i += 1
 		with open('../data/json/' + session['selected_case'], mode='w') as f:
