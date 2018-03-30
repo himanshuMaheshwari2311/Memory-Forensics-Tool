@@ -4,7 +4,6 @@
 			"username" : "near",
 			"password" : "near",
 			"cases" : [
-				"dummy.json",
 				"near.json"
 			]
 		},
@@ -12,7 +11,6 @@
 			"username" : "stark",
 			"password" : "stark",
 			"cases" : [
-				"dummy.json",
 				"stark.json"
 			]
 		},
@@ -20,7 +18,6 @@
 			"username" : "tiger",
 			"password" : "tiger",
 			"cases" : [
-				"dummy.json",
 				"tiger.json"
 			]
 		},
@@ -28,8 +25,8 @@
 			"username" : "ryuzaki",
 			"password" : "ryuzaki",
 			"cases" : [
-				"dummy.json",
-				"ryuzaki.json"
+				"ryuzaki.json",
+				"dummy.json"
 			]
 		}
 	]
