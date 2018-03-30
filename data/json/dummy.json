@@ -1,1 +1,2598 @@
-{"artifacts": [{"process_list": [{"comment": "", "name": "Idle", "physical_offset": 44446144, "pid": 0, "object_id": 16, "active_threads": 0, "marked": "enabled", "ppid": 0}, {"comment": "", "name": "svchost.exe", "physical_offset": 2107906864, "pid": 1156, "object_id": 17, "active_threads": 0, "marked": "enabled", "ppid": 440}, {"comment": "", "name": "spoolsv.exe", "physical_offset": 2108208736, "pid": 1128, "object_id": 18, "active_threads": 0, "marked": "enabled", "ppid": 440}, {"comment": "", "name": "svchost.exe", "physical_offset": 2109931616, "pid": 724, "object_id": 19, "active_threads": 0, "marked": "enabled", "ppid": 440}, {"comment": "", "name": "svchost.exe", "physical_offset": 2111408272, "pid": 952, "object_id": 20, "active_threads": 0, "marked": "enabled", "ppid": 440}, {"comment": "", "name": "svchost.exe", "physical_offset": 2111445808, "pid": 1020, "object_id": 21, "active_threads": 0, "marked": "enabled", "ppid": 440}, {"comment": "", "name": "svchost.exe", "physical_offset": 2111613744, "pid": 268, "object_id": 22, "active_threads": 0, "marked": "enabled", "ppid": 440}, {"comment": "", "name": "TrustedInstall", "physical_offset": 2111638320, "pid": 720, "object_id": 23, "active_threads": 0, "marked": "enabled", "ppid": 440}, {"comment": "", "name": "svchost.exe", "physical_offset": 2112311392, "pid": 560, "object_id": 24, "active_threads": 0, "marked": "enabled", "ppid": 440}, {"comment": "", "name": "svchost.exe", "physical_offset": 2112330544, "pid": 636, "object_id": 25, "active_threads": 0, "marked": "enabled", "ppid": 440}, {"comment": "", "name": "SearchFilterHo", "physical_offset": 2113238256, "pid": 2800, "object_id": 26, "active_threads": 0, "marked": "enabled", "ppid": 1792}, {"comment": "", "name": "SearchProtocol", "physical_offset": 2113433696, "pid": 2864, "object_id": 27, "active_threads": 0, "marked": "enabled", "ppid": 1792}, {"comment": "", "name": "svchost.exe", "physical_offset": 2113626208, "pid": 1956, "object_id": 28, "active_threads": 0, "marked": "enabled", "ppid": 440}, {"comment": "", "name": "taskhost.exe", "physical_offset": 2113667168, "pid": 2040, "object_id": 29, "active_threads": 0, "marked": "enabled", "ppid": 440}, {"comment": "", "name": "services.exe", "physical_offset": 2115580768, "pid": 440, "object_id": 30, "active_threads": 0, "marked": "enabled", "ppid": 352}, {"comment": "", "name": "csrss.exe", "physical_offset": 2115681072, "pid": 344, "object_id": 31, "active_threads": 0, "marked": "enabled", "ppid": 336}, {"comment": "", "name": "wininit.exe", "physical_offset": 2115701552, "pid": 352, "object_id": 32, "active_threads": 0, "marked": "enabled", "ppid": 300}, {"comment": "", "name": "winlogon.exe", "physical_offset": 2115779376, "pid": 380, "object_id": 33, "active_threads": 0, "marked": "enabled", "ppid": 336}, {"comment": "", "name": "svchost.exe", "physical_offset": 2115910448, "pid": 1512, "object_id": 34, "active_threads": 0, "marked": "enabled", "ppid": 440}, {"comment": "", "name": "lsm.exe", "physical_offset": 2117685344, "pid": 464, "object_id": 35, "active_threads": 0, "marked": "enabled", "ppid": 352}, {"comment": "", "name": "lsass.exe", "physical_offset": 2117688112, "pid": 456, "object_id": 36, "active_threads": 0, "marked": "enabled", "ppid": 352}, {"comment": "", "name": "csrss.exe", "physical_offset": 2117995312, "pid": 308, "object_id": 37, "active_threads": 0, "marked": "enabled", "ppid": 300}, {"comment": "", "name": "smss.exe", "physical_offset": 2123167904, "pid": 224, "object_id": 38, "active_threads": 0, "marked": "enabled", "ppid": 4}, {"comment": "", "name": "svchost.exe", "physical_offset": 2126857968, "pid": 880, "object_id": 39, "active_threads": 0, "marked": "enabled", "ppid": 440}, {"comment": "", "name": "sppsvc.exe", "physical_offset": 2127808384, "pid": 840, "object_id": 40, "active_threads": 0, "marked": "enabled", "ppid": 440}, {"comment": "", "name": "svchost.exe", "physical_offset": 2127926624, "pid": 904, "object_id": 41, "active_threads": 0, "marked": "enabled", "ppid": 440}, {"comment": "", "name": "SearchIndexer.", "physical_offset": 2133860448, "pid": 1792, "object_id": 42, "active_threads": 0, "marked": "enabled", "ppid": 440}, {"comment": "", "name": "smss.exe", "physical_offset": 2138175184, "pid": 176, "object_id": 43, "active_threads": 0, "marked": "enabled", "ppid": 4}, {"comment": "", "name": "wmpnetwk.exe", "physical_offset": 2141211440, "pid": 2360, "object_id": 44, "active_threads": 0, "marked": "enabled", "ppid": 440}, {"comment": "", "name": "WmiPrvSE.exe", "physical_offset": 2142721680, "pid": 2744, "object_id": 45, "active_threads": 0, "marked": "enabled", "ppid": 560}, {"comment": "", "name": "explorer.exe", "physical_offset": 2143971856, "pid": 1568, "object_id": 46, "active_threads": 0, "marked": "enabled", "ppid": 1572}, {"comment": "", "name": "dwm.exe", "physical_offset": 2144310080, "pid": 1532, "object_id": 47, "active_threads": 0, "marked": "enabled", "ppid": 880}, {"comment": "", "name": "System", "physical_offset": 2145534016, "pid": 4, "object_id": 48, "active_threads": 0, "marked": "enabled", "ppid": 0}]}, {"service_list": [{"comment": "", "display_name": "Distributed Link Tracking Client", "name": "TrkWks", "physical_offset": 156352208, "object_id": 49, "start": "SERVICE_AUTO_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "Remote Procedure Call (RPC)", "name": "RpcSs", "physical_offset": 156575264, "object_id": 50, "start": "SERVICE_AUTO_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "Offline Files", "name": "CscService", "physical_offset": 163008640, "object_id": 51, "start": "SERVICE_AUTO_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "Network Location Awareness", "name": "NlaSvc", "physical_offset": 163082144, "object_id": 52, "start": "SERVICE_AUTO_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "System Event Notification Service", "name": "SENS", "physical_offset": 156332384, "object_id": 53, "start": "SERVICE_AUTO_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "Network Location Awareness", "name": "NlaSvc", "physical_offset": 163082144, "object_id": 54, "start": "SERVICE_AUTO_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "SSDP Discovery", "name": "SSDPSRV", "physical_offset": 154233632, "object_id": 55, "start": "SERVICE_DEMAND_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "Network Store Interface Service", "name": "nsi", "physical_offset": 162814672, "object_id": 56, "start": "SERVICE_AUTO_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "Desktop Window Manager Session Manager", "name": "UxSms", "physical_offset": 151458928, "object_id": 57, "start": "SERVICE_AUTO_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "Windows Audio", "name": "AudioSrv", "physical_offset": 155055760, "object_id": 58, "start": "SERVICE_AUTO_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "Software Protection", "name": "sppsvc", "physical_offset": 154232672, "object_id": 59, "start": "SERVICE_AUTO_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_OWN_PROCESS"}, {"comment": "", "display_name": "Group Policy Client", "name": "gpsvc", "physical_offset": 158828000, "object_id": 60, "start": "SERVICE_AUTO_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "Windows Audio Endpoint Builder", "name": "AudioEndpointBuilder", "physical_offset": 163760000, "object_id": 61, "start": "SERVICE_AUTO_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "Network List Service", "name": "netprofm", "physical_offset": 163081664, "object_id": 62, "start": "SERVICE_DEMAND_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "Remote Desktop Services", "name": "TermService", "physical_offset": 156351488, "object_id": 63, "start": "SERVICE_DEMAND_START", "state": "SERVICE_STOPPED", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "Windows Firewall", "name": "MpsSvc", "physical_offset": 159919280, "object_id": 64, "start": "SERVICE_AUTO_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "RPC Endpoint Mapper", "name": "RpcEptMapper", "physical_offset": 154231632, "object_id": 65, "start": "SERVICE_AUTO_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "DCOM Server Process Launcher", "name": "DcomLaunch", "physical_offset": 163008880, "object_id": 66, "start": "SERVICE_AUTO_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "Power", "name": "Power", "physical_offset": 160741632, "object_id": 67, "start": "SERVICE_AUTO_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "Plug and Play", "name": "PlugPlay", "physical_offset": 160740672, "object_id": 68, "start": "SERVICE_AUTO_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "Shell Hardware Detection", "name": "ShellHWDetection", "physical_offset": 154232144, "object_id": 69, "start": "SERVICE_AUTO_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "Function Discovery Provider Host", "name": "fdPHost", "physical_offset": 160908816, "object_id": 70, "start": "SERVICE_DEMAND_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "Application Information", "name": "Appinfo", "physical_offset": 155054512, "object_id": 71, "start": "SERVICE_DEMAND_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "HomeGroup Provider", "name": "HomeGroupProvider", "physical_offset": 157263088, "object_id": 72, "start": "SERVICE_DEMAND_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "Windows Defender", "name": "WinDefend", "physical_offset": 147787472, "object_id": 73, "start": "SERVICE_AUTO_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "Windows Search", "name": "WSearch", "physical_offset": 153577520, "object_id": 74, "start": "SERVICE_AUTO_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_OWN_PROCESS"}, {"comment": "", "display_name": "Background Intelligent Transfer Service", "name": "BITS", "physical_offset": 155057200, "object_id": 75, "start": "SERVICE_AUTO_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "Protected Storage", "name": "ProtectedStorage", "physical_offset": 161001296, "object_id": 76, "start": "SERVICE_DEMAND_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "Offline Files", "name": "CscService", "physical_offset": 163008640, "object_id": 77, "start": "SERVICE_AUTO_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "Windows Font Cache Service", "name": "FontCache", "physical_offset": 158827040, "object_id": 78, "start": "SERVICE_AUTO_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "Security Center", "name": "wscsvc", "physical_offset": 153577280, "object_id": 79, "start": "SERVICE_AUTO_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "Windows Update", "name": "wuauserv", "physical_offset": 153577760, "object_id": 80, "start": "SERVICE_AUTO_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "Beep", "name": "Beep", "physical_offset": 155056960, "object_id": 81, "start": "SERVICE_SYSTEM_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_KERNEL_DRIVER"}, {"comment": "", "display_name": "Windows Update", "name": "wuauserv", "physical_offset": 153577760, "object_id": 82, "start": "SERVICE_AUTO_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "Function Discovery Resource Publication", "name": "FDResPub", "physical_offset": 160909056, "object_id": 83, "start": "SERVICE_DEMAND_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "Offline Files", "name": "CscService", "physical_offset": 163008640, "object_id": 84, "start": "SERVICE_AUTO_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "WWAN AutoConfig", "name": "WwanSvc", "physical_offset": 153578480, "object_id": 85, "start": "SERVICE_DEMAND_START", "state": "SERVICE_STOPPED", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "Network Connections", "name": "Netman", "physical_offset": 163081424, "object_id": 86, "start": "SERVICE_DEMAND_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "Network Connections", "name": "Netman", "physical_offset": 163081424, "object_id": 87, "start": "SERVICE_DEMAND_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "WLAN AutoConfig", "name": "Wlansvc", "physical_offset": 153575840, "object_id": 88, "start": "SERVICE_DEMAND_START", "state": "SERVICE_STOPPED", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "Network List Service", "name": "netprofm", "physical_offset": 163081664, "object_id": 89, "start": "SERVICE_DEMAND_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "Network Access Protection Agent", "name": "napagent", "physical_offset": 163078784, "object_id": 90, "start": "SERVICE_DEMAND_START", "state": "SERVICE_STOPPED", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "HomeGroup Provider", "name": "HomeGroupProvider", "physical_offset": 157263088, "object_id": 91, "start": "SERVICE_DEMAND_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "Windows Media Player Network Sharing Service", "name": "WMPNetworkSvc", "physical_offset": 146403392, "object_id": 92, "start": "SERVICE_DEMAND_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_OWN_PROCESS"}, {"comment": "", "display_name": "Application Experience", "name": "AeLookupSvc", "physical_offset": 160524432, "object_id": 93, "start": "SERVICE_DEMAND_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "Diagnostic Service Host", "name": "WdiServiceHost", "physical_offset": 154250304, "object_id": 94, "start": "SERVICE_DEMAND_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "WinHTTP Web Proxy Auto-Discovery Service", "name": "WinHttpAutoProxySvc", "physical_offset": 154251072, "object_id": 95, "start": "SERVICE_DEMAND_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "Windows Search", "name": "WSearch", "physical_offset": 153577520, "object_id": 96, "start": "SERVICE_AUTO_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_OWN_PROCESS"}, {"comment": "", "display_name": "Bluetooth Support Service", "name": "bthserv", "physical_offset": 164026704, "object_id": 97, "start": "SERVICE_DEMAND_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "SSDP Discovery", "name": "SSDPSRV", "physical_offset": 154233632, "object_id": 98, "start": "SERVICE_DEMAND_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "Diagnostic System Host", "name": "WdiSystemHost", "physical_offset": 154250560, "object_id": 99, "start": "SERVICE_DEMAND_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "Windows Media Center Scheduler Service", "name": "ehSched", "physical_offset": 163012480, "object_id": 100, "start": "SERVICE_DEMAND_START", "state": "SERVICE_STOPPED", "marked": "enabled", "type": "SERVICE_WIN32_OWN_PROCESS"}, {"comment": "", "display_name": "Windows Audio", "name": "AudioSrv", "physical_offset": 155055760, "object_id": 101, "start": "SERVICE_AUTO_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "Windows Audio", "name": "AudioSrv", "physical_offset": 155055760, "object_id": 102, "start": "SERVICE_AUTO_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "Windows Management Instrumentation", "name": "Winmgmt", "physical_offset": 147787712, "object_id": 103, "start": "", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "IP Helper", "name": "iphlpsvc", "physical_offset": 157005984, "object_id": 104, "start": "SERVICE_AUTO_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "Print Spooler", "name": "Spooler", "physical_offset": 156335744, "object_id": 105, "start": "SERVICE_AUTO_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_INTERACTIVE_PROCESS"}, {"comment": "", "display_name": "Base Filtering Engine", "name": "BFE", "physical_offset": 163760272, "object_id": 106, "start": "SERVICE_AUTO_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "Workstation", "name": "LanmanWorkstation", "physical_offset": 157554672, "object_id": 107, "start": "SERVICE_AUTO_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "Task Scheduler", "name": "Schedule", "physical_offset": 156576944, "object_id": 108, "start": "SERVICE_AUTO_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "COM+ Event System", "name": "EventSystem", "physical_offset": 160908096, "object_id": 109, "start": "SERVICE_AUTO_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "DNS Client", "name": "Dnscache", "physical_offset": 163010560, "object_id": 110, "start": "SERVICE_AUTO_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "DHCP Client", "name": "Dhcp", "physical_offset": 163009600, "object_id": 111, "start": "SERVICE_AUTO_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "Security Accounts Manager", "name": "SamSs", "physical_offset": 156575984, "object_id": 112, "start": "SERVICE_AUTO_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "Base Filtering Engine", "name": "BFE", "physical_offset": 163760272, "object_id": 113, "start": "SERVICE_AUTO_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "Network List Service", "name": "netprofm", "physical_offset": 163081664, "object_id": 114, "start": "SERVICE_DEMAND_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "Windows Event Log", "name": "eventlog", "physical_offset": 160907856, "object_id": 115, "start": "SERVICE_AUTO_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "User Profile Service", "name": "ProfSvc", "physical_offset": 160742112, "object_id": 116, "start": "SERVICE_AUTO_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "Themes", "name": "Themes", "physical_offset": 156351728, "object_id": 117, "start": "SERVICE_AUTO_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "Windows Modules Installer", "name": "TrustedInstaller", "physical_offset": 154249536, "object_id": 118, "start": "SERVICE_AUTO_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_OWN_PROCESS"}, {"comment": "", "display_name": "Cryptographic Services", "name": "CryptSvc", "physical_offset": 163762064, "object_id": 119, "start": "SERVICE_AUTO_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "Diagnostic Policy Service", "name": "DPS", "physical_offset": 160910960, "object_id": 120, "start": "SERVICE_AUTO_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "Program Compatibility Assistant Service", "name": "PcaSvc", "physical_offset": 162815904, "object_id": 121, "start": "SERVICE_AUTO_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}, {"comment": "", "display_name": "Superfetch", "name": "SysMain", "physical_offset": 156349328, "object_id": 122, "start": "SERVICE_AUTO_START", "state": "SERVICE_RUNNING", "marked": "enabled", "type": "SERVICE_WIN32_SHARE_PROCESS"}]}, {"registry_list": [{"comment": "", "name": "HKEY_LOCAL_MACHINE", "physical_offset": 44958272, "marked": "enabled", "object_id": 1, "file_path": "[no name]"}, {"comment": "", "name": "HKEY_LOCAL_MACHINE", "physical_offset": 139649040, "marked": "enabled", "object_id": 2, "file_path": "/??/C:/Windows/ServiceProfiles/NetworkService/NTUSER.DATCSP"}, {"comment": "", "name": "HKEY_LOCAL_MACHINE", "physical_offset": 142495760, "marked": "enabled", "object_id": 3, "file_path": "/SystemRoot/System32/Config/SAM"}, {"comment": "", "name": "HKEY_LOCAL_MACHINE", "physical_offset": 154001424, "marked": "enabled", "object_id": 4, "file_path": "/SystemRoot/System32/Config/SECURITY"}, {"comment": "", "name": "HKEY_LOCAL_MACHINE", "physical_offset": 508121104, "marked": "enabled", "object_id": 5, "file_path": "/SystemRoot/System32/Config/DEFAULTsCP,"}, {"comment": "", "name": "HKEY_LOCAL_MACHINE", "physical_offset": 654929936, "marked": "enabled", "object_id": 6, "file_path": "/SystemRoot/System32/Config/SOFTWARE"}, {"comment": "", "name": "HKEY_LOCAL_MACHINE", "physical_offset": 655495184, "marked": "enabled", "object_id": 7, "file_path": "/Device/HarddiskVolume1/Boot/BCDPFa"}, {"comment": "", "name": "HKEY_LOCAL_MACHINE", "physical_offset": 761111024, "marked": "enabled", "object_id": 8, "file_path": "/REGISTRY/MACHINE/HARDWARE"}, {"comment": "", "name": "HKEY_LOCAL_MACHINE", "physical_offset": 761200656, "marked": "enabled", "object_id": 9, "file_path": "/REGISTRY/MACHINE/SYSTEM"}, {"comment": "", "name": "HKEY_LOCAL_MACHINE", "physical_offset": 762073648, "marked": "enabled", "object_id": 10, "file_path": "[no name]"}, {"comment": "", "name": "HKEY_LOCAL_MACHINE", "physical_offset": 1726152720, "marked": "enabled", "object_id": 11, "file_path": "/??/C:/Users/Ryuzaki/ntuser.datC3"}, {"comment": "", "name": "HKEY_LOCAL_MACHINE", "physical_offset": 1784143888, "marked": "enabled", "object_id": 12, "file_path": "/??/C:/System Volume Information/Syscache.hve1FfK"}, {"comment": "", "name": "HKEY_LOCAL_MACHINE", "physical_offset": 1811734544, "marked": "enabled", "object_id": 13, "file_path": "/??/C:/Users/Ryuzaki/AppData/Local/Microsoft/Windows/UsrClass.datn"}, {"comment": "", "name": "HKEY_LOCAL_MACHINE", "physical_offset": 1925758992, "marked": "enabled", "object_id": 14, "file_path": "/??/C:/Windows/System32/config/COMPONENTS{P{NF"}, {"comment": "", "name": "HKEY_LOCAL_MACHINE", "physical_offset": 1960173584, "marked": "enabled", "object_id": 15, "file_path": "/??/C:/Windows/ServiceProfiles/LocalService/NTUSER.DATSTp"}]}, {"kernel_list": [{"comment": "", "name": "monitor.sys", "physical_offset": 94305536, "marked": "enabled", "object_id": 124, "file_path": "/SystemRoot/system32/DRIVERS/monitor.sys"}, {"comment": "", "name": "TSDDD.dll", "physical_offset": 94333264, "marked": "enabled", "object_id": 126, "file_path": "/SystemRoot/System32/TSDDD.dll"}, {"comment": "", "name": "lltdio.sys", "physical_offset": 2107855200, "marked": "enabled", "object_id": 128, "file_path": "/SystemRoot/system32/DRIVERS/lltdio.sys"}, {"comment": "", "name": "mrxsmb20.sys", "physical_offset": 2107909968, "marked": "enabled", "object_id": 130, "file_path": "/SystemRoot/system32/DRIVERS/mrxsmb20.sys"}, {"comment": "", "name": "rspndr.sys", "physical_offset": 2107975728, "marked": "enabled", "object_id": 132, "file_path": "/SystemRoot/system32/DRIVERS/rspndr.sys"}, {"comment": "", "name": "HTTP.sys", "physical_offset": 2108176864, "marked": "enabled", "object_id": 134, "file_path": "/SystemRoot/system32/drivers/HTTP.sys"}, {"comment": "", "name": "luafv.sys", "physical_offset": 2111683024, "marked": "enabled", "object_id": 136, "file_path": "/SystemRoot/system32/drivers/luafv.sys"}, {"comment": "", "name": "fastfat.SYS", "physical_offset": 2112939616, "marked": "enabled", "object_id": 138, "file_path": "/SystemRoot/System32/Drivers/fastfat.SYS"}, {"comment": "", "name": "dxg.sys", "physical_offset": 2113050800, "marked": "enabled", "object_id": 140, "file_path": "/SystemRoot/System32/drivers/dxg.sys"}, {"comment": "", "name": "asyncmac.sys", "physical_offset": 2113654064, "marked": "enabled", "object_id": 142, "file_path": "/SystemRoot/system32/DRIVERS/asyncmac.sys"}, {"comment": "", "name": "portcls.sys", "physical_offset": 2116051472, "marked": "enabled", "object_id": 144, "file_path": "/SystemRoot/system32/drivers/portcls.sys"}, {"comment": "", "name": "HdAudio.sys", "physical_offset": 2116059824, "marked": "enabled", "object_id": 146, "file_path": "/SystemRoot/system32/drivers/HdAudio.sys"}, {"comment": "", "name": "ksthunk.sys", "physical_offset": 2116459984, "marked": "enabled", "object_id": 148, "file_path": "/SystemRoot/system32/drivers/ksthunk.sys"}, {"comment": "", "name": "crashdmp.sys", "physical_offset": 2116632576, "marked": "enabled", "object_id": 150, "file_path": "/SystemRoot/System32/Drivers/crashdmp.sys"}, {"comment": "", "name": "dump_LSI_SAS.sys", "physical_offset": 2116634032, "marked": "enabled", "object_id": 152, "file_path": "/SystemRoot/System32/Drivers/dump_LSI_SAS.sys"}, {"comment": "", "name": "dump_dumpfve.sys", "physical_offset": 2116640384, "marked": "enabled", "object_id": 154, "file_path": "/SystemRoot/System32/Drivers/dump_dumpfve.sys"}, {"comment": "", "name": "framebuf.dll", "physical_offset": 2117941680, "marked": "enabled", "object_id": 156, "file_path": "/SystemRoot/System32/framebuf.dll"}, {"comment": "", "name": "Dxapi.sys", "physical_offset": 2117953888, "marked": "enabled", "object_id": 158, "file_path": "/SystemRoot/System32/drivers/Dxapi.sys"}, {"comment": "", "name": "win32k.sys", "physical_offset": 2117959232, "marked": "enabled", "object_id": 160, "file_path": "/SystemRoot/System32/win32k.sys"}, {"comment": "", "name": "NDProxy.SYS", "physical_offset": 2120176144, "marked": "enabled", "object_id": 162, "file_path": "/SystemRoot/System32/Drivers/NDProxy.SYS"}, {"comment": "", "name": "drmk.sys", "physical_offset": 2120213184, "marked": "enabled", "object_id": 164, "file_path": "/SystemRoot/system32/drivers/drmk.sys"}, {"comment": "", "name": "tcpipreg.sys", "physical_offset": 2122491824, "marked": "enabled", "object_id": 166, "file_path": "/SystemRoot/System32/drivers/tcpipreg.sys"}, {"comment": "", "name": "srv.sys", "physical_offset": 2122826576, "marked": "enabled", "object_id": 168, "file_path": "/SystemRoot/System32/DRIVERS/srv.sys"}, {"comment": "", "name": "cdrom.sys", "physical_offset": 2122859616, "marked": "enabled", "object_id": 170, "file_path": "/SystemRoot/system32/DRIVERS/cdrom.sys"}, {"comment": "", "name": "vga.sys", "physical_offset": 2122862592, "marked": "enabled", "object_id": 172, "file_path": "/SystemRoot/System32/drivers/vga.sys"}, {"comment": "", "name": "watchdog.sys", "physical_offset": 2122864528, "marked": "enabled", "object_id": 174, "file_path": "/SystemRoot/System32/drivers/watchdog.sys"}, {"comment": "", "name": "VIDEOPRT.SYS", "physical_offset": 2122880320, "marked": "enabled", "object_id": 176, "file_path": "/SystemRoot/System32/drivers/VIDEOPRT.SYS"}, {"comment": "", "name": "Beep.SYS", "physical_offset": 2122882304, "marked": "enabled", "object_id": 178, "file_path": "/SystemRoot/System32/Drivers/Beep.SYS"}, {"comment": "", "name": "rdpencdd.sys", "physical_offset": 2122883600, "marked": "enabled", "object_id": 180, "file_path": "/SystemRoot/system32/drivers/rdpencdd.sys"}, {"comment": "", "name": "RDPCDD.sys", "physical_offset": 2122885328, "marked": "enabled", "object_id": 182, "file_path": "/SystemRoot/System32/DRIVERS/RDPCDD.sys"}, {"comment": "", "name": "Msfs.SYS", "physical_offset": 2122890848, "marked": "enabled", "object_id": 184, "file_path": "/SystemRoot/System32/Drivers/Msfs.SYS"}, {"comment": "", "name": "rdprefmp.sys", "physical_offset": 2122896272, "marked": "enabled", "object_id": 186, "file_path": "/SystemRoot/system32/drivers/rdprefmp.sys"}, {"comment": "", "name": "Npfs.SYS", "physical_offset": 2122904704, "marked": "enabled", "object_id": 188, "file_path": "/SystemRoot/System32/Drivers/Npfs.SYS"}, {"comment": "", "name": "tdx.sys", "physical_offset": 2122905664, "marked": "enabled", "object_id": 190, "file_path": "/SystemRoot/system32/DRIVERS/tdx.sys"}, {"comment": "", "name": "TDI.SYS", "physical_offset": 2122950048, "marked": "enabled", "object_id": 192, "file_path": "/SystemRoot/system32/DRIVERS/TDI.SYS"}, {"comment": "", "name": "afd.sys", "physical_offset": 2122986144, "marked": "enabled", "object_id": 194, "file_path": "/SystemRoot/system32/drivers/afd.sys"}, {"comment": "", "name": "netbt.sys", "physical_offset": 2122986688, "marked": "enabled", "object_id": 196, "file_path": "/SystemRoot/System32/DRIVERS/netbt.sys"}, {"comment": "", "name": "wanarp.sys", "physical_offset": 2123004544, "marked": "enabled", "object_id": 198, "file_path": "/SystemRoot/system32/DRIVERS/wanarp.sys"}, {"comment": "", "name": "netbios.sys", "physical_offset": 2123022800, "marked": "enabled", "object_id": 200, "file_path": "/SystemRoot/system32/DRIVERS/netbios.sys"}, {"comment": "", "name": "pacer.sys", "physical_offset": 2123027136, "marked": "enabled", "object_id": 202, "file_path": "/SystemRoot/system32/DRIVERS/pacer.sys"}, {"comment": "", "name": "rdbss.sys", "physical_offset": 2123031296, "marked": "enabled", "object_id": 204, "file_path": "/SystemRoot/system32/DRIVERS/rdbss.sys"}, {"comment": "", "name": "mssmbios.sys", "physical_offset": 2123035376, "marked": "enabled", "object_id": 206, "file_path": "/SystemRoot/system32/DRIVERS/mssmbios.sys"}, {"comment": "", "name": "termdd.sys", "physical_offset": 2123037792, "marked": "enabled", "object_id": 208, "file_path": "/SystemRoot/system32/DRIVERS/termdd.sys"}, {"comment": "", "name": "serial.sys", "physical_offset": 2123046688, "marked": "enabled", "object_id": 210, "file_path": "/SystemRoot/system32/DRIVERS/serial.sys"}, {"comment": "", "name": "dfsc.sys", "physical_offset": 2123061104, "marked": "enabled", "object_id": 212, "file_path": "/SystemRoot/System32/Drivers/dfsc.sys"}, {"comment": "", "name": "srv2.sys", "physical_offset": 2123082240, "marked": "enabled", "object_id": 214, "file_path": "/SystemRoot/System32/DRIVERS/srv2.sys"}, {"comment": "", "name": "nsiproxy.sys", "physical_offset": 2123110000, "marked": "enabled", "object_id": 216, "file_path": "/SystemRoot/system32/drivers/nsiproxy.sys"}, {"comment": "", "name": "csc.sys", "physical_offset": 2123138592, "marked": "enabled", "object_id": 218, "file_path": "/SystemRoot/system32/drivers/csc.sys"}, {"comment": "", "name": "discache.sys", "physical_offset": 2123140032, "marked": "enabled", "object_id": 220, "file_path": "/SystemRoot/System32/drivers/discache.sys"}, {"comment": "", "name": "blbdrive.sys", "physical_offset": 2123147904, "marked": "enabled", "object_id": 222, "file_path": "/SystemRoot/system32/DRIVERS/blbdrive.sys"}, {"comment": "", "name": "tunnel.sys", "physical_offset": 2123150576, "marked": "enabled", "object_id": 224, "file_path": "/SystemRoot/system32/DRIVERS/tunnel.sys"}, {"comment": "", "name": "i8042prt.sys", "physical_offset": 2123169200, "marked": "enabled", "object_id": 226, "file_path": "/SystemRoot/system32/DRIVERS/i8042prt.sys"}, {"comment": "", "name": "HDAudBus.sys", "physical_offset": 2123192832, "marked": "enabled", "object_id": 228, "file_path": "/SystemRoot/system32/DRIVERS/HDAudBus.sys"}, {"comment": "", "name": "E1G6032E.sys", "physical_offset": 2123193920, "marked": "enabled", "object_id": 230, "file_path": "/SystemRoot/system32/DRIVERS/E1G6032E.sys"}, {"comment": "", "name": "kbdclass.sys", "physical_offset": 2123202320, "marked": "enabled", "object_id": 232, "file_path": "/SystemRoot/system32/DRIVERS/kbdclass.sys"}, {"comment": "", "name": "mouclass.sys", "physical_offset": 2123207632, "marked": "enabled", "object_id": 234, "file_path": "/SystemRoot/system32/DRIVERS/mouclass.sys"}, {"comment": "", "name": "serenum.sys", "physical_offset": 2123208048, "marked": "enabled", "object_id": 236, "file_path": "/SystemRoot/system32/DRIVERS/serenum.sys"}, {"comment": "", "name": "vgapnp.sys", "physical_offset": 2123222816, "marked": "enabled", "object_id": 238, "file_path": "/SystemRoot/system32/DRIVERS/vgapnp.sys"}, {"comment": "", "name": "fdc.sys", "physical_offset": 2123234752, "marked": "enabled", "object_id": 240, "file_path": "/SystemRoot/system32/DRIVERS/fdc.sys"}, {"comment": "", "name": "usbuhci.sys", "physical_offset": 2123279472, "marked": "enabled", "object_id": 242, "file_path": "/SystemRoot/system32/DRIVERS/usbuhci.sys"}, {"comment": "", "name": "USBPORT.SYS", "physical_offset": 2123283104, "marked": "enabled", "object_id": 244, "file_path": "/SystemRoot/system32/DRIVERS/USBPORT.SYS"}, {"comment": "", "name": "CmBatt.sys", "physical_offset": 2123351984, "marked": "enabled", "object_id": 246, "file_path": "/SystemRoot/system32/DRIVERS/CmBatt.sys"}, {"comment": "", "name": "usbehci.sys", "physical_offset": 2123353664, "marked": "enabled", "object_id": 248, "file_path": "/SystemRoot/system32/DRIVERS/usbehci.sys"}, {"comment": "", "name": "raspptp.sys", "physical_offset": 2125018224, "marked": "enabled", "object_id": 250, "file_path": "/SystemRoot/system32/DRIVERS/raspptp.sys"}, {"comment": "", "name": "rdpbus.sys", "physical_offset": 2125018720, "marked": "enabled", "object_id": 252, "file_path": "/SystemRoot/system32/DRIVERS/rdpbus.sys"}, {"comment": "", "name": "rassstp.sys", "physical_offset": 2125032912, "marked": "enabled", "object_id": 254, "file_path": "/SystemRoot/system32/DRIVERS/rassstp.sys"}, {"comment": "", "name": "ks.sys", "physical_offset": 2125058544, "marked": "enabled", "object_id": 256, "file_path": "/SystemRoot/system32/DRIVERS/ks.sys"}, {"comment": "", "name": "swenum.sys", "physical_offset": 2125065536, "marked": "enabled", "object_id": 258, "file_path": "/SystemRoot/system32/DRIVERS/swenum.sys"}, {"comment": "", "name": "umbus.sys", "physical_offset": 2125068320, "marked": "enabled", "object_id": 260, "file_path": "/SystemRoot/system32/DRIVERS/umbus.sys"}, {"comment": "", "name": "USBD.SYS", "physical_offset": 2125854848, "marked": "enabled", "object_id": 262, "file_path": "/SystemRoot/system32/DRIVERS/USBD.SYS"}, {"comment": "", "name": "udfs.sys", "physical_offset": 2125856528, "marked": "enabled", "object_id": 264, "file_path": "/SystemRoot/system32/DRIVERS/udfs.sys"}, {"comment": "", "name": "BthEnum.sys", "physical_offset": 2125945712, "marked": "enabled", "object_id": 266, "file_path": "/SystemRoot/system32/DRIVERS/BthEnum.sys"}, {"comment": "", "name": "rfcomm.sys", "physical_offset": 2125972656, "marked": "enabled", "object_id": 268, "file_path": "/SystemRoot/system32/DRIVERS/rfcomm.sys"}, {"comment": "", "name": "usbccgp.sys", "physical_offset": 2126050512, "marked": "enabled", "object_id": 270, "file_path": "/SystemRoot/system32/DRIVERS/usbccgp.sys"}, {"comment": "", "name": "bthport.sys", "physical_offset": 2126067088, "marked": "enabled", "object_id": 272, "file_path": "/SystemRoot/System32/Drivers/bthport.sys"}, {"comment": "", "name": "HIDPARSE.SYS", "physical_offset": 2126128592, "marked": "enabled", "object_id": 274, "file_path": "/SystemRoot/system32/DRIVERS/HIDPARSE.SYS"}, {"comment": "", "name": "HIDCLASS.SYS", "physical_offset": 2126179424, "marked": "enabled", "object_id": 276, "file_path": "/SystemRoot/system32/DRIVERS/HIDCLASS.SYS"}, {"comment": "", "name": "mouhid.sys", "physical_offset": 2126211472, "marked": "enabled", "object_id": 278, "file_path": "/SystemRoot/system32/DRIVERS/mouhid.sys"}, {"comment": "", "name": "bthpan.sys", "physical_offset": 2126227584, "marked": "enabled", "object_id": 280, "file_path": "/SystemRoot/system32/DRIVERS/bthpan.sys"}, {"comment": "", "name": "dump_storport.sys", "physical_offset": 2126320416, "marked": "enabled", "object_id": 282, "file_path": "/SystemRoot/System32/Drivers/dump_diskdump.sys"}, {"comment": "", "name": "wfplwf.sys", "physical_offset": 2126418656, "marked": "enabled", "object_id": 284, "file_path": "/SystemRoot/system32/DRIVERS/wfplwf.sys"}, {"comment": "", "name": "srvnet.sys", "physical_offset": 2126440064, "marked": "enabled", "object_id": 286, "file_path": "/SystemRoot/System32/DRIVERS/srvnet.sys"}, {"comment": "", "name": "mrxsmb10.sys", "physical_offset": 2127322896, "marked": "enabled", "object_id": 288, "file_path": "/SystemRoot/system32/DRIVERS/mrxsmb10.sys"}, {"comment": "", "name": "bowser.sys", "physical_offset": 2127364096, "marked": "enabled", "object_id": 290, "file_path": "/SystemRoot/system32/DRIVERS/bowser.sys"}, {"comment": "", "name": "mpsdrv.sys", "physical_offset": 2127383728, "marked": "enabled", "object_id": 292, "file_path": "/SystemRoot/System32/drivers/mpsdrv.sys"}, {"comment": "", "name": "mrxsmb.sys", "physical_offset": 2127410192, "marked": "enabled", "object_id": 294, "file_path": "/SystemRoot/system32/DRIVERS/mrxsmb.sys"}, {"comment": "", "name": "peauth.sys", "physical_offset": 2127830128, "marked": "enabled", "object_id": 296, "file_path": "/SystemRoot/system32/drivers/peauth.sys"}, {"comment": "", "name": "secdrv.SYS", "physical_offset": 2127967072, "marked": "enabled", "object_id": 298, "file_path": "/SystemRoot/System32/Drivers/secdrv.SYS"}, {"comment": "", "name": "hidusb.sys", "physical_offset": 2128648576, "marked": "enabled", "object_id": 300, "file_path": "/SystemRoot/system32/DRIVERS/hidusb.sys"}, {"comment": "", "name": "Null.SYS", "physical_offset": 2129016304, "marked": "enabled", "object_id": 302, "file_path": "/SystemRoot/System32/Drivers/Null.SYS"}, {"comment": "", "name": "spsys.sys", "physical_offset": 2131609936, "marked": "enabled", "object_id": 304, "file_path": "/SystemRoot/system32/drivers/spsys.sys"}, {"comment": "", "name": "intelppm.sys", "physical_offset": 2133793280, "marked": "enabled", "object_id": 306, "file_path": "/SystemRoot/system32/DRIVERS/intelppm.sys"}, {"comment": "", "name": "CompositeBus.sys", "physical_offset": 2133879600, "marked": "enabled", "object_id": 308, "file_path": "/SystemRoot/system32/DRIVERS/CompositeBus.sys"}, {"comment": "", "name": "flpydisk.sys", "physical_offset": 2133927248, "marked": "enabled", "object_id": 310, "file_path": "/SystemRoot/system32/DRIVERS/flpydisk.sys"}, {"comment": "", "name": "usbhub.sys", "physical_offset": 2133944608, "marked": "enabled", "object_id": 312, "file_path": "/SystemRoot/system32/DRIVERS/usbhub.sys"}, {"comment": "", "name": "AgileVpn.sys", "physical_offset": 2134031728, "marked": "enabled", "object_id": 314, "file_path": "/SystemRoot/system32/DRIVERS/AgileVpn.sys"}, {"comment": "", "name": "rasl2tp.sys", "physical_offset": 2134035872, "marked": "enabled", "object_id": 316, "file_path": "/SystemRoot/system32/DRIVERS/rasl2tp.sys"}, {"comment": "", "name": "raspppoe.sys", "physical_offset": 2134042832, "marked": "enabled", "object_id": 318, "file_path": "/SystemRoot/system32/DRIVERS/raspppoe.sys"}, {"comment": "", "name": "ndistapi.sys", "physical_offset": 2134053632, "marked": "enabled", "object_id": 320, "file_path": "/SystemRoot/system32/DRIVERS/ndistapi.sys"}, {"comment": "", "name": "ndiswan.sys", "physical_offset": 2134054672, "marked": "enabled", "object_id": 322, "file_path": "/SystemRoot/system32/DRIVERS/ndiswan.sys"}, {"comment": "", "name": "BTHUSB.sys", "physical_offset": 2134384928, "marked": "enabled", "object_id": 324, "file_path": "/SystemRoot/System32/Drivers/BTHUSB.sys"}, {"comment": "", "name": "rfcomm.sys", "physical_offset": 2135393056, "marked": "enabled", "object_id": 326, "file_path": "h"}, {"comment": "", "name": "", "physical_offset": 2137726752, "marked": "enabled", "object_id": 328, "file_path": "P0k"}, {"comment": "", "name": "|VNaNu", "physical_offset": 2138088896, "marked": "enabled", "object_id": 330, "file_path": "pp"}, {"comment": "", "name": "", "physical_offset": 2138115600, "marked": "enabled", "object_id": 332, "file_path": ""}, {"comment": "", "name": "z", "physical_offset": 2138198832, "marked": "enabled", "object_id": 334, "file_path": ""}, {"comment": "", "name": "z", "physical_offset": 2138207024, "marked": "enabled", "object_id": 336, "file_path": "@r"}, {"comment": "", "name": "", "physical_offset": 2138210864, "marked": "enabled", "object_id": 338, "file_path": "@r"}, {"comment": "", "name": "l", "physical_offset": 2138281648, "marked": "enabled", "object_id": 340, "file_path": ""}, {"comment": "", "name": "", "physical_offset": 2138307936, "marked": "enabled", "object_id": 342, "file_path": "0ps"}, {"comment": "", "name": "", "physical_offset": 2138316800, "marked": "enabled", "object_id": 344, "file_path": "t"}, {"comment": "", "name": "", "physical_offset": 2138323088, "marked": "enabled", "object_id": 346, "file_path": "Xt"}, {"comment": "", "name": "", "physical_offset": 2138324624, "marked": "enabled", "object_id": 348, "file_path": "Xt"}, {"comment": "", "name": "`~", "physical_offset": 2138387856, "marked": "enabled", "object_id": 350, "file_path": "Xu"}, {"comment": "", "name": "ntoskrnl.exe", "physical_offset": 2146103488, "marked": "enabled", "object_id": 352, "file_path": "/SystemRoot/system32/ntoskrnl.exe"}, {"comment": "", "name": "WMILIB.SYS", "physical_offset": 2146129616, "marked": "enabled", "object_id": 354, "file_path": "/SystemRoot/system32/drivers/WMILIB.SYS"}, {"comment": "", "name": "ACPI.sys", "physical_offset": 2146129840, "marked": "enabled", "object_id": 356, "file_path": "/SystemRoot/system32/drivers/ACPI.sys"}, {"comment": "", "name": "WDFLDR.SYS", "physical_offset": 2146130080, "marked": "enabled", "object_id": 358, "file_path": "/SystemRoot/system32/drivers/WDFLDR.SYS"}, {"comment": "", "name": "Wdf01000.sys", "physical_offset": 2146130304, "marked": "enabled", "object_id": 360, "file_path": "/SystemRoot/system32/drivers/Wdf01000.sys"}, {"comment": "", "name": "CI.dll", "physical_offset": 2146130560, "marked": "enabled", "object_id": 362, "file_path": "/SystemRoot/system32/CI.dll"}, {"comment": "", "name": "CLFS.SYS", "physical_offset": 2146130800, "marked": "enabled", "object_id": 364, "file_path": "/SystemRoot/system32/CLFS.SYS"}, {"comment": "", "name": "PSHED.dll", "physical_offset": 2146131040, "marked": "enabled", "object_id": 366, "file_path": "/SystemRoot/system32/PSHED.dll"}, {"comment": "", "name": "mcupdate.dll", "physical_offset": 2146131264, "marked": "enabled", "object_id": 368, "file_path": "/SystemRoot/system32/mcupdate_GenuineIntel.dll"}, {"comment": "", "name": "kdcom.dll", "physical_offset": 2146131504, "marked": "enabled", "object_id": 370, "file_path": "/SystemRoot/system32/kdcom.dll"}, {"comment": "", "name": "hal.dll", "physical_offset": 2146131728, "marked": "enabled", "object_id": 372, "file_path": "/SystemRoot/system32/hal.dll"}, {"comment": "", "name": "msisadrv.sys", "physical_offset": 2146131968, "marked": "enabled", "object_id": 374, "file_path": "/SystemRoot/system32/drivers/msisadrv.sys"}, {"comment": "", "name": "amdxata.sys", "physical_offset": 2146132304, "marked": "enabled", "object_id": 376, "file_path": "/SystemRoot/system32/drivers/amdxata.sys"}, {"comment": "", "name": "msahci.sys", "physical_offset": 2146132544, "marked": "enabled", "object_id": 378, "file_path": "/SystemRoot/system32/drivers/msahci.sys"}, {"comment": "", "name": "storport.sys", "physical_offset": 2146132768, "marked": "enabled", "object_id": 380, "file_path": "/SystemRoot/system32/drivers/storport.sys"}, {"comment": "", "name": "lsi_sas.sys", "physical_offset": 2146133008, "marked": "enabled", "object_id": 382, "file_path": "/SystemRoot/system32/drivers/lsi_sas.sys"}, {"comment": "", "name": "ataport.SYS", "physical_offset": 2146133248, "marked": "enabled", "object_id": 384, "file_path": "/SystemRoot/system32/drivers/ataport.SYS"}, {"comment": "", "name": "atapi.sys", "physical_offset": 2146133488, "marked": "enabled", "object_id": 386, "file_path": "/SystemRoot/system32/drivers/atapi.sys"}, {"comment": "", "name": "mountmgr.sys", "physical_offset": 2146133712, "marked": "enabled", "object_id": 388, "file_path": "/SystemRoot/System32/drivers/mountmgr.sys"}, {"comment": "", "name": "PCIIDEX.SYS", "physical_offset": 2146133952, "marked": "enabled", "object_id": 390, "file_path": "/SystemRoot/system32/drivers/PCIIDEX.SYS"}, {"comment": "", "name": "intelide.sys", "physical_offset": 2146134192, "marked": "enabled", "object_id": 392, "file_path": "/SystemRoot/system32/drivers/intelide.sys"}, {"comment": "", "name": "volmgrx.sys", "physical_offset": 2146134432, "marked": "enabled", "object_id": 394, "file_path": "/SystemRoot/System32/drivers/volmgrx.sys"}, {"comment": "", "name": "volmgr.sys", "physical_offset": 2146134672, "marked": "enabled", "object_id": 396, "file_path": "/SystemRoot/system32/drivers/volmgr.sys"}, {"comment": "", "name": "BATTC.SYS", "physical_offset": 2146134896, "marked": "enabled", "object_id": 398, "file_path": "/SystemRoot/system32/DRIVERS/BATTC.SYS"}, {"comment": "", "name": "compbatt.sys", "physical_offset": 2146135120, "marked": "enabled", "object_id": 400, "file_path": "/SystemRoot/system32/DRIVERS/compbatt.sys"}, {"comment": "", "name": "partmgr.sys", "physical_offset": 2146135360, "marked": "enabled", "object_id": 402, "file_path": "/SystemRoot/System32/drivers/partmgr.sys"}, {"comment": "", "name": "vdrvroot.sys", "physical_offset": 2146135600, "marked": "enabled", "object_id": 404, "file_path": "/SystemRoot/system32/drivers/vdrvroot.sys"}, {"comment": "", "name": "pci.sys", "physical_offset": 2146135840, "marked": "enabled", "object_id": 406, "file_path": "/SystemRoot/system32/drivers/pci.sys"}, {"comment": "", "name": "fltmgr.sys", "physical_offset": 2146136064, "marked": "enabled", "object_id": 408, "file_path": "/SystemRoot/system32/drivers/fltmgr.sys"}, {"comment": "", "name": "mup.sys", "physical_offset": 2146136304, "marked": "enabled", "object_id": 410, "file_path": "/SystemRoot/System32/Drivers/mup.sys"}, {"comment": "", "name": "spldr.sys", "physical_offset": 2146136528, "marked": "enabled", "object_id": 412, "file_path": "/SystemRoot/System32/Drivers/spldr.sys"}, {"comment": "", "name": "volsnap.sys", "physical_offset": 2146136752, "marked": "enabled", "object_id": 414, "file_path": "/SystemRoot/system32/drivers/volsnap.sys"}, {"comment": "", "name": "vmstorfl.sys", "physical_offset": 2146136992, "marked": "enabled", "object_id": 416, "file_path": "/SystemRoot/system32/drivers/vmstorfl.sys"}, {"comment": "", "name": "fwpkclnt.sys", "physical_offset": 2146137232, "marked": "enabled", "object_id": 418, "file_path": "/SystemRoot/System32/drivers/fwpkclnt.sys"}, {"comment": "", "name": "tcpip.sys", "physical_offset": 2146137472, "marked": "enabled", "object_id": 420, "file_path": "/SystemRoot/System32/drivers/tcpip.sys"}, {"comment": "", "name": "ksecpkg.sys", "physical_offset": 2146137760, "marked": "enabled", "object_id": 422, "file_path": "/SystemRoot/System32/Drivers/ksecpkg.sys"}, {"comment": "", "name": "NETIO.SYS", "physical_offset": 2146138000, "marked": "enabled", "object_id": 424, "file_path": "/SystemRoot/system32/drivers/NETIO.SYS"}, {"comment": "", "name": "ndis.sys", "physical_offset": 2146138240, "marked": "enabled", "object_id": 426, "file_path": "/SystemRoot/system32/drivers/ndis.sys"}, {"comment": "", "name": "Fs_Rec.sys", "physical_offset": 2146138496, "marked": "enabled", "object_id": 428, "file_path": "/SystemRoot/System32/Drivers/Fs_Rec.sys"}, {"comment": "", "name": "pcw.sys", "physical_offset": 2146138720, "marked": "enabled", "object_id": 430, "file_path": "/SystemRoot/System32/drivers/pcw.sys"}, {"comment": "", "name": "cng.sys", "physical_offset": 2146138944, "marked": "enabled", "object_id": 432, "file_path": "/SystemRoot/System32/Drivers/cng.sys"}, {"comment": "", "name": "ksecdd.sys", "physical_offset": 2146139184, "marked": "enabled", "object_id": 434, "file_path": "/SystemRoot/System32/Drivers/ksecdd.sys"}, {"comment": "", "name": "msrpc.sys", "physical_offset": 2146139408, "marked": "enabled", "object_id": 436, "file_path": "/SystemRoot/System32/Drivers/msrpc.sys"}, {"comment": "", "name": "Ntfs.sys", "physical_offset": 2146139648, "marked": "enabled", "object_id": 438, "file_path": "/SystemRoot/System32/Drivers/Ntfs.sys"}, {"comment": "", "name": "fileinfo.sys", "physical_offset": 2146139920, "marked": "enabled", "object_id": 440, "file_path": "/SystemRoot/system32/drivers/fileinfo.sys"}, {"comment": "", "name": "rdyboost.sys", "physical_offset": 2146140160, "marked": "enabled", "object_id": 442, "file_path": "/SystemRoot/System32/drivers/rdyboost.sys"}, {"comment": "", "name": "CLASSPNP.SYS", "physical_offset": 2146143328, "marked": "enabled", "object_id": 444, "file_path": "/SystemRoot/system32/drivers/CLASSPNP.SYS"}, {"comment": "", "name": "disk.sys", "physical_offset": 2146143568, "marked": "enabled", "object_id": 446, "file_path": "/SystemRoot/system32/drivers/disk.sys"}, {"comment": "", "name": "fvevol.sys", "physical_offset": 2146143792, "marked": "enabled", "object_id": 448, "file_path": "/SystemRoot/System32/DRIVERS/fvevol.sys"}, {"comment": "", "name": "hwpolicy.sys", "physical_offset": 2146144016, "marked": "enabled", "object_id": 450, "file_path": "/SystemRoot/System32/drivers/hwpolicy.sys"}]}], "file_name": "data/samples/win764.vmem", "os_name": "win7"}
+{
+    "artifacts": [
+        {
+            "process_list": [
+                {
+                    "comment": "", 
+                    "name": "Idle", 
+                    "physical_offset": 44446144, 
+                    "pid": 0, 
+                    "object_id": 16, 
+                    "active_threads": 0, 
+                    "marked": "enabled", 
+                    "ppid": 0
+                }, 
+                {
+                    "comment": "", 
+                    "name": "svchost.exe", 
+                    "physical_offset": 2107906864, 
+                    "pid": 1156, 
+                    "object_id": 17, 
+                    "active_threads": 0, 
+                    "marked": "enabled", 
+                    "ppid": 440
+                }, 
+                {
+                    "comment": "", 
+                    "name": "spoolsv.exe", 
+                    "physical_offset": 2108208736, 
+                    "pid": 1128, 
+                    "object_id": 18, 
+                    "active_threads": 0, 
+                    "marked": "enabled", 
+                    "ppid": 440
+                }, 
+                {
+                    "comment": "", 
+                    "name": "svchost.exe", 
+                    "physical_offset": 2109931616, 
+                    "pid": 724, 
+                    "object_id": 19, 
+                    "active_threads": 0, 
+                    "marked": "enabled", 
+                    "ppid": 440
+                }, 
+                {
+                    "comment": "", 
+                    "name": "svchost.exe", 
+                    "physical_offset": 2111408272, 
+                    "pid": 952, 
+                    "object_id": 20, 
+                    "active_threads": 0, 
+                    "marked": "enabled", 
+                    "ppid": 440
+                }, 
+                {
+                    "comment": "", 
+                    "name": "svchost.exe", 
+                    "physical_offset": 2111445808, 
+                    "pid": 1020, 
+                    "object_id": 21, 
+                    "active_threads": 0, 
+                    "marked": "enabled", 
+                    "ppid": 440
+                }, 
+                {
+                    "comment": "", 
+                    "name": "svchost.exe", 
+                    "physical_offset": 2111613744, 
+                    "pid": 268, 
+                    "object_id": 22, 
+                    "active_threads": 0, 
+                    "marked": "enabled", 
+                    "ppid": 440
+                }, 
+                {
+                    "comment": "", 
+                    "name": "TrustedInstall", 
+                    "physical_offset": 2111638320, 
+                    "pid": 720, 
+                    "object_id": 23, 
+                    "active_threads": 0, 
+                    "marked": "enabled", 
+                    "ppid": 440
+                }, 
+                {
+                    "comment": "", 
+                    "name": "svchost.exe", 
+                    "physical_offset": 2112311392, 
+                    "pid": 560, 
+                    "object_id": 24, 
+                    "active_threads": 0, 
+                    "marked": "enabled", 
+                    "ppid": 440
+                }, 
+                {
+                    "comment": "", 
+                    "name": "svchost.exe", 
+                    "physical_offset": 2112330544, 
+                    "pid": 636, 
+                    "object_id": 25, 
+                    "active_threads": 0, 
+                    "marked": "enabled", 
+                    "ppid": 440
+                }, 
+                {
+                    "comment": "", 
+                    "name": "SearchFilterHo", 
+                    "physical_offset": 2113238256, 
+                    "pid": 2800, 
+                    "object_id": 26, 
+                    "active_threads": 0, 
+                    "marked": "enabled", 
+                    "ppid": 1792
+                }, 
+                {
+                    "comment": "", 
+                    "name": "SearchProtocol", 
+                    "physical_offset": 2113433696, 
+                    "pid": 2864, 
+                    "object_id": 27, 
+                    "active_threads": 0, 
+                    "marked": "enabled", 
+                    "ppid": 1792
+                }, 
+                {
+                    "comment": "", 
+                    "name": "svchost.exe", 
+                    "physical_offset": 2113626208, 
+                    "pid": 1956, 
+                    "object_id": 28, 
+                    "active_threads": 0, 
+                    "marked": "enabled", 
+                    "ppid": 440
+                }, 
+                {
+                    "comment": "", 
+                    "name": "taskhost.exe", 
+                    "physical_offset": 2113667168, 
+                    "pid": 2040, 
+                    "object_id": 29, 
+                    "active_threads": 0, 
+                    "marked": "enabled", 
+                    "ppid": 440
+                }, 
+                {
+                    "comment": "", 
+                    "name": "services.exe", 
+                    "physical_offset": 2115580768, 
+                    "pid": 440, 
+                    "object_id": 30, 
+                    "active_threads": 0, 
+                    "marked": "enabled", 
+                    "ppid": 352
+                }, 
+                {
+                    "comment": "", 
+                    "name": "csrss.exe", 
+                    "physical_offset": 2115681072, 
+                    "pid": 344, 
+                    "object_id": 31, 
+                    "active_threads": 0, 
+                    "marked": "enabled", 
+                    "ppid": 336
+                }, 
+                {
+                    "comment": "", 
+                    "name": "wininit.exe", 
+                    "physical_offset": 2115701552, 
+                    "pid": 352, 
+                    "object_id": 32, 
+                    "active_threads": 0, 
+                    "marked": "enabled", 
+                    "ppid": 300
+                }, 
+                {
+                    "comment": "", 
+                    "name": "winlogon.exe", 
+                    "physical_offset": 2115779376, 
+                    "pid": 380, 
+                    "object_id": 33, 
+                    "active_threads": 0, 
+                    "marked": "enabled", 
+                    "ppid": 336
+                }, 
+                {
+                    "comment": "", 
+                    "name": "svchost.exe", 
+                    "physical_offset": 2115910448, 
+                    "pid": 1512, 
+                    "object_id": 34, 
+                    "active_threads": 0, 
+                    "marked": "enabled", 
+                    "ppid": 440
+                }, 
+                {
+                    "comment": "", 
+                    "name": "lsm.exe", 
+                    "physical_offset": 2117685344, 
+                    "pid": 464, 
+                    "object_id": 35, 
+                    "active_threads": 0, 
+                    "marked": "enabled", 
+                    "ppid": 352
+                }, 
+                {
+                    "comment": "", 
+                    "name": "lsass.exe", 
+                    "physical_offset": 2117688112, 
+                    "pid": 456, 
+                    "object_id": 36, 
+                    "active_threads": 0, 
+                    "marked": "enabled", 
+                    "ppid": 352
+                }, 
+                {
+                    "comment": "", 
+                    "name": "csrss.exe", 
+                    "physical_offset": 2117995312, 
+                    "pid": 308, 
+                    "object_id": 37, 
+                    "active_threads": 0, 
+                    "marked": "enabled", 
+                    "ppid": 300
+                }, 
+                {
+                    "comment": "", 
+                    "name": "smss.exe", 
+                    "physical_offset": 2123167904, 
+                    "pid": 224, 
+                    "object_id": 38, 
+                    "active_threads": 0, 
+                    "marked": "enabled", 
+                    "ppid": 4
+                }, 
+                {
+                    "comment": "", 
+                    "name": "svchost.exe", 
+                    "physical_offset": 2126857968, 
+                    "pid": 880, 
+                    "object_id": 39, 
+                    "active_threads": 0, 
+                    "marked": "enabled", 
+                    "ppid": 440
+                }, 
+                {
+                    "comment": "", 
+                    "name": "sppsvc.exe", 
+                    "physical_offset": 2127808384, 
+                    "pid": 840, 
+                    "object_id": 40, 
+                    "active_threads": 0, 
+                    "marked": "enabled", 
+                    "ppid": 440
+                }, 
+                {
+                    "comment": "", 
+                    "name": "svchost.exe", 
+                    "physical_offset": 2127926624, 
+                    "pid": 904, 
+                    "object_id": 41, 
+                    "active_threads": 0, 
+                    "marked": "enabled", 
+                    "ppid": 440
+                }, 
+                {
+                    "comment": "", 
+                    "name": "SearchIndexer.", 
+                    "physical_offset": 2133860448, 
+                    "pid": 1792, 
+                    "object_id": 42, 
+                    "active_threads": 0, 
+                    "marked": "enabled", 
+                    "ppid": 440
+                }, 
+                {
+                    "comment": "", 
+                    "name": "smss.exe", 
+                    "physical_offset": 2138175184, 
+                    "pid": 176, 
+                    "object_id": 43, 
+                    "active_threads": 0, 
+                    "marked": "enabled", 
+                    "ppid": 4
+                }, 
+                {
+                    "comment": "", 
+                    "name": "wmpnetwk.exe", 
+                    "physical_offset": 2141211440, 
+                    "pid": 2360, 
+                    "object_id": 44, 
+                    "active_threads": 0, 
+                    "marked": "enabled", 
+                    "ppid": 440
+                }, 
+                {
+                    "comment": "", 
+                    "name": "WmiPrvSE.exe", 
+                    "physical_offset": 2142721680, 
+                    "pid": 2744, 
+                    "object_id": 45, 
+                    "active_threads": 0, 
+                    "marked": "enabled", 
+                    "ppid": 560
+                }, 
+                {
+                    "comment": "", 
+                    "name": "explorer.exe", 
+                    "physical_offset": 2143971856, 
+                    "pid": 1568, 
+                    "object_id": 46, 
+                    "active_threads": 0, 
+                    "marked": "enabled", 
+                    "ppid": 1572
+                }, 
+                {
+                    "comment": "", 
+                    "name": "dwm.exe", 
+                    "physical_offset": 2144310080, 
+                    "pid": 1532, 
+                    "object_id": 47, 
+                    "active_threads": 0, 
+                    "marked": "enabled", 
+                    "ppid": 880
+                }, 
+                {
+                    "comment": "", 
+                    "name": "System", 
+                    "physical_offset": 2145534016, 
+                    "pid": 4, 
+                    "object_id": 48, 
+                    "active_threads": 0, 
+                    "marked": "enabled", 
+                    "ppid": 0
+                }
+            ]
+        }, 
+        {
+            "service_list": [
+                {
+                    "comment": "", 
+                    "display_name": "Distributed Link Tracking Client", 
+                    "name": "TrkWks", 
+                    "physical_offset": 156352208, 
+                    "object_id": 49, 
+                    "start": "SERVICE_AUTO_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Remote Procedure Call (RPC)", 
+                    "name": "RpcSs", 
+                    "physical_offset": 156575264, 
+                    "object_id": 50, 
+                    "start": "SERVICE_AUTO_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Offline Files", 
+                    "name": "CscService", 
+                    "physical_offset": 163008640, 
+                    "object_id": 51, 
+                    "start": "SERVICE_AUTO_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Network Location Awareness", 
+                    "name": "NlaSvc", 
+                    "physical_offset": 163082144, 
+                    "object_id": 52, 
+                    "start": "SERVICE_AUTO_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "System Event Notification Service", 
+                    "name": "SENS", 
+                    "physical_offset": 156332384, 
+                    "object_id": 53, 
+                    "start": "SERVICE_AUTO_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Network Location Awareness", 
+                    "name": "NlaSvc", 
+                    "physical_offset": 163082144, 
+                    "object_id": 54, 
+                    "start": "SERVICE_AUTO_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "SSDP Discovery", 
+                    "name": "SSDPSRV", 
+                    "physical_offset": 154233632, 
+                    "object_id": 55, 
+                    "start": "SERVICE_DEMAND_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Network Store Interface Service", 
+                    "name": "nsi", 
+                    "physical_offset": 162814672, 
+                    "object_id": 56, 
+                    "start": "SERVICE_AUTO_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Desktop Window Manager Session Manager", 
+                    "name": "UxSms", 
+                    "physical_offset": 151458928, 
+                    "object_id": 57, 
+                    "start": "SERVICE_AUTO_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Windows Audio", 
+                    "name": "AudioSrv", 
+                    "physical_offset": 155055760, 
+                    "object_id": 58, 
+                    "start": "SERVICE_AUTO_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Software Protection", 
+                    "name": "sppsvc", 
+                    "physical_offset": 154232672, 
+                    "object_id": 59, 
+                    "start": "SERVICE_AUTO_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_OWN_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Group Policy Client", 
+                    "name": "gpsvc", 
+                    "physical_offset": 158828000, 
+                    "object_id": 60, 
+                    "start": "SERVICE_AUTO_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Windows Audio Endpoint Builder", 
+                    "name": "AudioEndpointBuilder", 
+                    "physical_offset": 163760000, 
+                    "object_id": 61, 
+                    "start": "SERVICE_AUTO_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Network List Service", 
+                    "name": "netprofm", 
+                    "physical_offset": 163081664, 
+                    "object_id": 62, 
+                    "start": "SERVICE_DEMAND_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Remote Desktop Services", 
+                    "name": "TermService", 
+                    "physical_offset": 156351488, 
+                    "object_id": 63, 
+                    "start": "SERVICE_DEMAND_START", 
+                    "state": "SERVICE_STOPPED", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Windows Firewall", 
+                    "name": "MpsSvc", 
+                    "physical_offset": 159919280, 
+                    "object_id": 64, 
+                    "start": "SERVICE_AUTO_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "RPC Endpoint Mapper", 
+                    "name": "RpcEptMapper", 
+                    "physical_offset": 154231632, 
+                    "object_id": 65, 
+                    "start": "SERVICE_AUTO_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "DCOM Server Process Launcher", 
+                    "name": "DcomLaunch", 
+                    "physical_offset": 163008880, 
+                    "object_id": 66, 
+                    "start": "SERVICE_AUTO_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Power", 
+                    "name": "Power", 
+                    "physical_offset": 160741632, 
+                    "object_id": 67, 
+                    "start": "SERVICE_AUTO_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Plug and Play", 
+                    "name": "PlugPlay", 
+                    "physical_offset": 160740672, 
+                    "object_id": 68, 
+                    "start": "SERVICE_AUTO_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Shell Hardware Detection", 
+                    "name": "ShellHWDetection", 
+                    "physical_offset": 154232144, 
+                    "object_id": 69, 
+                    "start": "SERVICE_AUTO_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Function Discovery Provider Host", 
+                    "name": "fdPHost", 
+                    "physical_offset": 160908816, 
+                    "object_id": 70, 
+                    "start": "SERVICE_DEMAND_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Application Information", 
+                    "name": "Appinfo", 
+                    "physical_offset": 155054512, 
+                    "object_id": 71, 
+                    "start": "SERVICE_DEMAND_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "HomeGroup Provider", 
+                    "name": "HomeGroupProvider", 
+                    "physical_offset": 157263088, 
+                    "object_id": 72, 
+                    "start": "SERVICE_DEMAND_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Windows Defender", 
+                    "name": "WinDefend", 
+                    "physical_offset": 147787472, 
+                    "object_id": 73, 
+                    "start": "SERVICE_AUTO_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Windows Search", 
+                    "name": "WSearch", 
+                    "physical_offset": 153577520, 
+                    "object_id": 74, 
+                    "start": "SERVICE_AUTO_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_OWN_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Background Intelligent Transfer Service", 
+                    "name": "BITS", 
+                    "physical_offset": 155057200, 
+                    "object_id": 75, 
+                    "start": "SERVICE_AUTO_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Protected Storage", 
+                    "name": "ProtectedStorage", 
+                    "physical_offset": 161001296, 
+                    "object_id": 76, 
+                    "start": "SERVICE_DEMAND_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Offline Files", 
+                    "name": "CscService", 
+                    "physical_offset": 163008640, 
+                    "object_id": 77, 
+                    "start": "SERVICE_AUTO_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Windows Font Cache Service", 
+                    "name": "FontCache", 
+                    "physical_offset": 158827040, 
+                    "object_id": 78, 
+                    "start": "SERVICE_AUTO_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Security Center", 
+                    "name": "wscsvc", 
+                    "physical_offset": 153577280, 
+                    "object_id": 79, 
+                    "start": "SERVICE_AUTO_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Windows Update", 
+                    "name": "wuauserv", 
+                    "physical_offset": 153577760, 
+                    "object_id": 80, 
+                    "start": "SERVICE_AUTO_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Beep", 
+                    "name": "Beep", 
+                    "physical_offset": 155056960, 
+                    "object_id": 81, 
+                    "start": "SERVICE_SYSTEM_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_KERNEL_DRIVER"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Windows Update", 
+                    "name": "wuauserv", 
+                    "physical_offset": 153577760, 
+                    "object_id": 82, 
+                    "start": "SERVICE_AUTO_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Function Discovery Resource Publication", 
+                    "name": "FDResPub", 
+                    "physical_offset": 160909056, 
+                    "object_id": 83, 
+                    "start": "SERVICE_DEMAND_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Offline Files", 
+                    "name": "CscService", 
+                    "physical_offset": 163008640, 
+                    "object_id": 84, 
+                    "start": "SERVICE_AUTO_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "WWAN AutoConfig", 
+                    "name": "WwanSvc", 
+                    "physical_offset": 153578480, 
+                    "object_id": 85, 
+                    "start": "SERVICE_DEMAND_START", 
+                    "state": "SERVICE_STOPPED", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Network Connections", 
+                    "name": "Netman", 
+                    "physical_offset": 163081424, 
+                    "object_id": 86, 
+                    "start": "SERVICE_DEMAND_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Network Connections", 
+                    "name": "Netman", 
+                    "physical_offset": 163081424, 
+                    "object_id": 87, 
+                    "start": "SERVICE_DEMAND_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "WLAN AutoConfig", 
+                    "name": "Wlansvc", 
+                    "physical_offset": 153575840, 
+                    "object_id": 88, 
+                    "start": "SERVICE_DEMAND_START", 
+                    "state": "SERVICE_STOPPED", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Network List Service", 
+                    "name": "netprofm", 
+                    "physical_offset": 163081664, 
+                    "object_id": 89, 
+                    "start": "SERVICE_DEMAND_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Network Access Protection Agent", 
+                    "name": "napagent", 
+                    "physical_offset": 163078784, 
+                    "object_id": 90, 
+                    "start": "SERVICE_DEMAND_START", 
+                    "state": "SERVICE_STOPPED", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "HomeGroup Provider", 
+                    "name": "HomeGroupProvider", 
+                    "physical_offset": 157263088, 
+                    "object_id": 91, 
+                    "start": "SERVICE_DEMAND_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Windows Media Player Network Sharing Service", 
+                    "name": "WMPNetworkSvc", 
+                    "physical_offset": 146403392, 
+                    "object_id": 92, 
+                    "start": "SERVICE_DEMAND_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_OWN_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Application Experience", 
+                    "name": "AeLookupSvc", 
+                    "physical_offset": 160524432, 
+                    "object_id": 93, 
+                    "start": "SERVICE_DEMAND_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Diagnostic Service Host", 
+                    "name": "WdiServiceHost", 
+                    "physical_offset": 154250304, 
+                    "object_id": 94, 
+                    "start": "SERVICE_DEMAND_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "WinHTTP Web Proxy Auto-Discovery Service", 
+                    "name": "WinHttpAutoProxySvc", 
+                    "physical_offset": 154251072, 
+                    "object_id": 95, 
+                    "start": "SERVICE_DEMAND_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Windows Search", 
+                    "name": "WSearch", 
+                    "physical_offset": 153577520, 
+                    "object_id": 96, 
+                    "start": "SERVICE_AUTO_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_OWN_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Bluetooth Support Service", 
+                    "name": "bthserv", 
+                    "physical_offset": 164026704, 
+                    "object_id": 97, 
+                    "start": "SERVICE_DEMAND_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "SSDP Discovery", 
+                    "name": "SSDPSRV", 
+                    "physical_offset": 154233632, 
+                    "object_id": 98, 
+                    "start": "SERVICE_DEMAND_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Diagnostic System Host", 
+                    "name": "WdiSystemHost", 
+                    "physical_offset": 154250560, 
+                    "object_id": 99, 
+                    "start": "SERVICE_DEMAND_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Windows Media Center Scheduler Service", 
+                    "name": "ehSched", 
+                    "physical_offset": 163012480, 
+                    "object_id": 100, 
+                    "start": "SERVICE_DEMAND_START", 
+                    "state": "SERVICE_STOPPED", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_OWN_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Windows Audio", 
+                    "name": "AudioSrv", 
+                    "physical_offset": 155055760, 
+                    "object_id": 101, 
+                    "start": "SERVICE_AUTO_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Windows Audio", 
+                    "name": "AudioSrv", 
+                    "physical_offset": 155055760, 
+                    "object_id": 102, 
+                    "start": "SERVICE_AUTO_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Windows Management Instrumentation", 
+                    "name": "Winmgmt", 
+                    "physical_offset": 147787712, 
+                    "object_id": 103, 
+                    "start": "", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "IP Helper", 
+                    "name": "iphlpsvc", 
+                    "physical_offset": 157005984, 
+                    "object_id": 104, 
+                    "start": "SERVICE_AUTO_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Print Spooler", 
+                    "name": "Spooler", 
+                    "physical_offset": 156335744, 
+                    "object_id": 105, 
+                    "start": "SERVICE_AUTO_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_INTERACTIVE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Base Filtering Engine", 
+                    "name": "BFE", 
+                    "physical_offset": 163760272, 
+                    "object_id": 106, 
+                    "start": "SERVICE_AUTO_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Workstation", 
+                    "name": "LanmanWorkstation", 
+                    "physical_offset": 157554672, 
+                    "object_id": 107, 
+                    "start": "SERVICE_AUTO_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Task Scheduler", 
+                    "name": "Schedule", 
+                    "physical_offset": 156576944, 
+                    "object_id": 108, 
+                    "start": "SERVICE_AUTO_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "COM+ Event System", 
+                    "name": "EventSystem", 
+                    "physical_offset": 160908096, 
+                    "object_id": 109, 
+                    "start": "SERVICE_AUTO_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "DNS Client", 
+                    "name": "Dnscache", 
+                    "physical_offset": 163010560, 
+                    "object_id": 110, 
+                    "start": "SERVICE_AUTO_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "DHCP Client", 
+                    "name": "Dhcp", 
+                    "physical_offset": 163009600, 
+                    "object_id": 111, 
+                    "start": "SERVICE_AUTO_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Security Accounts Manager", 
+                    "name": "SamSs", 
+                    "physical_offset": 156575984, 
+                    "object_id": 112, 
+                    "start": "SERVICE_AUTO_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Base Filtering Engine", 
+                    "name": "BFE", 
+                    "physical_offset": 163760272, 
+                    "object_id": 113, 
+                    "start": "SERVICE_AUTO_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Network List Service", 
+                    "name": "netprofm", 
+                    "physical_offset": 163081664, 
+                    "object_id": 114, 
+                    "start": "SERVICE_DEMAND_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Windows Event Log", 
+                    "name": "eventlog", 
+                    "physical_offset": 160907856, 
+                    "object_id": 115, 
+                    "start": "SERVICE_AUTO_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "User Profile Service", 
+                    "name": "ProfSvc", 
+                    "physical_offset": 160742112, 
+                    "object_id": 116, 
+                    "start": "SERVICE_AUTO_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Themes", 
+                    "name": "Themes", 
+                    "physical_offset": 156351728, 
+                    "object_id": 117, 
+                    "start": "SERVICE_AUTO_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Windows Modules Installer", 
+                    "name": "TrustedInstaller", 
+                    "physical_offset": 154249536, 
+                    "object_id": 118, 
+                    "start": "SERVICE_AUTO_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_OWN_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Cryptographic Services", 
+                    "name": "CryptSvc", 
+                    "physical_offset": 163762064, 
+                    "object_id": 119, 
+                    "start": "SERVICE_AUTO_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Diagnostic Policy Service", 
+                    "name": "DPS", 
+                    "physical_offset": 160910960, 
+                    "object_id": 120, 
+                    "start": "SERVICE_AUTO_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Program Compatibility Assistant Service", 
+                    "name": "PcaSvc", 
+                    "physical_offset": 162815904, 
+                    "object_id": 121, 
+                    "start": "SERVICE_AUTO_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }, 
+                {
+                    "comment": "", 
+                    "display_name": "Superfetch", 
+                    "name": "SysMain", 
+                    "physical_offset": 156349328, 
+                    "object_id": 122, 
+                    "start": "SERVICE_AUTO_START", 
+                    "state": "SERVICE_RUNNING", 
+                    "marked": "enabled", 
+                    "type": "SERVICE_WIN32_SHARE_PROCESS"
+                }
+            ]
+        }, 
+        {
+            "registry_list": [
+                {
+                    "comment": "", 
+                    "name": "HKEY_LOCAL_MACHINE", 
+                    "physical_offset": 44958272, 
+                    "marked": "enabled", 
+                    "object_id": 1, 
+                    "file_path": "[no name]"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "HKEY_LOCAL_MACHINE", 
+                    "physical_offset": 139649040, 
+                    "marked": "enabled", 
+                    "object_id": 2, 
+                    "file_path": "/??/C:/Windows/ServiceProfiles/NetworkService/NTUSER.DATCSP"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "HKEY_LOCAL_MACHINE", 
+                    "physical_offset": 142495760, 
+                    "marked": "enabled", 
+                    "object_id": 3, 
+                    "file_path": "/SystemRoot/System32/Config/SAM"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "HKEY_LOCAL_MACHINE", 
+                    "physical_offset": 154001424, 
+                    "marked": "enabled", 
+                    "object_id": 4, 
+                    "file_path": "/SystemRoot/System32/Config/SECURITY"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "HKEY_LOCAL_MACHINE", 
+                    "physical_offset": 508121104, 
+                    "marked": "enabled", 
+                    "object_id": 5, 
+                    "file_path": "/SystemRoot/System32/Config/DEFAULTsCP,"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "HKEY_LOCAL_MACHINE", 
+                    "physical_offset": 654929936, 
+                    "marked": "enabled", 
+                    "object_id": 6, 
+                    "file_path": "/SystemRoot/System32/Config/SOFTWARE"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "HKEY_LOCAL_MACHINE", 
+                    "physical_offset": 655495184, 
+                    "marked": "enabled", 
+                    "object_id": 7, 
+                    "file_path": "/Device/HarddiskVolume1/Boot/BCDPFa"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "HKEY_LOCAL_MACHINE", 
+                    "physical_offset": 761111024, 
+                    "marked": "enabled", 
+                    "object_id": 8, 
+                    "file_path": "/REGISTRY/MACHINE/HARDWARE"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "HKEY_LOCAL_MACHINE", 
+                    "physical_offset": 761200656, 
+                    "marked": "enabled", 
+                    "object_id": 9, 
+                    "file_path": "/REGISTRY/MACHINE/SYSTEM"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "HKEY_LOCAL_MACHINE", 
+                    "physical_offset": 762073648, 
+                    "marked": "enabled", 
+                    "object_id": 10, 
+                    "file_path": "[no name]"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "HKEY_LOCAL_MACHINE", 
+                    "physical_offset": 1726152720, 
+                    "marked": "enabled", 
+                    "object_id": 11, 
+                    "file_path": "/??/C:/Users/Ryuzaki/ntuser.datC3"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "HKEY_LOCAL_MACHINE", 
+                    "physical_offset": 1784143888, 
+                    "marked": "enabled", 
+                    "object_id": 12, 
+                    "file_path": "/??/C:/System Volume Information/Syscache.hve1FfK"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "HKEY_LOCAL_MACHINE", 
+                    "physical_offset": 1811734544, 
+                    "marked": "enabled", 
+                    "object_id": 13, 
+                    "file_path": "/??/C:/Users/Ryuzaki/AppData/Local/Microsoft/Windows/UsrClass.datn"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "HKEY_LOCAL_MACHINE", 
+                    "physical_offset": 1925758992, 
+                    "marked": "enabled", 
+                    "object_id": 14, 
+                    "file_path": "/??/C:/Windows/System32/config/COMPONENTS{P{NF"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "HKEY_LOCAL_MACHINE", 
+                    "physical_offset": 1960173584, 
+                    "marked": "enabled", 
+                    "object_id": 15, 
+                    "file_path": "/??/C:/Windows/ServiceProfiles/LocalService/NTUSER.DATSTp"
+                }
+            ]
+        }, 
+        {
+            "kernel_list": [
+                {
+                    "comment": "", 
+                    "name": "monitor.sys", 
+                    "physical_offset": 94305536, 
+                    "marked": "enabled", 
+                    "object_id": 124, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/monitor.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "TSDDD.dll", 
+                    "physical_offset": 94333264, 
+                    "marked": "enabled", 
+                    "object_id": 126, 
+                    "file_path": "/SystemRoot/System32/TSDDD.dll"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "lltdio.sys", 
+                    "physical_offset": 2107855200, 
+                    "marked": "enabled", 
+                    "object_id": 128, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/lltdio.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "mrxsmb20.sys", 
+                    "physical_offset": 2107909968, 
+                    "marked": "enabled", 
+                    "object_id": 130, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/mrxsmb20.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "rspndr.sys", 
+                    "physical_offset": 2107975728, 
+                    "marked": "enabled", 
+                    "object_id": 132, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/rspndr.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "HTTP.sys", 
+                    "physical_offset": 2108176864, 
+                    "marked": "enabled", 
+                    "object_id": 134, 
+                    "file_path": "/SystemRoot/system32/drivers/HTTP.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "luafv.sys", 
+                    "physical_offset": 2111683024, 
+                    "marked": "enabled", 
+                    "object_id": 136, 
+                    "file_path": "/SystemRoot/system32/drivers/luafv.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "fastfat.SYS", 
+                    "physical_offset": 2112939616, 
+                    "marked": "enabled", 
+                    "object_id": 138, 
+                    "file_path": "/SystemRoot/System32/Drivers/fastfat.SYS"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "dxg.sys", 
+                    "physical_offset": 2113050800, 
+                    "marked": "enabled", 
+                    "object_id": 140, 
+                    "file_path": "/SystemRoot/System32/drivers/dxg.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "asyncmac.sys", 
+                    "physical_offset": 2113654064, 
+                    "marked": "enabled", 
+                    "object_id": 142, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/asyncmac.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "portcls.sys", 
+                    "physical_offset": 2116051472, 
+                    "marked": "enabled", 
+                    "object_id": 144, 
+                    "file_path": "/SystemRoot/system32/drivers/portcls.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "HdAudio.sys", 
+                    "physical_offset": 2116059824, 
+                    "marked": "enabled", 
+                    "object_id": 146, 
+                    "file_path": "/SystemRoot/system32/drivers/HdAudio.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "ksthunk.sys", 
+                    "physical_offset": 2116459984, 
+                    "marked": "enabled", 
+                    "object_id": 148, 
+                    "file_path": "/SystemRoot/system32/drivers/ksthunk.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "crashdmp.sys", 
+                    "physical_offset": 2116632576, 
+                    "marked": "enabled", 
+                    "object_id": 150, 
+                    "file_path": "/SystemRoot/System32/Drivers/crashdmp.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "dump_LSI_SAS.sys", 
+                    "physical_offset": 2116634032, 
+                    "marked": "enabled", 
+                    "object_id": 152, 
+                    "file_path": "/SystemRoot/System32/Drivers/dump_LSI_SAS.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "dump_dumpfve.sys", 
+                    "physical_offset": 2116640384, 
+                    "marked": "enabled", 
+                    "object_id": 154, 
+                    "file_path": "/SystemRoot/System32/Drivers/dump_dumpfve.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "framebuf.dll", 
+                    "physical_offset": 2117941680, 
+                    "marked": "enabled", 
+                    "object_id": 156, 
+                    "file_path": "/SystemRoot/System32/framebuf.dll"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "Dxapi.sys", 
+                    "physical_offset": 2117953888, 
+                    "marked": "enabled", 
+                    "object_id": 158, 
+                    "file_path": "/SystemRoot/System32/drivers/Dxapi.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "win32k.sys", 
+                    "physical_offset": 2117959232, 
+                    "marked": "enabled", 
+                    "object_id": 160, 
+                    "file_path": "/SystemRoot/System32/win32k.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "NDProxy.SYS", 
+                    "physical_offset": 2120176144, 
+                    "marked": "enabled", 
+                    "object_id": 162, 
+                    "file_path": "/SystemRoot/System32/Drivers/NDProxy.SYS"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "drmk.sys", 
+                    "physical_offset": 2120213184, 
+                    "marked": "enabled", 
+                    "object_id": 164, 
+                    "file_path": "/SystemRoot/system32/drivers/drmk.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "tcpipreg.sys", 
+                    "physical_offset": 2122491824, 
+                    "marked": "enabled", 
+                    "object_id": 166, 
+                    "file_path": "/SystemRoot/System32/drivers/tcpipreg.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "srv.sys", 
+                    "physical_offset": 2122826576, 
+                    "marked": "enabled", 
+                    "object_id": 168, 
+                    "file_path": "/SystemRoot/System32/DRIVERS/srv.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "cdrom.sys", 
+                    "physical_offset": 2122859616, 
+                    "marked": "enabled", 
+                    "object_id": 170, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/cdrom.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "vga.sys", 
+                    "physical_offset": 2122862592, 
+                    "marked": "enabled", 
+                    "object_id": 172, 
+                    "file_path": "/SystemRoot/System32/drivers/vga.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "watchdog.sys", 
+                    "physical_offset": 2122864528, 
+                    "marked": "enabled", 
+                    "object_id": 174, 
+                    "file_path": "/SystemRoot/System32/drivers/watchdog.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "VIDEOPRT.SYS", 
+                    "physical_offset": 2122880320, 
+                    "marked": "enabled", 
+                    "object_id": 176, 
+                    "file_path": "/SystemRoot/System32/drivers/VIDEOPRT.SYS"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "Beep.SYS", 
+                    "physical_offset": 2122882304, 
+                    "marked": "enabled", 
+                    "object_id": 178, 
+                    "file_path": "/SystemRoot/System32/Drivers/Beep.SYS"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "rdpencdd.sys", 
+                    "physical_offset": 2122883600, 
+                    "marked": "enabled", 
+                    "object_id": 180, 
+                    "file_path": "/SystemRoot/system32/drivers/rdpencdd.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "RDPCDD.sys", 
+                    "physical_offset": 2122885328, 
+                    "marked": "enabled", 
+                    "object_id": 182, 
+                    "file_path": "/SystemRoot/System32/DRIVERS/RDPCDD.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "Msfs.SYS", 
+                    "physical_offset": 2122890848, 
+                    "marked": "enabled", 
+                    "object_id": 184, 
+                    "file_path": "/SystemRoot/System32/Drivers/Msfs.SYS"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "rdprefmp.sys", 
+                    "physical_offset": 2122896272, 
+                    "marked": "enabled", 
+                    "object_id": 186, 
+                    "file_path": "/SystemRoot/system32/drivers/rdprefmp.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "Npfs.SYS", 
+                    "physical_offset": 2122904704, 
+                    "marked": "enabled", 
+                    "object_id": 188, 
+                    "file_path": "/SystemRoot/System32/Drivers/Npfs.SYS"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "tdx.sys", 
+                    "physical_offset": 2122905664, 
+                    "marked": "enabled", 
+                    "object_id": 190, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/tdx.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "TDI.SYS", 
+                    "physical_offset": 2122950048, 
+                    "marked": "enabled", 
+                    "object_id": 192, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/TDI.SYS"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "afd.sys", 
+                    "physical_offset": 2122986144, 
+                    "marked": "enabled", 
+                    "object_id": 194, 
+                    "file_path": "/SystemRoot/system32/drivers/afd.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "netbt.sys", 
+                    "physical_offset": 2122986688, 
+                    "marked": "enabled", 
+                    "object_id": 196, 
+                    "file_path": "/SystemRoot/System32/DRIVERS/netbt.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "wanarp.sys", 
+                    "physical_offset": 2123004544, 
+                    "marked": "enabled", 
+                    "object_id": 198, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/wanarp.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "netbios.sys", 
+                    "physical_offset": 2123022800, 
+                    "marked": "enabled", 
+                    "object_id": 200, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/netbios.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "pacer.sys", 
+                    "physical_offset": 2123027136, 
+                    "marked": "enabled", 
+                    "object_id": 202, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/pacer.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "rdbss.sys", 
+                    "physical_offset": 2123031296, 
+                    "marked": "enabled", 
+                    "object_id": 204, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/rdbss.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "mssmbios.sys", 
+                    "physical_offset": 2123035376, 
+                    "marked": "enabled", 
+                    "object_id": 206, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/mssmbios.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "termdd.sys", 
+                    "physical_offset": 2123037792, 
+                    "marked": "enabled", 
+                    "object_id": 208, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/termdd.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "serial.sys", 
+                    "physical_offset": 2123046688, 
+                    "marked": "enabled", 
+                    "object_id": 210, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/serial.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "dfsc.sys", 
+                    "physical_offset": 2123061104, 
+                    "marked": "enabled", 
+                    "object_id": 212, 
+                    "file_path": "/SystemRoot/System32/Drivers/dfsc.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "srv2.sys", 
+                    "physical_offset": 2123082240, 
+                    "marked": "enabled", 
+                    "object_id": 214, 
+                    "file_path": "/SystemRoot/System32/DRIVERS/srv2.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "nsiproxy.sys", 
+                    "physical_offset": 2123110000, 
+                    "marked": "enabled", 
+                    "object_id": 216, 
+                    "file_path": "/SystemRoot/system32/drivers/nsiproxy.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "csc.sys", 
+                    "physical_offset": 2123138592, 
+                    "marked": "enabled", 
+                    "object_id": 218, 
+                    "file_path": "/SystemRoot/system32/drivers/csc.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "discache.sys", 
+                    "physical_offset": 2123140032, 
+                    "marked": "enabled", 
+                    "object_id": 220, 
+                    "file_path": "/SystemRoot/System32/drivers/discache.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "blbdrive.sys", 
+                    "physical_offset": 2123147904, 
+                    "marked": "enabled", 
+                    "object_id": 222, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/blbdrive.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "tunnel.sys", 
+                    "physical_offset": 2123150576, 
+                    "marked": "enabled", 
+                    "object_id": 224, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/tunnel.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "i8042prt.sys", 
+                    "physical_offset": 2123169200, 
+                    "marked": "enabled", 
+                    "object_id": 226, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/i8042prt.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "HDAudBus.sys", 
+                    "physical_offset": 2123192832, 
+                    "marked": "enabled", 
+                    "object_id": 228, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/HDAudBus.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "E1G6032E.sys", 
+                    "physical_offset": 2123193920, 
+                    "marked": "enabled", 
+                    "object_id": 230, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/E1G6032E.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "kbdclass.sys", 
+                    "physical_offset": 2123202320, 
+                    "marked": "enabled", 
+                    "object_id": 232, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/kbdclass.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "mouclass.sys", 
+                    "physical_offset": 2123207632, 
+                    "marked": "enabled", 
+                    "object_id": 234, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/mouclass.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "serenum.sys", 
+                    "physical_offset": 2123208048, 
+                    "marked": "enabled", 
+                    "object_id": 236, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/serenum.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "vgapnp.sys", 
+                    "physical_offset": 2123222816, 
+                    "marked": "enabled", 
+                    "object_id": 238, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/vgapnp.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "fdc.sys", 
+                    "physical_offset": 2123234752, 
+                    "marked": "enabled", 
+                    "object_id": 240, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/fdc.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "usbuhci.sys", 
+                    "physical_offset": 2123279472, 
+                    "marked": "enabled", 
+                    "object_id": 242, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/usbuhci.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "USBPORT.SYS", 
+                    "physical_offset": 2123283104, 
+                    "marked": "enabled", 
+                    "object_id": 244, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/USBPORT.SYS"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "CmBatt.sys", 
+                    "physical_offset": 2123351984, 
+                    "marked": "enabled", 
+                    "object_id": 246, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/CmBatt.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "usbehci.sys", 
+                    "physical_offset": 2123353664, 
+                    "marked": "enabled", 
+                    "object_id": 248, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/usbehci.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "raspptp.sys", 
+                    "physical_offset": 2125018224, 
+                    "marked": "enabled", 
+                    "object_id": 250, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/raspptp.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "rdpbus.sys", 
+                    "physical_offset": 2125018720, 
+                    "marked": "enabled", 
+                    "object_id": 252, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/rdpbus.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "rassstp.sys", 
+                    "physical_offset": 2125032912, 
+                    "marked": "enabled", 
+                    "object_id": 254, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/rassstp.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "ks.sys", 
+                    "physical_offset": 2125058544, 
+                    "marked": "enabled", 
+                    "object_id": 256, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/ks.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "swenum.sys", 
+                    "physical_offset": 2125065536, 
+                    "marked": "enabled", 
+                    "object_id": 258, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/swenum.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "umbus.sys", 
+                    "physical_offset": 2125068320, 
+                    "marked": "enabled", 
+                    "object_id": 260, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/umbus.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "USBD.SYS", 
+                    "physical_offset": 2125854848, 
+                    "marked": "enabled", 
+                    "object_id": 262, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/USBD.SYS"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "udfs.sys", 
+                    "physical_offset": 2125856528, 
+                    "marked": "enabled", 
+                    "object_id": 264, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/udfs.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "BthEnum.sys", 
+                    "physical_offset": 2125945712, 
+                    "marked": "enabled", 
+                    "object_id": 266, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/BthEnum.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "rfcomm.sys", 
+                    "physical_offset": 2125972656, 
+                    "marked": "enabled", 
+                    "object_id": 268, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/rfcomm.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "usbccgp.sys", 
+                    "physical_offset": 2126050512, 
+                    "marked": "enabled", 
+                    "object_id": 270, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/usbccgp.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "bthport.sys", 
+                    "physical_offset": 2126067088, 
+                    "marked": "enabled", 
+                    "object_id": 272, 
+                    "file_path": "/SystemRoot/System32/Drivers/bthport.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "HIDPARSE.SYS", 
+                    "physical_offset": 2126128592, 
+                    "marked": "enabled", 
+                    "object_id": 274, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/HIDPARSE.SYS"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "HIDCLASS.SYS", 
+                    "physical_offset": 2126179424, 
+                    "marked": "enabled", 
+                    "object_id": 276, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/HIDCLASS.SYS"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "mouhid.sys", 
+                    "physical_offset": 2126211472, 
+                    "marked": "enabled", 
+                    "object_id": 278, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/mouhid.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "bthpan.sys", 
+                    "physical_offset": 2126227584, 
+                    "marked": "enabled", 
+                    "object_id": 280, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/bthpan.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "dump_storport.sys", 
+                    "physical_offset": 2126320416, 
+                    "marked": "enabled", 
+                    "object_id": 282, 
+                    "file_path": "/SystemRoot/System32/Drivers/dump_diskdump.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "wfplwf.sys", 
+                    "physical_offset": 2126418656, 
+                    "marked": "enabled", 
+                    "object_id": 284, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/wfplwf.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "srvnet.sys", 
+                    "physical_offset": 2126440064, 
+                    "marked": "enabled", 
+                    "object_id": 286, 
+                    "file_path": "/SystemRoot/System32/DRIVERS/srvnet.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "mrxsmb10.sys", 
+                    "physical_offset": 2127322896, 
+                    "marked": "enabled", 
+                    "object_id": 288, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/mrxsmb10.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "bowser.sys", 
+                    "physical_offset": 2127364096, 
+                    "marked": "enabled", 
+                    "object_id": 290, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/bowser.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "mpsdrv.sys", 
+                    "physical_offset": 2127383728, 
+                    "marked": "enabled", 
+                    "object_id": 292, 
+                    "file_path": "/SystemRoot/System32/drivers/mpsdrv.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "mrxsmb.sys", 
+                    "physical_offset": 2127410192, 
+                    "marked": "enabled", 
+                    "object_id": 294, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/mrxsmb.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "peauth.sys", 
+                    "physical_offset": 2127830128, 
+                    "marked": "enabled", 
+                    "object_id": 296, 
+                    "file_path": "/SystemRoot/system32/drivers/peauth.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "secdrv.SYS", 
+                    "physical_offset": 2127967072, 
+                    "marked": "enabled", 
+                    "object_id": 298, 
+                    "file_path": "/SystemRoot/System32/Drivers/secdrv.SYS"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "hidusb.sys", 
+                    "physical_offset": 2128648576, 
+                    "marked": "enabled", 
+                    "object_id": 300, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/hidusb.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "Null.SYS", 
+                    "physical_offset": 2129016304, 
+                    "marked": "enabled", 
+                    "object_id": 302, 
+                    "file_path": "/SystemRoot/System32/Drivers/Null.SYS"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "spsys.sys", 
+                    "physical_offset": 2131609936, 
+                    "marked": "enabled", 
+                    "object_id": 304, 
+                    "file_path": "/SystemRoot/system32/drivers/spsys.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "intelppm.sys", 
+                    "physical_offset": 2133793280, 
+                    "marked": "enabled", 
+                    "object_id": 306, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/intelppm.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "CompositeBus.sys", 
+                    "physical_offset": 2133879600, 
+                    "marked": "enabled", 
+                    "object_id": 308, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/CompositeBus.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "flpydisk.sys", 
+                    "physical_offset": 2133927248, 
+                    "marked": "enabled", 
+                    "object_id": 310, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/flpydisk.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "usbhub.sys", 
+                    "physical_offset": 2133944608, 
+                    "marked": "enabled", 
+                    "object_id": 312, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/usbhub.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "AgileVpn.sys", 
+                    "physical_offset": 2134031728, 
+                    "marked": "enabled", 
+                    "object_id": 314, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/AgileVpn.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "rasl2tp.sys", 
+                    "physical_offset": 2134035872, 
+                    "marked": "enabled", 
+                    "object_id": 316, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/rasl2tp.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "raspppoe.sys", 
+                    "physical_offset": 2134042832, 
+                    "marked": "enabled", 
+                    "object_id": 318, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/raspppoe.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "ndistapi.sys", 
+                    "physical_offset": 2134053632, 
+                    "marked": "enabled", 
+                    "object_id": 320, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/ndistapi.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "ndiswan.sys", 
+                    "physical_offset": 2134054672, 
+                    "marked": "enabled", 
+                    "object_id": 322, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/ndiswan.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "BTHUSB.sys", 
+                    "physical_offset": 2134384928, 
+                    "marked": "enabled", 
+                    "object_id": 324, 
+                    "file_path": "/SystemRoot/System32/Drivers/BTHUSB.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "rfcomm.sys", 
+                    "physical_offset": 2135393056, 
+                    "marked": "enabled", 
+                    "object_id": 326, 
+                    "file_path": "h"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "", 
+                    "physical_offset": 2137726752, 
+                    "marked": "enabled", 
+                    "object_id": 328, 
+                    "file_path": "P0k"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "|VNaNu", 
+                    "physical_offset": 2138088896, 
+                    "marked": "enabled", 
+                    "object_id": 330, 
+                    "file_path": "pp"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "", 
+                    "physical_offset": 2138115600, 
+                    "marked": "enabled", 
+                    "object_id": 332, 
+                    "file_path": ""
+                }, 
+                {
+                    "comment": "", 
+                    "name": "z", 
+                    "physical_offset": 2138198832, 
+                    "marked": "enabled", 
+                    "object_id": 334, 
+                    "file_path": ""
+                }, 
+                {
+                    "comment": "", 
+                    "name": "z", 
+                    "physical_offset": 2138207024, 
+                    "marked": "enabled", 
+                    "object_id": 336, 
+                    "file_path": "@r"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "", 
+                    "physical_offset": 2138210864, 
+                    "marked": "enabled", 
+                    "object_id": 338, 
+                    "file_path": "@r"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "l", 
+                    "physical_offset": 2138281648, 
+                    "marked": "enabled", 
+                    "object_id": 340, 
+                    "file_path": ""
+                }, 
+                {
+                    "comment": "", 
+                    "name": "", 
+                    "physical_offset": 2138307936, 
+                    "marked": "enabled", 
+                    "object_id": 342, 
+                    "file_path": "0ps"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "", 
+                    "physical_offset": 2138316800, 
+                    "marked": "enabled", 
+                    "object_id": 344, 
+                    "file_path": "t"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "", 
+                    "physical_offset": 2138323088, 
+                    "marked": "enabled", 
+                    "object_id": 346, 
+                    "file_path": "Xt"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "", 
+                    "physical_offset": 2138324624, 
+                    "marked": "enabled", 
+                    "object_id": 348, 
+                    "file_path": "Xt"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "`~", 
+                    "physical_offset": 2138387856, 
+                    "marked": "enabled", 
+                    "object_id": 350, 
+                    "file_path": "Xu"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "ntoskrnl.exe", 
+                    "physical_offset": 2146103488, 
+                    "marked": "enabled", 
+                    "object_id": 352, 
+                    "file_path": "/SystemRoot/system32/ntoskrnl.exe"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "WMILIB.SYS", 
+                    "physical_offset": 2146129616, 
+                    "marked": "enabled", 
+                    "object_id": 354, 
+                    "file_path": "/SystemRoot/system32/drivers/WMILIB.SYS"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "ACPI.sys", 
+                    "physical_offset": 2146129840, 
+                    "marked": "enabled", 
+                    "object_id": 356, 
+                    "file_path": "/SystemRoot/system32/drivers/ACPI.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "WDFLDR.SYS", 
+                    "physical_offset": 2146130080, 
+                    "marked": "enabled", 
+                    "object_id": 358, 
+                    "file_path": "/SystemRoot/system32/drivers/WDFLDR.SYS"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "Wdf01000.sys", 
+                    "physical_offset": 2146130304, 
+                    "marked": "enabled", 
+                    "object_id": 360, 
+                    "file_path": "/SystemRoot/system32/drivers/Wdf01000.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "CI.dll", 
+                    "physical_offset": 2146130560, 
+                    "marked": "enabled", 
+                    "object_id": 362, 
+                    "file_path": "/SystemRoot/system32/CI.dll"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "CLFS.SYS", 
+                    "physical_offset": 2146130800, 
+                    "marked": "enabled", 
+                    "object_id": 364, 
+                    "file_path": "/SystemRoot/system32/CLFS.SYS"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "PSHED.dll", 
+                    "physical_offset": 2146131040, 
+                    "marked": "enabled", 
+                    "object_id": 366, 
+                    "file_path": "/SystemRoot/system32/PSHED.dll"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "mcupdate.dll", 
+                    "physical_offset": 2146131264, 
+                    "marked": "enabled", 
+                    "object_id": 368, 
+                    "file_path": "/SystemRoot/system32/mcupdate_GenuineIntel.dll"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "kdcom.dll", 
+                    "physical_offset": 2146131504, 
+                    "marked": "enabled", 
+                    "object_id": 370, 
+                    "file_path": "/SystemRoot/system32/kdcom.dll"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "hal.dll", 
+                    "physical_offset": 2146131728, 
+                    "marked": "enabled", 
+                    "object_id": 372, 
+                    "file_path": "/SystemRoot/system32/hal.dll"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "msisadrv.sys", 
+                    "physical_offset": 2146131968, 
+                    "marked": "enabled", 
+                    "object_id": 374, 
+                    "file_path": "/SystemRoot/system32/drivers/msisadrv.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "amdxata.sys", 
+                    "physical_offset": 2146132304, 
+                    "marked": "enabled", 
+                    "object_id": 376, 
+                    "file_path": "/SystemRoot/system32/drivers/amdxata.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "msahci.sys", 
+                    "physical_offset": 2146132544, 
+                    "marked": "enabled", 
+                    "object_id": 378, 
+                    "file_path": "/SystemRoot/system32/drivers/msahci.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "storport.sys", 
+                    "physical_offset": 2146132768, 
+                    "marked": "enabled", 
+                    "object_id": 380, 
+                    "file_path": "/SystemRoot/system32/drivers/storport.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "lsi_sas.sys", 
+                    "physical_offset": 2146133008, 
+                    "marked": "enabled", 
+                    "object_id": 382, 
+                    "file_path": "/SystemRoot/system32/drivers/lsi_sas.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "ataport.SYS", 
+                    "physical_offset": 2146133248, 
+                    "marked": "enabled", 
+                    "object_id": 384, 
+                    "file_path": "/SystemRoot/system32/drivers/ataport.SYS"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "atapi.sys", 
+                    "physical_offset": 2146133488, 
+                    "marked": "enabled", 
+                    "object_id": 386, 
+                    "file_path": "/SystemRoot/system32/drivers/atapi.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "mountmgr.sys", 
+                    "physical_offset": 2146133712, 
+                    "marked": "enabled", 
+                    "object_id": 388, 
+                    "file_path": "/SystemRoot/System32/drivers/mountmgr.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "PCIIDEX.SYS", 
+                    "physical_offset": 2146133952, 
+                    "marked": "enabled", 
+                    "object_id": 390, 
+                    "file_path": "/SystemRoot/system32/drivers/PCIIDEX.SYS"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "intelide.sys", 
+                    "physical_offset": 2146134192, 
+                    "marked": "enabled", 
+                    "object_id": 392, 
+                    "file_path": "/SystemRoot/system32/drivers/intelide.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "volmgrx.sys", 
+                    "physical_offset": 2146134432, 
+                    "marked": "enabled", 
+                    "object_id": 394, 
+                    "file_path": "/SystemRoot/System32/drivers/volmgrx.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "volmgr.sys", 
+                    "physical_offset": 2146134672, 
+                    "marked": "enabled", 
+                    "object_id": 396, 
+                    "file_path": "/SystemRoot/system32/drivers/volmgr.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "BATTC.SYS", 
+                    "physical_offset": 2146134896, 
+                    "marked": "enabled", 
+                    "object_id": 398, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/BATTC.SYS"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "compbatt.sys", 
+                    "physical_offset": 2146135120, 
+                    "marked": "enabled", 
+                    "object_id": 400, 
+                    "file_path": "/SystemRoot/system32/DRIVERS/compbatt.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "partmgr.sys", 
+                    "physical_offset": 2146135360, 
+                    "marked": "enabled", 
+                    "object_id": 402, 
+                    "file_path": "/SystemRoot/System32/drivers/partmgr.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "vdrvroot.sys", 
+                    "physical_offset": 2146135600, 
+                    "marked": "enabled", 
+                    "object_id": 404, 
+                    "file_path": "/SystemRoot/system32/drivers/vdrvroot.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "pci.sys", 
+                    "physical_offset": 2146135840, 
+                    "marked": "enabled", 
+                    "object_id": 406, 
+                    "file_path": "/SystemRoot/system32/drivers/pci.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "fltmgr.sys", 
+                    "physical_offset": 2146136064, 
+                    "marked": "enabled", 
+                    "object_id": 408, 
+                    "file_path": "/SystemRoot/system32/drivers/fltmgr.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "mup.sys", 
+                    "physical_offset": 2146136304, 
+                    "marked": "enabled", 
+                    "object_id": 410, 
+                    "file_path": "/SystemRoot/System32/Drivers/mup.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "spldr.sys", 
+                    "physical_offset": 2146136528, 
+                    "marked": "enabled", 
+                    "object_id": 412, 
+                    "file_path": "/SystemRoot/System32/Drivers/spldr.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "volsnap.sys", 
+                    "physical_offset": 2146136752, 
+                    "marked": "enabled", 
+                    "object_id": 414, 
+                    "file_path": "/SystemRoot/system32/drivers/volsnap.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "vmstorfl.sys", 
+                    "physical_offset": 2146136992, 
+                    "marked": "enabled", 
+                    "object_id": 416, 
+                    "file_path": "/SystemRoot/system32/drivers/vmstorfl.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "fwpkclnt.sys", 
+                    "physical_offset": 2146137232, 
+                    "marked": "enabled", 
+                    "object_id": 418, 
+                    "file_path": "/SystemRoot/System32/drivers/fwpkclnt.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "tcpip.sys", 
+                    "physical_offset": 2146137472, 
+                    "marked": "enabled", 
+                    "object_id": 420, 
+                    "file_path": "/SystemRoot/System32/drivers/tcpip.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "ksecpkg.sys", 
+                    "physical_offset": 2146137760, 
+                    "marked": "enabled", 
+                    "object_id": 422, 
+                    "file_path": "/SystemRoot/System32/Drivers/ksecpkg.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "NETIO.SYS", 
+                    "physical_offset": 2146138000, 
+                    "marked": "enabled", 
+                    "object_id": 424, 
+                    "file_path": "/SystemRoot/system32/drivers/NETIO.SYS"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "ndis.sys", 
+                    "physical_offset": 2146138240, 
+                    "marked": "enabled", 
+                    "object_id": 426, 
+                    "file_path": "/SystemRoot/system32/drivers/ndis.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "Fs_Rec.sys", 
+                    "physical_offset": 2146138496, 
+                    "marked": "enabled", 
+                    "object_id": 428, 
+                    "file_path": "/SystemRoot/System32/Drivers/Fs_Rec.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "pcw.sys", 
+                    "physical_offset": 2146138720, 
+                    "marked": "enabled", 
+                    "object_id": 430, 
+                    "file_path": "/SystemRoot/System32/drivers/pcw.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "cng.sys", 
+                    "physical_offset": 2146138944, 
+                    "marked": "enabled", 
+                    "object_id": 432, 
+                    "file_path": "/SystemRoot/System32/Drivers/cng.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "ksecdd.sys", 
+                    "physical_offset": 2146139184, 
+                    "marked": "enabled", 
+                    "object_id": 434, 
+                    "file_path": "/SystemRoot/System32/Drivers/ksecdd.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "msrpc.sys", 
+                    "physical_offset": 2146139408, 
+                    "marked": "enabled", 
+                    "object_id": 436, 
+                    "file_path": "/SystemRoot/System32/Drivers/msrpc.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "Ntfs.sys", 
+                    "physical_offset": 2146139648, 
+                    "marked": "enabled", 
+                    "object_id": 438, 
+                    "file_path": "/SystemRoot/System32/Drivers/Ntfs.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "fileinfo.sys", 
+                    "physical_offset": 2146139920, 
+                    "marked": "enabled", 
+                    "object_id": 440, 
+                    "file_path": "/SystemRoot/system32/drivers/fileinfo.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "rdyboost.sys", 
+                    "physical_offset": 2146140160, 
+                    "marked": "enabled", 
+                    "object_id": 442, 
+                    "file_path": "/SystemRoot/System32/drivers/rdyboost.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "CLASSPNP.SYS", 
+                    "physical_offset": 2146143328, 
+                    "marked": "enabled", 
+                    "object_id": 444, 
+                    "file_path": "/SystemRoot/system32/drivers/CLASSPNP.SYS"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "disk.sys", 
+                    "physical_offset": 2146143568, 
+                    "marked": "enabled", 
+                    "object_id": 446, 
+                    "file_path": "/SystemRoot/system32/drivers/disk.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "fvevol.sys", 
+                    "physical_offset": 2146143792, 
+                    "marked": "enabled", 
+                    "object_id": 448, 
+                    "file_path": "/SystemRoot/System32/DRIVERS/fvevol.sys"
+                }, 
+                {
+                    "comment": "", 
+                    "name": "hwpolicy.sys", 
+                    "physical_offset": 2146144016, 
+                    "marked": "enabled", 
+                    "object_id": 450, 
+                    "file_path": "/SystemRoot/System32/drivers/hwpolicy.sys"
+                }
+            ]
+        }
+    ], 
+    "file_name": "data/samples/win764.vmem", 
+    "os_name": "win7"
+}

@@ -65,7 +65,7 @@ def add_artifact():
 					j += 1
 				i += 1
 		with open('../data/json/' + session['selected_case'], mode='w') as f:
-			json.dump(new_case_data, f)
+			json.dump(new_case_data, f, indent = 4)
 
 		resp['result'] = True
 		return json.dumps(resp)
@@ -92,7 +92,7 @@ def remove_artifact():
 					j += 1
 				i += 1
 		with open('../data/json/' + session['selected_case'], mode='w') as f:
-			json.dump(new_case_data, f)
+			json.dump(new_case_data, f, indent = 4)
 
 		resp['result'] = True
 		return json.dumps(resp)
