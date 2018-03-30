@@ -33,6 +33,9 @@ class profile
 	char *udp_pool_tag;
 	int *udp_offsets;
 
+	char *tcp_pool_tag;
+	int *tcp_offsets;
+
 	char *hive_signature;
 	char *hive_pool_tag;
 	int *hive_offsets;
@@ -69,6 +72,9 @@ class profile
 		udp_pool_tag = new char[8]{'0', '0', '0', '0', 'U', 'd', 'p', 'A'};
 		udp_offsets = new int[3]{0x20, 0x80, 0x60};
 
+		tcp_pool_tag = new char[8]{'0', '0', '0', '0', 'T', 'c', 'p', 'L'};
+		tcp_offsets = new int[3]{0x20, 0x80, 0x60};
+
 		hive_signature = new char[8]{char(224), char(190), char(224), char(190), 0, 0, 0, 0};
 		hive_pool_tag = new char[8]{'0', '0', '0', '0', 'C', 'M', '1', '0'};
 		hive_offsets = new int[1]{1776};
@@ -95,6 +101,9 @@ class profile
 
 		udp_pool_tag = new char[8]{'0', '0', '0', '0', 'U', 'd', 'p', 'A'};
 		udp_offsets = new int[1]{1};
+
+		tcp_pool_tag = new char[8]{'0', '0', '0', '0', 'T', 'c', 'p', 'E'};
+		tcp_offsets = new int[3]{0x20, 0x80, 0x60};
 
 		hive_signature = new char[8]{char(224), char(190), char(224), char(190), 0, 0, 0, 0};
 		hive_pool_tag = new char[8]{'0', '0', '0', '0', 'C', 'M', '1', '0'};
