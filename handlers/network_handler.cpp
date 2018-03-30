@@ -135,6 +135,8 @@ class network_handler
         n.physical_offset = phy_offset;
         
         //udp
+        ifile.clear();
+        ifile.seekg(0, ios::beg);
         ifile.seekg(phy_offset - 16, ios::beg);
         ifile.read(current_pattern, 8);
         if (utility_functions::scan_tag(current_pattern, prf.udp_pool_tag, 8))
@@ -204,7 +206,7 @@ class network_handler
             n.port = r_port | l_port;
 
             //address
-            get_local_address(ifile, prf, phy_offset, tcp.tcp_offsets[2], n, type);
+            get_local_address(ifile, prf, phy_offset, prf.tcp_offsets[2], n, type);
 
         }
         if (type != 0)

@@ -10,6 +10,7 @@
 #include "handlers/service_handler.cpp"
 #include "handlers/registry_handler.cpp"
 #include "handlers/kernel_module_handler.cpp"
+#include "handlers/network_handler.cpp"
 
 using namespace std;
 
@@ -41,6 +42,7 @@ int main(int argc, char **argv)
     service_handler sh;
     registry_handler rh;
     kernel_module_handler kh;
+    network_handler nh;
 
     cout << "Generating Registry List" << endl;
     vector<registry> registry_list = rh.get_registry_list(ifile, prf);
@@ -50,6 +52,8 @@ int main(int argc, char **argv)
     vector<service> service_list = sh.get_service_list(ifile, prf);
     cout << "Generating Kernel List" << endl;
     vector<kernel_module> kernel_list = kh.get_kernel_list(ifile, prf);
+    cout<< "Generating Network List" << endl;
+    vector<network> network_list = nh.get_network_list(ifile, prf);
 
     string json = "";
 
@@ -77,8 +81,9 @@ int main(int argc, char **argv)
     json += ph.get_info() + ", ";
     json += sh.get_info() + ", ";
     json += rh.get_info() + ", ";
-    json += kh.get_info();
-
+    json += kh.get_info() + ", ";
+    json += nh.get_info();
+    
     json += "] ";
 
     json += "}";

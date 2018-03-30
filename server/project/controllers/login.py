@@ -24,7 +24,7 @@ def start():
 @app.route('/login', methods = ['GET', 'POST'])
 def login():
 	resp = {}
-	if 'username' in session:
+	if 'username' in session and 'cases' in session:
 		resp['result_type'] = "info"
 		resp['result'] = "Already logged in!"
 		resp['cases'] = session['cases']
