@@ -68,7 +68,7 @@ class process_handler
 					ifile.seekg(prf.dtb_offset, std::ios::cur);
 					uint64_t temp_dtb;
 					ifile.read(reinterpret_cast<char *>(&temp_dtb), sizeof(temp_dtb));
-					ifile.seekg((prf.process_name_offset + 16 - prf.dtb_offset + 8), std::ios::cur);
+					ifile.seekg((prf.process_name_offset - prf.dtb_offset + 8), std::ios::cur);
 					prf.service_dtb = temp_dtb;
 				}
 				cout << setw(16) << proc.name << endl;
@@ -127,12 +127,12 @@ class process_handler
 };
 
 #ifndef mainfunc
-/*int main(void)
+int main(void)
 {
 	process_handler ph;
 	ifstream ifile;
-	profile prf(10);
-	char fname[] = "../data/samples/win1064.vmem";
+	profile prf(7);
+	char fname[] = "../data/samples/win764.vmem";
 
 	ifile.open(fname, ios::in | ios::binary);
 	if (!ifile)
@@ -142,12 +142,12 @@ class process_handler
 	}
 	cout << "File opened..";
 	cout << "\n";
-	cout << prf.get_global_dtb(ifile) << endl;
-	cout << prf.get_service_dtb(ifile) << endl;
-	//ph.generate_processes(ifile, prf);
-	//ph.print_processes();
+	//cout << prf.get_global_dtb(ifile) << endl;
+	//cout << prf.get_service_dtb(ifile) << endl;
+	ph.generate_processes(ifile, prf);
+	ph.print_processes();
 	//cout<<ph.get_info();
 	//ph.generate_processes(ifile, prf);
-}*/
+}
 #endif
 #endif
