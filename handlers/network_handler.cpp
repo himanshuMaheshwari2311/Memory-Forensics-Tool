@@ -183,7 +183,7 @@ class network_handler
         else
         {
             // inet_af
-            ifile.seekg(phy_offset + 0x20);
+            ifile.seekg(phy_offset + prf.tcp_offsets[0]);
             ifile.read(reinterpret_cast<char *>(&vir_addr), 8);
             phy_addr = utility_functions::opt_get_phy_addr(ifile, vir_addr, prf.get_global_dtb(ifile));
             ifile.clear();
@@ -197,14 +197,14 @@ class network_handler
             
             // port
             ifile.clear();
-            ifile.seekg(phy_offset + 0x6a);
+            ifile.seekg(phy_offset + prf.tcp_offsets[1]);
             ifile.read(reinterpret_cast<char *>(&n.port), 2);
             uint16_t r_port = n.port << 8;
             uint16_t l_port = n.port >> 8;
             n.port = r_port | l_port;
 
             //address
-            get_local_address(ifile, prf, phy_offset, 0x58, n, type);
+            get_local_address(ifile, prf, phy_offset, tcp.tcp_offsets[2], n, type);
 
         }
         if (type != 0)
