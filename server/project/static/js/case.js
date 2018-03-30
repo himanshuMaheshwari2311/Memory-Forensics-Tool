@@ -48,7 +48,8 @@ function toggleTable(nr) {
 }
 window.onload = initTables;
 
-function addToReport(id, url) {
+function addToReport(id, url, table_type) {
+    console.log(table_type);
     var comment_msg = prompt("Add some comment regarding this Artifact");
     if (comment_msg == null || comment_msg == "") {
         txt = " ";
@@ -60,21 +61,20 @@ function addToReport(id, url) {
             comment: comment_msg
         },
         function (data, status) {
+            console.log(data);
             console.log("btn_" + id);
             $('#btn_' + id).prop('disabled', true);
         });
 }
 
 function removeFromReport(id, url) {
-    var comment_msg = prompt("Add some comment regarding this Artifact");
-    if (comment_msg == null || comment_msg == "") {
-        txt = " ";
-    } 
     console.log(url);
+    var element = document.getElementById("tr_" + id);
+    element.outerHTML = "";
+    delete element;
     $.post(url,
         {
-            object_id: id,
-            comment: comment_msg
+            object_id: id
         },
         function (data, status) {
             console.log("btn_" + id);

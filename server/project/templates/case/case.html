@@ -24,7 +24,7 @@
                                 <!-- Table head -->
                                 <thead class="blue-grey lighten-4">
                                     <tr>
-                                        {% for ke, va in v[0].iteritems(): %} {% if ke != 'object_id' and ke != 'marked' and ke != 'start' %}
+                                        {% for ke, va in v[0].iteritems(): %} {% if ke != 'object_id' and ke != 'marked' and ke != 'start' and ke != 'comment'%}
                                         <th> {{ke}} </th>
                                         {% endif %} {% endfor %}
                                         <th>Add to report</th>
@@ -36,14 +36,14 @@
                                     <tr>
                                         {% set id = [] %} {% set btn = [] %} {% for ke, va in artifact.iteritems() %} {% if ke == 'marked' %} {% do btn.append(va)
                                         %} {% endif %} {% if ke == 'object_id' %} {% do id.append(va) %} {% do id.append(url_for('add_artifact'))%}
-                                        {% endif %} {% if ke != 'object_id' and ke != 'marked' and ke != 'start' %} {% if
+                                        {% endif %} {% if ke != 'object_id' and ke != 'marked' and ke != 'start' and ke != 'comment'%} {% if
                                         ke == 'physical_offset': %}
                                         <td>0x{{ '%0x' % va}}</td>
                                         {% else: %}
                                         <td>{{ va }}</td>
                                         {% endif %}{% endif %}{% endfor %}
                                         <td>
-                                            <button type="button" class="btn btn-primary" id="btn_{{id[0]}}" onclick="addToReport('{{ id[0] }}', '{{ id[1] }}')" {{ btn[0]
+                                            <button type="button" class="btn btn-primary" id="btn_{{id[0]}}" onclick="addToReport('{{ id[0] }}', '{{ id[1] }}', '{{k}}')" {{ btn[0]
                                                 }}>Add</button>
                                         </td>
                                     </tr>
@@ -66,8 +66,11 @@
                         <div class="card-body">
                             {% for artifact_obj in case_data["artifacts"]: %} {% for k, v in artifact_obj.iteritems(): %}
                             <div>
+                                <hr>
+                                <p>{{k}}</p>
+                                <hr>
                                 <!-- Table  -->
-                                <table class="table table-hover">
+                                <table class="table table-hover" id="{{k}}">
                                     <!-- Table head -->
                                     <thead class="blue-grey lighten-4">
                                         <tr>
@@ -79,30 +82,32 @@
                                     </thead>
                                     <!-- Table head -->
                                     <tbody>
-                                        {% for artifact in v %}
-                                        <tr id="td_{{artifact['object_id']}}">
-                                            {% set id = [] %} {% set btn = [] %} {% for ke, va in artifact.iteritems() %} {% if ke == 'marked' %} 
-                                            {% if va=="enabled" %} 
-                                            {% do btn.append("disabled") %} 
-                                            {% else  %}
-                                            {% do btn.append("enabled") %}
-                                            {% endif %}
-                                            {% endif %} {% if ke == 'object_id' %} {% do id.append(va) %} {% do id.append(url_for('add_artifact'))%}
-                                            {% endif %} {% if ke != 'object_id' and ke != 'marked' and ke != 'start' %} {%
-                                            if ke == 'physical_offset': %}
+                                        {% set empty_flag = [] %}
+                                        {% for artifact in v %} {% if artifact['marked'] == "disabled" %}
+                                        {% do empty_flag.append(1) %}
+                                        <tr id="tr_{{artifact['object_id']}}">
+                                            {% set id = [] %} {% set btn = [] %}  {% for ke, va in artifact.iteritems() %} {% if ke == 'marked' %} {% if va=="enabled"
+                                            %} {% do btn.append("disabled") %} {% else %} {% do btn.append("enabled") %}
+                                            {% endif %} {% endif %} {% if ke == 'object_id' %} {% do id.append(va) %} {%
+                                            do id.append(url_for('remove_artifact'))%} {% endif %} {% if ke != 'object_id' and
+                                            ke != 'marked' and ke != 'start' %} {% if ke == 'physical_offset': %}
                                             <td>0x{{ '%0x' % va}}</td>
                                             {% else: %}
                                             <td>{{ va }}</td>
                                             {% endif %}{% endif %}{% endfor %}
                                             <td>
-                                                <button type="button" class="btn btn-primary" id="btn_d_{{id[0]}}" onclick="removeFromReport('{{ id[0] }}', '{{ id[1] }}')" {{
-                                                    btn[0] }}>Remove</button>
+                                                <button type="button" class="btn btn-primary" id="btn_d_{{id[0]}}" onclick="removeFromReport('{{ id[0] }}', '{{ id[1] }}')"
+                                                    {{ btn[0] }}>Remove</button>
                                             </td>
                                         </tr>
-                                        {% endfor %}
+                                        {% endif %} {% endfor %}
+                                        {% if empty_flag | length < 1 %}
+                                        <tr><td><strong>No Artifacts Selected</strong></td></tr>
+                                        {% endif %}
                                     </tbody>
                                 </table>
                             </div>
+                            <br>
                             {% endfor %} {% endfor %}
                         </div>
                     </div>
