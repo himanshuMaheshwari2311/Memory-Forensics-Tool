@@ -84,7 +84,7 @@ def remove_artifact():
 					if str(module['object_id']) == str(object_id) and module['marked'] == "disabled":
 						new_case_data['artifacts'][i][key][j]['marked'] = "enabled"
 						if 'comment' in new_case_data['artifacts'][i][key][j]:
-							new_case_data['artifacts'][i][key][j].pop('comment')
+							new_case_data['artifacts'][i][key][j]['comment'] = ""
 					j += 1
 				i += 1
 		with open('../data/json/' + session['selected_case'], mode='w') as f:

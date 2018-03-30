@@ -33,7 +33,10 @@ class registry : public object
         json += "\"" + this->file_path + "\", ";
         
 		json += "\"marked\" : ";
-		json += "\"disabled\"";
+		json += "\"disabled\", ";
+
+		json += "\"comment\" : ";
+		json += "\"\"";
 
         json += "} ";
         return json;

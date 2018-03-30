@@ -42,7 +42,10 @@ class process : public object
 		json += to_string(this->active_threads) + ", ";
 		
 		json += "\"marked\" : ";
-		json += "\"disabled\"";
+		json += "\"disabled\", ";
+
+		json += "\"comment\" : ";
+		json += "\"\"";
 
 		json += "} ";
 		return json;
