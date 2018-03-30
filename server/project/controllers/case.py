@@ -9,6 +9,7 @@ import json
 
 @app.route('/case', methods = ['GET', 'POST'])
 def case():
+	print "Case!!!"
 	resp = {}
 	if 'username' not in session:
 		resp['result_type'] = "info"

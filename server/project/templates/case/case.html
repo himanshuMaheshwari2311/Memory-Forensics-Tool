@@ -60,39 +60,40 @@
                     <!--Card-->
                     <div class="card" id="table77">
                         <!-- Card header -->
-                        <div class="card-header text-center">
-                            Report
-                            <a href="{{ url_for('get_report') }}" class="btn btn-primary float-right" id="7" target="_blank">Generate Report
+                        <div class="card-header">
+                            <p class="float-left" style="font-size: 30px;">Report</p>
+                            <a href="{{ url_for('logout') }}" class="btn btn-primary float-right" id="generateReport" target="_blank">Generate Report
                             </a>
+                            <br>
+                            <br>
                         </div>
                         <!--Card content-->
                         <div class="card-body">
-                            <form class="form" role="form" autocomplete="off" id="formReport" novalidate="" action="{{ url_for('logout') }}" method="post">
+                            <div class="form" role="form" autocomplete="off" id="formReport" >
+                                {% set report1 = [] %} {% do report1.append(url_for('update_report')) %}
                                 <div class="form-group">
-                                    <label for="overview">Overview or case summary</label>
-                                    <input type="text" class="my_input form-control form-control-lg rounded-0" name="overview" id="overview" required="" autofocus="autofocus">
-                                    <div class="invalid-feedback">Oops, you missed this one.</div>
+                                    <label for="overview" class="float-left">Overview or case summary</label>
+                                    <input type="text" class="my_input form-control form-control-lg rounded-0" name="overview" id="overview" autofocus="autofocus"
+                                        value="{{case_data['case_overview']}}">
                                 </div>
                                 <div class="form-group">
-                                    <label for="acquisition">Forensic acquisition and Exam Preparation</label>
-                                    <input type="text" class="my_input form-control form-control-lg rounded-0" name="acquisition" id="acquisition" required=""
-                                        autocomplete="off">
-                                    <div class="invalid-feedback">Oops, you missed this one, too.</div>
+                                    <label for="acquisition" class="float-left">Forensic acquisition and Exam Preparation</label>
+                                    <input type="text" class="my_input form-control form-control-lg rounded-0" name="acquisition" id="acquisition" autocomplete="off"
+                                        value="{{case_data['case_acquisition']}}">
                                 </div>
                                 <div class="form-group">
-                                    <label for="findings">Findings and Reports</label>
-                                    <input type="text" class="my_input form-control form-control-lg rounded-0" name="findings" id="findings" required=""
-                                        autocomplete="off">
-                                    <div class="invalid-feedback">Oops, you missed this one, three.</div>
+                                    <label for="findings" class="float-left">Findings and Reports</label>
+                                    <input type="text" class="my_input form-control form-control-lg rounded-0" name="findings" id="findings" autocomplete="off"
+                                        value="{{case_data['case_findings']}}">
                                 </div>
                                 <div class="form-group">
-                                    <label for="conclusion">Conclusion based on analysis</label>
-                                    <input type="text" class="my_input form-control form-control-lg rounded-0" name="conclusion" id="conclusion" required=""
-                                        autocomplete="off">
-                                    <div class="invalid-feedback">Oops, you missed this one, four.</div>
+                                    <label for="conclusion" class="float-left">Conclusion based on analysis</label>
+                                    <input type="text" class="my_input form-control form-control-lg rounded-0" name="conclusion" id="conclusion" autocomplete="off"
+                                        value="{{case_data['case_conclusion']}}">
                                 </div>
-                                <input type="submit" value="Login" class="btn btn-primary btn-lg float-right" id="btnlogin"></input>
-                            </form>
+                                <button class="btn btn-primary" id="updateReport" onclick="updateReport('1', '{{report1[0]}}')">Update
+                                </button>
+                            </div>
 
                             {% for artifact_obj in case_data["artifacts"]: %} {% for k, v in artifact_obj.iteritems(): %}
                             <div>

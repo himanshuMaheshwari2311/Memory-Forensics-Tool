@@ -109,3 +109,22 @@ function removeFromReport(id, url) {
             $('#btn_' + id).prop('disabled', false);
         });
 }
+
+function updateReport(id, url) {
+    console.log(url);
+    var overview = $('#overview').val();
+    var acquisition = $('#acquisition').val();
+    var findings = $('#findings').val();
+    var conclusion = $('#conclusion').val();
+    console.log(overview);
+    $.post(url,
+        {
+            case_overview: overview,
+            case_acquisition: acquisition,
+            case_findings: findings,
+            case_conclusion: conclusion
+        },
+        function (data, status) {
+            console.log(data);
+        });
+}

@@ -1,4 +1,8 @@
 {
+    "case_acquisition": "", 
+    "os_name": "win7", 
+    "case_findings": "", 
+    "case_overview": "Hello overview", 
     "artifacts": [
         {
             "process_list": [
@@ -2594,5 +2598,5 @@
         }
     ], 
     "file_name": "data/samples/win764.vmem", 
-    "os_name": "win7"
+    "case_conclusion": ""
 }
