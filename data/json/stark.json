@@ -3,23 +3,23 @@
         {
             "process_list": [
                 {
-                    "comment": "", 
+                    "comment": "test", 
                     "name": "Idle", 
                     "physical_offset": 44446144, 
                     "pid": 0, 
                     "object_id": 16, 
                     "active_threads": 0, 
-                    "marked": "enabled", 
+                    "marked": "disabled", 
                     "ppid": 0
                 }, 
                 {
-                    "comment": "", 
+                    "comment": "test", 
                     "name": "svchost.exe", 
                     "physical_offset": 2107906864, 
                     "pid": 1156, 
                     "object_id": 17, 
                     "active_threads": 0, 
-                    "marked": "enabled", 
+                    "marked": "disabled", 
                     "ppid": 440
                 }, 
                 {
@@ -337,14 +337,14 @@
         {
             "service_list": [
                 {
-                    "comment": "", 
+                    "comment": "temp", 
                     "display_name": "Distributed Link Tracking Client", 
                     "name": "TrkWks", 
                     "physical_offset": 156352208, 
                     "object_id": 49, 
                     "start": "SERVICE_AUTO_START", 
                     "state": "SERVICE_RUNNING", 
-                    "marked": "enabled", 
+                    "marked": "disabled", 
                     "type": "SERVICE_WIN32_SHARE_PROCESS"
                 }, 
                 {
@@ -1163,10 +1163,10 @@
                     "file_path": "[no name]"
                 }, 
                 {
-                    "comment": "", 
+                    "comment": "temp", 
                     "name": "HKEY_LOCAL_MACHINE", 
                     "physical_offset": 139649040, 
-                    "marked": "enabled", 
+                    "marked": "disabled", 
                     "object_id": 2, 
                     "file_path": "/??/C:/Windows/ServiceProfiles/NetworkService/NTUSER.DATCSP"
                 }, 
@@ -1287,18 +1287,18 @@
                     "file_path": "/SystemRoot/system32/DRIVERS/monitor.sys"
                 }, 
                 {
-                    "comment": "", 
+                    "comment": "test", 
                     "name": "TSDDD.dll", 
                     "physical_offset": 94333264, 
-                    "marked": "enabled", 
+                    "marked": "disabled", 
                     "object_id": 126, 
                     "file_path": "/SystemRoot/System32/TSDDD.dll"
                 }, 
                 {
-                    "comment": "", 
+                    "comment": "test", 
                     "name": "lltdio.sys", 
                     "physical_offset": 2107855200, 
-                    "marked": "enabled", 
+                    "marked": "disabled", 
                     "object_id": 128, 
                     "file_path": "/SystemRoot/system32/DRIVERS/lltdio.sys"
                 }, 
