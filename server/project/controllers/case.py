@@ -1,6 +1,9 @@
 from project import app
 from flask import render_template, request, session
 from flask_wtf import FlaskForm
+from docx import Document
+from docx.shared import Inches
+import comtypes.client
 
 import json
 
@@ -70,7 +73,7 @@ def add_artifact():
 		resp['result'] = True
 		return json.dumps(resp)
 
-# add function
+# remove function
 @app.route('/remove_artifact', methods = ['GET', 'POST'])
 def remove_artifact():
     if request.method == 'POST':
@@ -96,3 +99,42 @@ def remove_artifact():
 
 		resp['result'] = True
 		return json.dumps(resp)
+
+@app.route('/get_report', methods=['GET', 'POST'])
+def get_report():
+	report_name = session['selected_case'].split('.')[0] + '_report.docx'
+	pdf_report_name = session['selected_case'].split('.')[0] + '_report.pdf'
+	document = Document()
+	document.add_heading(session['selected_case'].split('.')[0] + " Report", 0)
+	lines = ""	
+	resp = {}
+	with open('../data/json/' + session['selected_case'], mode='r') as f:
+		case_data = json.load(f)
+		lines += 'Case Overview\n' + case_data['case_overview'] + '\n\n'
+		lines += 'Case Acquisition\n' + case_data['case_acquisition'] + '\n\n'
+		lines += 'Case Findings\n' + case_data['case_findings'] + '\n\n'
+		lines += 'Case Conclusion\n' + case_data['case_conclusion'] + '\n\n'
+		lines += 'Artifacts\n'
+		i = 0
+		for artifact in case_data['artifacts']:
+			key = next(iter(artifact))
+			lines += key + ': \n'
+			value = artifact[key]
+			j = 0
+			for module in value:
+				if module['marked'] == "disabled":
+					for ke, va in module.iteritems():
+						lines += "\t" + str(ke) + ": " + str(va) + "\n"
+					lines +="\n"
+				j += 1
+			i += 1
+	p = document.add_paragraph(lines)
+	document.add_page_break()
+	document.save('../data/pdfs/' + report_name)
+	word = comtypes.client.CreateObject('Word.Application')
+	doc = word.Documents.Open('G:\\Final Year Project\\Memory Forensics Tool\\data\\pdfs\\' + report_name)
+	doc.SaveAs('G:\\Final Year Project\\Memory Forensics Tool\\data\\pdfs\\' + pdf_report_name, FileFormat=17)
+	doc.Close()
+	word.Quit()
+	resp['result'] = True
+	return json.dumps(resp)
