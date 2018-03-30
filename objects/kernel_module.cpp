@@ -34,7 +34,7 @@ class kernel_module : public object
 		json += "\"" + this->file_path + "\", ";
 
 		json += "\"marked\" : ";
-		json += "\"disabled\", ";
+		json += "\"enabled\", ";
 
 		json += "\"comment\" : ";
 		json += "\"\"";

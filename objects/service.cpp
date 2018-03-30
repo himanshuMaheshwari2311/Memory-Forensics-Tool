@@ -41,7 +41,7 @@ class service : public object
 		json += "\"" + this->start + "\", ";
 		
 		json += "\"marked\" : ";
-		json += "\"disabled\", ";
+		json += "\"enabled\", ";
 
 		json += "\"comment\" : ";
 		json += "\"\"";
