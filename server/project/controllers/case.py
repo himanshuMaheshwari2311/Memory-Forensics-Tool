@@ -4,6 +4,7 @@ from flask_wtf import FlaskForm
 from docx import Document
 from docx.shared import Inches
 import comtypes.client
+import  os
 
 import json
 
@@ -132,9 +133,11 @@ def get_report():
 	p = document.add_paragraph(lines)
 	document.add_page_break()
 	document.save('../data/pdfs/' + report_name)
+	file_path = os.getcwd() + '\\..\\data\\pdfs\\'
+	print file_path
 	word = comtypes.client.CreateObject('Word.Application')
-	doc = word.Documents.Open('G:\\Final Year Project\\Memory Forensics Tool\\data\\pdfs\\' + report_name)
-	doc.SaveAs('G:\\Final Year Project\\Memory Forensics Tool\\data\\pdfs\\' + pdf_report_name, FileFormat=17)
+	doc = word.Documents.Open(file_path + report_name)
+	doc.SaveAs(file_path + pdf_report_name, FileFormat=17)
 	doc.Close()
 	word.Quit()
 	resp['result'] = True
