@@ -76,16 +76,16 @@ int main(int argc, char **argv)
     json += ", ";
 
     json += "\"case_overview\": ";
-    josn += "\"\", ";
+    json += "\"\", ";
 
     json += "\"case_acquisition\": ";
-    josn += "\"\", ";
+    json += "\"\", ";
 
     json += "\"case_findings\": ";
-    josn += "\"\", ";
+    json += "\"\", ";
 
     json += "\"case_conclusion\": ";
-    josn += "\"\", ";
+    json += "\"\", ";
 
     json += "\"artifacts\" : ";
     json += "[ ";
