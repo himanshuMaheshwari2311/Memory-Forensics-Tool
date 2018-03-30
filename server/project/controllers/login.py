@@ -54,6 +54,8 @@ def login():
 def logout():
 	if 'username' in session:
 		session.pop('username')
+	if 'cases' in session
+		session.pop('cases')
 	resp = {}
 	resp['result_type'] = "info"
 	resp['result'] = "Successfully logged out!"

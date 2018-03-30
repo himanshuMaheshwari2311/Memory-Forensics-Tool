@@ -15,6 +15,7 @@ class profile
 
 	uint64_t global_dtb = 0;
 	uint64_t service_dtb = 0;
+	uint64_t kdbg_addr = 0;
 
 	int dtb_offset = 48;
 
@@ -42,6 +43,8 @@ class profile
 
 	char *kernel_pool_tag;
 	int *kernel_offsets;
+
+	char *kdbg_signature;
 
 	profile(int type = 7)
 	{
@@ -81,6 +84,8 @@ class profile
 
 		kernel_pool_tag = new char[8]{'0', '0', '0', '0', 'M', 'm', 'L', 'd'};
 		kernel_offsets = new int[5]{0x10, 0x18, 0x60, 0x68, 0x70};
+
+		kdbg_signature = new char[8]{0x00, 0xf8, 0xff, 0xff, 0x4b, 0x44, 0x42, 0x47};
 	}
 
 	void init_as_win10()
@@ -179,10 +184,10 @@ class profile
 						unsigned long temp;
 						ifile.read(reinterpret_cast<char *>(&temp), sizeof(temp));
 						cout << "DTB value for  services.exe " << hex << temp << endl;
-						global_dtb = temp;
+						service_dtb = temp;
 						ifile.clear();
 						ifile.seekg(0, std::ios::beg);
-						return global_dtb;
+						return service_dtb;
 					}
 					ifile.ignore(process_offsets[3]);
 				}
@@ -195,6 +200,36 @@ class profile
 		else
 		{
 			return service_dtb;
+		}
+	}
+
+	uint64_t get_kdbg_addr(ifstream &ifile)
+	{
+		if (kdbg_addr == 0)
+		{
+			uint64_t addr_val = 0;
+			ifile.clear();
+			ifile.seekg(0, ios::beg);
+			char found_pattern_p[8];
+			char p_name[16];
+			while (ifile.eof() == 0)
+			{
+				ifile.read(found_pattern_p, 8);
+				addr_val += 8;
+				if (utility_functions::compare_array(kdbg_signature, found_pattern_p, 8))
+				{
+					kdbg_addr = addr_val - 8;
+				}
+				else
+				{
+					ifile.ignore(8);
+					addr_val += 8;
+				}
+			}
+		}
+		else
+		{
+			return kdbg_addr;
 		}
 	}
 };
