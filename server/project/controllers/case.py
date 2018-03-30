@@ -27,10 +27,14 @@ def case():
 				return render_template('accounts/index.html', resp = resp)
 			
 			# added here
-			case_data = json.load(open('../data/json/' + case_name))
-			session['selected_case'] = case_name
-			
+			try:
+				case_data = json.load(open('../data/json/' + case_name))
+			except Exception as e:
+				print "Could not open file"
+				return render_template('accounts/index.html', resp = resp)
+			session['selected_case'] = case_name	
 			return render_template('case/case.html', case_data = case_data)
+		
 		except Exception as e:
 			print "Exception: " + str(e)
 			resp['result_type'] = "danger"

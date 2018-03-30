@@ -24,16 +24,16 @@ class network : public object
         json += "{ ";
 
         json += "\"protocol_version\" : ";
-        json += "\"" + this->protocol_version + "\" ,";
+        json += "\"" + this->protocol_version + "\", ";
 
         json += "\"physical_offset\" : ";
-        json += "\"" + to_string(this->physical_offset) + "\" ,";
+        json += to_string(this->physical_offset) + ", ";
 
         json += "\"local_address\" : ";
-        json += "\"" + this->local_address + "\" ,";
+        json += "\"" + this->local_address + "\", ";
 
         json += "\"port\" : ";
-        json += "\"" + to_string(this->port) + "\" ,";
+        json += "\"" + to_string(this->port) + "\", ";
 
         
 		json += "\"marked\" : ";
