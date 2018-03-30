@@ -75,6 +75,18 @@ int main(int argc, char **argv)
     json += "\"";
     json += ", ";
 
+    json += "\"case_overview\": ";
+    josn += "\"\", ";
+
+    json += "\"case_acquisition\": ";
+    josn += "\"\", ";
+
+    json += "\"case_findings\": ";
+    josn += "\"\", ";
+
+    json += "\"case_conclusion\": ";
+    josn += "\"\", ";
+
     json += "\"artifacts\" : ";
     json += "[ ";
 
