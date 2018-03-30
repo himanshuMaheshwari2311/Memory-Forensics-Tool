@@ -37,7 +37,7 @@ class network : public object
 
         
 		json += "\"marked\" : ";
-		json += "\"disabled\", ";
+		json += "\"enabled\", ";
 
 		json += "\"comment\" : ";
 		json += "\"\"";
