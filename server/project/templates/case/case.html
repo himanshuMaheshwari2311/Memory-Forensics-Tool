@@ -62,11 +62,38 @@
                         <!-- Card header -->
                         <div class="card-header text-center">
                             Report
-                            <a href="{{ url_for('logout') }}" class="btn btn-primary" id="7">Generate Report
+                            <a href="{{ url_for('get_report') }}" class="btn btn-primary float-right" id="7" target="_blank">Generate Report
                             </a>
                         </div>
                         <!--Card content-->
                         <div class="card-body">
+                            <form class="form" role="form" autocomplete="off" id="formReport" novalidate="" action="{{ url_for('logout') }}" method="post">
+                                <div class="form-group">
+                                    <label for="overview">Overview or case summary</label>
+                                    <input type="text" class="my_input form-control form-control-lg rounded-0" name="overview" id="overview" required="" autofocus="autofocus">
+                                    <div class="invalid-feedback">Oops, you missed this one.</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="acquisition">Forensic acquisition and Exam Preparation</label>
+                                    <input type="text" class="my_input form-control form-control-lg rounded-0" name="acquisition" id="acquisition" required=""
+                                        autocomplete="off">
+                                    <div class="invalid-feedback">Oops, you missed this one, too.</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="findings">Findings and Reports</label>
+                                    <input type="text" class="my_input form-control form-control-lg rounded-0" name="findings" id="findings" required=""
+                                        autocomplete="off">
+                                    <div class="invalid-feedback">Oops, you missed this one, three.</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="conclusion">Conclusion based on analysis</label>
+                                    <input type="text" class="my_input form-control form-control-lg rounded-0" name="conclusion" id="conclusion" required=""
+                                        autocomplete="off">
+                                    <div class="invalid-feedback">Oops, you missed this one, four.</div>
+                                </div>
+                                <input type="submit" value="Login" class="btn btn-primary btn-lg float-right" id="btnlogin"></input>
+                            </form>
+
                             {% for artifact_obj in case_data["artifacts"]: %} {% for k, v in artifact_obj.iteritems(): %}
                             <div>
                                 <hr>
