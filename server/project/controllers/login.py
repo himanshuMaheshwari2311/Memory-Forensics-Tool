@@ -54,7 +54,7 @@ def login():
 def logout():
 	if 'username' in session:
 		session.pop('username')
-	if 'cases' in session
+	if 'cases' in session:
 		session.pop('cases')
 	resp = {}
 	resp['result_type'] = "info"

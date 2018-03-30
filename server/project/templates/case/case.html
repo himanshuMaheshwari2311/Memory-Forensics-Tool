@@ -54,6 +54,61 @@
                     </div>
                     {% endfor %} {% endfor %}
                     <!--/.Card-->
+
+                    <!-- Report -->
+                    <!--Card-->
+                    <div class="card" id="table77">
+                        <!-- Card header -->
+                        <div class="card-header text-center">
+                            Report
+                        </div>
+                        <!--Card content-->
+                        <div class="card-body">
+                            {% for artifact_obj in case_data["artifacts"]: %} {% for k, v in artifact_obj.iteritems(): %}
+                            <div>
+                                <!-- Table  -->
+                                <table class="table table-hover">
+                                    <!-- Table head -->
+                                    <thead class="blue-grey lighten-4">
+                                        <tr>
+                                            {% for ke, va in v[0].iteritems(): %} {% if ke != 'object_id' and ke != 'marked' and ke != 'start' %}
+                                            <th> {{ke}} </th>
+                                            {% endif %} {% endfor %}
+                                            <th>Remove from report</th>
+                                        </tr>
+                                    </thead>
+                                    <!-- Table head -->
+                                    <tbody>
+                                        {% for artifact in v %}
+                                        <tr id="td_{{artifact['object_id']}}">
+                                            {% set id = [] %} {% set btn = [] %} {% for ke, va in artifact.iteritems() %} {% if ke == 'marked' %} 
+                                            {% if va=="enabled" %} 
+                                            {% do btn.append("disabled") %} 
+                                            {% else  %}
+                                            {% do btn.append("enabled") %}
+                                            {% endif %}
+                                            {% endif %} {% if ke == 'object_id' %} {% do id.append(va) %} {% do id.append(url_for('add_artifact'))%}
+                                            {% endif %} {% if ke != 'object_id' and ke != 'marked' and ke != 'start' %} {%
+                                            if ke == 'physical_offset': %}
+                                            <td>0x{{ '%0x' % va}}</td>
+                                            {% else: %}
+                                            <td>{{ va }}</td>
+                                            {% endif %}{% endif %}{% endfor %}
+                                            <td>
+                                                <button type="button" class="btn btn-primary" id="btn_d_{{id[0]}}" onclick="removeFromReport('{{ id[0] }}', '{{ id[1] }}')" {{
+                                                    btn[0] }}>Remove</button>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                            {% endfor %} {% endfor %}
+                        </div>
+                    </div>
+                    <!--/.Card-->
+                    <!-- /Report -->
+
                 </center>
             </div>
         </div>

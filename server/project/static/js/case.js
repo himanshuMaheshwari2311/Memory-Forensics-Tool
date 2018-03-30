@@ -38,6 +38,12 @@ function toggleTable(nr) {
     catch(err) {
         console.log(err);
     }
+    try {
+        document.getElementById("table77").style.display = "none";
+    }
+    catch(err) {
+        console.log(err);
+    }
     document.getElementById("table" + nr).style.display = "table-row";
 }
 window.onload = initTables;
@@ -56,5 +62,22 @@ function addToReport(id, url) {
         function (data, status) {
             console.log("btn_" + id);
             $('#btn_' + id).prop('disabled', true);
+        });
+}
+
+function removeFromReport(id, url) {
+    var comment_msg = prompt("Add some comment regarding this Artifact");
+    if (comment_msg == null || comment_msg == "") {
+        txt = " ";
+    } 
+    console.log(url);
+    $.post(url,
+        {
+            object_id: id,
+            comment: comment_msg
+        },
+        function (data, status) {
+            console.log("btn_" + id);
+            $('#btn_' + id).prop('disabled', false);
         });
 }
