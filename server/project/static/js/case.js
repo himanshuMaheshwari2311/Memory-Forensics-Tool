@@ -2,6 +2,7 @@ function initTables() {
     toggleTable(1);
 }
 function toggleTable(nr) {
+    console.log("nr: " + nr);
     try {
         document.getElementById("table1").style.display = "none";
     }
