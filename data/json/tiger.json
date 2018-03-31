@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
-    "case_acquisition": "Test", 
-=======
     "case_acquisition": "ahjgsd", 
->>>>>>> 9080976ba787abb6e9dec8ca044badbd7a008642
     "os_name": "win7", 
     "case_findings": "hagjdfuqh", 
     "case_overview": "Hello world", 
@@ -11,11 +7,7 @@
         {
             "process_list": [
                 {
-<<<<<<< HEAD
-                    "comment": "Test", 
-=======
                     "comment": "asd", 
->>>>>>> 9080976ba787abb6e9dec8ca044badbd7a008642
                     "name": "Idle", 
                     "physical_offset": 44446144, 
                     "pid": 0, 
