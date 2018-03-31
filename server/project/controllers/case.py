@@ -139,29 +139,33 @@ def get_report():
 	lines = ""	
 	with open('../data/json/' + session['selected_case'], mode='r') as f:
 		case_data = json.load(f)
-		lines += 'Case Overview\n' + case_data['case_overview'] + '\n\n'
-		lines += 'Case Acquisition\n' + case_data['case_acquisition'] + '\n\n'
-		lines += 'Case Findings\n' + case_data['case_findings'] + '\n\n'
-		lines += 'Case Conclusion\n' + case_data['case_conclusion'] + '\n\n'
-		lines += 'Artifacts\n'
+		document.add_heading('Case Overview', level=2)
+		document.add_paragraph(case_data['case_overview'])
+		document.add_heading('Case Acquisition', level=2)
+		document.add_paragraph(case_data['case_acquisition'])
+		document.add_heading('Case Findings', level=2)
+		document.add_paragraph(case_data['case_findings'])
+		document.add_heading('Case Conclusion', level=2)
+		document.add_paragraph('\t' + case_data['case_conclusion'])
+		document.add_heading('Artifacts', level=2)
 		i = 0
 		for artifact in case_data['artifacts']:
 			key = next(iter(artifact))
-			lines += key + ': \n'
+			document.add_heading(key, level=3)
 			value = artifact[key]
 			j = 0
 			for module in value:
 				if module['marked'] == "disabled":
 					for ke, va in module.iteritems():
 						lines += "\t" + str(ke) + ": " + str(va) + "\n"
-					lines +="\n"
+					document.add_paragraph(lines)
+					lines = ''
 				j += 1
 			i += 1
 	p = document.add_paragraph(lines)
 	document.add_page_break()
 	document.save('../data/pdfs/' + report_name)
 	file_path = os.getcwd() + '\\..\\data\\pdfs\\'
-	print file_path
 	word = comtypes.client.CreateObject('Word.Application')
 	doc = word.Documents.Open(file_path + report_name)
 	doc.SaveAs(file_path + pdf_report_name, FileFormat=17)
