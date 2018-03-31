@@ -23,6 +23,9 @@ class network : public object
         string json = "";
         json += "{ ";
 
+        json += "\"object_id\" : ";
+		json += to_string(this->object_id) + ", ";
+
         json += "\"protocol_version\" : ";
         json += "\"" + this->protocol_version + "\", ";
 
