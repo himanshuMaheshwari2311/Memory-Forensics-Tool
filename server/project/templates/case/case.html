@@ -62,7 +62,7 @@
                         <!-- Card header -->
                         <div class="card-header">
                             <p class="float-left" style="font-size: 30px;">Report</p>
-                            <a href="{{ url_for('logout') }}" class="btn btn-primary float-right" id="generateReport" target="_blank">Generate Report
+                            <a href="{{ url_for('get_report') }}" class="btn btn-primary float-right" id="generateReport" target="_blank">Generate Report
                             </a>
                             <br>
                             <br>
@@ -73,7 +73,7 @@
                                 {% set report1 = [] %} {% do report1.append(url_for('update_report')) %}
                                 <div class="form-group">
                                     <label for="overview" class="float-left">Overview or case summary</label>
-                                    <input type="text" class="my_input form-control form-control-lg rounded-0" name="overview" id="overview" autofocus="autofocus"
+                                    <input type="text" class="my_input form-control form-control-lg rounded-0" name="overview" id="overview" 
                                         value="{{case_data['case_overview']}}">
                                 </div>
                                 <div class="form-group">
@@ -163,7 +163,4 @@
 <!-- Case JS -->
 <script type="text/javascript" src="{{ url_for('static', filename='js/case.js')}}"></script>
 <!-- Initializations -->
-<script type="text/javascript">
-    // Animations initialization
-    new WOW().init();
-</script> {% endblock %}
+ {% endblock %}

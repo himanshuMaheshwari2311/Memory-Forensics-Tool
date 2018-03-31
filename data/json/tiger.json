@@ -1,5 +1,5 @@
 {
-    "case_acquisition": "", 
+    "case_acquisition": "Test", 
     "os_name": "win7", 
     "case_findings": "", 
     "case_overview": "Hello overview", 
@@ -7,13 +7,13 @@
         {
             "process_list": [
                 {
-                    "comment": "", 
+                    "comment": "Test", 
                     "name": "Idle", 
                     "physical_offset": 44446144, 
                     "pid": 0, 
                     "object_id": 16, 
                     "active_threads": 0, 
-                    "marked": "enabled", 
+                    "marked": "disabled", 
                     "ppid": 0
                 }, 
                 {
