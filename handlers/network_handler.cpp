@@ -10,8 +10,6 @@
 
 #include "../objects/network.cpp"
 #include "../data/profiles.cpp"
-#include "process_handler.cpp"
-#include "../objects/process.cpp"
 
 using namespace std;
 
@@ -19,7 +17,6 @@ class network_handler
 {
   private:
     vector<network> network_list;
-    process_handler ph;
 
   public:
     vector<uint64_t> pool_scan_tag(ifstream &ifile, profile prf)
@@ -126,14 +123,14 @@ class network_handler
         }
     }
 
-    network collect_info_module(ifstream &ifile, profile &prf, uint64_t phy_offset, vector<process> process_list)
+    network collect_info_module(ifstream &ifile, profile &prf, uint64_t phy_offset)
     {
         network n;
         char current_pattern[8];
         uint16_t type;
         uint64_t vir_addr, phy_addr;
         n.physical_offset = phy_offset;
-        
+
         //udp
         ifile.clear();
         ifile.seekg(0, ios::beg);
@@ -155,21 +152,16 @@ class network_handler
                 n.protocol_version = "UDPv6";
 
             //owner information
-            /*
+            char p_name[16];
             ifile.clear();
-            ifile.seekg(phy_offset, ios::beg);
-            ifile.ignore(0x28);
+            ifile.seekg(phy_offset + 0x28, ios::beg);
             ifile.read(reinterpret_cast<char *>(&vir_addr), 8);
             phy_addr = utility_functions::opt_get_phy_addr(ifile, vir_addr, prf.get_global_dtb(ifile));
-            for(int i = 0; i < process_list.size(); i++)
-            {
-                if(process_list[i].physical_offset == phy_addr)
-                {
-                    n.owner_name = process_list[i].name;
-                    n.pid = process_list[i].pid;
-                }
-            }
-            */
+            ifile.seekg(phy_addr + 8 + prf.process_offsets[0], ios::beg);
+            ifile.read(reinterpret_cast<char *>(&n.pid), sizeof(n.pid));
+            ifile.seekg(phy_addr + 0x2e0, ios::beg);
+            ifile.read(p_name, 16);
+            n.owner_name = p_name;
 
             //port
             ifile.clear();
@@ -196,7 +188,7 @@ class network_handler
                 n.protocol_version = "TCPv4";
             else if (type == 0x17)
                 n.protocol_version = "TCPv6";
-            
+
             // port
             ifile.clear();
             ifile.seekg(phy_offset + prf.tcp_offsets[1]);
@@ -205,14 +197,25 @@ class network_handler
             uint16_t l_port = n.port >> 8;
             n.port = r_port | l_port;
 
+            //owner info
+            char p_name[16];
+            ifile.clear();
+            ifile.seekg(phy_offset + 0x28, ios::beg);
+            ifile.read(reinterpret_cast<char *>(&vir_addr), 8);
+            phy_addr = utility_functions::opt_get_phy_addr(ifile, vir_addr, prf.get_global_dtb(ifile));
+            ifile.seekg(phy_addr + 8 + prf.process_offsets[0], ios::beg);
+            ifile.read(reinterpret_cast<char *>(&n.pid), sizeof(n.pid));
+            ifile.seekg(phy_addr + 0x2e0, ios::beg);
+            ifile.read(p_name, 16);
+            n.owner_name = p_name;
+
             //address
             get_local_address(ifile, prf, phy_offset, prf.tcp_offsets[2], n, type);
-
         }
         if (type != 0)
         {
             cout << hex << phy_offset << " " << n.protocol_version;
-            cout << " " << dec << n.local_address << " :  " << n.port << endl; //  " " << n.owner_name << " " << n.pid <<endl;
+            cout << " " << dec << n.local_address << " :  " << n.port << " " << n.owner_name << " " << n.pid << endl;
         }
         return n;
     }
@@ -220,14 +223,12 @@ class network_handler
     void generate_network_modules(ifstream &ifile, profile &prf)
     {
         string temp = "temp";
-        vector<process> process_list; //= ph.get_process_list(ifile, prf);
-
         vector<uint64_t> phy_offsets = pool_scan_tag(ifile, prf);
         for (int i = 0; i < phy_offsets.size(); i++)
         {
             ifile.clear();
             ifile.seekg(0, ios::beg);
-            network_list.push_back(collect_info_module(ifile, prf, phy_offsets[i], process_list));
+            network_list.push_back(collect_info_module(ifile, prf, phy_offsets[i]));
             if (network_list[network_list.size() - 1].local_address.compare(temp) == 0)
                 network_list.pop_back();
         }

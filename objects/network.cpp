@@ -24,7 +24,7 @@ class network : public object
         json += "{ ";
 
         json += "\"object_id\" : ";
-		json += to_string(this->object_id) + ", ";
+        json += to_string(this->object_id) + ", ";
 
         json += "\"protocol_version\" : ";
         json += "\"" + this->protocol_version + "\", ";
@@ -38,15 +38,20 @@ class network : public object
         json += "\"port\" : ";
         json += "\"" + to_string(this->port) + "\", ";
 
-        
-		json += "\"marked\" : ";
-		json += "\"enabled\", ";
+        json += "\"owner_process\" : ";
+        json += "\"" + this->owner_name + "\", ";
 
-		json += "\"comment\" : ";
-		json += "\"\"";
+        json += "\"pid\" : ";
+        json += to_string(this->pid) + ", ";
 
-		json += "} ";
-        
+        json += "\"marked\" : ";
+        json += "\"enabled\", ";
+
+        json += "\"comment\" : ";
+        json += "\"\"";
+
+        json += "} ";
+
         return json;
     }
 };
