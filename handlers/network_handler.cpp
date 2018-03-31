@@ -214,6 +214,7 @@ class network_handler
         }
         if (type != 0)
         {
+            
             cout << hex << phy_offset << " " << n.protocol_version;
             cout << " " << dec << n.local_address << " :  " << n.port << " " << n.owner_name << " " << n.pid << endl;
         }

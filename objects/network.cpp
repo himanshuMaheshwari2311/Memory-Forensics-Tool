@@ -52,6 +52,7 @@ class network : public object
 
         json += "} ";
 
+
         return json;
     }
 };
