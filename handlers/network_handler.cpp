@@ -34,7 +34,7 @@ class network_handler
             // udp
             if (utility_functions::scan_tag(current_pattern, prf.udp_pool_tag, 8))
             {
-
+                cout<< hex << "UDP " << addr_val + 8 << endl;
                 phy_offsets.push_back(addr_val + 8);
                 ifile.ignore(8);
                 addr_val += 8;
@@ -42,7 +42,7 @@ class network_handler
             // tcp
             else if (utility_functions::scan_tag(current_pattern, prf.tcp_pool_tag, 8))
             {
-                cout << hex << addr_val + 8 << endl;
+                cout << hex << "TCP " << addr_val + 8 << endl;
                 phy_offsets.push_back(addr_val + 8);
                 ifile.ignore(8);
                 addr_val += 8;
@@ -144,8 +144,15 @@ class network_handler
             phy_addr = utility_functions::opt_get_phy_addr(ifile, vir_addr, prf.get_global_dtb(ifile));
             ifile.clear();
             ifile.seekg(phy_addr, ios::beg);
-            ifile.ignore(0x14);
-            ifile.read(reinterpret_cast<char *>(&type), 2);
+            ifile.ignore(prf.udp_offsets[5]);
+            if(prf.type == 7)
+            {
+                ifile.read(reinterpret_cast<char *>(&type), 2);
+            }
+            else
+            {
+                ifile.read(reinterpret_cast<char *>(&type), 1);
+            }
             if (type == 2)
                 n.protocol_version = "UDPv4";
             else if (type == 0x17)
@@ -154,12 +161,12 @@ class network_handler
             //owner information
             char p_name[16];
             ifile.clear();
-            ifile.seekg(phy_offset + 0x28, ios::beg);
+            ifile.seekg(phy_offset + prf.udp_offsets[3], ios::beg);
             ifile.read(reinterpret_cast<char *>(&vir_addr), 8);
             phy_addr = utility_functions::opt_get_phy_addr(ifile, vir_addr, prf.get_global_dtb(ifile));
             ifile.seekg(phy_addr + 8 + prf.process_offsets[0], ios::beg);
             ifile.read(reinterpret_cast<char *>(&n.pid), sizeof(n.pid));
-            ifile.seekg(phy_addr + 0x2e0, ios::beg);
+            ifile.seekg(phy_addr + prf.udp_offsets[4], ios::beg);
             ifile.read(p_name, 16);
             n.owner_name = p_name;
 
@@ -172,7 +179,15 @@ class network_handler
             n.port = r_port | l_port;
 
             //address
-            get_local_address(ifile, prf, phy_offset, prf.udp_offsets[2], n, type);
+            if(prf.type == 7)
+            {
+                get_local_address(ifile, prf, phy_offset, prf.udp_offsets[2], n, type);
+            }
+            else  {
+                if(type == 0x2)
+                    n.local_address = "0.0.0.0";
+                else n.local_address = "0:0:0:0:0:0";
+            }
         }
         else
         {
@@ -182,8 +197,16 @@ class network_handler
             phy_addr = utility_functions::opt_get_phy_addr(ifile, vir_addr, prf.get_global_dtb(ifile));
             ifile.clear();
             ifile.seekg(phy_addr, ios::beg);
-            ifile.ignore(0x14);
-            ifile.read(reinterpret_cast<char *>(&type), 2);
+            ifile.ignore(prf.udp_offsets[5]);
+            if(prf.type == 7)
+            {
+                ifile.read(reinterpret_cast<char *>(&type), 2);
+            }
+            else
+            {
+                ifile.read(reinterpret_cast<char *>(&type), 1);
+            }
+            
             if (type == 2)
                 n.protocol_version = "TCPv4";
             else if (type == 0x17)
@@ -200,21 +223,28 @@ class network_handler
             //owner info
             char p_name[16];
             ifile.clear();
-            ifile.seekg(phy_offset + 0x28, ios::beg);
+            ifile.seekg(phy_offset + prf.tcp_offsets[3], ios::beg);
             ifile.read(reinterpret_cast<char *>(&vir_addr), 8);
             phy_addr = utility_functions::opt_get_phy_addr(ifile, vir_addr, prf.get_global_dtb(ifile));
             ifile.seekg(phy_addr + 8 + prf.process_offsets[0], ios::beg);
             ifile.read(reinterpret_cast<char *>(&n.pid), sizeof(n.pid));
-            ifile.seekg(phy_addr + 0x2e0, ios::beg);
+            ifile.seekg(phy_addr + prf.tcp_offsets[4], ios::beg);
             ifile.read(p_name, 16);
             n.owner_name = p_name;
 
             //address
-            get_local_address(ifile, prf, phy_offset, prf.tcp_offsets[2], n, type);
+            if(prf.type == 7)
+            {
+                get_local_address(ifile, prf, phy_offset, prf.tcp_offsets[2], n, type);
+            }
+            else  {
+                if(type == 0x2)
+                    n.local_address = "0.0.0.0";
+                else n.local_address = "0:0:0:0:0:0";
+            }
         }
         if (type != 0)
         {
-            
             cout << hex << phy_offset << " " << n.protocol_version;
             cout << " " << dec << n.local_address << " :  " << n.port << " " << n.owner_name << " " << n.pid << endl;
         }
