@@ -23,16 +23,6 @@ enum object_type
 	tshell_bags
 };
 
-typedef struct datetime
-{
-	uint8_t day;
-	uint8_t month;
-	uint8_t year;
-	uint8_t hour;
-	uint8_t minute;
-	uint8_t second;
-} datetime;
-
 class object
 {
   public:
@@ -40,7 +30,7 @@ class object
 	string name;
 	uint64_t physical_offset;
 	uint64_t object_id;
-	datetime timestamp;
+	string create_time;
 	object()
 	{
 		counter++;
