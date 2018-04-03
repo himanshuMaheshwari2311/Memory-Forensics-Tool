@@ -5,6 +5,8 @@
 #include <string>
 #include <fstream>
 #include <stdint.h>
+#include <ctime>
+#include <windows.h>
 
 using namespace std;
 
@@ -156,6 +158,40 @@ class utility_functions
 	static bool invalidChar(char c)
 	{
 		return !(c >= 32 && c < 127 || c == 0 || c == '"');
+	}
+
+	static char *FILETIME_to_time_t(const FILETIME lpFileTime)
+	{
+		time_t result;
+		SYSTEMTIME st;
+		struct tm *tmp = new struct tm;
+		FileTimeToSystemTime(&lpFileTime, &st);
+
+		memset(tmp, 0, sizeof(struct tm));
+		tmp->tm_mday = st.wDay;
+		tmp->tm_mon = st.wMonth - 1;
+		tmp->tm_year = st.wYear - 1900;
+
+		tmp->tm_sec = st.wSecond;
+		tmp->tm_min = st.wMinute;
+		tmp->tm_hour = st.wHour;
+		return asctime(tmp);
+	}
+
+	static char *get_time(uint64_t win_filetime)
+	{
+		FILETIME t1 = *(FILETIME *)(&win_filetime);
+		t1.dwLowDateTime = (DWORD)win_filetime;
+		t1.dwHighDateTime = (DWORD)(win_filetime >> 32);
+		return FILETIME_to_time_t(t1);
+	}
+
+	static char *get_time_from_file(ifstream &ifile, uint64_t phy_offset)
+	{
+		ifile.seekg(phy_offset, ios::beg);
+		uint64_t win_filetime;
+		ifile.read(reinterpret_cast<char *>(&win_filetime), 8);
+		return get_time(win_filetime);
 	}
 };
 
