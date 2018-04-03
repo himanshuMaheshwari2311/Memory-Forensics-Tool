@@ -44,6 +44,9 @@ class network : public object
         json += "\"pid\" : ";
         json += to_string(this->pid) + ", ";
 
+        json += "\"create_time\" : ";
+        json += "\"" + this->create_time + "\", ";
+
         json += "\"marked\" : ";
         json += "\"enabled\", ";
 
