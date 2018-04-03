@@ -158,6 +158,18 @@ class network_handler
             else if (type == 0x17)
                 n.protocol_version = "UDPv6";
 
+            // create time
+            if(prf.type == 7)
+            {
+                if(type != 0)
+                {
+                    char * temp = utility_functions::get_time_from_file(ifile, phy_offset + 0x58);
+                    n.create_time = temp;
+                    n.create_time[n.create_time.length() - 1] = '\0';
+                }
+                else n.create_time = "";
+            }
+
             //owner information
             char p_name[16];
             ifile.clear();
@@ -220,6 +232,8 @@ class network_handler
             uint16_t l_port = n.port >> 8;
             n.port = r_port | l_port;
 
+            n.create_time = ""; 
+
             //owner info
             char p_name[16];
             ifile.clear();
@@ -246,7 +260,7 @@ class network_handler
         if (type != 0)
         {
             cout << hex << phy_offset << " " << n.protocol_version;
-            cout << " " << dec << n.local_address << " :  " << n.port << " " << n.owner_name << " " << n.pid << endl;
+            cout << " " << dec << n.local_address << " :  " << n.port << " " << n.owner_name << " " << n.pid << " " << n.create_time;
         }
         return n;
     }
