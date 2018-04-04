@@ -242,8 +242,8 @@ int main()
 {
 	kernel_module_handler kh;
 	ifstream ifile;
-	profile prf(7);
-	char fname[] = "../data/samples/win764.vmem";
+	profile prf(10);
+	char fname[] = "../data/samples/win1064.vmem";
 
 	ifile.open(fname, ios::in | ios::binary);
 	if (!ifile)

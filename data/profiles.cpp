@@ -115,7 +115,7 @@ class profile
 		hive_offsets = new int[1]{3016};
 
 		kernel_pool_tag = new char[8]{'0', '0', '0', '0', 'M', 'm', 'L', 'd'};
-		kernel_offsets = new int[2]{96, 6};
+		kernel_offsets = new int[5]{0x10, 0x18, 0x60, 0x68, 0x70};
 	}
 
 	uint64_t get_global_dtb(ifstream &ifile)
