@@ -44,6 +44,10 @@ class profile
 	char *kernel_pool_tag;
 	int *kernel_offsets;
 
+	char *driver_pool_tag;
+	int driver_phy_offset;
+	int *driver_offsets;
+
 	char *kdbg_signature;
 
 	profile(int type = 7)
@@ -84,6 +88,10 @@ class profile
 
 		kernel_pool_tag = new char[8]{'0', '0', '0', '0', 'M', 'm', 'L', 'd'};
 		kernel_offsets = new int[5]{0x10, 0x18, 0x60, 0x68, 0x70};
+
+		driver_pool_tag = new char[8]{'0', '0', '0', '0', 'D', 'r', 'i', char(0xf6)};
+		driver_phy_offset = 0x60;
+		driver_offsets = new int[2]{0x38, 0x40};
 
 		kdbg_signature = new char[8]{0x00, char(0xf8), char(0xff), char(0xff), 0x4b, 0x44, 0x42, 0x47};
 	}
