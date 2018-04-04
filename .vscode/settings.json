@@ -11,7 +11,9 @@
         "istream": "cpp",
         "iosfwd": "cpp",
         "tuple": "cpp",
-        "type_traits": "cpp"
+        "type_traits": "cpp",
+        "*.tcc": "cpp",
+        "iomanip": "cpp"
     },
     "C_Cpp.intelliSenseEngine": "Tag Parser",
     "python.linting.enabled": false

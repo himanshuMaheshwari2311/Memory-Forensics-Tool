@@ -74,8 +74,9 @@ uint64_t translateAddr(ifstream &ifile, uint64_t phy_offset, uint32_t dtb)
 #ifndef mainfunc
 int main()
 {
-    char fname[] = "data/win764.vmem";
-    uint64_t dtb = 0x00187000;
+    char fname[] = "../data/samples/win764.vmem";
+    uint64_t dtb = 0x4a147000;
+	//uint64_t dtb = 0x00187000;
 	//uint64_t dtb = 0x4a147000;
     
     ifstream ifile;

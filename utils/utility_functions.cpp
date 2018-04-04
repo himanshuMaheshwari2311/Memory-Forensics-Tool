@@ -13,6 +13,12 @@ using namespace std;
 class utility_functions
 {
   public:
+	static void reset_file(ifstream &ifile)
+	{
+		ifile.clear();
+		ifile.seekg(0, ios::beg);
+	}
+
 	static int scan_tag(char arr1[], char arr2[], int n)
 	{
 		int i;

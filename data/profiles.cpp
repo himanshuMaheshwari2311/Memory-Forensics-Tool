@@ -25,6 +25,10 @@ class profile
 	char *process_signature;
 	int *process_offsets;
 
+	int *peb_ldr_offsets;
+	int ldr_in_peb;
+	int *dll_object_offsets;
+
 	char *service_pattern1;
 	char *service_pattern2;
 	int *service_header_offsets;
@@ -66,8 +70,13 @@ class profile
 	{
 		type = 7;
 		process_signature = new char[8]{3, 0, 88, 0, 0, 0, 0, 0};
-		process_offsets = new int[4]{376, 268, 76, 480};
+		//process_offsets = new int[4]{376, 268, 76, 480};
+		process_offsets = new int[7]{1232, 0x180, 0x290, 0x2e0, 0x328, 0x28, 0x338};
 		process_name_offset = 736;
+
+		ldr_in_peb = 0x18;
+		peb_ldr_offsets = new int[2]{0x10, 0x20};
+		dll_object_offsets = new int[8]{0x00, 0x10, 0x30, 0x40, 0x50, 0x60, 0x6c, 0xd8};
 
 		dtb_eproc_name = new char[5]{'I', 'd', 'l', 'e'};
 
@@ -102,8 +111,13 @@ class profile
 	{
 		type = 10;
 		process_signature = new char[8]{3, 0, char(182), 0, 0, 0, 0, 0};
-		process_offsets = new int[4]{728, 252, 108, 944};
+		//process_offsets = new int[4]{728, 252, 108, 944};
+		process_offsets = new int[7]{1232, 0x180, 0x290, 0x2e0, 0x328, 0x28, 0x338}; // win7.. needs to be updated
 		process_name_offset = 1104;
+
+		ldr_in_peb = 0x18;
+		peb_ldr_offsets = new int[2]{0x10, 0x20};
+		dll_object_offsets = new int[8]{0x30, 0x40, 0x50, 0x60, 0x6c, 0xd8};
 
 		dtb_eproc_name = new char[5]{'I', 'd', 'l', 'e'};
 		//dtb_eproc_name = new char[7]{'S', 'y', 's', 't', 'e', 'm'};

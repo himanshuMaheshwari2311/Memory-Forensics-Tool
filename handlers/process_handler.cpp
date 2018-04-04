@@ -23,8 +23,7 @@ class process_handler
   public:
 	void generate_processes(ifstream &ifile, profile prf)
 	{
-		ifile.clear();
-		ifile.seekg(0);
+        utility_functions ::reset_file(ifile);
 		uint64_t addr_val = 0;
 		uint64_t base_addr = 0;
 		char found_pattern[8];
@@ -42,25 +41,19 @@ class process_handler
 
 				proc.physical_offset = addr_val - 8;
 
-				ifile.ignore(prf.process_offsets[0]);
-				addr_val += prf.process_offsets[0];
+				ifile.seekg(base_addr + prf.process_offsets[1]);
 
 				ifile.read(reinterpret_cast<char *>(&proc.pid), sizeof(proc.pid));
-				addr_val += 4;
 				cout << setw(16) << dec << proc.pid;
 
-				ifile.ignore(prf.process_offsets[1]);
-				addr_val += prf.process_offsets[1];
+				ifile.seekg(base_addr + prf.process_offsets[2]);
 
 				ifile.read(reinterpret_cast<char *>(&proc.ppid), sizeof(proc.ppid));
-				addr_val += 4;
 				cout << setw(16) << proc.ppid;
 
-				ifile.ignore(prf.process_offsets[2]);
-				addr_val += prf.process_offsets[2];
+				ifile.seekg(base_addr + prf.process_offsets[3]);
 
 				ifile.read(p_name, 16);
-				addr_val += 16;
 				proc.name = p_name;
 				if (strcmp(p_name, "services.exe") == 0)
 				{
@@ -71,15 +64,24 @@ class process_handler
 					ifile.seekg((prf.process_name_offset - prf.dtb_offset + 8), std::ios::cur);
 					prf.service_dtb = temp_dtb;
 				}
-				cout << setw(16) << proc.name << endl;
+				cout << setw(16) << proc.name;
 
-				ifile.ignore(prf.process_offsets[3]);
-				addr_val += prf.process_offsets[3];
-				if(proc.pid % 4 == 0 && proc.ppid % 4 == 0 && proc.pid < 32768) // pids are divisible by 4
+				ifile.seekg(base_addr + prf.process_offsets[5], ios::beg);
+				ifile.read(reinterpret_cast<char *>(&proc.dtb), sizeof(proc.dtb));
+
+				ifile.seekg(base_addr + prf.process_offsets[6]);
+				ifile.read(reinterpret_cast<char *>(&proc.peb), sizeof(proc.peb));
+
+				cout << setw(16) << hex << proc.dtb;
+				cout << setw(16) << hex << proc.peb << endl;
+
+				if (proc.pid % 4 == 0 && proc.ppid % 4 == 0 && proc.pid < 32768) // pids are divisible by 4
 				{
 					//is a valid EPROCESS
-					process_list.push_back(proc);					
+					process_list.push_back(proc);
 				}
+				addr_val += prf.process_offsets[0] - 8;
+				ifile.seekg(base_addr + prf.process_offsets[0]);				
 			}
 			else
 			{
@@ -126,6 +128,7 @@ class process_handler
 	}
 };
 
+/*
 #ifndef mainfunc
 int main(void)
 {
@@ -150,4 +153,5 @@ int main(void)
 	//ph.generate_processes(ifile, prf);
 }
 #endif
+*/
 #endif
