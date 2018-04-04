@@ -42,6 +42,7 @@ class profile
 	int *hive_offsets;
 
 	char *kernel_pool_tag;
+	int kernel_phy_offset;
 	int *kernel_offsets;
 
 	char *driver_pool_tag;
@@ -87,7 +88,8 @@ class profile
 		hive_offsets = new int[1]{1776};
 
 		kernel_pool_tag = new char[8]{'0', '0', '0', '0', 'M', 'm', 'L', 'd'};
-		kernel_offsets = new int[5]{0x10, 0x18, 0x60, 0x68, 0x70};
+		kernel_phy_offset = 0x10;
+		kernel_offsets = new int[5]{0x00, 0x08, 0x50, 0x58, 0x60};
 
 		driver_pool_tag = new char[8]{'0', '0', '0', '0', 'D', 'r', 'i', char(0xf6)};
 		driver_phy_offset = 0x60;
@@ -123,7 +125,8 @@ class profile
 		hive_offsets = new int[1]{3016};
 
 		kernel_pool_tag = new char[8]{'0', '0', '0', '0', 'M', 'm', 'L', 'd'};
-		kernel_offsets = new int[5]{0x10, 0x18, 0x60, 0x68, 0x70};
+		kernel_phy_offset = 0x10;
+		kernel_offsets = new int[5]{0x00, 0x08, 0x50, 0x58, 0x60};
 	}
 
 	uint64_t get_global_dtb(ifstream &ifile)
