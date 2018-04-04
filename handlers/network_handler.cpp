@@ -288,6 +288,23 @@ class network_handler
         return network_list;
     }
 
+    vector<network> get_connections_of_process(ifstream &ifile, profile &prf, uint32_t pid)
+    {
+        if(network_list.empty())
+        {
+            generate_network_modules(ifile, prf);
+        }
+        vector<network> connections;
+        for(int i = 0; i < network_list.size(); i++)
+        {
+            if(network_list[i].pid == pid)
+            {
+                connections.push_back(network_list[i]);
+            }
+        }
+        return connections;
+    }
+
     string get_info()
     {
         cout << "Generating" << endl;
@@ -326,9 +343,15 @@ int main(void)
     }
     cout << "File opened..";
     cout << "\n";
-
+/*
     nh.generate_network_modules(ifile, prf);
-    cout << nh.get_info() << endl;
+    cout << nh.get_info() << endl;*/
+    vector<network> n= nh.get_connections_of_process(ifile, prf, 1020);
+    for(int i = 0; i < n.size(); i++)
+    {
+        cout << hex << n[i].physical_offset << " " << n[i].protocol_version;
+        cout << " " << dec << n[i].local_address << " :  " << n[i].port << " " << n[i].owner_name << " " << n[i].pid << " " << n[i].create_time << endl;
+    }
 }
 #endif
 #endif
