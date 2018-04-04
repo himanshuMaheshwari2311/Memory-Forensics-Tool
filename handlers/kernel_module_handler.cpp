@@ -50,8 +50,8 @@ class kernel_module_handler
 					continue;
 				}
 
-				phy_offsets.push_back(addr_val - 8);
-				cout << hex << addr_val - 8 << "\n";
+				phy_offsets.push_back(addr_val - 8 + prf.kernel_phy_offset);
+				cout << hex << addr_val - 8 + prf.kernel_phy_offset<< "\n";
 
 				ifile.ignore(8);
 				addr_val += 8;
@@ -83,16 +83,16 @@ class kernel_module_handler
 		ifile.read(reinterpret_cast<char *>(&(curr_module.blink)), sizeof(curr_module.blink));
 
 		ifile.seekg(phy_offset + prf.kernel_offsets[2]);
-		ifile.read(reinterpret_cast<char *>(&file_addr), sizeof(file_addr)); //0x60 for ptr to file path
+		ifile.read(reinterpret_cast<char *>(&file_addr), sizeof(file_addr));
 
 		ifile.seekg(phy_offset + prf.kernel_offsets[3]);
-		ifile.read(reinterpret_cast<char *>(&name_size), sizeof(name_size)); //0x68 size of name
+		ifile.read(reinterpret_cast<char *>(&name_size), sizeof(name_size));
 
 		ifile.seekg(phy_offset + prf.kernel_offsets[4]);
-		ifile.read(reinterpret_cast<char *>(&name_addr), sizeof(name_addr)); //0x70 ptr64 to name
+		ifile.read(reinterpret_cast<char *>(&name_addr), sizeof(name_addr));
 
-		curr_module.flink = utility_functions ::opt_get_phy_addr(ifile, curr_module.flink, prf.get_global_dtb(ifile)) - 0x10;
-		curr_module.blink = utility_functions ::opt_get_phy_addr(ifile, curr_module.blink, prf.get_global_dtb(ifile)) - 0x10;
+		curr_module.flink = utility_functions ::opt_get_phy_addr(ifile, curr_module.flink, prf.get_global_dtb(ifile));
+		curr_module.blink = utility_functions ::opt_get_phy_addr(ifile, curr_module.blink, prf.get_global_dtb(ifile));
 
 		cout << curr_module.flink << " " << curr_module.physical_offset << " " << curr_module.blink << " ";
 
@@ -103,7 +103,7 @@ class kernel_module_handler
 		char name[name_size * 2];
 		ifile.read(name, sizeof(name));
 		curr_module.name = utility_functions ::get_utf_str(name, sizeof(name));
-		curr_module.name.erase(remove_if(curr_module.name.begin(), curr_module.name.end(), utility_functions ::invalidChar), curr_module.name.end()); ///Need to copy this
+		curr_module.name.erase(remove_if(curr_module.name.begin(), curr_module.name.end(), utility_functions ::invalidChar), curr_module.name.end());
 		cout << curr_module.name << " ";
 
 		phy_file_addr = utility_functions ::opt_get_phy_addr(ifile, file_addr, prf.get_global_dtb(ifile));
@@ -115,8 +115,6 @@ class kernel_module_handler
 		curr_module.file_path = utility_functions ::get_utf_str(file_path, sizeof(file_path));
 		replace(curr_module.file_path.begin(), curr_module.file_path.end(), '\\', '/');
 		curr_module.file_path.erase(remove_if(curr_module.file_path.begin(), curr_module.file_path.end(), utility_functions ::invalidChar), curr_module.file_path.end());
-
-		//cout << curr_module.file_path << " ";
 
 		cout << "\n";
 		return curr_module;
@@ -242,8 +240,8 @@ int main()
 {
 	kernel_module_handler kh;
 	ifstream ifile;
-	profile prf(10);
-	char fname[] = "../data/samples/win1064.vmem";
+	profile prf(7);
+	char fname[] = "../data/samples/win764.vmem";
 
 	ifile.open(fname, ios::in | ios::binary);
 	if (!ifile)
