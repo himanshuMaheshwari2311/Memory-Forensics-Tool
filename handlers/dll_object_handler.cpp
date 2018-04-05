@@ -174,21 +174,25 @@ class dll_object_handler
             vector<dll_object> via_pid;
             for (int i = 0; i < dll_object_list.size(); i++)
             {
-                if(dll_object_list[i].pid == pid){
+                if (dll_object_list[i].pid == pid)
+                {
                     via_pid.push_back(dll_object_list[i]);
                 }
             }
             return via_pid;
         }
     }
-    void print_dlls()
+    void print_dlls(uint32_t pid = 0)
     {
-        cout << setw(16) << "Address" << setw(10) << "PID" << setw(16) << "DLL Base" << setw(26) << "Name" << setw(50) << "Path" << setw(10) << "Load Count" << endl;
+        cout << setw(16) << "Address" << setw(10) << "PID" << setw(16) << "DLL Base" << setw(26) << "Name" << setw(50) << "Path" << setw(16) << "Load Count" << endl;
         dll_object d;
         for (int i = 0; i < dll_object_list.size(); i++)
         {
             d = dll_object_list[i];
-            cout << setw(16) << hex << d.physical_offset << setw(16) << dec << d.pid << setw(16) << d.dll_base << setw(26) << d.name << setw(50) << d.full_dll_name << setw(10) << d.load_count << endl;
+            if (pid == 0 || pid == d.pid)
+            {
+                cout << setw(16) << hex << d.physical_offset << setw(10) << dec << d.pid << setw(16) << d.dll_base << setw(26) << d.name << setw(50) << d.full_dll_name << setw(16) << d.load_count << endl;
+            }
         }
     }
 };
@@ -211,7 +215,7 @@ int main(void)
     cout << "\n";
 
     dh.generate_dll_objects(ifile, prf);
-    dh.print_dlls();
+    dh.print_dlls(600);
 }
 #endif
 #endif
