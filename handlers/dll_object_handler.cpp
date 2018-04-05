@@ -161,13 +161,25 @@ class dll_object_handler
         }
     }
 
-    vector<dll_object> get_dll_object_list(ifstream &ifile, profile prf)
+    vector<dll_object> get_dll_object_list(ifstream &ifile, profile prf, uint32_t pid = 0)
     {
         if (dll_object_list.empty())
         {
             generate_dll_objects(ifile, prf);
         }
-        return dll_object_list;
+        if (pid == 0)
+            return dll_object_list;
+        else
+        {
+            vector<dll_object> via_pid;
+            for (int i = 0; i < dll_object_list.size(); i++)
+            {
+                if(dll_object_list[i].pid == pid){
+                    via_pid.push_back(dll_object_list[i]);
+                }
+            }
+            return via_pid;
+        }
     }
     void print_dlls()
     {
@@ -186,8 +198,8 @@ int main(void)
 {
     dll_object_handler dh;
     ifstream ifile;
-    profile prf(7);
-    char fname[] = "../data/samples/win764.vmem";
+    profile prf(10);
+    char fname[] = "../data/samples/win1064.vmem";
 
     ifile.open(fname, ios::in | ios::binary);
     if (!ifile)
