@@ -11,12 +11,14 @@ class process : public object
 	uint32_t pid;
 	uint32_t ppid;
 	uint8_t active_threads;
-
+	uint64_t flink;
+	string unlinked;
 	process()
 	{
 		pid = 0;
 		ppid = 0;
 		active_threads = 0;
+		unlinked = "YES";
 	}
 
 	string get_info()

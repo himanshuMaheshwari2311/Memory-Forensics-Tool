@@ -23,7 +23,7 @@ class process_handler
   public:
 	void generate_processes(ifstream &ifile, profile prf)
 	{
-        utility_functions ::reset_file(ifile);
+		utility_functions ::reset_file(ifile);
 		uint64_t addr_val = 0;
 		uint64_t base_addr = 0;
 		char found_pattern[8];
@@ -73,7 +73,12 @@ class process_handler
 				ifile.read(reinterpret_cast<char *>(&proc.peb), sizeof(proc.peb));
 
 				cout << setw(16) << hex << proc.dtb;
-				cout << setw(16) << hex << proc.peb << endl;
+				cout << setw(16) << hex << proc.peb;
+
+				ifile.seekg(base_addr + prf.process_offsets[7]);
+				ifile.read(reinterpret_cast<char *>(&proc.flink), sizeof(proc.flink));
+				proc.flink = utility_functions ::opt_get_phy_addr(ifile, proc.flink, prf.get_global_dtb(ifile));
+				cout << setw(16) << hex << proc.flink << endl;
 
 				if (proc.pid % 4 == 0 && proc.ppid % 4 == 0 && proc.pid < 32768) // pids are divisible by 4
 				{
@@ -81,12 +86,33 @@ class process_handler
 					process_list.push_back(proc);
 				}
 				addr_val += prf.process_offsets[0] - 8;
-				ifile.seekg(base_addr + prf.process_offsets[0]);				
+				ifile.seekg(base_addr + prf.process_offsets[0]);
 			}
 			else
 			{
 				addr_val += 8;
 				ifile.ignore(8);
+			}
+		}
+		scan_unlinked(ifile, prf);
+	}
+	void scan_unlinked(ifstream &ifile, profile prf)
+	{
+		uint64_t temp_addr;
+		for (int i = 0; i < process_list.size(); i++)
+		{
+			temp_addr = process_list[i].flink;
+			if(process_list[i].name == "Idle" || process_list[i].name == "System")
+			{
+					process_list[i].unlinked = "No";				
+			}
+			for (int j = 0; j < process_list.size(); j++)
+			{
+				if (temp_addr == process_list[j].physical_offset + prf.process_offsets[7])
+				{
+					process_list[j].unlinked = "No";
+					break;
+				}
 			}
 		}
 	}
@@ -100,12 +126,13 @@ class process_handler
 	}
 	void print_processes()
 	{
-		cout << setw(16) << "Address" << setw(16) << "PID" << setw(16) << "PPID" << setw(16) << "Name" << endl;
+		cout << endl;
+		cout << setw(16) << "Address" << setw(16) << "PID" << setw(16) << "PPID" << setw(16) << "Name" << setw(16) << "Unlinked?" << endl;
 		process proc;
 		for (int i = 0; i < process_list.size(); i++)
 		{
 			proc = process_list[i];
-			cout << setw(16) << hex << proc.physical_offset << setw(16) << dec << proc.pid << setw(16) << proc.ppid << setw(16) << proc.name << " " << proc.object_id << endl;
+			cout << setw(16) << hex << proc.physical_offset << setw(16) << dec << proc.pid << setw(16) << proc.ppid << setw(16) << proc.name << setw(16) << proc.unlinked << endl;
 		}
 	}
 	string get_info()
@@ -128,7 +155,6 @@ class process_handler
 	}
 };
 
-/*
 #ifndef mainfunc
 int main(void)
 {
@@ -147,11 +173,11 @@ int main(void)
 	cout << "\n";
 	//cout << prf.get_global_dtb(ifile) << endl;
 	//cout << prf.get_service_dtb(ifile) << endl;
+	prf.get_global_dtb(ifile);
 	ph.generate_processes(ifile, prf);
 	ph.print_processes();
 	//cout<<ph.get_info();
 	//ph.generate_processes(ifile, prf);
 }
 #endif
-*/
 #endif
