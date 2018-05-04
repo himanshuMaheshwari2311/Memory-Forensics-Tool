@@ -78,7 +78,12 @@ class process_handler
 				ifile.seekg(base_addr + prf.process_offsets[7]);
 				ifile.read(reinterpret_cast<char *>(&proc.flink), sizeof(proc.flink));
 				proc.flink = utility_functions ::opt_get_phy_addr(ifile, proc.flink, prf.get_global_dtb(ifile));
-				cout << setw(16) << hex << proc.flink << endl;
+				cout << setw(16) << hex << proc.flink;
+
+				ifile.seekg(base_addr + prf.process_offsets[8]);
+				ifile.read(reinterpret_cast<char *>(&proc.obj_table), sizeof(proc.obj_table));
+				proc.obj_table = utility_functions ::opt_get_phy_addr(ifile, proc.obj_table, prf.get_global_dtb(ifile));
+				cout << setw(16) << hex << proc.obj_table << endl;
 
 				if (proc.pid % 4 == 0 && proc.ppid % 4 == 0 && proc.pid < 32768) // pids are divisible by 4
 				{

@@ -71,7 +71,7 @@ class profile
 		type = 7;
 		process_signature = new char[8]{3, 0, 88, 0, 0, 0, 0, 0};
 		//process_offsets = new int[4]{376, 268, 76, 480};
-		process_offsets = new int[8]{1232, 0x180, 0x290, 0x2e0, 0x328, 0x28, 0x338, 0x188};
+		process_offsets = new int[9]{1232, 0x180, 0x290, 0x2e0, 0x328, 0x28, 0x338, 0x188, 0x200};
 		process_name_offset = 736;
 
 		ldr_in_peb = 0x18;
@@ -112,7 +112,7 @@ class profile
 		type = 10;
 		process_signature = new char[8]{3, 0, char(182), 0, 0, 0, 0, 0};
 		//process_offsets = new int[4]{728, 252, 108, 944};
-		process_offsets = new int[8]{1232, 0x2e0, 0x3e0, 0x450, 0x498, 0x28, 0x3f8, 0x2e8};
+		process_offsets = new int[9]{1232, 0x2e0, 0x3e0, 0x450, 0x498, 0x28, 0x3f8, 0x2e8, 0x200};
 		process_name_offset = 1104;
 
 		ldr_in_peb = 0x18;
