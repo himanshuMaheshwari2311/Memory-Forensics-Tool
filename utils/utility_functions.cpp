@@ -147,11 +147,11 @@ class utility_functions
 		return ((nextLvl & 0xFFFFF000) + offset);
 	}
 
-	static char *get_utf_str(char uni_str[], int n = 64)
+	static char *get_utf_str(char uni_str[], int n = 256)
 	{
-		char *str = new char[n];
+		char *str = new char[n + 1];
 		int i = 0, j = 0;
-		while (uni_str[j] != 0)
+		while (uni_str[j] != 0 && i < n)
 		{
 			str[i] = uni_str[j];
 			i += 1;

@@ -118,6 +118,7 @@ class dll_object_handler
         ifile.seekg(str_addr);
         ifile.read(full_name, sizeof(full_name));
         temp_dll.full_dll_name = utility_functions ::get_utf_str(full_name, sizeof(full_name));
+        replace(temp_dll.full_dll_name.begin(), temp_dll.full_dll_name.end(), '\\', '/');
         cout << setw(55) << hex << temp_dll.full_dll_name;
 
         ifile.clear();
@@ -195,6 +196,24 @@ class dll_object_handler
             }
         }
     }
+    string get_info()
+	{
+		string json = "";
+		json += "{ ";
+		json += "\"dll_object_list\" : ";
+		json += "[ ";
+		for (int i = 0; i < dll_object_list.size(); ++i)
+		{
+			json += dll_object_list[i].get_info();
+			if (i != dll_object_list.size() - 1)
+				json += ",";
+			json += "\n";
+		}
+		json += "] ";
+		json += "} ";
+
+		return json;
+	}
 };
 
 #ifndef mainfunc
@@ -202,8 +221,8 @@ int main(void)
 {
     dll_object_handler dh;
     ifstream ifile;
-    profile prf(10);
-    char fname[] = "../data/samples/win1064.vmem";
+    profile prf(7);
+    char fname[] = "../data/samples/win764.vmem";
 
     ifile.open(fname, ios::in | ios::binary);
     if (!ifile)
@@ -216,6 +235,7 @@ int main(void)
 
     dh.generate_dll_objects(ifile, prf);
     dh.print_dlls(600);
+    cout<<dh.get_info();
 }
 #endif
 #endif
