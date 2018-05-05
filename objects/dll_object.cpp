@@ -6,13 +6,13 @@
 class dll_object : public object
 {
   public:
-    uint32_t pid;
-    uint64_t dtb;
+	uint32_t pid;
+	uint64_t dtb;
 	uint64_t dll_base;
 	uint32_t size_of_image;
 	string full_dll_name;
-    uint16_t load_count;
-    string load_time;
+	uint16_t load_count;
+	string load_time;
 
 	dll_object()
 	{
@@ -46,7 +46,7 @@ class dll_object : public object
 
 		json += "\"load_count\" : ";
 		json += to_string(this->load_count) + ", ";
-		
+
 		json += "\"marked\" : ";
 		json += "\"enabled\", ";
 

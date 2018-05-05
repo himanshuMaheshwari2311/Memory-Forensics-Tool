@@ -107,9 +107,9 @@ class process_handler
 		for (int i = 0; i < process_list.size(); i++)
 		{
 			temp_addr = process_list[i].flink;
-			if(process_list[i].name == "Idle" || process_list[i].name == "System")
+			if (process_list[i].name == "Idle" || process_list[i].name == "System")
 			{
-					process_list[i].unlinked = "No";				
+				process_list[i].unlinked = "No";
 			}
 			for (int j = 0; j < process_list.size(); j++)
 			{
@@ -160,6 +160,7 @@ class process_handler
 	}
 };
 
+/*
 #ifndef mainfunc
 int main(void)
 {
@@ -185,4 +186,6 @@ int main(void)
 	//ph.generate_processes(ifile, prf);
 }
 #endif
+*/
+
 #endif

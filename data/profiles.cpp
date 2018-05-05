@@ -29,6 +29,8 @@ class profile
 	int ldr_in_peb;
 	int *dll_object_offsets;
 
+	int *object_header_offsets;
+
 	char *service_pattern1;
 	char *service_pattern2;
 	int *service_header_offsets;
@@ -79,6 +81,8 @@ class profile
 		dll_object_offsets = new int[8]{0x00, 0x10, 0x30, 0x40, 0x50, 0x60, 0x6c, 0xd8};
 
 		dtb_eproc_name = new char[5]{'I', 'd', 'l', 'e'};
+		
+		object_header_offsets = new int[2]{0x18, 0x19};
 
 		service_pattern1 = new char[8]{115, 101, 114, 72, 0, 0, 0, 0};
 		service_pattern2 = new char[8]{115, 101, 114, 72, 4, 0, 0, 0};
@@ -112,7 +116,7 @@ class profile
 		type = 10;
 		process_signature = new char[8]{3, 0, char(182), 0, 0, 0, 0, 0};
 		//process_offsets = new int[4]{728, 252, 108, 944};
-		process_offsets = new int[9]{1232, 0x2e0, 0x3e0, 0x450, 0x498, 0x28, 0x3f8, 0x2e8, 0x200};
+		process_offsets = new int[9]{1232, 0x2e0, 0x3e0, 0x450, 0x498, 0x28, 0x3f8, 0x2e8, 0x418};
 		process_name_offset = 1104;
 
 		ldr_in_peb = 0x18;
@@ -121,6 +125,8 @@ class profile
 
 		dtb_eproc_name = new char[5]{'I', 'd', 'l', 'e'};
 		//dtb_eproc_name = new char[7]{'S', 'y', 's', 't', 'e', 'm'};
+
+		object_header_offsets = new int[2]{0x18, 0x19};
 
 		service_pattern1 = new char[8]{115, 101, 114, 72, 0, 0, 0, 0};
 		service_pattern2 = new char[8]{115, 101, 114, 72, 4, 0, 0, 0};
@@ -163,7 +169,7 @@ class profile
 					if (strcmp(p_name, dtb_eproc_name) == 0)
 					{
 						uint64_t temp;
-						cout << dtb_eproc_name << " found!" << endl;
+						cout << endl << dtb_eproc_name << " found!" << endl;
 						ifile.seekg(-(process_name_offset + 16), std::ios::cur);
 						ifile.seekg(40, std::ios::cur);
 						ifile.read(reinterpret_cast<char *>(&temp), sizeof(temp));
