@@ -92,7 +92,6 @@ def add_case():
 		resp['result_type'] = "success"
 		resp['result'] = "Successfully added case!"
 		resp['cases'] = account_cases
-		session['username'] = request.form['username']	
 		session['cases'] = account_cases
 		try:
 			case_data = json.load(open('../data/json/' + json_file))
