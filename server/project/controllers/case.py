@@ -67,10 +67,13 @@ def add_case():
 		os_version = request.form['os_version']
 		print file_path, os_version		
 		os.system("g++ -std=c++11 ../mft.cpp -o ../mft")
-		os.system("..\mft.exe " + file_path + " " + os_version)
-
+		
+		command = "..\mft.exe " + file_path + " " + os_version
+		os.system("start /wait cmd /c " + command)
+		
 		list_of_files = glob.glob('../data/json/*') # * means all if need specific format then *.csv
 		json_file = os.path.basename(max(list_of_files, key=os.path.getctime))
+		print "File added: " + json_file
 
 		account_cases = []
 		with open('../data/json/login.json', mode='r') as f:
