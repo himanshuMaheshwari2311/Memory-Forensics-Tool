@@ -125,11 +125,13 @@ int main(int argc, char **argv)
     replace(case_name.begin(), case_name.end(), ' ', '-');
 
     string out_file_name;
-    out_file_name += "data/json/";
+    out_file_name += "../data/json/";
     out_file_name += case_name;
     cout << out_file_name << endl;
     ofile.open(out_file_name, ios::out | ios::binary);
     ofile << json;
+
+    cout << "Json Write Complete" << endl;
 
     return 0;
 }
