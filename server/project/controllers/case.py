@@ -63,18 +63,11 @@ def add_case():
 		resp['result'] = "Please log in!"
 		return render_template('accounts/login.html', resp = resp)
 	if request.method == 'POST':
-		file_path = request.form['file_path']
-		temp = file_path
+		temp = request.form['file_path']
 		os_version = request.form['os_version']
 		file_path = "../data/samples/" + temp
 		
-<<<<<<< HEAD
-		#os.system("g++ -std=c++11 ../mft.cpp -o ../mft")
-=======
-		print file_path, os_version		
 		os.system("g++ -std=c++11 ../mft.cpp -o ../mft")
->>>>>>> 36f894956322744ab9fa207da780816a8b888e66
-		
 		command = "..\mft.exe " + file_path + " " + os_version
 		os.system("start /wait cmd /c " + command)
 
