@@ -44,6 +44,16 @@ def case():
 			resp['cases'] = session['cases']
 			return render_template('accounts/index.html', resp = resp)
 
+@app.route('/select_case', methods = ['GET', 'POST'])
+def select_case():
+	resp = {}
+	resp['cases'] = session['cases']
+	return render_template('accounts/index.html', resp = resp)
+	
+@app.route('/new_case', methods = ['GET', 'POST'])
+def new_case():
+	return render_template('accounts/new_case.html')
+
 @app.route('/add_case', methods = ['GET', 'POST'])
 def add_case():
 	print "Add case"
@@ -54,9 +64,16 @@ def add_case():
 		return render_template('accounts/login.html', resp = resp)
 	if request.method == 'POST':
 		file_path = request.form['file_path']
+		temp = file_path
 		os_version = request.form['os_version']
+		file_path = "../data/samples/" + temp
 		
+<<<<<<< HEAD
 		#os.system("g++ -std=c++11 ../mft.cpp -o ../mft")
+=======
+		print file_path, os_version		
+		os.system("g++ -std=c++11 ../mft.cpp -o ../mft")
+>>>>>>> 36f894956322744ab9fa207da780816a8b888e66
 		
 		command = "..\mft.exe " + file_path + " " + os_version
 		os.system("start /wait cmd /c " + command)

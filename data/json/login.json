@@ -1,33 +1,35 @@
 {
-	"accounts" : [
-		{
-			"username" : "near",
-			"password" : "near",
-			"cases" : [
-				"near.json"
-			]
-		},
-		{
-			"username" : "stark",
-			"password" : "stark",
-			"cases" : [
-				"stark.json"
-			]
-		},
-		{
-			"username" : "tiger",
-			"password" : "tiger",
-			"cases" : [
-				"tiger.json"
-			]
-		},
-		{
-			"username" : "ryuzaki",
-			"password" : "ryuzaki",
-			"cases" : [
-				"ryuzaki.json",
-				"dummy.json"
-			]
-		}
-	]
+    "accounts": [
+        {
+            "username": "near", 
+            "cases": [
+                "near.json"
+            ], 
+            "password": "near"
+        }, 
+        {
+            "username": "stark", 
+            "cases": [
+                "stark.json"
+            ], 
+            "password": "stark"
+        }, 
+        {
+            "username": "tiger", 
+            "cases": [
+                "tiger.json"
+            ], 
+            "password": "tiger"
+        }, 
+        {
+            "username": "ryuzaki", 
+            "cases": [
+                "ryuzaki.json", 
+                "dummy.json", 
+                "win764.vmem_Mon-Apr-02-11-01-11-2018x.json", 
+                "win764.vmem_Mon-Apr-02-11-01-11-2018x.json"
+            ], 
+            "password": "ryuzaki"
+        }
+    ]
 }
