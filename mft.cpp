@@ -55,6 +55,8 @@ int main(int argc, char **argv)
     cout<< "Generating Network List" << endl;
     vector<network> network_list = nh.get_network_list(ifile, prf);
 
+    replace(fname.begin(), fname.end(), '\\', '/');
+
     string json = "";
 
     json += "{ ";
