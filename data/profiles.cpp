@@ -5,6 +5,7 @@
 #include <cstring>
 #include <string>
 #include <string.h>
+#include <conio.h>
 
 #include "../utils/utility_functions.cpp"
 
@@ -29,6 +30,9 @@ class profile
 	int ldr_in_peb;
 	int *dll_object_offsets;
 
+	int *handle_table_offsets;
+	int *object_header_offsets;
+
 	char *service_pattern1;
 	char *service_pattern2;
 	int *service_header_offsets;
@@ -40,6 +44,9 @@ class profile
 
 	char *tcp_pool_tag;
 	int *tcp_offsets;
+
+	char *tcpE_pool_tag;
+	int *tcpE_offsets;
 
 	char *hive_signature;
 	char *hive_pool_tag;
@@ -71,7 +78,7 @@ class profile
 		type = 7;
 		process_signature = new char[8]{3, 0, 88, 0, 0, 0, 0, 0};
 		//process_offsets = new int[4]{376, 268, 76, 480};
-		process_offsets = new int[7]{1232, 0x180, 0x290, 0x2e0, 0x328, 0x28, 0x338};
+		process_offsets = new int[9]{1232, 0x180, 0x290, 0x2e0, 0x328, 0x28, 0x338, 0x188, 0x200};
 		process_name_offset = 736;
 
 		ldr_in_peb = 0x18;
@@ -79,6 +86,9 @@ class profile
 		dll_object_offsets = new int[8]{0x00, 0x10, 0x30, 0x40, 0x50, 0x60, 0x6c, 0xd8};
 
 		dtb_eproc_name = new char[5]{'I', 'd', 'l', 'e'};
+
+		handle_table_offsets = new int[1]{0x00};
+		object_header_offsets = new int[2]{0x18, 0x1a};
 
 		service_pattern1 = new char[8]{115, 101, 114, 72, 0, 0, 0, 0};
 		service_pattern2 = new char[8]{115, 101, 114, 72, 4, 0, 0, 0};
@@ -91,6 +101,9 @@ class profile
 
 		tcp_pool_tag = new char[8]{'0', '0', '0', '0', 'T', 'c', 'p', 'L'};
 		tcp_offsets = new int[6]{0x20, 0x6a, 0x58, 0x28, 0x2e0, 0x14};
+
+		tcpE_pool_tag = new char[8]{'0', '0', '0', '0', 'T', 'c', 'p', 'E'};
+		tcpE_offsets = new int[10]{0x00, 0x18, 0x20, 0x68, 0x6c, 0x6e, 0x238, 0x14, 0x00, 0x10}; 
 
 		hive_signature = new char[8]{char(224), char(190), char(224), char(190), 0, 0, 0, 0};
 		hive_pool_tag = new char[8]{'0', '0', '0', '0', 'C', 'M', '1', '0'};
@@ -112,7 +125,7 @@ class profile
 		type = 10;
 		process_signature = new char[8]{3, 0, char(182), 0, 0, 0, 0, 0};
 		//process_offsets = new int[4]{728, 252, 108, 944};
-		process_offsets = new int[7]{1232, 0x2e0, 0x3e0, 0x450, 0x498, 0x28, 0x3f8};
+		process_offsets = new int[9]{1232, 0x2e0, 0x3e0, 0x450, 0x498, 0x28, 0x3f8, 0x2e8, 0x418};
 		process_name_offset = 1104;
 
 		ldr_in_peb = 0x18;
@@ -121,6 +134,9 @@ class profile
 
 		dtb_eproc_name = new char[5]{'I', 'd', 'l', 'e'};
 		//dtb_eproc_name = new char[7]{'S', 'y', 's', 't', 'e', 'm'};
+
+		handle_table_offsets = new int[1]{0x08};
+		object_header_offsets = new int[2]{0x18, 0x1a};
 
 		service_pattern1 = new char[8]{115, 101, 114, 72, 0, 0, 0, 0};
 		service_pattern2 = new char[8]{115, 101, 114, 72, 4, 0, 0, 0};
@@ -134,6 +150,9 @@ class profile
 		tcp_pool_tag = new char[8]{'0', '0', '0', '0', 'T', 'c', 'p', 'L'};
 		tcp_offsets = new int[6]{0x28, 0x72, 0x0, 0x30, 0x450, 0x18};
 
+		tcpE_pool_tag = new char[8]{'0', '0', '0', '0', 'T', 'c', 'p', 'E'};
+		tcpE_offsets = new int[10]{0x00, 0x18, 0x20, 0x68, 0x6c, 0x6e, 0x238, 0x00, 0x10}; // Not valid mostly
+
 		hive_signature = new char[8]{char(224), char(190), char(224), char(190), 0, 0, 0, 0};
 		hive_pool_tag = new char[8]{'0', '0', '0', '0', 'C', 'M', '1', '0'};
 		hive_offsets = new int[1]{3016};
@@ -142,7 +161,31 @@ class profile
 		kernel_phy_offset = 0x10;
 		kernel_offsets = new int[5]{0x00, 0x08, 0x50, 0x58, 0x60};
 	}
-
+	uint64_t decode_phandle_ptr(uint64_t addr)
+	{
+		uint64_t one = 1;
+		uint64_t decoded_addr;
+		if (type == 7)
+		{
+			decoded_addr = addr & ~7;
+		}
+		else
+		{
+			//cout << endl;
+			//cout << hex << addr << " ";
+			addr = addr & 0xFFFFFFFFFFFFFFF8;
+			//cout << addr << " ";
+			addr = addr >> 16;
+			//cout << addr << " ";
+			if (addr & (one << 47))
+				decoded_addr = addr | 0xFFFF000000000000;
+			else
+				decoded_addr = addr;
+		}
+		//cout<<decoded_addr<<endl;
+		//getch();
+		return decoded_addr;
+	}
 	uint64_t get_global_dtb(ifstream &ifile)
 	{
 		// Mostly will not work for 10.. if else needs to be added for offset..
@@ -163,7 +206,8 @@ class profile
 					if (strcmp(p_name, dtb_eproc_name) == 0)
 					{
 						uint64_t temp;
-						cout << dtb_eproc_name << " found!" << endl;
+						cout << endl
+							 << dtb_eproc_name << " found!" << endl;
 						ifile.seekg(-(process_name_offset + 16), std::ios::cur);
 						ifile.seekg(40, std::ios::cur);
 						ifile.read(reinterpret_cast<char *>(&temp), sizeof(temp));

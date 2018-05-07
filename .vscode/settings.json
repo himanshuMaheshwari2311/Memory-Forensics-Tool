@@ -13,7 +13,9 @@
         "tuple": "cpp",
         "type_traits": "cpp",
         "*.tcc": "cpp",
-        "iomanip": "cpp"
+        "iomanip": "cpp",
+        "vector": "cpp",
+        "system_error": "cpp"
     },
     "C_Cpp.intelliSenseEngine": "Tag Parser",
     "python.linting.enabled": false
