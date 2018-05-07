@@ -56,11 +56,11 @@ def add_case():
 		file_path = request.form['file_path']
 		os_version = request.form['os_version']
 		
-		os.system("g++ -std=c++11 ../mft.cpp -o ../mft")
+		#os.system("g++ -std=c++11 ../mft.cpp -o ../mft")
 		
 		command = "..\mft.exe " + file_path + " " + os_version
 		os.system("start /wait cmd /c " + command)
-		
+
 		list_of_files = glob.glob('../data/json/*') # * means all if need specific format then *.csv
 		json_file = os.path.basename(max(list_of_files, key=os.path.getctime))
 		print "File added: " + json_file
@@ -84,4 +84,10 @@ def add_case():
 		resp['cases'] = account_cases
 		session['username'] = request.form['username']	
 		session['cases'] = account_cases
-		return render_template('accounts/index.html', resp = resp)
+		try:
+			case_data = json.load(open('../data/json/' + json_file))
+		except Exception as e:
+			print "Could not open file"
+			return render_template('accounts/index.html', resp = resp)
+		session['selected_case'] = json_file
+		return render_template('case/case.html', case_data = case_data)
