@@ -44,6 +44,16 @@ def case():
 			resp['cases'] = session['cases']
 			return render_template('accounts/index.html', resp = resp)
 
+@app.route('/select_case', methods = ['GET', 'POST'])
+def select_case():
+	resp = {}
+	resp['cases'] = session['cases']
+	return render_template('accounts/index.html', resp = resp)
+	
+@app.route('/new_case', methods = ['GET', 'POST'])
+def new_case():
+	return render_template('accounts/new_case.html')
+
 @app.route('/add_case', methods = ['GET', 'POST'])
 def add_case():
 	print "Add case"
@@ -55,7 +65,7 @@ def add_case():
 	if request.method == 'POST':
 		file_path = request.form['file_path']
 		os_version = request.form['os_version']
-		
+		print file_path, os_version		
 		os.system("g++ -std=c++11 ../mft.cpp -o ../mft")
 		os.system("..\mft.exe " + file_path + " " + os_version)
 

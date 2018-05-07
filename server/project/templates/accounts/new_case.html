@@ -1,0 +1,44 @@
+{% extends "layout/index_layout.html" %} {% block body %}
+<main class="pt-5 mx-lg-5">
+    <div class="container-fluid mt-5">
+        <!--Grid column-->
+        <div class="row wow fadeIn">
+            <div class="col-md-2 mb-4">
+            </div>
+            <div class="col-md-8 mb-4">
+                <!--Card-->
+                <div class="card mb-4">
+
+                    <!-- Card header -->
+                    <div class="card-header text-center">
+                        Select A Case
+                    </div>
+
+                    <!--Card content-->
+                    <div class="card-body">
+                        <form class="form" role="form" autocomplete="off" id="form_case" novalidate="" action="{{ url_for('add_case') }}" method=post>
+                            Select RAM File
+                            <input type="file" class="form-control btn-file" name="file_path" id="file_path">
+                            <br>
+                            <br>
+                            <div class="radio">
+
+                                <label>
+                                    <input type="radio" class="radio-inline" name="os_version" id="os_version" value="7" required="" checked> &nbsp;&nbsp; Windows 7
+                                </label>
+                                &nbsp;&nbsp; &nbsp;&nbsp;
+                                <label>
+                                    <input type="radio" class="radio-inline" name="os_version" id="os_version" value="10" required=""> &nbsp;&nbsp; Windows 10
+                                </label>
+                            </div>
+                            <input type="submit" value="Select" class="btn btn-primary btn-lg float-right" id="btn_case"></input>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</main>
+{% endblock %}
