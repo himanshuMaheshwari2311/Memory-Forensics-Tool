@@ -64,7 +64,10 @@ def add_case():
 		return render_template('accounts/login.html', resp = resp)
 	if request.method == 'POST':
 		file_path = request.form['file_path']
+		temp = file_path
 		os_version = request.form['os_version']
+		file_path = "../data/samples/" + temp
+		
 		print file_path, os_version		
 		os.system("g++ -std=c++11 ../mft.cpp -o ../mft")
 		
