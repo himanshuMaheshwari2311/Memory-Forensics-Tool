@@ -45,6 +45,9 @@ class profile
 	char *tcp_pool_tag;
 	int *tcp_offsets;
 
+	char *tcpE_pool_tag;
+	int *tcpE_offsets;
+
 	char *hive_signature;
 	char *hive_pool_tag;
 	int *hive_offsets;
@@ -99,6 +102,9 @@ class profile
 		tcp_pool_tag = new char[8]{'0', '0', '0', '0', 'T', 'c', 'p', 'L'};
 		tcp_offsets = new int[6]{0x20, 0x6a, 0x58, 0x28, 0x2e0, 0x14};
 
+		tcpE_pool_tag = new char[8]{'0', '0', '0', '0', 'T', 'c', 'p', 'E'};
+		tcpE_offsets = new int[10]{0x00, 0x18, 0x20, 0x68, 0x6c, 0x6e, 0x238, 0x14, 0x00, 0x10}; 
+
 		hive_signature = new char[8]{char(224), char(190), char(224), char(190), 0, 0, 0, 0};
 		hive_pool_tag = new char[8]{'0', '0', '0', '0', 'C', 'M', '1', '0'};
 		hive_offsets = new int[1]{1776};
@@ -143,6 +149,9 @@ class profile
 
 		tcp_pool_tag = new char[8]{'0', '0', '0', '0', 'T', 'c', 'p', 'L'};
 		tcp_offsets = new int[6]{0x28, 0x72, 0x0, 0x30, 0x450, 0x18};
+
+		tcpE_pool_tag = new char[8]{'0', '0', '0', '0', 'T', 'c', 'p', 'E'};
+		tcpE_offsets = new int[10]{0x00, 0x18, 0x20, 0x68, 0x6c, 0x6e, 0x238, 0x00, 0x10}; // Not valid mostly
 
 		hive_signature = new char[8]{char(224), char(190), char(224), char(190), 0, 0, 0, 0};
 		hive_pool_tag = new char[8]{'0', '0', '0', '0', 'C', 'M', '1', '0'};
