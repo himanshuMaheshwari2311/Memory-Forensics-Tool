@@ -79,6 +79,7 @@ class service_handler
 		ifile.read(s_name, sizeof(s_name));
 		srv.name = utility_functions ::get_utf_str(s_name, sizeof(s_name));
 		cout << setw(25) << hex << srv.name;
+		srv.name.erase(remove_if(srv.name.begin(), srv.name.end(), utility_functions ::invalidChar), srv.name.end());
 
 		ifile.clear();
 		ifile.seekg(temp_addr + prf.service_record_offsets[1], ios::beg);
@@ -88,6 +89,7 @@ class service_handler
 		ifile.read(d_name, sizeof(d_name));
 		srv.display_name = utility_functions ::get_utf_str(d_name, sizeof(d_name));
 		cout << setw(55) << hex << srv.display_name;
+		srv.display_name.erase(remove_if(srv.display_name.begin(), srv.display_name.end(), utility_functions ::invalidChar), srv.display_name.end());
 
 		ifile.clear();
 		ifile.seekg(temp_addr + prf.service_record_offsets[2], ios::beg);
@@ -165,7 +167,6 @@ class service_handler
 		json += "] ";
 		json += "} ";
 
-		
 		return json;
 	}
 };
@@ -188,7 +189,7 @@ int main(void)
 	cout << "\n";
 
 	sh.generate_services(ifile, prf);
-	cout<<sh.get_info();
+	cout << sh.get_info();
 }
 #endif
 #endif

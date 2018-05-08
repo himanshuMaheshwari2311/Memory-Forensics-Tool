@@ -40,6 +40,18 @@ function toggleTable(nr) {
         console.log(err);
     }
     try {
+        document.getElementById("table7").style.display = "none";
+    }
+    catch (err) {
+        console.log(err);
+    }
+    try {
+        document.getElementById("table8").style.display = "none";
+    }
+    catch (err) {
+        console.log(err);
+    }
+    try {
         document.getElementById("table77").style.display = "none";
     }
     catch (err) {

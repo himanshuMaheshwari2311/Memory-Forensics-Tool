@@ -138,7 +138,7 @@ class network_handler
         n.physical_offset = phy_offset;
         n.foreign_address = "";
         n.protocol_version = "N.A.";
-    
+
         //udp
         ifile.clear();
         ifile.seekg(0, ios::beg);
@@ -189,6 +189,7 @@ class network_handler
             ifile.seekg(phy_addr + prf.udp_offsets[4], ios::beg);
             ifile.read(p_name, 16);
             n.owner_name = p_name;
+            n.owner_name.erase(remove_if(n.owner_name.begin(), n.owner_name.end(), utility_functions ::invalidChar), n.owner_name.end());
 
             //port
             ifile.clear();
@@ -256,6 +257,7 @@ class network_handler
             ifile.seekg(phy_addr + prf.tcp_offsets[4], ios::beg);
             ifile.read(p_name, 16);
             n.owner_name = p_name;
+            n.owner_name.erase(remove_if(n.owner_name.begin(), n.owner_name.end(), utility_functions ::invalidChar), n.owner_name.end());
 
             //address
             if (prf.type == 7)
@@ -313,6 +315,7 @@ class network_handler
             ifile.seekg(phy_addr + prf.process_offsets[3], ios::beg);
             ifile.read(p_name, 16);
             n.owner_name = p_name;
+            n.owner_name.erase(remove_if(n.owner_name.begin(), n.owner_name.end(), utility_functions ::invalidChar), n.owner_name.end());
 
             ifile.seekg(phy_offset + prf.tcpE_offsets[2], ios::beg);
             ifile.read(reinterpret_cast<char *>(&vir_addr), sizeof(vir_addr));
@@ -322,7 +325,7 @@ class network_handler
             ifile.read(reinterpret_cast<char *>(&vir_addr), sizeof(vir_addr));
             phy_addr = utility_functions::opt_get_phy_addr(ifile, vir_addr, prf.get_global_dtb(ifile));
             ifile.seekg(phy_addr, ios::beg);
-            
+
             for (int i = 0; i < 4; i++)
             {
                 uint16_t ipv4;

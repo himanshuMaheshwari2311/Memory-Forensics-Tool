@@ -65,6 +65,7 @@ class process_handler
 					prf.service_dtb = temp_dtb;
 				}
 				cout << setw(16) << proc.name;
+				proc.name.erase(remove_if(proc.name.begin(), proc.name.end(), utility_functions ::invalidChar), proc.name.end());
 
 				ifile.seekg(base_addr + prf.process_offsets[5], ios::beg);
 				ifile.read(reinterpret_cast<char *>(&proc.dtb), sizeof(proc.dtb));

@@ -49,7 +49,7 @@ int main(int argc, char **argv)
     network_handler nh;
 
     cout << "Generating Registry List" << endl;
-    vector<registry> registry_list = rh.get_registry_list(ifile, prf);
+    //vector<registry> registry_list = rh.get_registry_list(ifile, prf);
     cout << "Generating Process List" << endl;
     vector<process> process_list = ph.get_process_list(ifile, prf);
     cout << "Generating Dll List" << endl;
@@ -57,9 +57,9 @@ int main(int argc, char **argv)
     cout << "Generating Phandle List" << endl;
     vector<phandle> phandle_list = hh.get_phandle_list(ifile, prf, ph);
     cout << "Generating Service List" << endl;
-    vector<service> service_list = sh.get_service_list(ifile, prf);
+    //vector<service> service_list = sh.get_service_list(ifile, prf);
     cout << "Generating Kernel List" << endl;
-    vector<kernel_module> kernel_list = kh.get_kernel_list(ifile, prf);
+    //vector<kernel_module> kernel_list = kh.get_kernel_list(ifile, prf);
     cout<< "Generating Network List" << endl;
     vector<network> network_list = nh.get_network_list(ifile, prf);
 
@@ -99,6 +99,8 @@ int main(int argc, char **argv)
     json += "[ ";
 
     json += ph.get_info() + ", ";
+    json += dh.get_info() + ", ";
+    json += hh.get_info() + ", ";
     json += sh.get_info() + ", ";
     json += rh.get_info() + ", ";
     json += kh.get_info() + ", ";

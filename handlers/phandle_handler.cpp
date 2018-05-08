@@ -65,7 +65,8 @@ class phandle_handler
                     int counter = 1;
                     ifile.seekg(table_base, ios::beg);
                     ifile.read(reinterpret_cast<char *>(&temp_addr), sizeof(temp_addr));
-                    while (temp_addr)
+                    uint64_t prev_temp_addr = 0;
+                    while (temp_addr && prev_temp_addr != temp_addr)
                     {
                         cout << hex << "--" << temp_addr << "--" << endl;
                         temp_addr = utility_functions ::opt_get_phy_addr(ifile, temp_addr, prf.get_global_dtb(ifile));
@@ -74,6 +75,7 @@ class phandle_handler
                             table_offsets.push_back(temp_addr);
                             table_pid.push_back(plist[i].pid);
                         }
+                        prev_temp_addr = temp_addr;
                         ifile.seekg(table_base + counter * 8, ios::beg);
                         ifile.read(reinterpret_cast<char *>(&temp_addr), sizeof(temp_addr));
                         counter++;
@@ -157,7 +159,8 @@ class phandle_handler
             name_addr = utility_functions ::opt_get_phy_addr(ifile, name_addr, dtb);
             ifile.seekg(name_addr, ios::beg);
             ifile.read(name, size);
-            pha.name = utility_functions ::get_utf_str(name, size/2);
+            pha.name = utility_functions ::get_utf_str(name, size / 2);
+            pha.name.erase(remove_if(pha.name.begin(), pha.name.end(), utility_functions ::invalidChar), pha.name.end());
         }
 
         return pha;
@@ -225,23 +228,23 @@ class phandle_handler
         }
     }
     string get_info()
-	{
-		string json = "";
-		json += "{ ";
-		json += "\"phandle_list\" : ";
-		json += "[ ";
-		for (int i = 0; i < phandle_list.size(); ++i)
-		{
-			json += phandle_list[i].get_info();
-			if (i != phandle_list.size() - 1)
-				json += ",";
-			json += "\n";
-		}
-		json += "] ";
-		json += "} ";
+    {
+        string json = "";
+        json += "{ ";
+        json += "\"phandle_list\" : ";
+        json += "[ ";
+        for (int i = 0; i < phandle_list.size(); ++i)
+        {
+            json += phandle_list[i].get_info();
+            if (i != phandle_list.size() - 1)
+                json += ",";
+            json += "\n";
+        }
+        json += "] ";
+        json += "} ";
 
-		return json;
-	}
+        return json;
+    }
 };
 
 #ifndef mainfunc

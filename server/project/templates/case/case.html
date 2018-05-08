@@ -11,7 +11,8 @@
                     {% for artifact_obj in case_data["artifacts"]: %} {% for k, v in artifact_obj.iteritems(): %} {% set type = [] %} {% if k
                     == 'process_list': %} {% do type.append(1) %} {% elif k == 'service_list': %} {% do type.append(2) %}
                     {% elif k == 'network_list': %} {% do type.append(3) %} {% elif k == 'registry_list': %} {% do type.append(4)
-                    %} {% elif k == 'kernel_list': %} {% do type.append(5) %} {% endif %}
+                    %} {% elif k == 'kernel_list': %} {% do type.append(5) %} {% elif k == 'phandle_list': %} {% do type.append(6)
+                    %} {% elif k == 'dll_object_list': %} {% do type.append(7) %} {% endif %}
                     <div class="card" id="table{{type[0]}}">
                         <!-- Card header -->
                         <div class="card-header text-center">
@@ -69,12 +70,11 @@
                         </div>
                         <!--Card content-->
                         <div class="card-body">
-                            <div class="form" role="form" autocomplete="off" id="formReport" >
+                            <div class="form" role="form" autocomplete="off" id="formReport">
                                 {% set report1 = [] %} {% do report1.append(url_for('update_report')) %}
                                 <div class="form-group">
                                     <label for="overview" class="float-left">Overview or case summary</label>
-                                    <input type="text" class="my_input form-control form-control-lg rounded-0" name="overview" id="overview" 
-                                        value="{{case_data['case_overview']}}">
+                                    <input type="text" class="my_input form-control form-control-lg rounded-0" name="overview" id="overview" value="{{case_data['case_overview']}}">
                                 </div>
                                 <div class="form-group">
                                     <label for="acquisition" class="float-left">Forensic acquisition and Exam Preparation</label>
@@ -155,4 +155,4 @@
 <!-- Case JS -->
 <script type="text/javascript" src="{{ url_for('static', filename='js/case.js')}}"></script>
 <!-- Initializations -->
- {% endblock %}
+{% endblock %}

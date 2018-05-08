@@ -129,6 +129,7 @@ class dll_object_handler
         ifile.read(base_name, sizeof(base_name));
         temp_dll.name = utility_functions ::get_utf_str(base_name, sizeof(base_name));
         cout << setw(40) << hex << temp_dll.name;
+        temp_dll.name.erase(remove_if(temp_dll.name.begin(), temp_dll.name.end(), utility_functions ::invalidChar), temp_dll.name.end());
 
         ifile.clear();
         ifile.seekg(phy_offset + prf.dll_object_offsets[6], ios::beg);
@@ -197,23 +198,23 @@ class dll_object_handler
         }
     }
     string get_info()
-	{
-		string json = "";
-		json += "{ ";
-		json += "\"dll_object_list\" : ";
-		json += "[ ";
-		for (int i = 0; i < dll_object_list.size(); ++i)
-		{
-			json += dll_object_list[i].get_info();
-			if (i != dll_object_list.size() - 1)
-				json += ",";
-			json += "\n";
-		}
-		json += "] ";
-		json += "} ";
+    {
+        string json = "";
+        json += "{ ";
+        json += "\"dll_object_list\" : ";
+        json += "[ ";
+        for (int i = 0; i < dll_object_list.size(); ++i)
+        {
+            json += dll_object_list[i].get_info();
+            if (i != dll_object_list.size() - 1)
+                json += ",";
+            json += "\n";
+        }
+        json += "] ";
+        json += "} ";
 
-		return json;
-	}
+        return json;
+    }
 };
 
 #ifndef mainfunc
@@ -235,7 +236,7 @@ int main(void)
 
     dh.generate_dll_objects(ifile, prf);
     dh.print_dlls(600);
-    cout<<dh.get_info();
+    cout << dh.get_info();
 }
 #endif
 #endif
