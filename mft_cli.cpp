@@ -117,9 +117,9 @@ int main(int argc, char **argv)
 			}
 			else if (vcmd[0] == "kernel")
 			{
-				cout<<"Kernel Modules in Linked List\n";
+				cout<<"\nKernel Modules in Linked List\n";
 				kh.print_ll();
-				cout<<"Unlinked Kernel Modules\n";
+				cout<<"\nUnlinked Kernel Modules\n";
 				kh.print_unlinked_modules();
 			}
 			else if(vcmd[0] == "network")
