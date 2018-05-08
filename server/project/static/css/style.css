@@ -1,3 +1,7 @@
+html, body {
+  margin: 0;
+  height: 100%;
+}
 
 .sidebar-fixed {
   height: 100vh;
@@ -64,8 +68,18 @@
   cursor: inherit;
   display: block;
 }
-
-   
-div#loading {
+#all_content {
+  display: block;
+}
+#gif_loading {
   display: none;
+  z-index: 1000 !important;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: #0e0e0e !important;
+  cursor: wait;
+}
+#gif_img {
+  margin-top: 50px;
 }
