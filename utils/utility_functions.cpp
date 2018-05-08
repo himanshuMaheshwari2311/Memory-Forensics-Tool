@@ -163,7 +163,7 @@ class utility_functions
 
 	static bool invalidChar(char c)
 	{
-		return !(c >= 32 && c < 127 || c == 0 || c == '"' || c == '/');
+		return !(c >= 32 && c < 127 || c == 0 );
 	}
 
 	static char *FILETIME_to_time_t(const FILETIME lpFileTime)

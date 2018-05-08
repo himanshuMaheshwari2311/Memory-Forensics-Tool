@@ -146,6 +146,7 @@ class network_handler
         ifile.read(current_pattern, 8);
         if (utility_functions::scan_tag(current_pattern, prf.udp_pool_tag, 8))
         {
+            cout<<"inet ";
             //inet_af
             ifile.seekg(phy_offset + prf.udp_offsets[0]);
             ifile.read(reinterpret_cast<char *>(&vir_addr), 8);
@@ -165,7 +166,10 @@ class network_handler
                 n.protocol_version = "UDPv4";
             else if (type == 0x17)
                 n.protocol_version = "UDPv6";
+
+            cout<<"time ";
             // create time
+            /* Commenting because causing runtime error for some reason
             if (prf.type == 7)
             {
                 if (type != 0)
@@ -177,7 +181,8 @@ class network_handler
                 else
                     n.create_time = "";
             }
-
+            */
+            cout<<"owner ";
             //owner information
             char p_name[16];
             ifile.clear();
@@ -191,6 +196,7 @@ class network_handler
             n.owner_name = p_name;
             n.owner_name.erase(remove_if(n.owner_name.begin(), n.owner_name.end(), utility_functions ::invalidChar), n.owner_name.end());
 
+            cout<<"port ";
             //port
             ifile.clear();
             ifile.seekg(phy_offset + prf.udp_offsets[1]);
@@ -199,6 +205,7 @@ class network_handler
             uint16_t l_port = n.port >> 8;
             n.port = r_port | l_port;
 
+            cout<<"addr"<<endl  ;
             //address
             if (prf.type == 7)
             {
@@ -358,7 +365,7 @@ class network_handler
         if (type != 0)
         {
             cout << hex << phy_offset << " " << n.protocol_version;
-            cout << " " << dec << n.local_address << " :  " << n.port << " " << n.owner_name << " " << n.pid << " " << n.create_time;
+            cout << " " << dec << n.local_address << " :  " << n.port << " " << n.owner_name << " " << n.pid << " " << n.create_time << endl;
         }
         return n;
     }
@@ -444,7 +451,7 @@ int main(void)
     network_handler nh;
     ifstream ifile;
     profile prf(7);
-    char fname[] = "../data/samples/win764.vmem";
+    char fname[] = "../data/samples/win764_DKOM_testvirus.vmem";
     vector<uint64_t> phy_offsets;
     ifile.open(fname, ios::in | ios::binary);
     if (!ifile)

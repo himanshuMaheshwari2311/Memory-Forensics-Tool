@@ -109,7 +109,8 @@ int main(int argc, char **argv)
     json += "] ";
 
     json += "}";
-
+    
+    replace(json.begin(), json.end(), '\\', '/');
     cout << json << endl;
 
     ofstream ofile;
