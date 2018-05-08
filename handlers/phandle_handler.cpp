@@ -20,12 +20,12 @@ class phandle_handler
     vector<phandle> phandle_list;
 
   public:
-    vector<phandle> enumerate_phandles(ifstream &ifile, profile prf)
+    vector<phandle> enumerate_phandles(ifstream &ifile, profile prf, process_handler ph)
     {
         utility_functions::reset_file(ifile);
 
         vector<phandle> temp_phandle_list;
-        process_handler ph;
+        //process_handler ph;
         vector<process> plist = ph.get_process_list(ifile, prf);
         vector<uint64_t> table_offsets;
         vector<uint64_t> table_pid;
@@ -163,12 +163,12 @@ class phandle_handler
         return pha;
     }
 
-    void generate_phandles(ifstream &ifile, profile prf)
+    void generate_phandles(ifstream &ifile, profile prf, process_handler ph)
     {
         phandle temp_pha;
         prf.get_global_dtb(ifile);
         utility_functions::reset_file(ifile);
-        vector<phandle> phandles = enumerate_phandles(ifile, prf);
+        vector<phandle> phandles = enumerate_phandles(ifile, prf, ph);
 
         for (int i = 0; i < phandles.size(); ++i)
         {
@@ -188,11 +188,11 @@ class phandle_handler
         }
     }
 
-    vector<phandle> get_phandle_list(ifstream &ifile, profile prf, uint32_t pid = 0)
+    vector<phandle> get_phandle_list(ifstream &ifile, profile prf, process_handler ph, uint32_t pid = 0)
     {
         if (phandle_list.empty())
         {
-            generate_phandles(ifile, prf);
+            generate_phandles(ifile, prf, ph);
         }
         if (pid == 0)
             return phandle_list;

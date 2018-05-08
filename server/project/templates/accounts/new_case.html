@@ -1,4 +1,5 @@
 {% extends "layout/index_layout.html" %} {% block body %}
+
 <main class="pt-5 mx-lg-5">
     <div class="container-fluid mt-5">
         <!--Grid column-->
@@ -16,7 +17,8 @@
 
                     <!--Card content-->
                     <div class="card-body">
-                        <form class="form" role="form" autocomplete="off" id="form_case" novalidate="" action="{{ url_for('add_case') }}" method=post>
+                        <form class="form" onsubmit="newCase()" role="form" autocomplete="off" id="form_case" novalidate="" action="{{ url_for('add_case') }}"
+                            method=post>
                             Select RAM File
                             <input type="file" class="form-control btn-file" name="file_path" id="file_path">
                             <br>
@@ -34,6 +36,10 @@
                             <input type="submit" value="Select" class="btn btn-primary btn-lg float-right" id="btn_case"></input>
                         </form>
                     </div>
+                    <div id="loading" class="alert alert-info" style="display: none;">
+                        
+                    </div>
+
                 </div>
             </div>
         </div>

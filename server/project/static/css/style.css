@@ -64,3 +64,8 @@
   cursor: inherit;
   display: block;
 }
+
+   
+div#loading {
+  display: none;
+}

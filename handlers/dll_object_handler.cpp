@@ -20,7 +20,7 @@ class dll_object_handler
     vector<dll_object> dll_object_list;
 
   public:
-    vector<dll_object> dll_ll_traverse(ifstream &ifile, profile prf)
+    vector<dll_object> dll_ll_traverse(ifstream &ifile, profile prf, process_handler ph)
     {
         utility_functions::reset_file(ifile);
         vector<dll_object> dlls;
@@ -29,7 +29,7 @@ class dll_object_handler
         vector<uint32_t> pid_list;
         uint64_t temp_addr = 0;
         uint64_t addr_val = 0;
-        process_handler ph;
+        //process_handler ph;
 
         vector<process> plist = ph.get_process_list(ifile, prf);
         utility_functions::reset_file(ifile);
@@ -140,12 +140,12 @@ class dll_object_handler
         return temp_dll;
     }
 
-    void generate_dll_objects(ifstream &ifile, profile prf)
+    void generate_dll_objects(ifstream &ifile, profile prf, process_handler ph)
     {
         dll_object temp_dll;
         utility_functions::reset_file(ifile);
 
-        vector<dll_object> dlls = dll_ll_traverse(ifile, prf);
+        vector<dll_object> dlls = dll_ll_traverse(ifile, prf, ph);
 
         for (int i = 0; i < dlls.size(); ++i)
         {
@@ -162,11 +162,11 @@ class dll_object_handler
         }
     }
 
-    vector<dll_object> get_dll_object_list(ifstream &ifile, profile prf, uint32_t pid = 0)
+    vector<dll_object> get_dll_object_list(ifstream &ifile, profile prf, process_handler ph, uint32_t pid = 0)
     {
         if (dll_object_list.empty())
         {
-            generate_dll_objects(ifile, prf);
+            generate_dll_objects(ifile, prf, ph);
         }
         if (pid == 0)
             return dll_object_list;

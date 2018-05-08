@@ -7,6 +7,8 @@
 #include <ctime>
 
 #include "handlers/process_handler.cpp"
+#include "handlers/dll_object_handler.cpp"
+#include "handlers/phandle_handler.cpp"
 #include "handlers/service_handler.cpp"
 #include "handlers/registry_handler.cpp"
 #include "handlers/kernel_module_handler.cpp"
@@ -39,6 +41,8 @@ int main(int argc, char **argv)
         return -1;
     }
     process_handler ph;
+    dll_object_handler dh;
+    phandle_handler hh;
     service_handler sh;
     registry_handler rh;
     kernel_module_handler kh;
@@ -48,6 +52,10 @@ int main(int argc, char **argv)
     vector<registry> registry_list = rh.get_registry_list(ifile, prf);
     cout << "Generating Process List" << endl;
     vector<process> process_list = ph.get_process_list(ifile, prf);
+    cout << "Generating Dll List" << endl;
+    vector<dll_object> dll_object_list = dh.get_dll_object_list(ifile, prf, ph);
+    cout << "Generating Phandle List" << endl;
+    vector<phandle> phandle_list = hh.get_phandle_list(ifile, prf, ph);
     cout << "Generating Service List" << endl;
     vector<service> service_list = sh.get_service_list(ifile, prf);
     cout << "Generating Kernel List" << endl;

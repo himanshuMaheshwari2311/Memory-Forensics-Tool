@@ -35,6 +35,9 @@ class network : public object
         json += "\"local_address\" : ";
         json += "\"" + this->local_address + "\", ";
 
+        json += "\"foreign_address\" : ";
+        json += "\"" + this->foreign_address + "\", ";
+
         json += "\"port\" : ";
         json += "\"" + to_string(this->port) + "\", ";
 
@@ -44,8 +47,11 @@ class network : public object
         json += "\"pid\" : ";
         json += to_string(this->pid) + ", ";
 
+        /*
+        Removing for now
         json += "\"create_time\" : ";
         json += "\"" + this->create_time + "\", ";
+        */ 
 
         json += "\"marked\" : ";
         json += "\"enabled\", ";

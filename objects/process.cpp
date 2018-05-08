@@ -42,8 +42,8 @@ class process : public object
 		json += "\"ppid\" : ";
 		json += to_string(this->ppid) + ", ";
 
-		json += "\"active_threads\" : ";
-		json += to_string(this->active_threads) + ", ";
+		json += "\"unlinked\" : ";
+		json += "\"" + this->unlinked + "\", ";
 		
 		json += "\"marked\" : ";
 		json += "\"enabled\", ";

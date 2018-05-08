@@ -138,6 +138,7 @@ class network_handler
         n.physical_offset = phy_offset;
         n.foreign_address = "";
         n.protocol_version = "N.A.";
+    
         //udp
         ifile.clear();
         ifile.seekg(0, ios::beg);
