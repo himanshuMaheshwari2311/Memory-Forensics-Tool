@@ -195,7 +195,7 @@ class kernel_module_handler
 		}
 	}
 
-	void print_unloaded_modules()
+	void print_unlinked_modules()
 	{
 		for(auto it : kernel_map)
 		{
