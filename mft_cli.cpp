@@ -66,7 +66,7 @@ int main(int argc, char **argv)
     cout << "Generating Process List" << endl;
     vector<process> process_list = ph.get_process_list(ifile, prf);
     cout << "Generating Dll List" << endl;
-    vector<dll_object> dll_object_list = dh.get_dll_object_list(ifile, prf, ph);/
+    vector<dll_object> dll_object_list = dh.get_dll_object_list(ifile, prf, ph);
     cout << "Generating Phandle List" << endl;
     vector<phandle> phandle_list = hh.get_phandle_list(ifile, prf, ph);
     cout << "Generating Service List" << endl;
