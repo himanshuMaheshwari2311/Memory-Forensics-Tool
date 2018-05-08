@@ -186,22 +186,27 @@ class kernel_module_handler
 		doubly_ll<kernel_module> *p;
 		p = kernel_ll_head;
 
+		cout << setw(12) << "Address (P)" << setw(20) << "Name" << setw(48) << "Path" << endl;
+		cout << "---------------------------------------------------------------------------------" << endl;
+			
 		while(p != NULL)
 		{
 			kernel_module curr = p->module;
-			cout<<curr.physical_offset<<" "<<curr.name<<" ";
-			cout<<"\n";
+			
+			cout << hex << setw(12) << curr.physical_offset << setw(20) << curr.name << setw(48) << curr.file_path << endl;
+			
 			p = p->next;
 		}
 	}
 
 	void print_unlinked_modules()
 	{
+		cout << setw(12) << "Address (P)" << setw(20) << "Name" << setw(48) << "Path" << endl;
+		cout << "---------------------------------------------------------------------------------" << endl;
 		for(auto it : kernel_map)
 		{
 			kernel_module curr = it.second;
-			cout<<curr.physical_offset<<" "<<curr.name<<" ";
-			cout<<"\n";
+			cout << hex << setw(12) << curr.physical_offset << setw(20) << curr.name << setw(48) << curr.file_path << endl;
 		}
 	}
 
@@ -257,8 +262,8 @@ int main()
 
 	cout<<"\n*** Kernel Modules in Memory ***\n";
 	kh.print_ll();
-	cout<<"\n*** Unloaded Kernel Modules ***\n";
-	kh.print_unloaded_modules();
+	cout<<"\n*** Unlinked Kernel Modules ***\n";
+	kh.print_unlinked_modules();
 }
 #endif
 #endif
