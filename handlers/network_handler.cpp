@@ -410,7 +410,7 @@ class network_handler
         }
         return connections;
     }
-    void print_network_connections()
+    void print_network_connections(uint32_t pid=0)
     {
         cout << endl
              << endl;
@@ -419,7 +419,10 @@ class network_handler
         for (int i = 0; i < network_list.size(); i++)
         {
             net = network_list[i];
-            cout << setw(16) << hex << net.physical_offset << setw(10) << net.protocol_version << setw(36) << net.local_address << setw(32) << net.foreign_address << dec << setw(10) << net.port << setw(10) << net.pid << setw(20) << net.owner_name << endl;
+            if(pid == 0 || net.pid == pid)
+            {
+                cout << setw(16) << hex << net.physical_offset << setw(10) << net.protocol_version << setw(36) << net.local_address << setw(32) << net.foreign_address << dec << setw(10) << net.port << setw(10) << net.pid << setw(20) << net.owner_name << endl;
+            }
         }
     }
     string get_info()
@@ -451,7 +454,7 @@ int main(void)
     network_handler nh;
     ifstream ifile;
     profile prf(7);
-    char fname[] = "../data/samples/win764_DKOM_testvirus.vmem";
+    char fname[] = "../data/samples/win764.vmem";
     vector<uint64_t> phy_offsets;
     ifile.open(fname, ios::in | ios::binary);
     if (!ifile)
@@ -461,7 +464,7 @@ int main(void)
     cout << "File opened..";
     cout << "\n";
     nh.generate_network_modules(ifile, prf);
-    nh.print_network_connections();
+    nh.print_network_connections(724);
     /*
     nh.generate_network_modules(ifile, prf);
     cout << nh.get_info() << endl;*/
