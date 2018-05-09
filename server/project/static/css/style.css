@@ -87,3 +87,7 @@ table {
   width: 100%;
   table-layout: fixed;
 }
+
+.remove-btn{
+  width: 15% !important;
+}
