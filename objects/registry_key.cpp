@@ -13,6 +13,7 @@ class registry_key : public object
   public:
     string file_path;
     string key_name;
+    string type;
     vector<string> subkey_list;
 
     string get_info()

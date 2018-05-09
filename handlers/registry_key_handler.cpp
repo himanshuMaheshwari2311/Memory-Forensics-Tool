@@ -19,22 +19,36 @@ class registry_key_handler
     vector<registry_key> registry_key_list;
 
   public:
+    
+    int compare_key(char arr1[], char arr2[], int n)
+	{
+		int i;
+		for (i = 4; i < n - 2; i++)
+			if (arr1[i] != arr2[i])
+				return 0;
+		return 1;
+	}
+    
     vector<uint64_t> pool_scan_tag(ifstream &ifile, profile prf)
     {
         vector<uint64_t> phy_offsets;
-        char nk_signature[] = {'n', 'k'};
-        char check_pattern[2];
+        char nk_signature[] = {'0','0','0','0','n','k','0', '0'};
+        char check_pattern[8];
         uint64_t addr_val = 0;
         char current_pattern[8];
         while (ifile.eof() == 0)
         {
             ifile.read(current_pattern, 8);
-            check_pattern[0] = current_pattern[4];
-            check_pattern[1] = current_pattern[5];
             addr_val += 8;
-            if (utility_functions::compare_array(check_pattern, nk_signature, 2))
+            if (compare_key(current_pattern, nk_signature, 8))
             {
-                phy_offsets.push_back(addr_val - 8);
+                int name_len;
+                ifile.seekg(addr_val - 8 + 0x4c);
+                ifile.read(reinterpret_cast<char *>(&name_len), 2); 
+                if(name_len > 0){
+                    phy_offsets.push_back(addr_val - 8);
+                }
+                ifile.seekg(addr_val);
                 ifile.ignore(8);
                 addr_val += 8;
             }
@@ -45,7 +59,7 @@ class registry_key_handler
     registry_key collect_info_module(ifstream &ifile, profile &prf, uint64_t phy_offset)
     {
         registry_key rk;
-        uint16_t type, name_len;
+        uint8_t type, name_len;
         ifile.clear();
         ifile.seekg(0, ios::beg);
         uint64_t addr_val = phy_offset, vir_file_addr, phy_file_addr;
@@ -56,21 +70,38 @@ class registry_key_handler
         // cout << size << endl;
         if (size - 4294967040 > 0)
         {
-            //cout << hex << size - 4294967040 << phy_offset << endl;
+            // cout << hex << phy_offset << endl; // << size - 4294967040 
             ifile.seekg(phy_offset + 0x06);
             ifile.read(reinterpret_cast<char *>(&type), 1);
             if (type == 0x2c)
             {
                 ifile.seekg(phy_offset + 0x4c);
-                ifile.read(reinterpret_cast<char *>(&name_len), 2);
+                ifile.read(reinterpret_cast<char *>(&name_len), 2); 
                 char *name = new char[name_len];
                 ifile.seekg(phy_offset + 0x50);
                 ifile.read(name, name_len);
                 //rk.name = name;
-                //rk.name.erase(remove_if(rk.name.begin(), rk.name.end(), utility_functions ::invalidChar), rk.name.end());
+                rk.name.erase(remove_if(rk.name.begin(), rk.name.end(), utility_functions ::invalidChar), rk.name.end());
                 rk.physical_offset = phy_offset;
+                rk.type = "Root Key";
+                cout << hex << setw(16) << phy_offset << setw(80) << name << setw(20) << rk.type << endl;
+            }/*
+            if(type == 0x20)
+            {
+                //cout << hex << phy_offset << endl;
+                ifile.seekg(phy_offset + 0x4c);
+                //cout << "Len: " << name_len << endl;
+                ifile.read(reinterpret_cast<char *>(&name_len), 2); 
+                char *name = new char[name_len];
+                ifile.seekg(phy_offset + 0x50);
+                ifile.read(name, name_len);
+                //rk.name = name;
+                rk.name.erase(remove_if(rk.name.begin(), rk.name.end(), utility_functions ::invalidChar), rk.name.end());
+                rk.physical_offset = phy_offset;
+                rk.type = "Sub Key";
                 cout << hex << setw(16) << phy_offset << setw(60) << name << endl;
-            }
+                
+            }*/
         }
         return rk;
     }

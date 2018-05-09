@@ -127,6 +127,18 @@ class registry_handler
 
         return json;
     }
+
+    void print_registry_hive()
+    {
+        registry r;
+        cout << setw(20) << "Address (P)" << setw(90) << "Root Key Path" << endl;
+        cout << "---------------------------------------------------------------------------------------------------------------------------" << endl;
+        for (int i = 0; i < registry_list.size(); i++)
+        {
+            r = registry_list[i];
+            cout << setw(20) << r.physical_offset <<  setw(90) << r.file_path << endl;
+        }
+    }
 };
 
 #ifndef mainfunc
@@ -148,7 +160,7 @@ int main(void)
     cout << "\n";
 
     vector<registry> rg = rh.get_registry_list(ifile, prf);
-    cout << rh.get_info() << endl;
+    rh.print_registry_hive();
 }
 #endif
 #endif

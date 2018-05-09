@@ -137,6 +137,20 @@ class driver_object_handler
 
 		return json;
 	}
+
+	void print_driver_object()
+    {
+        driver_object driv_o;
+        cout << setw(20) << "Address (P)" << setw(90) << "Driver Name" << endl;
+        cout << "---------------------------------------------------------------------------------------------------------------------------" << endl;
+        for (int i = 0; i < driver_list.size(); i++)
+        {
+            driv_o = driver_list[i];
+            cout << setw(20) << driv_o.physical_offset <<  setw(30) << driv_o.name << endl;
+        }
+    }
+
+	
 };
 
 #ifndef mainfunc
@@ -157,7 +171,8 @@ int main()
 
 	dh.get_driver_list(ifile, prf);
 
-	cout << dh.get_info() << endl;
+	// cout << dh.get_info() << endl;
+	dh.print_driver_object();
 }
 #endif
 #endif
