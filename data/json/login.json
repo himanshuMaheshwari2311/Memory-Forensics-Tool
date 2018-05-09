@@ -3,7 +3,8 @@
         {
             "username": "near", 
             "cases": [
-                "near.json"
+                "near.json", 
+                "win764wannacry.vmem_Wed-May-09-00-18-58-2018x.json"
             ], 
             "password": "near"
         }, 
