@@ -161,14 +161,14 @@ class process_handler
 	}
 };
 
-/*
+
 #ifndef mainfunc
 int main(void)
 {
 	process_handler ph;
 	ifstream ifile;
 	profile prf(7);
-	char fname[] = "../data/samples/win764.vmem";
+	char fname[] = "../data/samples/win764_DKOM_testvirus.vmem";
 
 	ifile.open(fname, ios::in | ios::binary);
 	if (!ifile)
@@ -187,6 +187,6 @@ int main(void)
 	//ph.generate_processes(ifile, prf);
 }
 #endif
-*/
+
 
 #endif

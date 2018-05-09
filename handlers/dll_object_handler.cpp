@@ -121,6 +121,7 @@ class dll_object_handler
         replace(temp_dll.full_dll_name.begin(), temp_dll.full_dll_name.end(), '\\', '/');
         cout << setw(55) << hex << temp_dll.full_dll_name;
         temp_dll.full_dll_name.erase(remove_if(temp_dll.full_dll_name.begin(), temp_dll.full_dll_name.end(), utility_functions ::invalidChar), temp_dll.full_dll_name.end());
+        replace(temp_dll.full_dll_name.begin(), temp_dll.full_dll_name.end(), '"', '-');
 
         ifile.clear();
         ifile.seekg(phy_offset + prf.dll_object_offsets[5], ios::beg);
