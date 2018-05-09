@@ -124,7 +124,14 @@ int main(int argc, char **argv)
 			}
 			else if(vcmd[0] == "network")
 			{
-				nh.print_network_connections();
+				if(pidPresent)
+				{
+					nh.print_network_connections(pid);
+				}
+				else
+				{
+					nh.print_network_connections();
+				}
 			}
 			else if (vcmd[0] == "phandle")
 			{
