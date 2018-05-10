@@ -418,14 +418,15 @@ class network_handler
     {
         cout << endl
              << endl;
-        cout << setw(16) << "Address" << setw(10) << "Proto" << setw(36) << "Local Address" << setw(32) << "Foreign Address" << setw(10) << "Port" << setw(10) << "PID" << setw(20) << "Owner" << endl;
+        cout << setw(16) << "Address(P)" << setw(10) << "Proto" << setw(36) << "Local Address" << setw(32) << "Foreign Address" << setw(32) << "Foreign Domain" << setw(10) << "Port" << setw(10) << "PID" << setw(20) << "Owner" << endl;
+         cout << "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
         network net;
         for (int i = 0; i < network_list.size(); i++)
         {
             net = network_list[i];
             if(pid == 0 || net.pid == pid)
             {
-                cout << setw(16) << hex << net.physical_offset << setw(10) << net.protocol_version << setw(36) << net.local_address << setw(32) << net.foreign_address << dec << setw(10) << net.port << setw(10) << net.pid << setw(20) << net.owner_name << endl;
+                cout << setw(16) << hex << net.physical_offset << setw(10) << net.protocol_version << setw(36) << net.local_address << setw(32) << net.foreign_address << setw(32) << net.foreign_domain << dec << setw(10) << net.port << setw(10) << net.pid << setw(20) << net.owner_name << endl;
             }
         }
     }
@@ -458,7 +459,7 @@ int main(void)
     network_handler nh;
     ifstream ifile;
     profile prf(7);
-    char fname[] = "../data/samples/win764wannacry.vmem";
+    char fname[] = "../data/samples/win764.vmem";
     vector<uint64_t> phy_offsets;
     ifile.open(fname, ios::in | ios::binary);
     if (!ifile)
@@ -469,7 +470,8 @@ int main(void)
     cout << "\n";
     nh.generate_network_modules(ifile, prf);
     //nh.print_network_connections();
-    cout<<nh.get_info();
+    //cout<<nh.get_info();
+    nh.print_network_connections();
     /*
     nh.generate_network_modules(ifile, prf);
     cout << nh.get_info() << endl;*/
