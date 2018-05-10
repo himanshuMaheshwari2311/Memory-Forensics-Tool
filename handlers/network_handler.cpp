@@ -346,6 +346,10 @@ class network_handler
                 else
                     n.foreign_address += to_string(ipv4);
             }
+
+            //IP to domain address
+            n.foreign_domain = utility_functions::ip_to_domain(n.foreign_address.c_str());
+
             n.foreign_address += ":";
             n.foreign_address += to_string(remote_port);
             if (prf.type == 7)
@@ -414,14 +418,15 @@ class network_handler
     {
         cout << endl
              << endl;
-        cout << setw(16) << "Address" << setw(10) << "Proto" << setw(36) << "Local Address" << setw(32) << "Foreign Address" << setw(10) << "Port" << setw(10) << "PID" << setw(20) << "Owner" << endl;
+        cout << setw(16) << "Address(P)" << setw(10) << "Proto" << setw(36) << "Local Address" << setw(32) << "Foreign Address" << setw(32) << "Foreign Domain" << setw(10) << "Port" << setw(10) << "PID" << setw(20) << "Owner" << endl;
+         cout << "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
         network net;
         for (int i = 0; i < network_list.size(); i++)
         {
             net = network_list[i];
             if(pid == 0 || net.pid == pid)
             {
-                cout << setw(16) << hex << net.physical_offset << setw(10) << net.protocol_version << setw(36) << net.local_address << setw(32) << net.foreign_address << dec << setw(10) << net.port << setw(10) << net.pid << setw(20) << net.owner_name << endl;
+                cout << setw(16) << hex << net.physical_offset << setw(10) << net.protocol_version << setw(36) << net.local_address << setw(32) << net.foreign_address << setw(32) << net.foreign_domain << dec << setw(10) << net.port << setw(10) << net.pid << setw(20) << net.owner_name << endl;
             }
         }
     }
@@ -464,7 +469,9 @@ int main(void)
     cout << "File opened..";
     cout << "\n";
     nh.generate_network_modules(ifile, prf);
-    nh.print_network_connections(724);
+    //nh.print_network_connections();
+    //cout<<nh.get_info();
+    nh.print_network_connections();
     /*
     nh.generate_network_modules(ifile, prf);
     cout << nh.get_info() << endl;*/

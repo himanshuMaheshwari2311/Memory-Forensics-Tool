@@ -73,7 +73,7 @@ def add_case():
 		print "Spawned automation.py"
 		pids.append(subprocess.Popen(["python", "automation.py", file_path, os_version]))
 		
-		os.system("g++ -std=c++11 ../mft.cpp -o ../mft")
+		os.system("g++ -std=c++11 ../mft.cpp -o ../mft -lWS2_32")
 		command = "..\mft.exe " + file_path + " " + os_version
 		print "Spawned mft"
 		os.system("start /wait cmd /c " + command)
