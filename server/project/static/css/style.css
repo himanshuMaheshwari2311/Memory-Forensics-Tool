@@ -106,4 +106,5 @@ th {
 td {
   border-right: solid 1px #eee; 
   border-left: solid 1px #eee;
+  border-bottom: solid 1px #eee;
 }

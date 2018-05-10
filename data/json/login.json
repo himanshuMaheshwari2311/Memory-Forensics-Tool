@@ -28,7 +28,8 @@
             "cases": [
                 "ryuzaki.json", 
                 "dummy.json", 
-                "win764_Cridex.vmem_Thu-May-10-15-39-13-2018x.json"
+                "win764_Cridex.vmem_Thu-May-10-15-39-13-2018x.json", 
+                "win764_Cridex.vmem_Thu-May-10-20-01-59-2018x.json"
             ], 
             "password": "ryuzaki"
         }
