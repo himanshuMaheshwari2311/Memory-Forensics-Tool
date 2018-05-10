@@ -81,12 +81,13 @@
                                     <!-- Table head -->
                                     <thead class="blue-grey lighten-4">
                                         <tr>
-                                            {% for ke, va in case_data["auto_artifacts"][artifact_obj][0].iteritems(): %} {% if ke != 'object_id' and ke != 'marked'
-                                            and ke != 'start' %} {% if ke == 'comment' %}
+                                            {% if case_data["auto_artifacts"][artifact_obj] | length !=0 %} {% for ke, va in case_data["auto_artifacts"][artifact_obj][0].iteritems():
+                                            %} {% if ke != 'object_id' and ke != 'marked' and ke != 'start' %} {% if ke ==
+                                            'comment' %}
                                             <th class="comment-table"> {{ke}} </th>
                                             {% else %}
                                             <th> {{ke}} </th>
-                                            {% endif %} {% endif %} {% endfor %}
+                                            {% endif %} {% endif %} {% endfor %} {% endif %}
                                         </tr>
                                     </thead>
                                     <!-- Table head -->
@@ -107,7 +108,7 @@
                                         {% endif %} {% endfor %} {% if empty_flag | length
                                         < 1 %} <tr id="{{k}}_tr">
                                             <td>
-                                                <strong>No Artifacts Selected</strong>
+                                                <strong>No Artifacts Detected</strong>
                                             </td>
                                             </tr>
                                             {% endif %}
