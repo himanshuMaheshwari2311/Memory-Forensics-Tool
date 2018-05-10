@@ -91,3 +91,19 @@ table {
 .remove-btn{
   width: 15% !important;
 }
+.add-btn{
+  width: 15% !important;
+}
+
+.comment-table{
+  width: 27% !important;  
+}
+
+th {
+  border-right: solid 1px #eee; 
+  border-left: solid 1px #eee;
+}
+td {
+  border-right: solid 1px #eee; 
+  border-left: solid 1px #eee;
+}

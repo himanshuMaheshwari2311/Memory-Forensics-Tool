@@ -28,7 +28,7 @@
                                         {% for ke, va in v[0].iteritems(): %} {% if ke != 'object_id' and ke != 'marked' and ke != 'start' and ke != 'comment'%}
                                         <th> {{ke}} </th>
                                         {% endif %} {% endfor %}
-                                        <th>Add to report</th>
+                                        <th class="add-btn">Add to report</th>
                                     </tr>
                                 </thead>
                                 <!-- Table head -->
@@ -44,7 +44,7 @@
                                         {% else: %}
                                         <td>{{ va }}</td>
                                         {% endif %}{% endif %}{% endfor %}
-                                        <td>
+                                        <td align="center">
                                             <button type="button" class="btn btn-primary" id="btn_{{id[0]}}" onclick="addToReport('{{ id[0] }}', '{{ id[1] }}', '{{k}}', '{{ id[2] }}')"
                                                 {{ btn[0] }}>Add</button>
                                         </td>
@@ -105,9 +105,12 @@
                                     <!-- Table head -->
                                     <thead class="blue-grey lighten-4">
                                         <tr>
-                                            {% for ke, va in v[0].iteritems(): %} {% if ke != 'object_id' and ke != 'marked' and ke != 'start' %}
+                                            {% for ke, va in v[0].iteritems(): %} {% if ke != 'object_id' and ke != 'marked' and ke != 'start' %} {% if ke == 'comment'
+                                            %}
+                                            <th class="comment-table"> {{ke}} </th>
+                                            {% else %}
                                             <th> {{ke}} </th>
-                                            {% endif %} {% endfor %}
+                                            {% endif %} {% endif %} {% endfor %}
                                             <th class="remove-btn">Remove from report</th>
                                         </tr>
                                     </thead>
@@ -124,8 +127,8 @@
                                             {% else: %}
                                             <td>{{ va }}</td>
                                             {% endif %}{% endif %}{% endfor %}
-                                            <td>
-                                                <button type="button" class="btn btn-primary" id="btn_d_{{id[0]}}" onclick="removeFromReport('{{ id[0] }}', '{{ id[1] }}')"
+                                            <td align="center">
+                                                <button type="button" class="btn btn-primary btn-sm" id="btn_d_{{id[0]}}" onclick="removeFromReport('{{ id[0] }}', '{{ id[1] }}')"
                                                     {{ btn[0] }}>Remove</button>
                                             </td>
                                         </tr>
