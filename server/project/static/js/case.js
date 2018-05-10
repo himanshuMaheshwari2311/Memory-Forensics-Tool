@@ -52,6 +52,12 @@ function toggleTable(nr) {
         console.log(err);
     }
     try {
+        document.getElementById("table66").style.display = "none";
+    }
+    catch (err) {
+        console.log(err);
+    }
+    try {
         document.getElementById("table77").style.display = "none";
     }
     catch (err) {

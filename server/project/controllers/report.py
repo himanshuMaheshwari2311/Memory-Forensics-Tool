@@ -44,19 +44,21 @@ def get_report():
 	lines = ""	
 	with open('../data/json/' + session['selected_case'], mode='r') as f:
 		case_data = json.load(f)
-		document.add_heading('Case Overview', level=2)
+		document.add_heading('Case Overview', level=1)
 		document.add_paragraph('\t' + case_data['case_overview'])
-		document.add_heading('Case Acquisition', level=2)
+		document.add_heading('Case Acquisition', level=1)
 		document.add_paragraph('\t' + case_data['case_acquisition'])
-		document.add_heading('Case Findings', level=2)
+		document.add_heading('Case Findings', level=1)
 		document.add_paragraph('\t' + case_data['case_findings'])
-		document.add_heading('Case Conclusion', level=2)
+		document.add_heading('Case Conclusion', level=1)
 		document.add_paragraph('\t' + case_data['case_conclusion'])
-		document.add_heading('Artifacts', level=2)
+		document.add_heading('Artifacts', level=1)
 		i = 0
+		hr = "---------------------------------------------------------------------------------------------"
 		for artifact in case_data['artifacts']:
 			key = next(iter(artifact))
-			document.add_heading(key, level=3)
+			document.add_heading(key, level=2)
+			document.add_paragraph(hr)
 			value = artifact[key]
 			j = 0
 			for module in value:
@@ -65,6 +67,7 @@ def get_report():
 						lines += str(ke) + ": " + str(va) + "\n"
 						if ke == 'comment':
 							lines += '\n'
+					lines += hr
 					document.add_paragraph(lines)
 					lines = ''
 				j += 1

@@ -50,7 +50,7 @@ def md5Checksum(filePath):
 
 def get_comment(json_res):
 	scans = json_res.get('scans')
-	comment = ""
+	comment = "--"
 	detected = ""
 	counter = 0
 	for k in scans:
@@ -58,7 +58,7 @@ def get_comment(json_res):
 		if detected:
 			counter += 1
 			comment += str(k) + ": " + scans[k].get('result')
-			comment += " - "
+			comment += " -- "
 			if counter == 10:
 				break
 	return comment
@@ -100,7 +100,7 @@ def main():
 			md5_val = md5Checksum(vol_path + "pdump/" + exe_file)
 			counter+=1
 		except Exception as e:
-			data[pid] = "Possibly malicious"
+			data[pid] = "Possible Threat"
 			continue
 		print str(counter) + " : " + str(pid) + " : " + str(md5_val)
 		try:

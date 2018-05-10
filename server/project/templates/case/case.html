@@ -57,6 +57,64 @@
                     {% endfor %} {% endfor %}
                     <!--/.Card-->
 
+                    <!-- Auto -->
+                    <!--Card-->
+                    <div class="card" id="table66">
+                        <!-- Card header -->
+                        <div class="card-header text-center">
+                            Automatically Detected Artifacts
+                        </div>
+                        <!--Card content-->
+                        <div class="card-body">
+
+                            {% for artifact_obj in case_data["auto_artifacts"]: %} 
+                            <div>
+                                <hr>
+                                <p>{{artifact_obj}}</p>
+                                <hr>
+                                <!-- Table  -->
+                                <table class="table table-hover" id="auto_{{artifact_obj}}">
+                                    <!-- Table head -->
+                                    <thead class="blue-grey lighten-4">
+                                        <tr>
+                                            {% for ke, va in case_data["auto_artifacts"][artifact_obj][0].iteritems(): %} {% if ke != 'object_id' and ke != 'marked' and ke != 'start' %} {% if ke == 'comment'
+                                            %}
+                                            <th class="comment-table"> {{ke}} </th>
+                                            {% else %}
+                                            <th> {{ke}} </th>
+                                            {% endif %} {% endif %} {% endfor %}
+                                        </tr>
+                                    </thead>
+                                    <!-- Table head -->
+                                    <tbody>
+                                        {% set empty_flag = [] %} {% for artifact in case_data["auto_artifacts"][artifact_obj] %} {% if artifact['marked'] == "disabled" %} {% do empty_flag.append(1) %}
+                                        <tr id="tr_{{artifact['object_id']}}">
+                                            {% set id = [] %} {% set btn = [] %} {% for ke, va in artifact.iteritems() %} {% if ke == 'marked' %} {% if va=="enabled"
+                                            %} {% do btn.append("disabled") %} {% else %} {% do btn.append("enabled") %}
+                                            {% endif %} {% endif %} {% if ke == 'object_id' %} {% do id.append(va) %} {%
+                                            do id.append(url_for('remove_artifact'))%} {% endif %} {% if ke != 'object_id'
+                                            and ke != 'marked' and ke != 'start' %} {% if ke == 'physical_offset': %}
+                                            <td>0x{{ '%0x' % va}}</td>
+                                            {% else: %}
+                                            <td>{{ va }}</td>
+                                            {% endif %}{% endif %}{% endfor %}
+                                        </tr>
+                                        {% endif %} {% endfor %} {% if empty_flag | length
+                                        < 1 %} <tr id="{{k}}_tr">
+                                            <td>
+                                                <strong>No Artifacts Selected</strong>
+                                            </td>
+                                            </tr>
+                                            {% endif %}
+                                    </tbody>
+                                </table>
+                            </div>
+                            <br> {% endfor %} 
+                        </div>
+                    </div>
+                    <!--/.Card-->
+                    <!-- /Auto -->
+
                     <!-- Report -->
                     <!--Card-->
                     <div class="card" id="table77">
