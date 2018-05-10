@@ -62,7 +62,7 @@ def get_report():
 			for module in value:
 				if module['marked'] == "disabled":
 					for ke, va in module.iteritems():
-						lines += "\t" + str(ke) + ": " + str(va) + "\n"
+						lines += str(ke) + ": " + str(va) + "\n"
 					document.add_paragraph(lines)
 					lines = ''
 				j += 1
