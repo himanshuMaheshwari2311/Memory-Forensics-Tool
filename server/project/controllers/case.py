@@ -4,6 +4,7 @@ from flask_wtf import FlaskForm
 import os
 import json
 import glob
+import subprocess
 
 @app.route('/case', methods = ['GET', 'POST'])
 def case():
@@ -66,15 +67,27 @@ def add_case():
 		temp = request.form['file_path']
 		os_version = request.form['os_version']
 		file_path = "../data/samples/" + temp
+
+		# Adding this for automatic artifact extraction
+		pids = []
+		print "Spawned automation.py"
+		pids.append(subprocess.Popen(["python", "automation.py", file_path, os_version]))
 		
 		os.system("g++ -std=c++11 ../mft.cpp -o ../mft")
 		command = "..\mft.exe " + file_path + " " + os_version
+		print "Spawned mft"
 		os.system("start /wait cmd /c " + command)
 
-		list_of_files = glob.glob('../data/json/*') # * means all if need specific format then *.csv
+		# os.system is already a waiting call, but subprocesses is not, so this will wait
+		# make both subprocesses in future
+		for pid in pids:
+			pid.wait()
+		print "Both done"
+
+		list_of_files = glob.glob('../data/json/*') # '*' means all if need specific format then '*.csv'
 		json_file = os.path.basename(max(list_of_files, key=os.path.getctime))
 		print "File added: " + json_file
-
+						
 		account_cases = []
 		with open('../data/json/login.json', mode='r') as f:
 			json_data = json.load(f)
@@ -95,8 +108,53 @@ def add_case():
 		session['cases'] = account_cases
 		try:
 			case_data = json.load(open('../data/json/' + json_file))
+			new_case_data = case_data
 		except Exception as e:
-			print "Could not open file"
+			print "Could not open case file"
 			return render_template('accounts/index.html', resp = resp)
+		
+		# add code to read the automatic analysis file and add all the artifacts
+		try:
+			auto_data = json.load(open('../data/automatic_analysis.json'))
+		except Exception as e:
+			print "Could not open automatic analysis file"
+			return render_template('accounts/index.html', resp = resp)
+		pid_lists = ["process_list", "network_list", "dll_object_list", "phandle_list"]
+		pids = []
+		for keys in auto_data:
+			pids.append(str(keys))
+		print pids
+		i = 0
+		auto_artifacts = {}
+		for artifact in case_data['artifacts']:
+			key = next(iter(artifact))
+			value = artifact[key]
+			if key not in pid_lists:
+				i += 1
+				continue
+			temp_list = []
+			j = 0
+			for module in value:
+				if str(module['pid']) in pids:
+					new_case_data['artifacts'][i][key][j]['marked'] = "disabled"
+					if key == "process_list":
+						new_case_data['artifacts'][i][key][j]['comment'] = auto_data[str(module['pid'])]
+					elif key == "network_list":
+						new_case_data['artifacts'][i][key][j]['comment'] = "Network connection related to malicious process (" + auto_data[str(module['pid'])] + ")"
+					elif key == "dll_object_list":
+						new_case_data['artifacts'][i][key][j]['comment'] = "DLLs linked to malicious process (" + auto_data[str(module['pid'])] + ")"
+					elif key == "phandle_list":
+						new_case_data['artifacts'][i][key][j]['comment'] = "Handles (Mutants) related to malicious process (" + auto_data[str(module['pid'])] + ")"
+						
+					temp_list.append(new_case_data['artifacts'][i][key][j])				
+				j += 1
+			auto_artifacts[key] = temp_list
+			i += 1
+
+		new_case_data['auto_artifacts'] = auto_artifacts
 		session['selected_case'] = json_file
+		
+		with open('../data/json/' + session['selected_case'], mode='w') as f:
+			json.dump(new_case_data, f, indent = 4)
+
 		return render_template('case/case.html', case_data = case_data)
