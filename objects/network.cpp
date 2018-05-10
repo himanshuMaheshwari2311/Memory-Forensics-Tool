@@ -14,6 +14,7 @@ class network : public object
     string protocol_version;
     string local_address;
     string foreign_address;
+    string foreign_domain;
     uint32_t pid;
     uint16_t port;
     string owner_name;
@@ -37,6 +38,9 @@ class network : public object
 
         json += "\"foreign_address\" : ";
         json += "\"" + this->foreign_address + "\", ";
+
+        json += "\"foreign_domain\" : ";
+        json += "\"" + this->foreign_domain + "\", ";
 
         json += "\"port\" : ";
         json += "\"" + to_string(this->port) + "\", ";

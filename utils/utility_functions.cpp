@@ -1,6 +1,9 @@
 #ifndef _utility_functions_
 #define _utility_functions_
 
+#define _WIN32_WINNT  0x501
+#include <winsock2.h>
+#include <ws2tcpip.h>
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -198,6 +201,42 @@ class utility_functions
 		uint64_t win_filetime;
 		ifile.read(reinterpret_cast<char *>(&win_filetime), 8);
 		return get_time(win_filetime);
+	}
+
+	static string ip_to_domain(const char *ip)
+	{
+		WSADATA wsaData = {0};
+		int iResult = 0;
+
+		DWORD dwRetval;
+
+		struct sockaddr_in saGNI;
+		char hostname[NI_MAXHOST];
+		char servInfo[NI_MAXSERV];
+		u_short port = 27015;
+
+		iResult = WSAStartup(MAKEWORD(2, 2), &wsaData);
+		if (iResult != 0) {
+			//printf("WSAStartup failed: %d\n", iResult);
+			return "";
+		}
+		
+		saGNI.sin_family = AF_INET;
+		saGNI.sin_addr.s_addr = inet_addr(ip);
+		saGNI.sin_port = htons(port);
+
+		dwRetval = getnameinfo((struct sockaddr *) &saGNI,
+							sizeof (struct sockaddr),
+							hostname,
+							NI_MAXHOST, servInfo, NI_MAXSERV, NI_NUMERICSERV);
+
+		if (dwRetval != 0) {
+			//printf("getnameinfo failed with error # %ld\n", WSAGetLastError());
+			return "";
+		} else {
+			//printf("getnameinfo returned hostname = %s\n", hostname);
+			return hostname;
+		}
 	}
 };
 

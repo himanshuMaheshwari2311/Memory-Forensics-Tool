@@ -67,7 +67,7 @@ def add_case():
 		os_version = request.form['os_version']
 		file_path = "../data/samples/" + temp
 		
-		os.system("g++ -std=c++11 ../mft.cpp -o ../mft")
+		os.system("g++ -std=c++11 ../mft.cpp -o ../mft -lWS2_32")
 		command = "..\mft.exe " + file_path + " " + os_version
 		os.system("start /wait cmd /c " + command)
 

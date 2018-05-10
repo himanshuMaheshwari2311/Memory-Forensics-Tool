@@ -346,6 +346,10 @@ class network_handler
                 else
                     n.foreign_address += to_string(ipv4);
             }
+
+            //IP to domain address
+            n.foreign_domain = utility_functions::ip_to_domain(n.foreign_address.c_str());
+
             n.foreign_address += ":";
             n.foreign_address += to_string(remote_port);
             if (prf.type == 7)
@@ -454,7 +458,7 @@ int main(void)
     network_handler nh;
     ifstream ifile;
     profile prf(7);
-    char fname[] = "../data/samples/win764.vmem";
+    char fname[] = "../data/samples/win764wannacry.vmem";
     vector<uint64_t> phy_offsets;
     ifile.open(fname, ios::in | ios::binary);
     if (!ifile)
@@ -464,7 +468,8 @@ int main(void)
     cout << "File opened..";
     cout << "\n";
     nh.generate_network_modules(ifile, prf);
-    nh.print_network_connections(724);
+    //nh.print_network_connections();
+    cout<<nh.get_info();
     /*
     nh.generate_network_modules(ifile, prf);
     cout << nh.get_info() << endl;*/
