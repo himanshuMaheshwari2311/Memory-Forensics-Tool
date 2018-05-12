@@ -110,7 +110,7 @@ function addToReport(id, url, table_type, url2) {
                         i++;
                     }
                 }
-                row.insertCell(i).innerHTML = '<button type="button" class="btn btn-primary" id="btn_d_{{id[0]}}" onclick="removeFromReport(\'' + id + '\', \'' + url2 + '\')" enabled>Remove</button>';
+                row.insertCell(i).innerHTML = '<button type="button" class="btn btn-primary btn-sm" id="btn_d_{{id[0]}}" onclick="removeFromReport(\'' + id + '\', \'' + url2 + '\')" enabled>Remove</button>';
             }
             else {
                 alert("Failed to Add");
