@@ -6,6 +6,7 @@ from docx.shared import Inches
 import comtypes.client
 import os
 import json
+import time
 
 @app.route('/update_report', methods = ['GET', 'POST'])
 def update_report():
@@ -37,6 +38,7 @@ def update_report():
 
 @app.route('/get_report', methods=['GET', 'POST'])
 def get_report():
+	localtime = time.asctime( time.localtime(time.time()))
 	report_name = session['selected_case'].split('.')[0] + '_report.docx'
 	pdf_report_name = session['selected_case'].split('.')[0] + '_report.pdf'
 	document = Document()
@@ -52,6 +54,8 @@ def get_report():
 		document.add_paragraph('\t' + case_data['case_findings'])
 		document.add_heading('Case Conclusion', level=1)
 		document.add_paragraph('\t' + case_data['case_conclusion'])
+		document.add_heading('Report Generation Time', level=1)
+		document.add_paragraph('\t' + str(localtime))
 		document.add_heading('Artifacts', level=1)
 		i = 0
 		hr = "---------------------------------------------------------------------------------------------"
