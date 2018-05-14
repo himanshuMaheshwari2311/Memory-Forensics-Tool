@@ -418,15 +418,15 @@ class network_handler
     {
         cout << endl
              << endl;
-        cout << setw(16) << "Address(P)" << setw(10) << "Proto" << setw(36) << "Local Address" << setw(32) << "Foreign Address" << setw(32) << "Foreign Domain" << setw(10) << "Port" << setw(10) << "PID" << setw(20) << "Owner" << endl;
-         cout << "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
+        cout << setw(12) << "Address(P)" << setw(8) << "Proto" << setw(36) << "Local Address" << setw(28) << "Foreign Address" << setw(32) << "Foreign Domain" << setw(6) << "Port" << setw(6) << "PID" << setw(16) << "Owner" << endl;
+        cout << "--------------------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
         network net;
         for (int i = 0; i < network_list.size(); i++)
         {
             net = network_list[i];
             if(pid == 0 || net.pid == pid)
             {
-                cout << setw(16) << hex << net.physical_offset << setw(10) << net.protocol_version << setw(36) << net.local_address << setw(32) << net.foreign_address << setw(32) << net.foreign_domain << dec << setw(10) << net.port << setw(10) << net.pid << setw(20) << net.owner_name << endl;
+                cout << setw(12) << hex << net.physical_offset << setw(8) << net.protocol_version << setw(36) << net.local_address << setw(28) << net.foreign_address << setw(32) << net.foreign_domain << dec << setw(6) << net.port << setw(6) << net.pid << setw(16) << net.owner_name << endl;
             }
         }
     }
