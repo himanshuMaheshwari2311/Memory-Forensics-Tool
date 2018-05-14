@@ -2,12 +2,13 @@
 
 #include <fstream>
 #include <cstring>
+#include <ctime>
 #include <vector>
 #include <sstream>
 #include <iterator>
 #include <iostream>
 #include <string.h>
-#include <ctime>
+#include <stdlib.h>
 
 #include "handlers/process_handler.cpp"
 #include "handlers/dll_object_handler.cpp"
@@ -76,6 +77,8 @@ int main(int argc, char **argv)
     cout<< "Generating Network List" << endl;
     vector<network> network_list = nh.get_network_list(ifile, prf);
 
+	system("cls");
+
 	string command = "start";
 
 	do
@@ -92,6 +95,10 @@ int main(int argc, char **argv)
 		else if(vcmd[0] == "start")
 		{
 			//To print help at start
+		}
+		else if(vcmd[0] == "cls")
+		{
+			system("cls");
 		}
 		else
 		{
