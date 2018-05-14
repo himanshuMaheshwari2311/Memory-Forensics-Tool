@@ -3,9 +3,10 @@
         {
             "username": "near", 
             "cases": [
-                "near.json", 
-                "win764wannacry.vmem_Wed-May-09-00-18-58-2018x.json", 
-                "win764kerneldkom.vmem_Wed-May-09-15-28-57-2018x.json"
+                "win764wannacry.vmem_Thu-May-10-16-38-50-2018x.json",
+                "win764_Cridex.vmem_Thu-May-10-20-01-59-2018x.json", 
+                "win764_DKOM_testvirus.vmem_Thu-May-10-23-26-13-2018x.json", 
+                "win764_Bladabindi.vmem_Fri-May-11-01-25-36-2018x.json"
             ], 
             "password": "near"
         }, 
@@ -26,9 +27,8 @@
         {
             "username": "ryuzaki", 
             "cases": [
-                "ryuzaki.json", 
-                "dummy.json", 
                 "win764_Cridex.vmem_Thu-May-10-20-01-59-2018x.json", 
+                "win764wannacry.vmem_Thu-May-10-16-38-50-2018x.json",
                 "win764_DKOM_testvirus.vmem_Thu-May-10-23-26-13-2018x.json", 
                 "win764_Bladabindi.vmem_Fri-May-11-01-25-36-2018x.json"
             ], 
