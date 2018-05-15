@@ -90,7 +90,7 @@ int main(int argc, char **argv)
 		
 		if(vcmd.size() == 0)
 		{
-			cout<<"Try again\n";
+			cout<<"Enter a command\n";
 		}
 		else if(vcmd[0] == "start")
 		{
@@ -154,6 +154,10 @@ int main(int argc, char **argv)
 			else if (vcmd[0] == "process")
 			{
 				ph.print_processes();
+			}
+			else if (vcmd[0] == "registry")
+			{
+				rh.print_registry_hive();
 			}
 			else if (vcmd[0] == "service")
 			{
