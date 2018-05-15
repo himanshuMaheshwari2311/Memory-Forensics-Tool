@@ -19,7 +19,7 @@ os_ver = int(sys.argv[2])
 # add profile for 10
 profile = {
 	7: 'Win7SP0x64',
-	10: 'WinXPSP2x86' 
+	10: 'Win10x64_15063' 
 }
 file_path = sys.argv[1]
 
